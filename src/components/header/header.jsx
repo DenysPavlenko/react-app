@@ -18,33 +18,36 @@ const menu = [
 
 const Header = () => {
   return (
-    <div className="header">
-      <div className="header__menu">
-        {menu.map(({ name, rootName, icon }, idx) => (
-          <NavLink key={idx} to={rootName} exact={rootName === '/' && true} className="header__menu-item">
-            <span className="header__menu-text">{name}</span>
-            <FontAwesomeIcon className="header__menu-icon" icon={icon} />
-          </NavLink>
-        ))}
-      </div>
-      <div className="header__balance">
-        <div className="header__balance-item">
-          <span className="header__balance-title">Balance</span>
-          <span className="header__balance-total header__balance-total--danger">$-74</span>
+    <>
+      <div className="header-gap"></div>
+      <div className="header">
+        <div className="header__menu">
+          {menu.map(({ name, rootName, icon }, idx) => (
+            <NavLink key={idx} to={rootName} exact={rootName === '/' && true} className="header__menu-item">
+              <span className="header__menu-text">{name}</span>
+              <FontAwesomeIcon className="header__menu-icon" icon={icon} />
+            </NavLink>
+          ))}
         </div>
-        <div className="header__balance-item">
-          <span className="header__balance-title">Pending</span>
-          <span className="header__balance-total">$120</span>
+        <div className="header__balance">
+          <div className="header__balance-item">
+            <span className="header__balance-title">Balance</span>
+            <span className="header__balance-total header__balance-total--danger">$-74</span>
+          </div>
+          <div className="header__balance-item">
+            <span className="header__balance-title">Pending</span>
+            <span className="header__balance-total">$120</span>
+          </div>
+          <div className="header__balance-item">
+            <span className="header__balance-title">Abailable</span>
+            <span className="text-light header__balance-total">$156</span>
+          </div>
         </div>
-        <div className="header__balance-item">
-          <span className="header__balance-title">Abailable</span>
-          <span className="text-light header__balance-total">$156</span>
+        <div className="header__user">
+          <UserDropdown />
         </div>
       </div>
-      <div className="header__user">
-        <UserDropdown />
-      </div>
-    </div>
+    </>
   );
 };
 
