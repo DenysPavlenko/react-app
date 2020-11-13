@@ -1,0 +1,30 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.user-dropdown-menu
+  &__item
+    width: 100%
+    display: flex
+    align-items: center
+    height: 50px
+    cursor: pointer
+    transition: 0.2s
+    padding: 0 15px
+    &:hover
+      background-color: rgba(255, 255, 255, 0.05)
+  &__icon
+    color: $c-light
+    margin-right: 15px
+    font-size: rem(30px)
+    min-width: 30px
+  &__title
+    font-size: rem(20px)
+    text-transform: uppercase
+    line-height: 1
+    color: $c-light
+    font-weight: 400
+    margin-right: 10px
+  &__flag
+    color: $c-light
+    height: 100%
+    margin-left: auto

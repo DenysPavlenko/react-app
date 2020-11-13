@@ -4,9 +4,9 @@ import classNames from 'classnames';
 // Styles
 import './image.sass';
 
-const Image = ({ src, alt, className, ...otherProps }) => {
+const Image = ({ src, alt, icon, className, ...otherProps }) => {
   const classes = classNames({
-    'image': true,
+    'image': !icon,
     [className]: className
   });
 
@@ -17,7 +17,8 @@ const Image = ({ src, alt, className, ...otherProps }) => {
 
 Image.propTypes = {
   src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired
+  alt: PropTypes.string.isRequired,
+  icon: PropTypes.bool
 }
 
 export default Image;
