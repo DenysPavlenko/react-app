@@ -1,0 +1,17 @@
+@import ~styles/abstract/variables
+
+.input
+  width: 100%
+  background-color: $c-light
+  border: 1px solid $input-border
+  border-radius: $r-primary
+  color: $c-dark
+  padding: 10px 15px
+  font-family: inherit
+  font-size: 1rem
+  line-height: 1rem
+  transition: 0.2s
+  &:placeholder
+    color: rgba($c-dark, 0.8)
+  &:focus
+    box-shadow: 0 0 0 0.15rem rgba(0,123,255,.25)
