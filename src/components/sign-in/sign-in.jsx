@@ -27,7 +27,7 @@ const SignIn = () => {
         <Button type="submit" fluid>Login</Button>
       </Form>
       <div className="sign-in__slider">
-        <Image src={slide1} />
+        <Image src={slide1} alt="slide"/>
       </div>
     </div>
   );

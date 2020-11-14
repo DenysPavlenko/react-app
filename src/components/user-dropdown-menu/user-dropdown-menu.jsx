@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 // Components
 import Image from 'components/image/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,23 +17,23 @@ const menu = [
   { icon: faEnvelope, title: 'Mail' },
   { icon: faCog, title: 'Settings' },
   { icon: faPaintBrush, title: 'Personalize it' },
-  { icon: faPowerOff, title: 'Sign out' },
+  { icon: faPowerOff, title: 'Sign out', rootName: '/sign-in' },
 ];
 
-const UserDropdownMenu = () => {
+const UserDropdownMenu = ({ history }) => {
   return (
     <div className="user-dropdown-menu">
-      {menu.map(({ icon, title, flag }, idx) => (
-        <div key={idx} className="user-dropdown-menu__item">
+      {menu.map(({ icon, title, flag, rootName }, idx) => (
+        <div key={idx} className="user-dropdown-menu__item" onClick={() => rootName && history.push(`${rootName}`)}>
           <div className="user-dropdown-menu__icon">
             <FontAwesomeIcon icon={icon} />
           </div>
           <span className="user-dropdown-menu__title">{title}</span>
-          {flag && <Image src={flag} className="user-dropdown-menu__flag" alt="usa" icon/>}
+          {flag && <Image src={flag} className="user-dropdown-menu__flag" alt="usa" icon />}
         </div>
       ))}
     </div>
   );
 };
 
-export default UserDropdownMenu;
+export default withRouter(UserDropdownMenu);
