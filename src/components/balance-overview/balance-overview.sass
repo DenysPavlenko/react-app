@@ -1,0 +1,17 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.balance-overview
+  display: flex
+  &--mob-shrink
+    .balance-overview__item
+      +media-max(1139px)
+        &:nth-child(2)
+          display: none
+        &:nth-child(3)
+          display: none
+  &--vertical
+    flex-direction: column
+    .balance-overview__item
+      &:not(:last-child)
+        margin-bottom: 20px

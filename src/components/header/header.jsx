@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 // Components
 import UserDropdown from 'components/user-dropdown/user-dropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import BalanceOverview from 'components/balance-overview/balance-overview';
 // Styles
 import './header.sass';
 // Assets
@@ -30,18 +31,7 @@ const Header = () => {
           ))}
         </div>
         <div className="header__balance">
-          <div className="header__balance-item">
-            <span className="header__balance-title">Balance</span>
-            <span className="header__balance-total header__balance-total--danger">$-74</span>
-          </div>
-          <div className="header__balance-item">
-            <span className="header__balance-title">Pending</span>
-            <span className="header__balance-total">$120</span>
-          </div>
-          <div className="header__balance-item">
-            <span className="header__balance-title">Abailable</span>
-            <span className="text-light header__balance-total">$156</span>
-          </div>
+          <BalanceOverview noFreePlay shrinkOnMobile />
         </div>
         <div className="header__user">
           <UserDropdown />

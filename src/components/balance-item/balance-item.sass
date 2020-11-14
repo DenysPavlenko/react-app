@@ -1,0 +1,21 @@
+@import ~styles/abstract/variables
+
+.balance-item
+  height: 100%
+  min-width: 100px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  text-align: right
+  &__title,
+  &__total
+    text-transform: uppercase
+    font-weight: 400
+    font-size: rem(14px)
+    line-height: 1
+    color: $c-light
+  &__title
+    margin-bottom: 6px
+  &__total
+    &--danger
+      color: $c-danger

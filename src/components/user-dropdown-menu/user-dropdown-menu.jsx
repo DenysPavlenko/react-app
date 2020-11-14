@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 // Components
 import Image from 'components/image/image';
+import BalanceOverview from 'components/balance-overview/balance-overview';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './user-dropdown-menu.sass';
@@ -32,6 +33,9 @@ const UserDropdownMenu = ({ history }) => {
           {flag && <Image src={flag} className="user-dropdown-menu__flag" alt="usa" icon />}
         </div>
       ))}
+      <div className="user-dropdown-menu__balance">
+        <BalanceOverview vertical noBalance />
+      </div>
     </div>
   );
 };

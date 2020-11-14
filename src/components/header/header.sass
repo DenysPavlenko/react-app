@@ -13,7 +13,6 @@ $height: 60px
   left: 0
   background-color: $c-primary
   display: flex
-  flex-wrap: wrap
   &:after
     position: absolute
     bottom: 0
@@ -64,33 +63,17 @@ $height: 60px
 
   // Balance
   &__balance
-    display: flex
     height: 100%
+    display: flex
     margin-right: 40px
-    &-item
-      height: 100%
-      min-width: 100px
-      display: flex
-      flex-direction: column
-      justify-content: center
-      text-align: right
-    &-title,
-    &-total
-      text-transform: uppercase
-      font-weight: 400
-      font-size: rem(14px)
-      line-height: 1
-      color: $c-light
-    &-title
-      margin-bottom: 6px
-    &-total
-      &--danger
-        color: $c-danger
+    flex: 1
+    +media-max(1139px)
+      justify-content: flex-end
 
   // User
   &__user
     border-left: 1px solid $c-gray
     margin-left: auto
-    flex: 1
+    width: 20%
     height: 100%
-    max-width: 20%
+    min-width: 250px
