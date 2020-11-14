@@ -10,10 +10,15 @@ import LivePage from 'pages/live-page/live-page';
 import CasinoPage from 'pages/casino-page/casino-page';
 import HorsesPage from 'pages/horses-page/horses-page';
 import ScoresPage from 'pages/scores-page/scores-page';
+// Styles
+import './app.sass';
+// Assets
+import texasAtm from 'assets/images/backgrounds/texas-atm.jpg';
 
 const App = ({ location }) => {
   return (
     <div className="app">
+      <div className="app__background" style={{ backgroundImage: `url(${texasAtm})` }} />
       {(location.pathname !== '/sign-in') && <Header />}
       <ScrollToTop>
         <Switch>

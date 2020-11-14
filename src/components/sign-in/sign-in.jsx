@@ -10,9 +10,10 @@ import './sign-in.sass';
 // Assets
 import slide1 from 'assets/images/sign-in-slides/slide-1.png';
 
-const SignIn = () => {
+const SignIn = ({ onSignIn }) => {
   const handleSubmit = e => {
     e.preventDefault();
+    onSignIn();
   };
 
   return (
@@ -27,7 +28,7 @@ const SignIn = () => {
         <Button type="submit" fluid>Login</Button>
       </Form>
       <div className="sign-in__slider">
-        <Image src={slide1} alt="slide"/>
+        <Image src={slide1} alt="slide" />
       </div>
     </div>
   );
