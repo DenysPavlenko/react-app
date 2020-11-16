@@ -1,7 +1,7 @@
 import PersonalizeActionTypes from './types';
 
 const INITIAL_STATE = {
-  isActive: true
+  isActive: false
 };
 
 const gamesReducer = (state = INITIAL_STATE, action) => {

@@ -1,46 +1,36 @@
 import React from 'react';
-import classNames from 'classnames';
+import { CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
 import { togglePersonalize } from 'redux/personalize/actions';
 import { selectPersonalize } from 'redux/personalize/selectors';
-import { selectColorSchemes } from 'redux/color-scheme/selectors';
 // Components
-import PersonalizeItem from 'components/personalize-item/personalize-item';
-import Close from 'components/close/close';
+import PersonalizeContent from 'components/personalize-content/personalize-content';
 // Styles
 import './personalize.sass';
 
-const Personalize = ({ isActive, colorSchemes, togglePersonalize }) => {
-  const classes = classNames({
-    'personalize': true,
-    'is-active': isActive,
-  });
-
+const Personalize = ({ isActive, togglePersonalize }) => {
   return (
-    <div className={classes}>
-      <div className="personalize__close">
-        <Close onClick={togglePersonalize} />
-      </div>
-      <div className="personalize__items">
-        {colorSchemes.map((color, idx) => (
-          <PersonalizeItem key={idx} title={color} color={color} className="personalize__item" />
-        ))}
-      </div>
+    <div className="personalize">
+      <CSSTransition in={isActive} unmountOnExit timeout={300} classNames="personalize-overlay-animation">
+        <div className="personalize__overlay" onClick={togglePersonalize}></div>
+      </CSSTransition>
+      <CSSTransition in={isActive} unmountOnExit timeout={300} classNames="personalize-content-animation">
+        <PersonalizeContent />
+      </CSSTransition>
     </div>
   );
 };
 
 Personalize.propTypes = {
+  isActive: PropTypes.bool,
   togglePersonalize: PropTypes.func,
-  colorSchemes: PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({
   isActive: selectPersonalize,
-  colorSchemes: selectColorSchemes
 });
 
 const mapDispatchToProps = dispatch => ({

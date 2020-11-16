@@ -1,0 +1,26 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.personalize-content
+  position: fixed
+  right: 0
+  top: 0
+  background-color: $c-primary
+  height: 100%
+  width: 100%
+  max-width: 350px
+  padding: 15px
+  box-shadow: $s-primary
+  display: flex
+  flex-direction: column
+  z-index: 500
+  +media-max($bp-sm)
+    max-width: 70%
+  &__close
+    margin-bottom: 20px
+  &__items
+    display: flex
+    flex-direction: column
+  &__item
+    &:not(:last-child)
+      margin-bottom: 10px
