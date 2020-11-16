@@ -25,13 +25,13 @@ const BalanceOverview = ({ noFreePlay, noBalance, shrinkOnMobile, vertical, clas
     <div className={classes} {...otherProps}>
       {balance
         .filter((arr) => {
-          if (!noFreePlay && !noBalance) { return true; }
-          if (noFreePlay && arr.title !== 'Free play') { return true; }
-          if (noBalance && arr.title !== 'Balance') { return true; }
+          if (noFreePlay && arr.title === 'Free play') { return false; }
+          if (noBalance && arr.title === 'Balance') { return false; }
+          return true;
         })
         .map(({ title, total }, idx) => (
-          <div className="balance-overview__item">
-            <BalanceItem key={idx} title={title} total={`$${total}`} negative={total < 0} />
+          <div key={idx} className="balance-overview__item">
+            <BalanceItem title={title} total={`$${total}`} negative={total < 0} />
           </div>
         ))}
     </div>

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Styles
 import './personalize-item.sass';
 
-const PersonalizeItem = ({ title, className, ...otherProps }) => {
+const PersonalizeItem = ({ title, color, className, ...otherProps }) => {
   const classes = classNames({
     'personalize-item': true,
     [className]: className
@@ -21,6 +21,7 @@ const PersonalizeItem = ({ title, className, ...otherProps }) => {
 PersonalizeItem.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
+  color: PropTypes.string,
 };
 
 export default PersonalizeItem;

@@ -1,5 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+// Redux
+import { togglePersonalize } from 'redux/personalize/actions';
 // Components
 import Image from 'components/image/image';
 import BalanceOverview from 'components/balance-overview/balance-overview';
@@ -9,21 +13,29 @@ import './user-dropdown-menu.sass';
 // Assets
 import { faSortNumericDown, faRandom, faFileAlt, faEnvelope, faCog, faPaintBrush, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
-const menu = [
-  { icon: faSortNumericDown, title: 'Odds display' },
-  { icon: faRandom, title: 'Betting style' },
-  { icon: faFileAlt, title: 'Rules' },
-  { icon: faEnvelope, title: 'Mail' },
-  { icon: faCog, title: 'Settings' },
-  { icon: faPaintBrush, title: 'Personalize it' },
-  { icon: faPowerOff, title: 'Sign out', rootName: '/sign-in' },
-];
 
-const UserDropdownMenu = ({ history }) => {
+const UserDropdownMenu = ({ history, togglePersonalize }) => {
+  const menu = [
+    { icon: faSortNumericDown, title: 'Odds display' },
+    { icon: faRandom, title: 'Betting style' },
+    { icon: faFileAlt, title: 'Rules' },
+    { icon: faEnvelope, title: 'Mail' },
+    { icon: faCog, title: 'Settings' },
+    { icon: faPaintBrush, title: 'Personalize it', handler: togglePersonalize },
+    { icon: faPowerOff, title: 'Sign out', rootName: '/sign-in' },
+  ];
+
+  const handleItemClick = (rootName, handler) => {
+    if (rootName) { history.push(`${rootName}`); }
+    if (handler) {
+      handler();
+    }
+  };
+
   return (
     <div className="user-dropdown-menu">
-      {menu.map(({ icon, title, flag, rootName }, idx) => (
-        <div key={idx} className="user-dropdown-menu__item" onClick={() => rootName && history.push(`${rootName}`)}>
+      {menu.map(({ icon, title, flag, rootName, handler }, idx) => (
+        <div key={idx} className="user-dropdown-menu__item" onClick={() => handleItemClick(rootName, handler)}>
           <div className="user-dropdown-menu__icon">
             <FontAwesomeIcon icon={icon} />
           </div>
@@ -38,4 +50,12 @@ const UserDropdownMenu = ({ history }) => {
   );
 };
 
-export default withRouter(UserDropdownMenu);
+UserDropdownMenu.propTypes = {
+  togglePersonalize: PropTypes.func,
+};
+
+const mapDispatchToProps = dispatch => ({
+  togglePersonalize: () => dispatch(togglePersonalize()),
+});
+
+export default connect(null, mapDispatchToProps)(withRouter(UserDropdownMenu));
