@@ -7,14 +7,18 @@ import BalanceOverview from 'components/balance-overview/balance-overview';
 // Styles
 import './header.sass';
 // Assets
-import { faFootballBall, faClock, faMoneyBill, faHorseHead, faCalendarWeek } from '@fortawesome/free-solid-svg-icons';
+import cup from 'assets/images/icons/cup.png'
+import timer from 'assets/images/icons/timer.png'
+import cards from 'assets/images/icons/cards.png'
+import horse from 'assets/images/icons/horse.png'
+import scores from 'assets/images/icons/scores.png'
 
 const menu = [
-  { name: 'Sports', rootName: '/sports', icon: faFootballBall },
-  { name: 'Live', rootName: '/live', icon: faClock },
-  { name: 'Casino', rootName: '/casino', icon: faMoneyBill },
-  { name: 'Horses', rootName: '/horses', icon: faHorseHead },
-  { name: 'Scores', rootName: '/scores', icon: faCalendarWeek },
+  { name: 'Sports', rootName: '/sports', icon: cup },
+  { name: 'Live', rootName: '/live', icon: timer },
+  { name: 'Casino', rootName: '/casino', icon: cards },
+  { name: 'Horses', rootName: '/horses', icon: horse },
+  { name: 'Scores', rootName: '/scores', icon: scores },
 ];
 
 const Header = () => {
@@ -26,7 +30,7 @@ const Header = () => {
           {menu.map(({ name, rootName, icon }, idx) => (
             <NavLink key={idx} to={rootName} exact={rootName === '/' && true} className="header__menu-item">
               <span className="header__menu-text">{name}</span>
-              <FontAwesomeIcon className="header__menu-icon" icon={icon} />
+              <img src={icon} className="header__menu-icon" alt="nav-icon"/>
             </NavLink>
           ))}
         </div>

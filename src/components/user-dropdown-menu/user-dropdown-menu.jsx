@@ -7,11 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './user-dropdown-menu.sass';
 // Assets
-import usaFlag from 'assets/images/flags/usa.svg';
-import { faGlobe, faSortNumericDown, faRandom, faFileAlt, faEnvelope, faCog, faPaintBrush, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { faSortNumericDown, faRandom, faFileAlt, faEnvelope, faCog, faPaintBrush, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
 const menu = [
-  { icon: faGlobe, title: 'Language', flag: usaFlag },
   { icon: faSortNumericDown, title: 'Odds display' },
   { icon: faRandom, title: 'Betting style' },
   { icon: faFileAlt, title: 'Rules' },

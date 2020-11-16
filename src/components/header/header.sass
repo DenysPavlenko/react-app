@@ -42,9 +42,10 @@ $height: 60px
       transition: 0.2s
       &:hover,
       &.active
-        .header__menu-text,
-        .header__menu-icon
+        .header__menu-text
           color: $c-light
+        .header__menu-icon
+          opacity: 1
       &.active
         background-color: $c-accent
     &-text
@@ -57,9 +58,9 @@ $height: 60px
       margin-bottom: 4px
       transition: 0.2s
     &-icon
-      font-size: rem(22px)
+      height: 25px
       transition: 0.2s
-      color: rgba($c-light, 0.5)
+      opacity: 0.5
 
   // Balance
   &__balance
