@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 // Styles
 import './button.sass';
 
-const Button = ({ children, href, className, fluid, isDisabled, ...otherProps }) => {
+const Button = ({ children, href, className, fluid, variant, size, isDisabled, ...otherProps }) => {
   const classes = classNames({
     'button': true,
-    'button-disabled': isDisabled,
-    'button-fluid': fluid,
+    'button--disabled': isDisabled,
+    'button--fluid': fluid,
+    [`button--${variant}`]: variant,
+    [`button--${size}`]: size,
     [className]: className
   });
 
@@ -30,6 +32,8 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   isDisabled: PropTypes.bool,
   fluid: PropTypes.bool,
+  variant: PropTypes.string,
+  size: PropTypes.string,
   className: PropTypes.string,
   href: PropTypes.string,
 };

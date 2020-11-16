@@ -1,0 +1,25 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.search
+  position: relative
+  &__icon
+    position: absolute
+    top: 50%
+    left: 5px
+    transform: translateY(-50%)
+    color: rgba($c-dark, 0.5)
+    font-size: rem(15px)
+    z-index: 20
+  &__input
+    padding-left: 25px
+    padding-right: 75px
+  &__button
+    position: absolute
+    top: 50%
+    right: 5px
+    transform: translateY(-50%)
+    transition: 0.2s
+    &.is-hidden
+      opacity: 0
+      visibility: hidden

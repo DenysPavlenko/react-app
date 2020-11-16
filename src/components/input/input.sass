@@ -2,7 +2,7 @@
 
 .input
   width: 100%
-  background-color: transparent
+  background-color: $c-light
   border: 1px solid $input-border
   border-radius: $r-primary
   color: $c-dark
@@ -14,4 +14,8 @@
   &:placeholder
     color: rgba($c-dark, 0.8)
   &:focus
-    box-shadow: 0 0 0 0.15rem rgba(0,123,255,.25)
+    box-shadow: 0 0 0 0.15rem rgba($c-accent, .25)
+  &--no-radius
+    border-radius: 0
+  &--invalid
+    border: 1px solid $c-danger

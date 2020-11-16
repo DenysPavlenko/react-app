@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 // Styles
 import './input.sass';
 
-const Input = ({ className, ...otherProps }) => {
+const Input = ({ className, noRadius, isInvalid, ...otherProps }) => {
   const classes = classNames({
     'input': true,
+    'input--no-radius': noRadius,
+    'input--invalid': isInvalid,
     [className]: className
   });
 
@@ -17,6 +19,8 @@ const Input = ({ className, ...otherProps }) => {
 
 Input.propTypes = {
   className: PropTypes.string,
+  noRadius: PropTypes.bool,
+  isInvalid: PropTypes.bool,
 };
 
 export default Input;

@@ -25,7 +25,7 @@ const SignIn = ({ onSignIn }) => {
         <FormGroup>
           <Input type="password" placeholder="Password" />
         </FormGroup>
-        <Button type="submit" fluid>Login</Button>
+        <Button type="submit" fluid variant="gradient">Login</Button>
       </Form>
       <div className="sign-in__slider">
         <Image src={slide1} alt="slide" />
