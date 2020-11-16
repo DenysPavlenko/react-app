@@ -3,6 +3,7 @@ import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 // Components
 import ScrollToTop from 'components/scroll-to-top/scroll-to-top';
 import Header from 'components/header/header';
+import Personalize from 'components/personalize/personalize';
 // Pages
 import SignInPage from 'pages/sign-in-page/sign-in-page';
 import SportsPage from 'pages/sports-page/sports-page';
@@ -18,6 +19,7 @@ import texasAtm from 'assets/images/backgrounds/texas-atm.jpg';
 const App = ({ location }) => {
   return (
     <div className="app">
+      <Personalize />
       <div className="app__background" style={{ backgroundImage: `url(${texasAtm})` }} />
       {(location.pathname !== '/sign-in') && <Header />}
       <ScrollToTop>
