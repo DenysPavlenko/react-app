@@ -15,6 +15,8 @@
   transition: right 0.3s
   display: flex
   flex-direction: column
+  +media-max($bp-sm)
+    max-width: 70%
   &.is-active
     right: 0
   &__close

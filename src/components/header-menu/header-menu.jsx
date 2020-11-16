@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+// Redux
+import { selectColorScheme } from 'redux/color-scheme/selectors';
 // Components
 import Burger from 'components/burger/burger';
 import Image from 'components/image/image';
@@ -19,9 +25,15 @@ const menu = [
   { name: 'Horses', rootName: '/horses', icon: horseIcn, alt: "horses" },
 ];
 
-const HeaderMenu = () => {
+const HeaderMenu = ({ defaultColorScheme, className }) => {
   const [scoresActive, toggleScoresActive] = useState(false);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
+
+  const classes = classNames({
+    'header-menu': true,
+    [`header-menu--${defaultColorScheme}`]: defaultColorScheme,
+    [className]: className
+  });
 
   const handleScoresClick = () => {
     toggleScoresActive(!scoresActive);
@@ -32,7 +44,7 @@ const HeaderMenu = () => {
   };
 
   return (
-    <div className="header-menu">
+    <div className={classes}>
       <div className="header-menu__burger">
         <Burger onClick={handleToggleMenu} />
       </div>
@@ -54,4 +66,13 @@ const HeaderMenu = () => {
   );
 };
 
-export default HeaderMenu;
+const mapStateToProps = createStructuredSelector({
+  defaultColorScheme: selectColorScheme
+});
+
+HeaderMenu.propTypes = {
+  defaultColorScheme: PropTypes.string,
+  className: PropTypes.string,
+};
+
+export default connect(mapStateToProps)(HeaderMenu);

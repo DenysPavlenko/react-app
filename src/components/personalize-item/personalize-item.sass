@@ -12,6 +12,7 @@
   border-radius: 2px
   padding: 0 15px
   cursor: pointer
+  overflow: hidden
   &:hover
     &:after
       width: 100%
@@ -24,10 +25,23 @@
     height: 3px
     transition: 0.3s
     background-color: red
+  &.is-active
+    &:after
+      width: 100%
+
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &--#{$name}
+      &:after
+        background-color: $color
+      .personalize-item__color
+        border-color: $color
+
   &__title
     font-size: rem(14px)
-    color: $c-light
     line-height: 1
+    font-weight: 400
+    text-transform: capitalize
   &__color
     position: relative
     width: 15px

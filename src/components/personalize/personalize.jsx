@@ -6,20 +6,14 @@ import { createStructuredSelector } from 'reselect';
 // Redux
 import { togglePersonalize } from 'redux/personalize/actions';
 import { selectPersonalize } from 'redux/personalize/selectors';
+import { selectColorSchemes } from 'redux/color-scheme/selectors';
 // Components
 import PersonalizeItem from 'components/personalize-item/personalize-item';
 import Close from 'components/close/close';
 // Styles
 import './personalize.sass';
 
-const items = [
-  { title: 'Gray', color: 'gray' },
-  { title: 'Green', color: 'green' },
-  { title: 'Red', color: 'red' },
-  { title: 'Orange', color: 'orange' },
-];
-
-const Personalize = ({ isActive, togglePersonalize }) => {
+const Personalize = ({ isActive, colorSchemes, togglePersonalize }) => {
   const classes = classNames({
     'personalize': true,
     'is-active': isActive,
@@ -31,8 +25,8 @@ const Personalize = ({ isActive, togglePersonalize }) => {
         <Close onClick={togglePersonalize} />
       </div>
       <div className="personalize__items">
-        {items.map(({ title, color }, idx) => (
-          <PersonalizeItem key={idx} title={title} color={color} className="personalize__item" />
+        {colorSchemes.map((color, idx) => (
+          <PersonalizeItem key={idx} title={color} color={color} className="personalize__item" />
         ))}
       </div>
     </div>
@@ -41,10 +35,12 @@ const Personalize = ({ isActive, togglePersonalize }) => {
 
 Personalize.propTypes = {
   togglePersonalize: PropTypes.func,
+  colorSchemes: PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({
-  isActive: selectPersonalize
+  isActive: selectPersonalize,
+  colorSchemes: selectColorSchemes
 });
 
 const mapDispatchToProps = dispatch => ({

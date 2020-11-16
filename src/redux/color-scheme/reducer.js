@@ -1,16 +1,16 @@
-import PersonalizeActionTypes from './types';
+import ColorSchemeActionTypes from './types';
 
 const INITIAL_STATE = {
-  isActive: true
+  default: 'blue',
+  colorSchemes: ['blue', 'green', 'red', 'orange'],
 };
 
 const gamesReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case PersonalizeActionTypes.TOGGLE_PERSONALIZE:
-      const { isActive } = state;
+    case ColorSchemeActionTypes.SET_COLOR_SCHEME:
       return {
         ...state,
-        isActive: !isActive
+        default: action.payload
       }
     default:
       return state;
