@@ -1,0 +1,87 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.header-menu
+  display: flex
+  align-items: center
+  height: 100%
+  width: 100%
+  &__burger
+    display: none
+    +media-max($bp-lg)
+      display: flex
+      height: 100%
+      padding: 0 15px
+      align-items: center
+  &__wrap
+    height: 100%
+    +media-max($bp-lg)
+      position: fixed
+      top: $h-header
+      left: -100%
+      transition: 0.2s
+      width: 100%
+      height: calc( 100% - 60px )
+      background-color: $c-black
+      flex-wrap: wrap
+      overflow: auto
+      z-index: -1
+      &.is-active
+        left: 0
+  &__items
+    display: flex
+    height: 100%
+    +media-max($bp-lg)
+      flex-wrap: wrap
+      height: auto
+  &__item
+    height: 100%
+    padding: 0 10px
+    width: 8vw
+    max-width: 120px
+    display: flex
+    align-items: center
+    flex-direction: column
+    justify-content: center
+    cursor: pointer
+    transition: 0.2s
+    +media-max($bp-lg)
+      height: 120px
+      max-width: none
+      width: 50%
+    &:hover,
+    &.active
+      .header-menu__text
+        color: $c-light
+      .header-menu__icon
+        opacity: 1
+    &.active
+      background-color: $c-accent
+      +media-max($bp-lg)
+        background-color: transparent
+  &__text
+    margin-top: -4px
+    text-transform: uppercase
+    font-size: rem(14px)
+    line-height: 1
+    font-weight: 400
+    color: rgba($c-light, 0.5)
+    margin-bottom: 4px
+    transition: 0.2s
+  &__icon
+    height: 25px
+    transition: 0.2s
+    opacity: 0.5
+  &__scores
+    width: 100%
+    max-width: 120px
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    cursor: pointer
+    &.is-active
+      .header-menu__text
+        color: $c-light
+      .header-menu__icon
+        opacity: 1
