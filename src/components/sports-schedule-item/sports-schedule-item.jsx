@@ -1,29 +1,35 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+// Redux
+import { selectColorScheme } from 'redux/color-scheme/selectors';
 // Components
-import Accordion from 'components/accordion/accordion';
+import ItemAccordion from './item-accordion/item-accordion';
+import Item from './item/item';
 // Styles
 import './sports-schedule-item.sass';
 
-const SportsScheduleItem = ({ title, withArrow, content, className, ...otherProps }) => {
+const SportsScheduleItem = ({ title, content, event, className }) => {
   return (
-    <Accordion className={`sports-schedule-item ${className}`} {...otherProps}>
-      <Accordion.Toggle className="sports-schedule-item__heading">
-        {!content && <input type="checkbox" className="sports-schedule-item__checkbox" />}
-        {withArrow && <div className="sports-schedule-item__arrow">{`►`}</div>}
-        {content && <span>{`▼`}</span>}
-        <div className="sports-schedule-item__title">{title}</div>
-      </Accordion.Toggle>
-      <Accordion.Content>
-        {content &&
-          <div className="sports-schedule-item__content">
-            {content.map(({ title, withDot }, idx) => (
-              <span key={idx}>{title}</span>
-            ))}
-          </div>
-        }
-      </Accordion.Content>
-    </Accordion>
+    <>
+      {!content ?
+        <Item title={title} className={className} event={event} />
+        :
+        <ItemAccordion title={title} content={content} className={className} />
+      }
+    </>
   )
 };
 
-export default SportsScheduleItem;
+SportsScheduleItem.propTypes = {
+  title: PropTypes.string,
+  content: PropTypes.array,
+  className: PropTypes.string,
+};
+
+const mapStateToProps = createStructuredSelector({
+  defaultColorScheme: selectColorScheme
+});
+
+export default connect(mapStateToProps)(SportsScheduleItem);

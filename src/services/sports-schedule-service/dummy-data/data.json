@@ -1,11 +1,11 @@
 [
   {
-    "id": "upNext",
+    "id": "Up next",
     "title": "Up next",
     "icon": "clock"
   },
   {
-    "id": "featured",
+    "id": "Featured",
     "title": "Featured",
     "icon": "star"
   },
@@ -15,36 +15,42 @@
     "icon": "football-ball",
     "content": [
       {
-        "id": "nfl",
+        "id": "NFL",
         "title": "NFL"
       },
       {
-        "id": "1stHalf",
-        "title": "1st Half",
-        "withArrow": "true"
+        "id": "1st Half",
+        "title": "1st Half"
       },
       {
-        "id": "1stQuarter",
-        "title": "1st Quarter",
-        "withArrow": "true"
+        "id": "NFL Regular Season Props",
+        "title": "NFL Regular Season Props"
       },
       {
-        "id": "nflWinningMargin",
+        "id": "College Football ",
+        "title": "College Football"
+      },
+      {
+        "id": "NFL WINNING MARGIN",
         "title": "NFL WINNING MARGIN",
         "content": [
           {
-            "id": "otIncluded",
+            "id": "OT Included",
             "title": "OT Included"
           }
         ]
       },
       {
-        "id": "ncaaf1stScoringPlay",
-        "title": "NCAAF 1ST SCORING PLAY",
+        "id": "NCAAF 1st scoring play",
+        "title": "NCAAF 1st scoring play",
         "content": [
           {
-            "id": "1stScoreMethod",
+            "id": "1st Score Method 6 Way",
             "title": "1st Score Method 6 Way"
+          },
+          {
+            "id": "1st Score Method 5 Way",
+            "title": "1st Score Method 5 Way"
           }
         ]
       }
@@ -64,6 +70,14 @@
         "title": "Euroleague /Champions League"
       },
       {
+        "id": "europeanBasketball",
+        "title": "European Basketball"
+      },
+      {
+        "id": "otherBasketball",
+        "title": "Other Basketball"
+      },
+      {
         "id": "euroleagueFutures",
         "title": "Euroleague Futures",
         "content": [
@@ -72,14 +86,6 @@
             "title": "To win Outright"
           }
         ]
-      },
-      {
-        "id": "europeanBasketball",
-        "title": "European Basketball"
-      },
-      {
-        "id": "otherBasketball",
-        "title": "Other Basketball"
       }
     ]
   }

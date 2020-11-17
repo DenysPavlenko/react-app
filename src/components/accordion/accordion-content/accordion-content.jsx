@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-// Styles
-import './accordion-content.sass';
 
 const AccordionContent = ({ children, className, isExpanded }) => {
 

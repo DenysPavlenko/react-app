@@ -5,7 +5,7 @@ export default class GamesServiceDummy {
 
   serverRespond = 500;
 
-  getData = async (url, errorMsg = 'error', errorProbability = 0.9) => {
+  getData = async (url, errorMsg = 'error', errorProbability = 0.99) => {
     const res = await url.default;
     await new Promise((res, rej) => setTimeout(() => {
       return Math.random() > errorProbability ? rej(new Error(errorMsg)) : res();

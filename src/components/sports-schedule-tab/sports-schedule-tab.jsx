@@ -6,13 +6,13 @@ import TabAccordion from './tab-accordion/tab-accordion';
 // Styles
 import './sports-schedule-tab.sass';
 
-const SportsScheduleTab = ({ title, icon, content, event, handleEvent, isActive, ...otherProps }) => {
+const SportsScheduleTab = ({ title, icon, content, event }) => {
   return (
     <>
       { !content ?
-        <Tab title={title} icon={icon} event={event} handleEvent={handleEvent} isActive={isActive} {...otherProps} />
+        <Tab title={title} icon={icon} event={event} />
         :
-        <TabAccordion content={content} event={event} handleEvent={handleEvent} title={title} icon={icon} {...otherProps} />
+        <TabAccordion title={title} icon={icon} content={content} />
       }
     </>
   );
@@ -22,7 +22,7 @@ Tab.propTypes = {
   title: PropTypes.string,
   icon: PropTypes.string,
   content: PropTypes.array,
-  event: PropTypes.array,
+  event: PropTypes.string,
   handleEvent: PropTypes.func,
   isActive: PropTypes.bool,
 };

@@ -8,31 +8,30 @@ import { selectColorScheme } from 'redux/color-scheme/selectors';
 import { selectSportsScheduleEvent } from 'redux/sports-schedule-event/selectors';
 import { setSportsScheduleEvent } from 'redux/sports-schedule-event/actions';
 // Components
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Typography from 'components/typography/typography';
+import Checkbox from 'components/checkbox/checkbox';
 
-const Tab = ({ title, icon, event, defaultColorScheme, sportsScheduleEvent, setSportsScheduleEvent }) => {
+const Item = ({ title, event, defaultColorScheme, sportsScheduleEvent, setSportsScheduleEvent }) => {
   const isActive = sportsScheduleEvent === event;
   const classes = classNames({
-    'sports-schedule-tab': true,
-    [`sports-schedule-tab--${defaultColorScheme}`]: defaultColorScheme,
+    'sports-schedule-item': true,
+    [`sports-schedule-item--${defaultColorScheme}`]: defaultColorScheme,
     'is-active': isActive,
   });
 
   return (
-    <div className={classes} onClick={() => setSportsScheduleEvent(event)} >
-      <div className="sports-schedule-tab__heading">
-        <FontAwesomeIcon icon={icon} className={`sports-schedule-tab__icon ${isActive ? 'text-light' : 'text-dark'}`} />
-        <Typography component="h3" className={`mb-0 text-uppercase ${isActive ? 'text-light' : 'text-dark'}`}>{title}</Typography>
+    <div className={classes} onClick={() => setSportsScheduleEvent(event)}>
+      <div className="sports-schedule-item__heading">
+        <Checkbox className="sports-schedule-item__checkbox" checked={isActive} />
+        <Typography component="p" className={`sports-schedule-item__title mb-0 ${isActive ? 'text-light': 'text-dark'}`}>{title}</Typography>
       </div>
     </div>
   )
 };
 
-Tab.propTypes = {
+Item.propTypes = {
   title: PropTypes.string,
-  icon: PropTypes.string,
-  event: PropTypes.string,
+  className: PropTypes.string,
   defaultColorScheme: PropTypes.string,
   sportsScheduleEvent: PropTypes.string,
   setSportsScheduleEvent: PropTypes.func,
@@ -47,4 +46,4 @@ const mapDispatchToProps = dispatch => ({
   setSportsScheduleEvent: (event) => dispatch(setSportsScheduleEvent(event))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Tab);
+export default connect(mapStateToProps, mapDispatchToProps)(Item);

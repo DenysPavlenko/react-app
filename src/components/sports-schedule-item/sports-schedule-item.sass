@@ -5,12 +5,25 @@
   cursor: pointer
   user-select: none
   color: $c-dark
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &--#{$name}
+      &.is-active
+        .sports-schedule-item__heading
+          background-color: $color
+  &.is-expanded
+    .sports-schedule-item__chevron
+      transform: rotate(180deg)
   &__heading
     display: flex
     align-items: center
+    padding: 3px 5px
+  &__chevron
+    font-size: rem(14px)
+    margin-right: 9px
+    margin-left: 4px
+    transition: 0.2s
   &__checkbox
-    margin-right: 5px
-  &__arrow
     margin-right: 5px
   &__content
     width: 100%

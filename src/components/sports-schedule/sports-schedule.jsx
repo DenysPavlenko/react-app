@@ -14,15 +14,10 @@ import Spinner from 'components/spinner/spinner';
 import './sports-schedule.sass';
 
 const SportsSchedule = ({ sportsSchedule: { loading, error, data }, fetchSportsScheduleData }) => {
-  const [currentEvent, setCurrentEvent] = useState('upNext');
 
   useEffect(() => {
     fetchSportsScheduleData();
-  }, [fetchSportsScheduleData])
-
-  const handleEvent = (event) => {
-    setCurrentEvent(event);
-  };
+  }, [fetchSportsScheduleData]);
 
   return (
     <div className="sports-schedule">
@@ -32,7 +27,7 @@ const SportsSchedule = ({ sportsSchedule: { loading, error, data }, fetchSportsS
       {(!error && !loading) &&
         <div className="sports-schedule__items">
           {data.map(({ title, icon, content, id }) => (
-            <SportsScheduleTab key={id} event={id} title={title} icon={icon} content={content} handleEvent={handleEvent} isActive={currentEvent === id} />
+            <SportsScheduleTab key={id} event={id} title={title} icon={icon} content={content} />
           ))}
         </div>
       }
