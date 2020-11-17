@@ -19,11 +19,18 @@ const Item = ({ title, event, defaultColorScheme, sportsScheduleEvent, setSports
     'is-active': isActive,
   });
 
+  const handleCheckboxChange = () => { };
+
   return (
     <div className={classes} onClick={() => setSportsScheduleEvent(event)}>
       <div className="sports-schedule-item__heading">
-        <Checkbox className="sports-schedule-item__checkbox" checked={isActive} />
-        <Typography component="p" className={`sports-schedule-item__title mb-0 ${isActive ? 'text-light': 'text-dark'}`}>{title}</Typography>
+        <Checkbox
+          checked={isActive}
+          onChange={handleCheckboxChange}
+          label={
+            <Typography component="p" className={`mb-0 ${isActive ? 'text-light' : 'text-dark'}`}>{title}</Typography>
+          }
+        />
       </div>
     </div>
   )
