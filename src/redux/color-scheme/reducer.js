@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   colorSchemes: ['blue', 'green', 'red', 'orange'],
 };
 
-const gamesReducer = (state = INITIAL_STATE, action) => {
+const colorSchemeReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ColorSchemeActionTypes.SET_COLOR_SCHEME:
       return {
@@ -15,6 +15,6 @@ const gamesReducer = (state = INITIAL_STATE, action) => {
     default:
       return state;
   }
-}
+};
 
-export default gamesReducer;
+export default colorSchemeReducer;

@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 // Reducers
-import personalize from './personalize/reducer';
-import colorScheme from './color-scheme/reducer';
+import personalizeReducer from './personalize/reducer';
+import colorSchemeReducer from './color-scheme/reducer';
+import sportsScheduleReducer from './sports-schedule/reducer';
 
 const rootReducer = combineReducers({
-  personalize: personalize,
-  colorScheme: colorScheme,
+  personalize: personalizeReducer,
+  colorScheme: colorSchemeReducer,
+  sportsSchedule: sportsScheduleReducer,
 });
 
 export default rootReducer;

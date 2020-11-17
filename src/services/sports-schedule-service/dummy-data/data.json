@@ -1,0 +1,86 @@
+[
+  {
+    "id": "upNext",
+    "title": "Up next",
+    "icon": "clock"
+  },
+  {
+    "id": "featured",
+    "title": "Featured",
+    "icon": "star"
+  },
+  {
+    "id": "football",
+    "title": "football",
+    "icon": "football-ball",
+    "content": [
+      {
+        "id": "nfl",
+        "title": "NFL"
+      },
+      {
+        "id": "1stHalf",
+        "title": "1st Half",
+        "withArrow": "true"
+      },
+      {
+        "id": "1stQuarter",
+        "title": "1st Quarter",
+        "withArrow": "true"
+      },
+      {
+        "id": "nflWinningMargin",
+        "title": "NFL WINNING MARGIN",
+        "content": [
+          {
+            "id": "otIncluded",
+            "title": "OT Included"
+          }
+        ]
+      },
+      {
+        "id": "ncaaf1stScoringPlay",
+        "title": "NCAAF 1ST SCORING PLAY",
+        "content": [
+          {
+            "id": "1stScoreMethod",
+            "title": "1st Score Method 6 Way"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "basketball",
+    "title": "Basketball",
+    "icon": "basketball-ball",
+    "content": [
+      {
+        "id": "nbaDraftProps",
+        "title": "NBA Draft Props"
+      },
+      {
+        "id": "euroleagueChampions",
+        "title": "Euroleague /Champions League"
+      },
+      {
+        "id": "euroleagueFutures",
+        "title": "Euroleague Futures",
+        "content": [
+          {
+            "id": "toWinOutright",
+            "title": "To win Outright"
+          }
+        ]
+      },
+      {
+        "id": "europeanBasketball",
+        "title": "European Basketball"
+      },
+      {
+        "id": "otherBasketball",
+        "title": "Other Basketball"
+      }
+    ]
+  }
+]

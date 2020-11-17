@@ -1,45 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // Components
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Tab from './tab/tab';
+import TabAccordion from './tab-accordion/tab-accordion';
 // Styles
 import './sports-schedule-tab.sass';
 
-const SportsScheduleTab = ({ title, icon, content, ...otherProps }) => {
+const SportsScheduleTab = ({ title, icon, content, event, handleEvent, isActive, ...otherProps }) => {
   return (
-    <div className="sports-schedule-tab" {...otherProps}>
-      <div className="sports-schedule-tab__heading">
-        <FontAwesomeIcon icon={icon} className="sports-schedule-tab__icon" />
-        <span className="sports-schedule-tab__title">{title}</span>
-      </div>
-      <div className="sports-schedule-tab__content">
-        {content.map(({ title, withArrow, content }, idx) => {
-          return (
-            <SportsScheduleItem key={idx} title={title} className="sports-schedule-tab__item" withArrow={withArrow} content={content} />
-          )
-        })}
-      </div>
-    </div>
+    <>
+      { !content ?
+        <Tab title={title} icon={icon} event={event} handleEvent={handleEvent} isActive={isActive} {...otherProps} />
+        :
+        <TabAccordion content={content} event={event} handleEvent={handleEvent} title={title} icon={icon} {...otherProps} />
+      }
+    </>
   );
 };
 
-export default SportsScheduleTab;
-
-const SportsScheduleItem = ({ title, withArrow, content, className, ...otherProps }) => {
-  return (
-    <div className={`sports-schedule-item ${className}`} {...otherProps}>
-      <div className="sports-schedule-item__heading">
-        {!content && <input type="checkbox" className="sports-schedule-item__checkbox" />}
-        {withArrow && <div className="sports-schedule-item__arrow">{`►`}</div>}
-        {content && <span>{`▼`}</span>}
-        <div className="sports-schedule-item__title">{title}</div>
-      </div>
-      {content &&
-        <div className="sports-schedule-item__content">
-          {content.map(({ title, withDot }, idx) => (
-            <span key={idx}>{title}</span>
-          ))}
-        </div>
-      }
-    </div>
-  )
+Tab.propTypes = {
+  title: PropTypes.string,
+  icon: PropTypes.string,
+  content: PropTypes.array,
+  event: PropTypes.array,
+  handleEvent: PropTypes.func,
+  isActive: PropTypes.bool,
 };
+
+export default SportsScheduleTab;

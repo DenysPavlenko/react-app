@@ -1,0 +1,33 @@
+.spinner
+  width: 40px
+  height: 40px
+  display: inline-block
+  overflow: hidden
+  &-inner
+    position: relative
+    width: 100%
+    height: 100%
+    transform: translateZ(0) scale(1)
+    > div
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      border-radius: 50%
+      border: 2px solid transparent
+      border-color: #425cbb transparent #425cbb transparent
+      animation: spinner-inner 1s linear infinite
+      &:nth-child(2)
+        width: 80%
+        height: 80%
+        top: 10%
+        left: 10%
+        animation: spinner-inner 1s linear infinite reverse
+        border-color: transparent #424242 transparent #424242
+
+@keyframes spinner-inner
+  0%
+    transform: rotate(0)
+  100%
+    transform: rotate(360deg)

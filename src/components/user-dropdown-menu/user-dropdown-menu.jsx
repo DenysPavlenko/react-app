@@ -10,19 +10,16 @@ import BalanceOverview from 'components/balance-overview/balance-overview';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './user-dropdown-menu.sass';
-// Assets
-import { faSortNumericDown, faRandom, faFileAlt, faEnvelope, faCog, faPaintBrush, faPowerOff } from '@fortawesome/free-solid-svg-icons';
-
 
 const UserDropdownMenu = ({ history, togglePersonalize }) => {
   const menu = [
-    { icon: faSortNumericDown, title: 'Odds display' },
-    { icon: faRandom, title: 'Betting style' },
-    { icon: faFileAlt, title: 'Rules' },
-    { icon: faEnvelope, title: 'Mail' },
-    { icon: faCog, title: 'Settings' },
-    { icon: faPaintBrush, title: 'Personalize it', handler: togglePersonalize },
-    { icon: faPowerOff, title: 'Sign out', rootName: '/sign-in' },
+    { icon: 'sort-numeric-down', title: 'Odds display' },
+    { icon: 'random', title: 'Betting style' },
+    { icon: 'file-alt', title: 'Rules' },
+    { icon: 'envelope', title: 'Mail' },
+    { icon: 'cog', title: 'Settings' },
+    { icon: 'paint-brush', title: 'Personalize it', handler: togglePersonalize },
+    { icon: 'power-off', title: 'Sign out', rootName: '/sign-in' },
   ];
 
   const handleItemClick = (rootName, handler) => {

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core';
 // Components
 import ScrollToTop from 'components/scroll-to-top/scroll-to-top';
 import Header from 'components/header/header';
@@ -13,6 +15,9 @@ import HorsesPage from 'pages/horses-page/horses-page';
 import ScoresPage from 'pages/scores-page/scores-page';
 // Styles
 import './app.sass';
+
+// Font awesome icons
+library.add(fas);
 
 const App = ({ location }) => {
   return (

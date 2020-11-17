@@ -3,8 +3,15 @@
 
 .sports-schedule-tab
   border-bottom: 1px solid $c-primary
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &--#{$name}
+      &.is-active
+        .sports-schedule-tab__heading
+          background-color: $color
+
   &__heading
-    padding:
+    transition: 0.2s
     display: flex
     align-items: center
     background-color: $c-light
@@ -16,29 +23,9 @@
   &__icon
     margin-right: 5px
     font-size: rem(20px)
-  &__title
-    font-size: rem(18px)
-    font-weight: 400
-    line-height: 1
-    text-transform: uppercase
   &__content
     background-color: $c-light
     padding: 5px
   &__item
     &:not(:last-child)
       margin-bottom: 5px
-
-
-.sports-schedule-item
-  cursor: pointer
-  user-select: none
-  color: $c-dark
-  &__heading
-    display: flex
-    align-items: center
-  &__checkbox
-    margin-right: 5px
-  &__arrow
-    margin-right: 5px
-  &__content
-    width: 100%

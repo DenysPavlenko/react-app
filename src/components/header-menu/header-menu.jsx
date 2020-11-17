@@ -66,13 +66,13 @@ const HeaderMenu = ({ defaultColorScheme, className }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme
-});
-
 HeaderMenu.propTypes = {
   defaultColorScheme: PropTypes.string,
   className: PropTypes.string,
 };
+
+const mapStateToProps = createStructuredSelector({
+  defaultColorScheme: selectColorScheme
+});
 
 export default connect(mapStateToProps)(HeaderMenu);
