@@ -14,7 +14,7 @@ const Checkbox = ({ checked, className, label, onChange, ...otherProps }) => {
   });
 
   return (
-    <label className={classnames} {...otherProps}>
+    <label className={classnames} {...otherProps} onClick={(e) => e.stopPropagation()}>
       <div className="checkbox__box">
         <Input standard={false} className="checkbox__input" type="checkbox" checked={checked} onChange={onChange} />
         <span className="checkbox__checkmark">

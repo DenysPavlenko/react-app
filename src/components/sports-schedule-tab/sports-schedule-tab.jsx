@@ -22,7 +22,7 @@ Tab.propTypes = {
   title: PropTypes.string,
   icon: PropTypes.string,
   content: PropTypes.array,
-  event: PropTypes.string,
+  events: PropTypes.array,
   handleEvent: PropTypes.func,
   isActive: PropTypes.bool,
 };

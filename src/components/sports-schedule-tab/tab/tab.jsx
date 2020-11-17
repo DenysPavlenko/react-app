@@ -5,14 +5,14 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
 import { selectColorScheme } from 'redux/color-scheme/selectors';
-import { selectSportsScheduleEvent } from 'redux/sports-schedule-event/selectors';
-import { setSportsScheduleEvent } from 'redux/sports-schedule-event/actions';
+import { selectSportsScheduleEvents } from 'redux/sports-schedule-events/selectors';
+import { setSportsScheduleEvent } from 'redux/sports-schedule-events/actions';
 // Components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Typography from 'components/typography/typography';
 
-const Tab = ({ title, icon, event, defaultColorScheme, sportsScheduleEvent, setSportsScheduleEvent }) => {
-  const isActive = sportsScheduleEvent === event;
+const Tab = ({ title, icon, event, defaultColorScheme, sportsScheduleEvents, setSportsScheduleEvent }) => {
+  const isActive = sportsScheduleEvents.includes(event);
   const classes = classNames({
     'sports-schedule-tab': true,
     [`sports-schedule-tab--${defaultColorScheme}`]: defaultColorScheme,
@@ -32,15 +32,15 @@ const Tab = ({ title, icon, event, defaultColorScheme, sportsScheduleEvent, setS
 Tab.propTypes = {
   title: PropTypes.string,
   icon: PropTypes.string,
-  event: PropTypes.string,
+  events: PropTypes.array,
   defaultColorScheme: PropTypes.string,
-  sportsScheduleEvent: PropTypes.string,
+  sportsScheduleEvents: PropTypes.array,
   setSportsScheduleEvent: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   defaultColorScheme: selectColorScheme,
-  sportsScheduleEvent: selectSportsScheduleEvent
+  sportsScheduleEvents: selectSportsScheduleEvents
 });
 
 const mapDispatchToProps = dispatch => ({
