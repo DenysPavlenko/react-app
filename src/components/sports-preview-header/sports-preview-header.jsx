@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './sports-preview-header.sass';
 
-const SportsPreviewHeader = ({ title, defaultColorScheme, className }) => {
+const SportsPreviewHeader = ({ title, icon, defaultColorScheme, className }) => {
   const classes = classNames({
     'sports-preview-header': true,
     [`sports-preview-header--${defaultColorScheme}`]: defaultColorScheme,
@@ -22,7 +22,7 @@ const SportsPreviewHeader = ({ title, defaultColorScheme, className }) => {
     <div className={classes}>
       <Typography component="h2" className="mb-0 sports-preview-header__title">{title}</Typography>
       <div className="sports-preview-header__icon-wrap">
-        <FontAwesomeIcon className="sports-preview-header__icon" icon="football-ball" />
+        <FontAwesomeIcon className="sports-preview-header__icon" icon={icon} />
       </div>
     </div>
   );
@@ -30,7 +30,7 @@ const SportsPreviewHeader = ({ title, defaultColorScheme, className }) => {
 
 SportsPreviewHeader.propTypes = {
   className: PropTypes.string,
-  title: PropTypes.bool,
+  title: PropTypes.string,
   defaultColorScheme: PropTypes.string,
 };
 

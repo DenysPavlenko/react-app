@@ -1,0 +1,24 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.sports-table-sub-header
+  width: 100%
+  background-color: lighten($c-black, 10%)
+  th
+    &:nth-child(1)
+      width: 30%
+      div
+        display: flex
+        justify-content: space-between
+    &:nth-child(2)
+      width: 15%
+      text-align: center
+    &:nth-child(3)
+      width: 10%
+      text-align: center
+    &:nth-child(4)
+      width: 15%
+      text-align: center
+    &:nth-child(5)
+      width: 30%
+      text-align: center
