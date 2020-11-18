@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 // Components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Typography from 'components/typography/typography';
 // Styles
 import './wager-type.sass';
 
@@ -19,9 +20,9 @@ const WagerType = ({ type, title, icon, background, isActive, className, ...othe
       {icon ?
         <FontAwesomeIcon className="wager-type__icon" icon={icon} />
         :
-        <span className="wager-type__letter">{title[0].toUpperCase()}</span>
+        <Typography component="span" variant="h3" className="wager-type__letter mb-0 text-uppercase">{title[0]}</Typography>
       }
-      <span className="wager-type__title">{title}</span>
+      <Typography component="span" variant="h6" className="wager-type__title mb-0 text-uppercase">{title}</Typography>
     </div>
   );
 };

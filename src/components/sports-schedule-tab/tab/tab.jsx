@@ -23,7 +23,7 @@ const Tab = ({ title, icon, event, defaultColorScheme, sportsScheduleEvents, set
     <div className={classes} onClick={() => setSportsScheduleEvent(event)} >
       <div className="sports-schedule-tab__heading">
         <FontAwesomeIcon icon={icon} className={`sports-schedule-tab__icon ${isActive ? 'text-light' : 'text-dark'}`} />
-        <Typography component="h3" className={`mb-0 text-uppercase ${isActive ? 'text-light' : 'text-dark'}`}>{title}</Typography>
+        <Typography component="span" variant="h3" className={`mb-0 text-uppercase ${isActive ? 'text-light' : 'text-dark'}`}>{title}</Typography>
       </div>
     </div>
   )

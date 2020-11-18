@@ -24,7 +24,7 @@ const Item = ({ title, event, defaultColorScheme, sportsScheduleEvents, setSport
       <div className="sports-schedule-item__heading">
         <Checkbox checked={isActive} onChange={() => setSportsScheduleEvents(event)} className="sports-schedule-item__checkbox"
         />
-        <Typography component="p" className={`mb-0 ${isActive ? 'text-light' : 'text-dark'}`}>{title}</Typography>
+        <Typography component="span" variant="p" className={`mb-0 ${isActive ? 'text-light' : 'text-dark'}`}>{title}</Typography>
       </div>
     </div>
   )

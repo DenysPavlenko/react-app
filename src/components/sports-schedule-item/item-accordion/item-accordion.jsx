@@ -11,7 +11,7 @@ const ItemAccordion = ({ title, content }) => {
     <Accordion className="sports-schedule-item">
       <Accordion.Toggle className="sports-schedule-item__heading">
         <FontAwesomeIcon className="sports-schedule-item__chevron" icon="chevron-down" />
-        <Typography component="p" className="sports-schedule-item__title mb-0">{title}</Typography>
+        <Typography component="span" variant="p" className="sports-schedule-item__title mb-0">{title}</Typography>
       </Accordion.Toggle>
       <Accordion.Content>
         <div className="sports-schedule-item__content">

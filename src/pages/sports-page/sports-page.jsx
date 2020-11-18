@@ -3,6 +3,7 @@ import React from 'react';
 import Search from 'components/search/search';
 import SportsSchedule from 'components/sports-schedule/sports-schedule';
 import WagerTypes from 'components/wager-types/wager-types';
+import SportsPreview from 'components/sports-preview/sports-preview';
 // Styles
 import './sports-page.sass';
 
@@ -15,6 +16,7 @@ const SportsPage = () => {
       </div>
       <div className="sports-page__right">
         <WagerTypes />
+        <SportsPreview />
       </div>
     </div>
   );

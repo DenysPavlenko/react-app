@@ -11,7 +11,7 @@ const TabAccordion = ({ title, icon, content }) => {
     <Accordion className="sports-schedule-tab">
       <Accordion.Toggle className="sports-schedule-tab__heading">
         <FontAwesomeIcon icon={icon} className="sports-schedule-tab__icon text-dark" />
-        <Typography component="h3" className="mb-0 text-uppercase text-dark">{title}</Typography>
+        <Typography component="span" variant="h3" className="mb-0 text-uppercase text-dark">{title}</Typography>
       </Accordion.Toggle>
       <Accordion.Content className="sports-schedule-tab__content">
         {content.map(({ title, content, id }, idx) => {
