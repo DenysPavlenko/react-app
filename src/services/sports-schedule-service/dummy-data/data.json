@@ -88,5 +88,92 @@
         ]
       }
     ]
+  },
+  {
+    "id": "baseball",
+    "title": "baseball",
+    "icon": "baseball-ball",
+    "content": [
+      {
+        "id": "MLB Futures",
+        "title": "MLB Futures",
+        "content": [
+          {
+            "id": "To win Stanley Cup",
+            "title": "To win Stanley Cupt"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hockey",
+    "title": "hockey",
+    "icon": "hockey-puck",
+    "content": [
+      {
+        "id": "European Hockey",
+        "title": "European Hockey"
+      }
+    ]
+  },
+  {
+    "id": "golf",
+    "title": "golf",
+    "icon": "golf-ball",
+    "content": [
+      {
+        "id": "RSM Classic TNT Matchups",
+        "title": "RSM Classic TNT Matchups"
+      }
+    ]
+  },
+  {
+    "id": "martial artsolf",
+    "title": "martial arts",
+    "icon": "fan",
+    "content": [
+      {
+        "id": "Bellator 253",
+        "title": "Bellator 253"
+      }
+    ]
+  },
+  {
+    "id": "boxing",
+    "title": "boxing",
+    "icon": "mitten",
+    "content": [
+      {
+        "id": "D Garcia vs E Spence Jr",
+        "title": "D Garcia vs E Spence Jr"
+      }
+    ]
+  },
+  {
+    "id": "tennis",
+    "title": "tennis",
+    "icon": "baseball-ball",
+    "content": [
+      {
+        "id": "ATP Matchups",
+        "title": "ATP Matchups"
+      }
+    ]
+  },
+  {
+    "id": "soccer",
+    "title": "soccer",
+    "icon": "futbol",
+    "content": [
+      {
+        "id": "Uefa Nation League",
+        "title": "Uefa Nation League"
+      },
+      {
+        "id": "AFC Champions League",
+        "title": "AFC Champions League"
+      }
+    ]
   }
 ]
