@@ -14,6 +14,7 @@ class Select extends Component {
     options: PropTypes.array.isRequired,
     placeholder: PropTypes.string,
     inline: PropTypes.bool,
+    textSm: PropTypes.bool,
     className: PropTypes.string,
   }
 
@@ -61,11 +62,12 @@ class Select extends Component {
   }
 
   render() {
-    const { options, placeholder, inline, className } = this.props;
+    const { options, placeholder, inline, textSm, className } = this.props;
     const { value, selectedOption, isExpanded } = this.state;
     const classes = classNames({
       'select': true,
       'select--inline': inline,
+      'select--text-sm': textSm,
       [className]: className
     });
 

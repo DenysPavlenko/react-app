@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { withBreakpoints } from 'react-breakpoints';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
@@ -13,7 +14,19 @@ import Typography from 'components/typography/typography';
 // Styles
 import './sports-table-item.sass';
 
-const SportsTableItem = ({ icon, title, className, defaultColorScheme }) => {
+const SportsTableItem = ({ icon, title, className, defaultColorScheme, currentBreakpoint }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (currentBreakpoint !== 'xxl') {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  }, [currentBreakpoint])
+
+  console.log('isMobile:', isMobile)
+
   const classes = classNames({
     'sports-table-item': true,
     [`sports-table-item--${defaultColorScheme}`]: defaultColorScheme,
@@ -25,52 +38,108 @@ const SportsTableItem = ({ icon, title, className, defaultColorScheme }) => {
       <td>
         <div className="sports-table-item__team">
           <Image src={icon} alt="icon" className="sports-table-item__team-icon" icon />
-          <Typography component="span" variant="p" className="mb-0">{title}</Typography>
+          <Typography component="span" variant="p-sm" className="mb-0">{title}</Typography>
         </div>
       </td>
       <td>
-        <div className="sports-table-item__row">
-          <Select
-            onChange={() => { }}
-            options={[
-              { value: '+3 +100', label: '+3 +100' },
-              { value: '+4 +100', label: '+4 +100' },
-              { value: '+5 +100', label: '+5 +100' },
-            ]}
-            inline
-          />
-          <Input type="number" standard="false" size="xs" noRadius />
-        </div>
+        {isMobile ?
+          <div className="sports-table-item__button">
+            <Typography component="span" variant="p-sm" className="mb-0">+3 2.00</Typography>
+          </div>
+          :
+          <div className="sports-table-item__row">
+            <div className="sports-table-item__col">
+              <Select
+                onChange={() => { }}
+                options={[
+                  { value: '+3 2.00', label: '+3 2.00' },
+                  { value: '+3 1.00', label: '+3 1.00' },
+                  { value: '+3 3.00', label: '+3 3.00' },
+                ]}
+                inline
+                textSm
+              />
+            </div>
+            <div className="sports-table-item__col">
+              <Input type="number" standard="false" size="xs" noRadius />
+            </div>
+          </div>
+        }
       </td>
       <td>
-        <div className="sports-table-item__row">
-          <Typography component="span" variant="p" className="mb-0">+150</Typography>
-          <Input type="number" standard="false" size="xs" noRadius />
-        </div>
+        {isMobile ?
+          <div className="sports-table-item__button">
+            <Typography component="span" variant="p-sm" className="mb-0">2.5</Typography>
+          </div>
+          :
+          <div className="sports-table-item__row">
+            <div className="sports-table-item__col">
+              <Typography component="span" variant="p-sm" className="mb-0">2.45</Typography>
+            </div>
+            <div className="sports-table-item__col">
+              <Input type="number" standard="false" size="xs" noRadius />
+            </div>
+          </div>
+        }
       </td>
       <td>
-        <div className="sports-table-item__row">
-          <Select
-            onChange={() => { }}
-            options={[
-              { value: 'O 57½ -110', label: 'O 57½ -110' },
-              { value: 'O 57 -120', label: 'O 57 -120' },
-              { value: 'O 55½ -110', label: 'O 55½ -110' },
-            ]}
-            inline
-          />
-          <Input type="number" standard="false" size="xs" noRadius />
-        </div>
+        {isMobile ?
+          <div className="sports-table-item__button">
+            <Typography component="span" variant="p-sm" className="mb-0">-110</Typography>
+          </div>
+          :
+          <div className="sports-table-item__row">
+            <div className="sports-table-item__col">
+              <Select
+                onChange={() => { }}
+                options={[
+                  { value: 'O 57½1.91', label: 'O 57½1.91' },
+                  { value: 'O 57½2.91', label: 'O 57½2.91' },
+                  { value: 'O 57½3.91', label: 'O 57½3.91' },
+                ]}
+                inline
+                textSm
+              />
+            </div>
+            <div className="sports-table-item__col">
+              <Input type="number" standard="false" size="xs" noRadius />
+            </div>
+          </div>
+        }
       </td>
       <td>
         <div className="sports-table-item__row">
           <div className="sports-table-item__col">
-            <Typography component="span" variant="p" className="mb-0">O 26½ -145</Typography>
-            <Input type="number" standard="false" size="xs" noRadius />
+            {isMobile ?
+              <div className="sports-table-item__button">
+                <Typography component="span" variant="p-sm" className="mb-0">1.69</Typography>
+              </div>
+              :
+              <div className="sports-table-item__row">
+                <div className="sports-table-item__col">
+                  <Typography component="span" variant="p-sm" className="mb-0">O 26½ 1.69</Typography>
+                </div>
+                <div className="sports-table-item__col">
+                  <Input type="number" standard="false" size="xs" noRadius />
+                </div>
+              </div>
+            }
           </div>
           <div className="sports-table-item__col">
-            <Typography component="span" variant="p" className="mb-0">O 26½ -145</Typography>
-            <Input type="number" standard="false" size="xs" noRadius />
+            {isMobile ?
+              <div className="sports-table-item__button">
+                <Typography component="span" variant="p-sm" className="mb-0">1.69</Typography>
+              </div>
+              :
+              <div className="sports-table-item__row">
+                <div className="sports-table-item__col">
+                  <Typography component="span" variant="p-sm" className="mb-0">O 26½ 1.69</Typography>
+                </div>
+                <div className="sports-table-item__col">
+                  <Input type="number" standard="false" size="xs" noRadius />
+                </div>
+              </div>
+            }
           </div>
         </div>
       </td>
@@ -89,4 +158,4 @@ const mapStateToProps = createStructuredSelector({
   defaultColorScheme: selectColorScheme
 });
 
-export default connect(mapStateToProps)(SportsTableItem);
+export default connect(mapStateToProps)(withBreakpoints(SportsTableItem));

@@ -4,10 +4,17 @@
 .sports-schedule
   width: 100%
   background-color: $c-light
-  &__heading
+  &__header
     background-color: $c-black
-    text-align: center
-    padding: 13px
+    display: flex
+    align-items: center
+    padding: 13px 5px
+    +media-max($bp-lg)
+      justify-content: space-between
+    &-button
+      display: none
+      +media-max($bp-lg)
+        display: block
   &__spinner
     display: flex
     justify-content: center

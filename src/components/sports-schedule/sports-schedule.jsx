@@ -7,6 +7,7 @@ import { fetchSportsScheduleData } from 'redux/sports-schedule/actions';
 import { selectSportsSchedule } from 'redux/sports-schedule/selectors';
 // Components
 import Typography from 'components/typography/typography';
+import Button from 'components/button/button';
 import SportsScheduleTab from 'components/sports-schedule-tab/sports-schedule-tab';
 import ErrorIndicator from 'components/error-indicator/error-indicator';
 import Spinner from 'components/spinner/spinner';
@@ -21,7 +22,10 @@ const SportsSchedule = ({ sportsSchedule: { loading, error, data }, fetchSportsS
 
   return (
     <div className="sports-schedule">
-      <Typography component="h4" className="sports-schedule__heading mb-0">Sports Schedule</Typography>
+      <div className="sports-schedule__header">
+        <Typography component="h4" className="sports-schedule__heading mb-0">Sports Schedule</Typography>
+        <Button type="button" variant="accent" className="sports-schedule__header-button" size="sm">Show</Button>
+      </div>
       {error && <ErrorIndicator />}
       {(!error && loading) && <div className="sports-schedule__spinner"><Spinner /></div>}
       {(!error && !loading) &&
