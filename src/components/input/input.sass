@@ -1,4 +1,5 @@
 @import ~styles/abstract/variables
+@import ~styles/abstract/mixins
 
 .input
   width: 100%
@@ -8,8 +9,8 @@
   color: $c-dark
   padding: 10px 15px
   font-family: inherit
-  font-size: 1rem
-  line-height: 1rem
+  font-size: rem(14px)
+  line-height: 1
   transition: 0.2s
   &:placeholder
     color: rgba($c-dark, 0.8)
@@ -19,3 +20,9 @@
     border-radius: 0
   &--invalid
     border: 1px solid $c-danger
+  // Sizes
+  &--xs
+    padding: 2px 5px
+    text-align: center
+    font-size: rem(12px)
+    max-width: 50px

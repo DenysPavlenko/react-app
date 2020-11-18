@@ -2,11 +2,11 @@ import React from 'react';
 // Components
 import Typography from 'components/typography/typography';
 // Styles
-import './sports-table-header.sass';
+import './sports-table-header-a.sass';
 
-const SportsTableHeader = () => {
+const SportsTableHeaderA = () => {
   return (
-    <thead className="sports-table-header">
+    <thead className="sports-table-header-a">
       <tr>
         <th></th>
         <th>
@@ -26,4 +26,4 @@ const SportsTableHeader = () => {
   );
 };
 
-export default SportsTableHeader;
+export default SportsTableHeaderA;

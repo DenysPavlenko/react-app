@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 // Styles
 import './input.sass';
 
-const Input = ({ className, standard, noRadius, isInvalid, ...otherProps }) => {
+const Input = ({ className, standard, size, noRadius, isInvalid, ...otherProps }) => {
   const classes = classNames({
     'input': standard !== false,
     'input--no-radius': noRadius,
     'input--invalid': isInvalid,
+    [`input--${size}`]: size,
     [className]: className
   });
 
