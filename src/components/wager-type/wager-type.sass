@@ -1,0 +1,42 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.wager-type
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  text-align: center
+  padding: 6px 10px 7px
+  width: 100px
+  min-height: 50px
+  cursor: pointer
+  background-color: $c-light
+  color: $c-dark
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &--#{$name}
+      &.is-active
+        background-color: $color
+        color: $c-light
+  &--accent-blue
+    background-color: $c-accent-blue
+    color: $c-light
+  &--accent-green
+    background-color: $c-accent-green
+    color: $c-light
+
+  &__icon
+    font-size: rem(18px)
+    margin-bottom: 5px
+  &__letter
+    font-size: rem(18px)
+    text-transform: uppercase
+    line-height: 1
+    font-weight: 700
+    margin-bottom: 5px
+  &__title
+    font-size: rem(12px)
+    text-transform: uppercase
+    line-height: 1
+    font-weight: 400
