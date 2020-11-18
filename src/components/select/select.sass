@@ -1,0 +1,102 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+$select-height: 30px
+
+.select
+  position: relative
+  display: block
+  user-select: none
+  &.is-expanded
+    .select__label
+      &:after
+        transform: rotate(180deg)
+  &--inline
+    .select__label
+      height: auto
+      padding-left: 0
+      padding-right: 15px
+      background-color: transparent
+      &:before
+        display: none
+      &:after
+        right: 0
+    .select__dropdown
+      margin-top: 5px
+  &--fluid
+    width: 100%
+  // Elements
+  &__label
+    position: relative
+    cursor: pointer
+    padding: 0 20px 0 10px
+    height: $select-height
+    background-color: $c-light
+    border: 1px solid transparent
+    display: flex
+    width: 100%
+    align-items: center
+    font-size: rem(14px)
+    font-weight: 400
+    line-height: 1
+    color: $c-dark
+    white-space: nowrap
+    overflow: hidden
+    transition: 0.2s
+    &:before,
+    &:after
+      position: absolute
+      content: ''
+    &:before
+      right: 0
+      top: 0
+      width: 20px
+      height: 100%
+      background-color: $c-light
+    &:after
+      transition: 0.2s
+      right: 5px
+      width: 11px
+      height: 6px
+      transform-origin: center
+      +bg-img('~assets/images/icons/chevron-down.svg', 11px 6px)
+  &__dropdown
+    position: absolute
+    right: 0
+    min-width: 100%
+    top: 100%
+    background-color: $c-light
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15)
+    overflow: hidden
+    z-index: 200
+    &-scroll
+      max-height: 120px
+      overflow: auto
+  &__search
+    padding: 10px
+    width: 100%
+    min-width: 180px
+  &__option
+    position: relative
+    overflow: hidden
+    display: flex
+    align-items: center
+    padding: 8px 10px
+    font-size: rem(14px)
+    line-height: 1
+    white-space: nowrap
+    font-weight: 400
+    cursor: pointer
+    color: $c-dark
+    z-index: 1
+    transition: 0.2s
+    img
+      max-width: 18px
+    &>*:not(:last-child)
+      margin-right: 5px
+    &:hover
+      background-color: $c-light-gray
+    // State
+    &.is-selected
+      background-color: $c-accent-blue
+      color: $c-light
