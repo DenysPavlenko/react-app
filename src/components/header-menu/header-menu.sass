@@ -17,8 +17,10 @@
     +media-max($bp-lg)
       display: flex
       height: 100%
-      padding: 0 15px
+      padding: 0 10px
       align-items: center
+    +media-max($bp-sm)
+      padding: 0 5px
   &__wrap
     height: 100%
     +media-max($bp-lg)
@@ -73,11 +75,12 @@
     color: rgba($c-light, 0.5)
     margin-bottom: 4px
     transition: 0.2s
+    +media-max($bp-xs)
   &__icon
     height: 25px
     transition: 0.2s
     opacity: 0.5
-  &__scores
+  &__button
     width: 100%
     max-width: 120px
     display: flex
@@ -90,3 +93,9 @@
         color: $c-light
       .header-menu__icon
         opacity: 1
+    +media-max($bp-sm)
+      padding: 0 10px
+      padding: 0 10px
+    +media-max($bp-xs)
+      .header-menu__text
+        display: none

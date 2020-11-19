@@ -14,18 +14,16 @@ import Typography from 'components/typography/typography';
 // Styles
 import './sports-table-item.sass';
 
-const SportsTableItem = ({ icon, title, className, defaultColorScheme, currentBreakpoint }) => {
+const SportsTableItem = ({ icon, title, className, defaultColorScheme, breakpoints, currentBreakpoint }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (currentBreakpoint !== 'xxl') {
+    if (breakpoints[currentBreakpoint] < breakpoints.xxl) {
       setIsMobile(true);
     } else {
       setIsMobile(false);
     }
-  }, [currentBreakpoint])
-
-  console.log('isMobile:', isMobile)
+  }, [breakpoints, currentBreakpoint]);
 
   const classes = classNames({
     'sports-table-item': true,
@@ -152,6 +150,8 @@ SportsTableItem.propTypes = {
   icon: PropTypes.string,
   title: PropTypes.string,
   defaultColorScheme: PropTypes.string,
+  breakpoints: PropTypes.object,
+  currentBreakpoint: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({

@@ -8,12 +8,16 @@
   justify-content: center
   text-align: center
   padding: 0 10px
-  width: 100px
   height: 50px
   cursor: pointer
   background-color: $c-light
   color: $c-dark
   transition: 0.2s
+  flex: 0 0 100px
+  +media-max($bp-lg)
+    flex: 1 0 70px
+    padding: 0 5px
+
   // Color schemes
   @each $name, $color in $sch-colors
     &--#{$name}

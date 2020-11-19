@@ -49,6 +49,7 @@ const UserDropdownMenu = ({ history, togglePersonalize }) => {
 
 UserDropdownMenu.propTypes = {
   togglePersonalize: PropTypes.func,
+  history: PropTypes.object,
 };
 
 const mapDispatchToProps = dispatch => ({
