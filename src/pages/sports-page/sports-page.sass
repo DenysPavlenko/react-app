@@ -6,11 +6,10 @@
   display: flex
   flex-wrap: wrap
   width: 100%
+  padding: 4px 2px
   &__left
     width: 25%
-    width: calc( 25% - 6px )
-    margin: 2px
-    margin-left: 4px
+    padding: 0 2px
     +media-max($bp-lg)
       position: fixed
       left: 0
@@ -21,18 +20,16 @@
       background-color: $c-gray
       transition: transform 0.2s
       transform: translateX(-100%)
-      padding: 2px 2px 1px 2px
-      margin: 0
+      padding: 4px 4px
       z-index: 200
       &.is-active
         transform: translateX(0)
   &__right
-    width: calc( 75% - 6px )
-    margin: 2px
-    margin-right: 4px
+    width: 75%
+    padding: 0 2px
     +media-max($bp-lg)
       width: 100%
 
   &__search
     +media-max($bp-lg)
-      margin-bottom: 2px
+      margin-bottom: 4px

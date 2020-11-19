@@ -12,7 +12,6 @@ import SportsPage from 'pages/sports-page/sports-page';
 import LivePage from 'pages/live-page/live-page';
 import CasinoPage from 'pages/casino-page/casino-page';
 import HorsesPage from 'pages/horses-page/horses-page';
-import ScoresPage from 'pages/scores-page/scores-page';
 // Styles
 import './app.sass';
 
@@ -29,11 +28,10 @@ const App = ({ location }) => {
         <Switch>
           <Route path="/sign-in" exact component={SignInPage} />
           <Route path="/sports" exact component={SportsPage} />
-          <Route path="/live" exact component={LivePage} />
+          <Route path="/live" component={LivePage} />
           <Route path="/casino" exact component={CasinoPage} />
           <Route path="/horses" exact component={HorsesPage} />
-          <Route path="/scores" exact component={ScoresPage} />
-          <Redirect to="/sports" />
+          <Redirect to="/live" />
         </Switch>
       </ScrollToTop>
     </div>

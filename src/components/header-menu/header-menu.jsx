@@ -30,7 +30,7 @@ const menu = [
   { name: 'Horses', rootName: '/horses', icon: horseIcn, alt: "horses" },
 ];
 
-const HeaderMenu = ({ defaultColorScheme, className, toggleSportsPageSchedule, isScheduleActive, history: { location }, breakpoints, currentBreakpoint }) => {
+const HeaderMenu = ({ defaultColorScheme, className, toggleSportsPageSchedule, isScheduleActive, location, breakpoints, currentBreakpoint }) => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -85,7 +85,7 @@ HeaderMenu.propTypes = {
   defaultColorScheme: PropTypes.string,
   className: PropTypes.string,
   toggleSportsPageSchedule: PropTypes.func,
-  history: PropTypes.object,
+  location: PropTypes.object,
   isScheduleActive: PropTypes.bool,
   breakpoints: PropTypes.object,
   currentBreakpoint: PropTypes.string,
