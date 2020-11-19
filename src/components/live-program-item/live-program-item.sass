@@ -1,0 +1,26 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.live-program-item
+  width: 100%
+  display: flex
+  justify-content: space-between
+  padding: 5px
+  cursor: pointer
+  transition: background-color 0.2s
+  &:hover
+    background-color: darken($c-light, 8%)
+  &__teams
+    display: flex
+    flex-direction: column
+    flex: 1
+  &__team
+    width: 100%
+    &:not(:last-child)
+      margin-bottom: 2px
+  &__details
+    display: flex
+    flex-direction: column
+    text-align: right
+  &__detail
+    width: 100%

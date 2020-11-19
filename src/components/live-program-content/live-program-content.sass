@@ -1,0 +1,14 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.live-program-content
+  width: 100%
+  &__title
+    background-color: $c-primary
+    display: block
+    padding: 2px 5px
+    color: $c-light
+  &__item
+    &:not(:last-child)
+      border-bottom: 1px solid $c-light-gray
+

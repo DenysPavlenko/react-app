@@ -14,9 +14,9 @@ const TabAccordion = ({ title, icon, content }) => {
         <Typography component="span" variant="h3" className="mb-0 text-uppercase text-dark">{title}</Typography>
       </Accordion.Toggle>
       <Accordion.Content className="sports-schedule-tab__content">
-        {content.map(({ title, content, id }, idx) => {
+        {content.map(({ title, content, id }) => {
           return (
-            <SportsScheduleItem key={idx} title={title} content={content} event={id} />
+            <SportsScheduleItem key={id} title={title} content={content} event={id} />
           )
         })}
       </Accordion.Content>

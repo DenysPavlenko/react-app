@@ -1,6 +1,6 @@
 import SportsScheduleActionTypes from './types';
 // Services
-import SportsScheduleService from 'services/sports-schedule-service/sports-schedule-service';
+import SportsScheduleService from 'services/sports-schedule-service';
 // Games service
 const sportsScheduleService = new SportsScheduleService();
 

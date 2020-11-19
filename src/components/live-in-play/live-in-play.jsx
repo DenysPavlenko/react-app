@@ -8,8 +8,7 @@ const LiveInPlay = () => {
   return (
     <div className="live-in-play">
       <div className="live-in-play__left">
-        <div></div>
-        {/* <LiveProgram /> */}
+        <LiveProgram />
       </div>
       <div className="live-in-play__center">
         <div></div>
