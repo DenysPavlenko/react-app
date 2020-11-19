@@ -5,8 +5,10 @@
   width: 100%
   background-color: $c-light
   &__header
+    position: relative
     background-color: $c-black
     display: flex
+    justify-content: center
     align-items: center
     padding: 13px 5px
     +media-max($bp-lg)
@@ -14,6 +16,8 @@
     &-button
       display: none
       +media-max($bp-lg)
+        position: absolute
+        right: 5px
         display: block
   &__spinner
     display: flex

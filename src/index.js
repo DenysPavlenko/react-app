@@ -16,14 +16,14 @@ const breakpoints = {
   md: 768,
   lg: 992,
   xl: 1171,
-  xxl: 1400,
+  xxl: 1201,
 };
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
-        <ReactBreakpoints breakpoints={breakpoints}>
+        <ReactBreakpoints breakpoints={breakpoints} debounceResize={true} debounceDelay={50}>
           <App />
         </ReactBreakpoints >
       </Router>

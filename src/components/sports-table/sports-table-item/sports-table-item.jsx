@@ -11,10 +11,11 @@ import Image from 'components/image/image';
 import Input from 'components/input/input';
 import Select from 'components/select/select';
 import Typography from 'components/typography/typography';
+import SportsTableItemButton from '../sports-table-item-button/sports-table-item-button';
 // Styles
 import './sports-table-item.sass';
 
-const SportsTableItem = ({ icon, title, className, defaultColorScheme, breakpoints, currentBreakpoint }) => {
+const SportsTableItem = ({ icon, title, className, defaultColorScheme, breakpoints, currentBreakpoint, spreadType, totalType }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -39,15 +40,14 @@ const SportsTableItem = ({ icon, title, className, defaultColorScheme, breakpoin
           <Typography component="span" variant="p-sm" className="mb-0">{title}</Typography>
         </div>
       </td>
-      <td>
-        {isMobile ?
-          <div className="sports-table-item__button">
-            <Typography component="span" variant="p-sm" className="mb-0">+3 2.00</Typography>
-          </div>
-          :
-          <div className="sports-table-item__row">
-            <div className="sports-table-item__col">
+      {(!spreadType || (spreadType === 'spread' && totalType !== 'team total')) &&
+        <td>
+          {isMobile ?
+            <SportsTableItemButton title="+3 2.00" />
+            :
+            <div className="sports-table-item__wrap">
               <Select
+                className="sports-table-item__value"
                 onChange={() => { }}
                 options={[
                   { value: '+3 2.00', label: '+3 2.00' },
@@ -57,38 +57,32 @@ const SportsTableItem = ({ icon, title, className, defaultColorScheme, breakpoin
                 inline
                 textSm
               />
+              <Input type="number" className="sports-table-item__input" standard="false" size="xs" noRadius />
             </div>
-            <div className="sports-table-item__col">
-              <Input type="number" standard="false" size="xs" noRadius />
+          }
+        </td>
+      }
+      {(!spreadType || (spreadType === 'moneyline' && totalType !== 'team total')) &&
+        <td>
+          {isMobile ?
+            <SportsTableItemButton title="2.5" />
+            :
+            <div className="sports-table-item__wrap">
+              <Typography component="span" variant="p-sm" className="mb-0 sports-table-item__value">2.45</Typography>
+              <Input type="number" standard="false" size="xs" noRadius className="sports-table-item__input" />
             </div>
-          </div>
-        }
-      </td>
-      <td>
-        {isMobile ?
-          <div className="sports-table-item__button">
-            <Typography component="span" variant="p-sm" className="mb-0">2.5</Typography>
-          </div>
-          :
-          <div className="sports-table-item__row">
-            <div className="sports-table-item__col">
-              <Typography component="span" variant="p-sm" className="mb-0">2.45</Typography>
-            </div>
-            <div className="sports-table-item__col">
-              <Input type="number" standard="false" size="xs" noRadius />
-            </div>
-          </div>
-        }
-      </td>
-      <td>
-        {isMobile ?
-          <div className="sports-table-item__button">
-            <Typography component="span" variant="p-sm" className="mb-0">-110</Typography>
-          </div>
-          :
-          <div className="sports-table-item__row">
-            <div className="sports-table-item__col">
+          }
+        </td>
+      }
+      {
+        (!totalType || totalType === 'total') &&
+        <td>
+          {isMobile ?
+            <SportsTableItemButton title="-110" />
+            :
+            <div className="sports-table-item__row">
               <Select
+                className="sports-table-item__value"
                 onChange={() => { }}
                 options={[
                   { value: 'O 57½1.91', label: 'O 57½1.91' },
@@ -98,50 +92,39 @@ const SportsTableItem = ({ icon, title, className, defaultColorScheme, breakpoin
                 inline
                 textSm
               />
+              <Input type="number" standard="false" size="xs" noRadius className="sports-table-item__input" />
+            </div>
+          }
+        </td>
+      }
+      {
+        (!totalType || totalType === 'team total') &&
+        <td>
+          <div className="sports-table-item__row">
+            <div className="sports-table-item__col">
+              {isMobile ?
+                <SportsTableItemButton title="1.69" />
+                :
+                <div className="sports-table-item__row">
+                  <Typography component="span" variant="p-sm" className="mb-0 sports-table-item__value">O 26½ 1.69</Typography>
+                  <Input type="number" standard="false" size="xs" noRadius className="sports-table-item__input" />
+                </div>
+              }
             </div>
             <div className="sports-table-item__col">
-              <Input type="number" standard="false" size="xs" noRadius />
+              {isMobile ?
+                <SportsTableItemButton title="1.69" />
+                :
+                <div className="sports-table-item__row">
+                  <Typography component="span" variant="p-sm" className="mb-0 sports-table-item__value">O 26½ 1.69</Typography>
+                  <Input type="number" standard="false" size="xs" noRadius className="sports-table-item__input" />
+                </div>
+              }
             </div>
           </div>
-        }
-      </td>
-      <td>
-        <div className="sports-table-item__row">
-          <div className="sports-table-item__col">
-            {isMobile ?
-              <div className="sports-table-item__button">
-                <Typography component="span" variant="p-sm" className="mb-0">1.69</Typography>
-              </div>
-              :
-              <div className="sports-table-item__row">
-                <div className="sports-table-item__col">
-                  <Typography component="span" variant="p-sm" className="mb-0">O 26½ 1.69</Typography>
-                </div>
-                <div className="sports-table-item__col">
-                  <Input type="number" standard="false" size="xs" noRadius />
-                </div>
-              </div>
-            }
-          </div>
-          <div className="sports-table-item__col">
-            {isMobile ?
-              <div className="sports-table-item__button">
-                <Typography component="span" variant="p-sm" className="mb-0">1.69</Typography>
-              </div>
-              :
-              <div className="sports-table-item__row">
-                <div className="sports-table-item__col">
-                  <Typography component="span" variant="p-sm" className="mb-0">O 26½ 1.69</Typography>
-                </div>
-                <div className="sports-table-item__col">
-                  <Input type="number" standard="false" size="xs" noRadius />
-                </div>
-              </div>
-            }
-          </div>
-        </div>
-      </td>
-    </tr>
+        </td>
+      }
+    </tr >
   );
 };
 

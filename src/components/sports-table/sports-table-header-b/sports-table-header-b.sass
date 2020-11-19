@@ -6,21 +6,25 @@
   background-color: lighten($c-black, 10%)
   th
     padding: 2px 0
+    text-align: center
+    text-transform: uppercase
     &:nth-child(1)
       width: 30%
       padding: 0 5px
       div
         display: flex
         justify-content: space-between
+      +media-max($bp-md)
+        width: 50%
     &:nth-child(2)
       width: 15%
-      text-align: center
+      +media-max($bp-md)
+        width: 25%
     &:nth-child(3)
       width: 10%
-      text-align: center
+      +media-max($bp-md)
+        width: 25%
     &:nth-child(4)
       width: 15%
-      text-align: center
     &:nth-child(5)
       width: 30%
-      text-align: center
