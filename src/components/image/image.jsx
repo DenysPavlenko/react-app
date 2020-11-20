@@ -4,20 +4,29 @@ import classNames from 'classnames';
 // Styles
 import './image.sass';
 
-const Image = ({ src, alt, icon, className, ...otherProps }) => {
+const Image = ({ src, alt, icon, bgimage, className, ...otherProps }) => {
   const classes = classNames({
-    'image': !icon,
+    'image': !icon && !bgimage,
+    'bg-image': bgimage,
     [className]: className
   });
 
   return (
-    <img src={src} alt={alt} className={classes} {...otherProps} />
+    <>
+      {!bgimage ?
+        <img src={src} alt={alt} className={classes} {...otherProps} />
+        :
+        <figure className={classes} style={{ backgroundImage: `url(${bgimage})` }} />
+      }
+    </>
   );
 };
 
 Image.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
+  src: PropTypes.string,
+  alt: PropTypes.string,
+  bgimage: PropTypes.string,
+  className: PropTypes.string,
   icon: PropTypes.bool
 }
 
