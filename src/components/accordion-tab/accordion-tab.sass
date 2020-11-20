@@ -1,0 +1,31 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.accordion-tab
+  color: $c-dark
+  display: flex
+  align-items: center
+  background-color: $c-light
+  min-height: 36px
+  padding: 5px 15px 5px 5px
+  cursor: pointer
+  user-select: none
+  transition: background-color 0.2s
+  &:hover
+    background-color: darken($c-light, 8%)
+  &.is-active
+    color: $c-light
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &--#{$name}
+      &.is-active
+        background-color: $color
+
+  &__icon
+    margin-right: 5px
+    font-size: rem(20px)
+    min-width: 20px
+  &__title
+    margin-right: 5px
+  &__counter
+    margin-left: auto

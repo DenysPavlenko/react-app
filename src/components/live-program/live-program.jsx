@@ -8,7 +8,7 @@ import { selectLiveProgram } from 'redux/live-program/selectors';
 // Components
 import ErrorIndicator from 'components/error-indicator/error-indicator';
 import Spinner from 'components/spinner/spinner';
-import LiveProgramTab from 'components/live-program-tab/live-program-tab';
+import LiveProgramItem from 'components/live-program-item/live-program-item';
 // Styles
 import './live-program.sass';
 
@@ -25,7 +25,7 @@ const LiveProgram = ({ liveProgram: { loading, error, data }, fetchLiveProgramDa
       {(!error && !loading) &&
         <div className="live-program__items">
           {data.map(({ id, icon, title, program }) => (
-            <LiveProgramTab key={id} title={title} icon={icon} program={program} />
+            <LiveProgramItem key={id} title={title} icon={icon} program={program} />
           ))}
         </div>
       }

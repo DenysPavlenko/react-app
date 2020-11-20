@@ -9,7 +9,7 @@ import { toggleSportsPageSchedule } from 'redux/sports-page-schedule/actions';
 // Components
 import Typography from 'components/typography/typography';
 import Button from 'components/button/button';
-import SportsScheduleTab from 'components/sports-schedule-tab/sports-schedule-tab';
+import SportsScheduleItem from 'components/sports-schedule-item/sports-schedule-item';
 import ErrorIndicator from 'components/error-indicator/error-indicator';
 import Spinner from 'components/spinner/spinner';
 // Styles
@@ -32,7 +32,7 @@ const SportsSchedule = ({ sportsSchedule: { loading, error, data }, fetchSportsS
       {(!error && !loading) &&
         <div className="sports-schedule__items">
           {data.map(({ title, icon, content, id }) => (
-            <SportsScheduleTab key={id} event={id} title={title} icon={icon} content={content} />
+            <SportsScheduleItem key={id} event={id} title={title} icon={icon} content={content} />
           ))}
         </div>
       }

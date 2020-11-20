@@ -1,28 +1,35 @@
 import React from 'react';
-import classNames from 'classnames';
+import PropTypes from 'prop-types';
 // Components
-import Typography from 'components/typography/typography';
+import Accordion from 'components/accordion/accordion';
+import LiveProgramList from 'components/live-program-list/live-program-list';
+import AccordionTab from 'components/accordion-tab/accordion-tab';
 // Styles
 import './live-program-item.sass';
 
-const LiveProgramItem = ({ team1, team2, time, score, className }) => {
-  const classes = classNames({
-    'live-program-item': true,
-    [className]: className,
-  });
-
+const LiveProgramItem = ({ icon, title, program }) => {
   return (
-    <div className={classes}>
-      <div className="live-program-item__teams">
-        <Typography component="span" variant="p" className="mb-0 live-program-item__team">{team1}</Typography>
-        <Typography component="span" variant="p" className="mb-0 live-program-item__team">{team2}</Typography>
-      </div>
-      <div className="mb-0 live-program-item__details">
-        <Typography component="span" variant="p" className="mb-0 live-program-item__detail">{score}</Typography>
-        <Typography component="span" variant="p" className="mb-0 live-program-item__detail">{time}</Typography>
-      </div>
-    </div >
+    <>
+      <Accordion className="live-program-item">
+        <Accordion.Toggle>
+          <AccordionTab icon={icon} title={title} counter={program.length} data={program} />
+        </Accordion.Toggle>
+        <Accordion.Content>
+          {program.map(({ data, league }) => {
+            return (
+              <LiveProgramList key={league} league={league} data={data} />
+            )
+          })}
+        </Accordion.Content>
+      </Accordion >
+    </>
   );
+};
+
+LiveProgramItem.propTypes = {
+  icon: PropTypes.string,
+  title: PropTypes.string,
+  program: PropTypes.array,
 };
 
 export default LiveProgramItem;
