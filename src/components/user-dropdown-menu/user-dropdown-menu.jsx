@@ -13,7 +13,6 @@ import './user-dropdown-menu.sass';
 
 const UserDropdownMenu = ({ history, togglePersonalize }) => {
   const menu = [
-    { icon: 'sort-numeric-down', title: 'Odds display' },
     { icon: 'random', title: 'Betting style' },
     { icon: 'file-alt', title: 'Rules' },
     { icon: 'envelope', title: 'Mail' },

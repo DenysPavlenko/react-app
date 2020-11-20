@@ -43,16 +43,16 @@ const SportsTableItem = ({ icon, title, className, defaultColorScheme, breakpoin
       {(!spreadType || (spreadType === 'spread' && totalType !== 'team total')) &&
         <td>
           {isMobile ?
-            <SportsTableItemButton title="+3 2.00" />
+            <SportsTableItemButton title="+3 200" />
             :
             <div className="sports-table-item__wrap">
               <Select
                 className="sports-table-item__value"
                 onChange={() => { }}
                 options={[
-                  { value: '+3 2.00', label: '+3 2.00' },
-                  { value: '+3 1.00', label: '+3 1.00' },
-                  { value: '+3 3.00', label: '+3 3.00' },
+                  { value: '+3 200', label: '+3 200' },
+                  { value: '+3 100', label: '+3 100' },
+                  { value: '+3 300', label: '+3 300' },
                 ]}
                 inline
                 textSm
@@ -65,10 +65,10 @@ const SportsTableItem = ({ icon, title, className, defaultColorScheme, breakpoin
       {(!spreadType || (spreadType === 'moneyline' && totalType !== 'team total')) &&
         <td>
           {isMobile ?
-            <SportsTableItemButton title="2.5" />
+            <SportsTableItemButton title="245" />
             :
             <div className="sports-table-item__wrap">
-              <Typography component="span" variant="p-sm" className="sports-table-item__value">2.45</Typography>
+              <Typography component="span" variant="p-sm" className="sports-table-item__value">245</Typography>
               <Input type="number" standard="false" size="xs" noRadius className="sports-table-item__input" />
             </div>
           }
@@ -85,9 +85,9 @@ const SportsTableItem = ({ icon, title, className, defaultColorScheme, breakpoin
                 className="sports-table-item__value"
                 onChange={() => { }}
                 options={[
-                  { value: 'O 57½1.91', label: 'O 57½1.91' },
-                  { value: 'O 57½2.91', label: 'O 57½2.91' },
-                  { value: 'O 57½3.91', label: 'O 57½3.91' },
+                  { value: 'O 57½ 191', label: 'O 57½ 191' },
+                  { value: 'O 57½ 291', label: 'O 57½ 291' },
+                  { value: 'O 57½ 391', label: 'O 57½ 391' },
                 ]}
                 inline
                 textSm
@@ -103,20 +103,20 @@ const SportsTableItem = ({ icon, title, className, defaultColorScheme, breakpoin
           <div className="sports-table-item__row">
             <div className="sports-table-item__col">
               {isMobile ?
-                <SportsTableItemButton title="1.69" />
+                <SportsTableItemButton title="169" />
                 :
                 <div className="sports-table-item__row">
-                  <Typography component="span" variant="p-sm" className="sports-table-item__value">O 26½ 1.69</Typography>
+                  <Typography component="span" variant="p-sm" className="sports-table-item__value">O 26½ 169</Typography>
                   <Input type="number" standard="false" size="xs" noRadius className="sports-table-item__input" />
                 </div>
               }
             </div>
             <div className="sports-table-item__col">
               {isMobile ?
-                <SportsTableItemButton title="1.69" />
+                <SportsTableItemButton title="169" />
                 :
                 <div className="sports-table-item__row">
-                  <Typography component="span" variant="p-sm" className="sports-table-item__value">O 26½ 1.69</Typography>
+                  <Typography component="span" variant="p-sm" className="sports-table-item__value">O 26½ 169</Typography>
                   <Input type="number" standard="false" size="xs" noRadius className="sports-table-item__input" />
                 </div>
               }
