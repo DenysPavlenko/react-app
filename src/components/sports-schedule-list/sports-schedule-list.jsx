@@ -27,9 +27,12 @@ const SportsScheduleList = ({ title, content, event, sportsScheduleEvents, setSp
             <Typography component="span" variant="p" className="sports-schedule-list__title">{title}</Typography>
           </Accordion.Toggle>
           <Accordion.Content className="sports-schedule-list__content">
-            {content.map(({ title, id }) => (
-              <SportsScheduleListItem key={id} title={title} isActive={isActive} onClick={() => setSportsScheduleEvent(event)} onChange={() => setSportsScheduleEvents(event)} />
-            ))}
+            {content.map(({ id, title }) => {
+              const isActive = sportsScheduleEvents.includes(id);
+              return (
+                <SportsScheduleListItem key={id} title={title} isActive={isActive} onClick={() => setSportsScheduleEvent(id)} onChange={() => setSportsScheduleEvents(id)} />
+              )
+            })}
           </Accordion.Content>
         </Accordion>
       }
