@@ -15,12 +15,12 @@ const LiveProgramListItem = ({ team1, team2, time, score, className }) => {
   return (
     <div className={classes}>
       <div className="live-program-list-item__teams">
-        <Typography component="span" variant="p" className="mb-0 live-program-list-item__team">{team1}</Typography>
-        <Typography component="span" variant="p" className="mb-0 live-program-list-item__team">{team2}</Typography>
+        <Typography component="span" variant="p" className="live-program-list-item__team">{team1}</Typography>
+        <Typography component="span" variant="p" className="live-program-list-item__team">{team2}</Typography>
       </div>
-      <div className="mb-0 live-program-list-item__details">
-        <Typography component="span" variant="p" className="mb-0 live-program-list-item__detail">{score}</Typography>
-        <Typography component="span" variant="p" className="mb-0 live-program-list-item__detail">{time}</Typography>
+      <div className="live-program-list-item__details">
+        <Typography component="span" variant="p" className="live-program-list-item__detail">{score}</Typography>
+        <Typography component="span" variant="p" className="live-program-list-item__detail">{time}</Typography>
       </div>
     </div >
   );

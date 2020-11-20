@@ -20,9 +20,9 @@ const WagerType = ({ type, title, icon, background, isActive, className, ...othe
       {icon ?
         <FontAwesomeIcon className="wager-type__icon" icon={icon} />
         :
-        <Typography component="span" variant="h3" className="wager-type__letter mb-0 text-uppercase">{title[0]}</Typography>
+        <Typography component="span" variant="h3" className="wager-type__letter text-uppercase">{title[0]}</Typography>
       }
-      <Typography component="span" variant="h6" className="wager-type__title mb-0 text-uppercase">{title}</Typography>
+      <Typography component="span" variant="h6" className="wager-type__title text-uppercase">{title}</Typography>
     </div>
   );
 };

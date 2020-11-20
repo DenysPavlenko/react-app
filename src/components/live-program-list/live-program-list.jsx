@@ -9,7 +9,7 @@ import './live-program-list.sass';
 const LiveProgramList = ({ league, data }) => {
   return (
     <div className="live-program-list">
-      <Typography component="span" variant="p" className="mb-0 live-program-list__title">{league}</Typography>
+      <Typography component="span" variant="p" className="live-program-list__title">{league}</Typography>
       <div className="live-program-list__items">
         {data.map(({ id, team1, team2, time, score }) => (
           <LiveProgramListItem className="live-program-list__item" key={id} team1={team1} team2={team2} time={time} score={score} />

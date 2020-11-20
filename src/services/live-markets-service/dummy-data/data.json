@@ -1,0 +1,92 @@
+[
+  {
+    "id": "Tanzania Prisons @ Mtibwa Sugar",
+    "banner": "https://ezlive.bet/theme/Design/img/banners/soccer/Untitled-1.jpg",
+    "title": "Tanzania Prisons @ Mtibwa Sugar",
+    "content": [
+      {
+        "id": "1",
+        "type": "Fulltime Result",
+        "betsGroup": [
+          {
+            "id": "1",
+            "bets": [
+              {
+                "id": "1",
+                "title": "Dortmund (Weeman) Esports",
+                "odd": "-134"
+              },
+              {
+                "id": "2",
+                "title": "Draw",
+                "odd": "350"
+              },
+              {
+                "id": "3",
+                "title": "Inter (Sima) Esports",
+                "odd": "+210"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "type": "Double Chance",
+        "betsGroup": [
+          {
+            "id": "1",
+            "bets": [
+              {
+                "id": "1",
+                "title": "Dortmund (Weeman) Esports",
+                "odd": "-134"
+              },
+              {
+                "id": "2",
+                "title": "Draw",
+                "odd": "350"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "type": "To Win the Trophy",
+        "betsGroup": [
+          {
+            "id": "1",
+            "bets": [
+              {
+                "id": "1",
+                "title": "Dortmund (Weeman) Esports",
+                "odd": "-134"
+              },
+              {
+                "id": "2",
+                "title": "Draw",
+                "odd": "350"
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "bets": [
+              {
+                "id": "1",
+                "title": "Dortmund (Weeman) Esports",
+                "odd": "-134"
+              },
+              {
+                "id": "2",
+                "title": "Draw",
+                "odd": "350"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

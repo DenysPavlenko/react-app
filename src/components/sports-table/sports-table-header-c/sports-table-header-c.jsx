@@ -12,14 +12,14 @@ const SportsTableHeaderC = ({ date, title, channel }) => {
       <tr>
         <th colSpan="5">
           <div className="sports-table-header-c__wrap">
-            <Typography component="span" variant="h6" className="mb-0 text-uppercase">
+            <Typography component="span" variant="h6" className="text-uppercase">
               <Typography component="span" className="text-accent-green">{date}</Typography>
               {title}
             </Typography>
             {channel &&
               <div className="sports-table-header-c__right">
                 <FontAwesomeIcon icon="tv" className="sports-table-header-c__icon" />
-                <Typography component="span" variant="h6" className="mb-0 text-uppercase">{channel}</Typography>
+                <Typography component="span" variant="h6" className="text-uppercase">{channel}</Typography>
               </div>
             }
           </div>

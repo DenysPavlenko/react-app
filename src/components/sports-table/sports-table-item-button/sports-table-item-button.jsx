@@ -6,7 +6,7 @@ import './sports-table-item-button.sass';
 const SportsTableItemButton = ({ title }) => {
   return (
     <div className="sports-table-item-button" >
-      <Typography component="span" variant="p-sm" className="mb-0">{title}</Typography>
+      <Typography component="span" variant="p-sm">{title}</Typography>
     </div>
   )
 }

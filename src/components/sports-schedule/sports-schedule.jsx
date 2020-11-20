@@ -24,7 +24,7 @@ const SportsSchedule = ({ sportsSchedule: { loading, error, data }, fetchSportsS
   return (
     <div className="sports-schedule">
       <div className="sports-schedule__header">
-        <Typography component="h4" className="sports-schedule__heading mb-0">Sports Schedule</Typography>
+        <Typography component="h4" className="sports-schedule__heading">Sports Schedule</Typography>
         <Button type="button" variant="accent" className="sports-schedule__header-button" size="sm" onClick={toggleSportsPageSchedule}>Show</Button>
       </div>
       {error && <ErrorIndicator />}

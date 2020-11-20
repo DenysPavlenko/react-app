@@ -1,10 +1,8 @@
-const serverRespond = 500;
-
-const getDummyData = async (url, errorMsg = 'error', errorProbability = 0.99) => {
-  const res = await url.default;
+const getDummyData = async ({data, errorMsg = 'error', errorProbability = 0.99, timeOut = 500}) => {
+  const res = await data.default;
   await new Promise((res, rej) => setTimeout(() => {
     return Math.random() > errorProbability ? rej(new Error(errorMsg)) : res();
-  }, serverRespond));
+  }, timeOut));
   return res;
 };
 

@@ -21,8 +21,8 @@ const AccordionTab = ({ icon, title, counter, isActive, defaultColorScheme, onCl
   return (
     <div className={classes} onClick={onClick}>
       <FontAwesomeIcon className="accordion-tab__icon" icon={icon} />
-      <Typography component="span" variant="h3" className="mb-0 accordion-tab__title text-uppercase">{title}</Typography>
-      {counter > 0 && <Typography component="span" variant="p" className="mb-0 accordion-tab__counter text-uppercase">{counter}</Typography>}
+      <Typography component="span" variant="h3" className="accordion-tab__title text-uppercase">{title}</Typography>
+      {counter > 0 && <Typography component="span" variant="p" className="accordion-tab__counter text-uppercase">{counter}</Typography>}
     </div>
   );
 };

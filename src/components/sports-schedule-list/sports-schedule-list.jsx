@@ -24,7 +24,7 @@ const SportsScheduleList = ({ title, content, event, sportsScheduleEvents, setSp
         <Accordion>
           <Accordion.Toggle className="sports-schedule-list__heading">
             <FontAwesomeIcon className="sports-schedule-list__chevron" icon="chevron-down" />
-            <Typography component="span" variant="p" className="sports-schedule-list__title mb-0">{title}</Typography>
+            <Typography component="span" variant="p" className="sports-schedule-list__title">{title}</Typography>
           </Accordion.Toggle>
           <Accordion.Content className="sports-schedule-list__content">
             {content.map(({ title, id }) => (

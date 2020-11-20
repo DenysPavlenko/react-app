@@ -13,10 +13,10 @@ const SportsTableHeaderA = ({ toggleSpreadType, spreadType, toggleTotalType, tot
         <th></th>
         {totalType !== 'team total' &&
           <th>
-            {!spreadType && <Typography component="span" variant="h5" className="mb-0">Spread</Typography>}
+            {!spreadType && <Typography component="span" variant="h5">Spread</Typography>}
             {spreadType &&
               <div className="sports-table-header-a__item" onClick={toggleSpreadType}>
-                <Typography component="span" variant="h5" className="mb-0">{spreadType || 'Spread'}</Typography>
+                <Typography component="span" variant="h5">{spreadType || 'Spread'}</Typography>
                 <FontAwesomeIcon className="sports-table-header-a__icon" icon="sort" />
               </div>
             }
@@ -24,21 +24,21 @@ const SportsTableHeaderA = ({ toggleSpreadType, spreadType, toggleTotalType, tot
         }
         {!spreadType &&
           <th>
-            <Typography component="span" variant="h5" className="mb-0">moneyline</Typography>
+            <Typography component="span" variant="h5">moneyline</Typography>
           </th>
         }
         <th>
-          {!totalType && <Typography component="span" variant="h5" className="mb-0">Total</Typography>}
+          {!totalType && <Typography component="span" variant="h5">Total</Typography>}
           {totalType &&
             <div className="sports-table-header-a__item" onClick={toggleTotalType}>
-              <Typography component="span" variant="h5" className="mb-0">{totalType || 'Total'}</Typography>
+              <Typography component="span" variant="h5">{totalType || 'Total'}</Typography>
               <FontAwesomeIcon className="sports-table-header-a__icon" icon="sort" />
             </div>
           }
         </th>
         {!totalType &&
           <th>
-            <Typography component="span" variant="h5" className="mb-0">team total</Typography>
+            <Typography component="span" variant="h5">team total</Typography>
           </th>
         }
       </tr>

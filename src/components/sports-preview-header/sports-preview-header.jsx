@@ -20,7 +20,7 @@ const SportsPreviewHeader = ({ title, icon, defaultColorScheme, className }) => 
 
   return (
     <div className={classes}>
-      <Typography component="h2" className="mb-0 sports-preview-header__title">{title}</Typography>
+      <Typography component="h2" className="sports-preview-header__title">{title}</Typography>
       <div className="sports-preview-header__icon-wrap">
         <FontAwesomeIcon className="sports-preview-header__icon" icon={icon} />
       </div>

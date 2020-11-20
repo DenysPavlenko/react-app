@@ -22,7 +22,7 @@ const SportsScheduleListItem = ({ title, defaultColorScheme, isActive, className
   return (
     <div className={classes} onClick={onClick}>
       <Checkbox checked={isActive} onChange={onChange} className="sports-schedule-list-item__checkbox" />
-      <Typography component="span" variant="p" className={`mb-0 ${isActive ? 'text-light' : 'text-dark'}`}>{title}</Typography>
+      <Typography component="span" variant="p" className={`${isActive ? 'text-light' : 'text-dark'}`}>{title}</Typography>
     </div>
   )
 };
