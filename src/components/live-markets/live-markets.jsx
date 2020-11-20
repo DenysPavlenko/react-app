@@ -25,7 +25,6 @@ const LiveMarkets = ({ className, liveMarkets: { loading, error, data }, fetchLi
   useEffect(() => {
     fetchLiveMarketsData();
   }, [fetchLiveMarketsData]);
-  console.log(data);
 
   return (
     <div className={classes}>

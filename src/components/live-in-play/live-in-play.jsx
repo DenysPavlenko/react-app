@@ -2,6 +2,7 @@ import React from 'react';
 // Components
 import LiveProgram from 'components/live-program/live-program';
 import LiveMarkets from 'components/live-markets/live-markets';
+import LivePreview from 'components/live-preview/live-preview';
 // Styles
 import './live-in-play.sass';
 
@@ -15,7 +16,7 @@ const LiveInPlay = () => {
         <LiveMarkets />
       </div>
       <div className="live-in-play__right">
-        <div></div>
+        <LivePreview />
       </div>
     </div>
   );

@@ -5,15 +5,12 @@
   width: 100%
   background-color: lighten($c-black, 10%)
   th
-    padding: 2px 0
+    padding: 4px 0
     text-align: center
     text-transform: uppercase
     &:nth-child(1)
       width: 30%
-      padding: 0 5px
-      div
-        display: flex
-        justify-content: space-between
+      padding-left: 10px
       +media-max($bp-md)
         width: 50%
     &:nth-child(2)
@@ -28,3 +25,6 @@
       width: 15%
     &:nth-child(5)
       width: 30%
+  &__wrap
+    display: flex
+    justify-content: space-between

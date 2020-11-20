@@ -7,12 +7,14 @@
   align-items: center
   background-color: $c-light
   min-height: 36px
-  padding: 5px 15px 5px 5px
+  padding: 5px 10px
   cursor: pointer
   user-select: none
   transition: background-color 0.2s
   &:hover
     background-color: darken($c-light, 8%)
+    +media-max($bp-lg)
+      background-color: $c-light
   &.is-active
     color: $c-light
   // Color schemes

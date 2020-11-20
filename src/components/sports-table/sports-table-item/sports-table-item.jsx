@@ -37,7 +37,7 @@ const SportsTableItem = ({ icon, title, className, defaultColorScheme, breakpoin
       <td>
         <div className="sports-table-item__team">
           <Image src={icon} alt="icon" className="sports-table-item__team-icon" icon />
-          <Typography component="span" variant="p-sm">{title}</Typography>
+          <Typography component="p" variant="p-sm" className="sports-table-item__team-title">{title}</Typography>
         </div>
       </td>
       {(!spreadType || (spreadType === 'spread' && totalType !== 'team total')) &&
@@ -68,7 +68,7 @@ const SportsTableItem = ({ icon, title, className, defaultColorScheme, breakpoin
             <SportsTableItemButton title="245" />
             :
             <div className="sports-table-item__wrap">
-              <Typography component="span" variant="p-sm" className="sports-table-item__value">245</Typography>
+              <Typography component="p" variant="p-sm" className="sports-table-item__value">245</Typography>
               <Input type="number" standard="false" size="xs" noRadius className="sports-table-item__input" />
             </div>
           }
@@ -106,7 +106,7 @@ const SportsTableItem = ({ icon, title, className, defaultColorScheme, breakpoin
                 <SportsTableItemButton title="169" />
                 :
                 <div className="sports-table-item__row">
-                  <Typography component="span" variant="p-sm" className="sports-table-item__value">O 26½ 169</Typography>
+                  <Typography component="p" variant="p-sm" className="sports-table-item__value">O 26½ 169</Typography>
                   <Input type="number" standard="false" size="xs" noRadius className="sports-table-item__input" />
                 </div>
               }
@@ -116,7 +116,7 @@ const SportsTableItem = ({ icon, title, className, defaultColorScheme, breakpoin
                 <SportsTableItemButton title="169" />
                 :
                 <div className="sports-table-item__row">
-                  <Typography component="span" variant="p-sm" className="sports-table-item__value">O 26½ 169</Typography>
+                  <Typography component="p" variant="p-sm" className="sports-table-item__value">O 26½ 169</Typography>
                   <Input type="number" standard="false" size="xs" noRadius className="sports-table-item__input" />
                 </div>
               }

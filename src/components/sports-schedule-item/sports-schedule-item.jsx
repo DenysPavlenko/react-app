@@ -30,7 +30,7 @@ const SportsScheduleItem = ({ title, icon, content, event, sportsScheduleEvents,
           <Accordion.Toggle>
             <AccordionTab icon={icon} title={title} counter={content && content.length} isActive={isActive} onClick={handleTabClick} />
           </Accordion.Toggle>
-          <Accordion.Content>
+          <Accordion.Content className="sports-schedule-item__content">
             {content.map(({ title, content, id }) => (
               <SportsScheduleList key={id} title={title} content={content} event={id} />
             ))}

@@ -10,31 +10,31 @@ const SportsTableHeaderB = ({ day, spread, moneyLine, total, teamTotal, breakpoi
     <thead className="sports-table-header-b">
       <tr>
         <th>
-          <div>
-            <Typography component="span" variant="h6">{day}</Typography>
-            <Typography component="span" variant="h6">MAX:</Typography>
+          <div className="sports-table-header-b__wrap">
+            <Typography component="p" variant="h6">{day}</Typography>
+            <Typography component="p" variant="h6">MAX:</Typography>
           </div>
         </th>
         {totalType !== 'team total' &&
           <th>
-            <Typography component="span" variant="h6">
+            <Typography component="p" variant="h6">
               ${!spreadType ? `${spread}` : `${spreadType === 'spread' ? `${spread}` : `${moneyLine}`}`}
             </Typography>
           </th>
         }
         {!spreadType &&
           <th>
-            {moneyLine && <Typography component="span" variant="h6">${moneyLine}</Typography>}
+            {moneyLine && <Typography component="p" variant="h6">${moneyLine}</Typography>}
           </th>
         }
         <th style={{ width: totalType === 'team total' ? '50%' : null }}>
-          <Typography component="span" variant="h6">
+          <Typography component="p" variant="h6">
             ${!totalType ? `${total}` : `${totalType === 'total' ? `${total}` : `${teamTotal}`}`}
           </Typography>
         </th>
         {!totalType &&
           <th>
-            {teamTotal && <Typography component="span" variant="h6">${teamTotal}</Typography>}
+            {teamTotal && <Typography component="p" variant="h6">${teamTotal}</Typography>}
           </th>
         }
       </tr>
