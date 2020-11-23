@@ -1,0 +1,33 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.casino-navigation
+  width: 100%
+  background-color: $c-primary
+  padding: 0 30px
+  display: flex
+  align-items: center
+  &__items
+    display: flex
+    flex: 1
+  &__item
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 10px 15px 11px
+    cursor: pointer
+    opacity: 0.4
+    transition: 0.2s
+    &:hover,
+    &.is-active
+      opacity: 1
+    &.is-active
+      background-color: darken($c-primary, 5%)
+  &__icon
+    margin-bottom: 5px
+    g
+      fill: $c-light
+
+  &__search
+    flex: 1
+    max-width: 270px

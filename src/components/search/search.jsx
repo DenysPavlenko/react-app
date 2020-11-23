@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 // Components
 import Form from 'components/form/form';
 import Input from 'components/input/input';
@@ -10,7 +11,7 @@ import './search.sass';
 // Assets
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const Search = ({ className }) => {
+const Search = ({ className, radius }) => {
   const [searchValue, setSearchValue] = useState('');
   const [hideButton, setHideButton] = useState(true);
 
@@ -39,10 +40,15 @@ const Search = ({ className }) => {
   return (
     <Form onSubmit={handleSearchSubmit} className={classes}>
       <FontAwesomeIcon icon={faSearch} className="search__icon" />
-      <Input className="search__input" placeholder="Search..." value={searchValue} onChange={handleSearch} noRadius />
+      <Input className="search__input" placeholder="Search..." value={searchValue} onChange={handleSearch} noRadius={!radius} />
       <Button type="submit" className={`search__button ${hideButton ? 'is-hidden' : ''}`} variant="accent" size="sm">Go</Button>
     </Form>
   );
+};
+
+Search.propTypes = {
+  radius: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default Search;

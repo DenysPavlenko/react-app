@@ -52,17 +52,15 @@
     flex-direction: column
     justify-content: center
     cursor: pointer
-    transition: background-color 0.2s
+    transition: opacity 0.2s, background-color 0.2s
+    opacity: 0.5
     +media-max($bp-lg)
       height: 120px
       max-width: none
       width: 50%
     &:hover,
     &.active
-      .header-menu__text
-        color: $c-light
-      .header-menu__icon
-        opacity: 1
+      opacity: 1
     &.active
       +media-max($bp-lg)
         background-color: transparent !important
@@ -72,14 +70,10 @@
     font-size: rem(14px)
     line-height: 1
     font-weight: 400
-    color: rgba($c-light, 0.5)
+    color: $c-light
     margin-bottom: 4px
-    transition: 0.2s
-    +media-max($bp-xs)
   &__icon
     height: 25px
-    transition: 0.2s
-    opacity: 0.5
   &__button
     width: 100%
     max-width: 120px
@@ -88,11 +82,10 @@
     align-items: center
     flex-direction: column
     cursor: pointer
+    transition: 0.2s
+    opacity: 0.5
     &.is-active
-      .header-menu__text
-        color: $c-light
-      .header-menu__icon
-        opacity: 1
+      opacity: 1
     +media-max($bp-sm)
       padding: 0 10px
     +media-max($bp-xs)
