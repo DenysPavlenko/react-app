@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withBreakpoints } from 'react-breakpoints';
 // Components
+import Table from 'components/table/table';
 import SportsTableHeaderA from './sports-table-header-a/sports-table-header-a';
 import SportsTableHeaderB from './sports-table-header-b/sports-table-header-b';
 import SportsTableHeaderC from './sports-table-header-c/sports-table-header-c';
@@ -50,7 +51,7 @@ const SportsTable = ({ breakpoints, currentBreakpoint }) => {
   const toggleTotalType = () => toggleHandler(totalType, setTotalType, ['total', 'team total']);
 
   return (
-    <table className="sports-table">
+    <Table className="sports-table">
       <SportsTableHeaderA setTotalType={setTotalType} toggleSpreadType={toggleSpreadType} spreadType={spreadType} toggleTotalType={toggleTotalType} totalType={totalType} />
       {table.map((data) => {
         const { id, day, spread, moneyLine, total, teamTotal, time, title, channel, teams } = data;
@@ -66,7 +67,7 @@ const SportsTable = ({ breakpoints, currentBreakpoint }) => {
           </React.Fragment>
         )
       })}
-    </table >
+    </Table>
   );
 };
 

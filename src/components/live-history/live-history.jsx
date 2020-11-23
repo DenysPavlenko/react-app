@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+// Redux
+import { fetchLiveHistoryData } from 'redux/live-history/actions';
+import { selectLiveHistory } from 'redux/live-history/selectors';
+// Components
+// import Spinner
+import TicketTable from 'components/ticket-table/ticket-table';
 
-const LiveHistory = () => {
+const LiveHistory = ({ liveHistory, fetchLiveHistoryData }) => {
+
+  useEffect(() => {
+    fetchLiveHistoryData();
+  }, [fetchLiveHistoryData]);
+
   return (
-    <div>
-      <h1>Live history</h1>
+    <div className="live-hisoty">
+      <TicketTable title="Hisoty ticket" data={liveHistory} />
     </div>
   );
 };
 
-export default LiveHistory;
+const mapStateToProps = createStructuredSelector({
+  liveHistory: selectLiveHistory
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchLiveHistoryData: () => dispatch(fetchLiveHistoryData())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LiveHistory);

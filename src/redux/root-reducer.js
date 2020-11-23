@@ -8,6 +8,8 @@ import sportsPageScheduleReducer from './sports-page-schedule/reducer';
 import liveProgramReducer from './live-program/reducer';
 import liveMarketsReducer from './live-markets/reducer';
 import livePlayProgram from './live-play-program/reducer';
+import livePendingReducer from './live-pending/reducer';
+import liveHistoryReducer from './live-history/reducer';
 
 const rootReducer = combineReducers({
   personalize: personalizeReducer,
@@ -18,6 +20,8 @@ const rootReducer = combineReducers({
   liveProgram: liveProgramReducer,
   liveMarkets: liveMarketsReducer,
   livePlayProgram: livePlayProgram,
+  livePending: livePendingReducer,
+  liveHistory: liveHistoryReducer,
 });
 
 export default rootReducer;

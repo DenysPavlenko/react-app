@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './error-indicator.sass';
 // Assets
 
-const ErrorIndicator = ({ className }) => {
+const ErrorIndicator = ({ className, light }) => {
   const classes = classNames({
     'error-indicator': true,
     [className]: className
@@ -17,14 +17,15 @@ const ErrorIndicator = ({ className }) => {
   return (
     <div className={classes}>
       <FontAwesomeIcon className="error-indicator__icon" icon="exclamation-triangle" />
-      <Typography component="h4" className="text-dark">BOOM!</Typography>
-      <Typography component="p" className="text-dark">Something has gone terribly wrong</Typography>
+      <Typography component="h4" className={`${light ? 'text-light' : 'text-dark'}`}>BOOM!</Typography>
+      <Typography component="p" className={`${light ? 'text-light' : 'text-dark'}`}> Something has gone terribly wrong</Typography>
     </div>
   );
 };
 
 ErrorIndicator.propTypes = {
   className: PropTypes.string,
+  light: PropTypes.bool,
 };
 
 export default ErrorIndicator;
