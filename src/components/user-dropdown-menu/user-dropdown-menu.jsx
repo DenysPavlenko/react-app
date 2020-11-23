@@ -14,6 +14,7 @@ import './user-dropdown-menu.sass';
 const UserDropdownMenu = ({ history, togglePersonalize }) => {
   const menu = [
     { icon: 'random', title: 'Betting style' },
+    { icon: 'calendar', title: 'Scores' },
     { icon: 'file-alt', title: 'Rules' },
     { icon: 'envelope', title: 'Mail' },
     { icon: 'cog', title: 'Settings' },

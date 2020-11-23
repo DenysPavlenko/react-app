@@ -13,7 +13,7 @@ import SportsPreview from 'components/sports-preview/sports-preview';
 // Styles
 import './sports-page.sass';
 
-const SportsPage = ({ isScheduleActive, breakpoints, currentBreakpoint }) => {
+const SportsPage = ({ isScheduleShown, breakpoints, currentBreakpoint }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const SportsPage = ({ isScheduleActive, breakpoints, currentBreakpoint }) => {
 
   return (
     <div className="sports-page">
-      <div className={`sports-page__left ${isScheduleActive ? 'is-active' : ''}`}>
+      <div className={`sports-page__left ${isScheduleShown ? 'is-active' : ''}`}>
         {isMobile && <WagerTypes />}
         {!isMobile && <Search />}
         <SportsSchedule />
@@ -41,13 +41,13 @@ const SportsPage = ({ isScheduleActive, breakpoints, currentBreakpoint }) => {
 };
 
 SportsPage.propTypes = {
-  isScheduleActive: PropTypes.bool,
+  isScheduleShown: PropTypes.bool,
   breakpoints: PropTypes.object,
   currentBreakpoint: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
-  isScheduleActive: selectSportsPageSchedule
+  isScheduleShown: selectSportsPageSchedule
 });
 
 export default connect(mapStateToProps)(withBreakpoints(SportsPage));

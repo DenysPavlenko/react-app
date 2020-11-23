@@ -7,6 +7,7 @@ import sportsScheduleEventsReducer from './sports-schedule-events/reducer';
 import sportsPageScheduleReducer from './sports-page-schedule/reducer';
 import liveProgramReducer from './live-program/reducer';
 import liveMarketsReducer from './live-markets/reducer';
+import livePlayProgram from './live-play-program/reducer';
 
 const rootReducer = combineReducers({
   personalize: personalizeReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   sportsPageSchedule: sportsPageScheduleReducer,
   liveProgram: liveProgramReducer,
   liveMarkets: liveMarketsReducer,
+  livePlayProgram: livePlayProgram,
 });
 
 export default rootReducer;

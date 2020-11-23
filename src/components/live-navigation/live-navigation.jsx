@@ -15,9 +15,11 @@ const nav = [
 const LiveNavigation = () => {
   return (
     <div className="live-navigation">
-      {nav.map(({ title, rootName }, idx) => (
-        <NavLink key={idx} to={rootName} exact={true} className="live-navigation__item">{title}</NavLink>
-      ))}
+      <div className="live-navigation__wrap">
+        {nav.map(({ title, rootName }, idx) => (
+          <NavLink key={idx} to={rootName} exact={true} className="live-navigation__item">{title}</NavLink>
+        ))}
+      </div>
     </div>
   );
 };
