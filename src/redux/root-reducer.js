@@ -10,6 +10,7 @@ import liveMarketsReducer from './live-markets/reducer';
 import livePlayProgram from './live-play-program/reducer';
 import livePendingReducer from './live-pending/reducer';
 import liveHistoryReducer from './live-history/reducer';
+import casinoGamesReducer from './casino-games/reducer';
 
 const rootReducer = combineReducers({
   personalize: personalizeReducer,
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   livePlayProgram: livePlayProgram,
   livePending: livePendingReducer,
   liveHistory: liveHistoryReducer,
+  casinoGames: casinoGamesReducer,
 });
 
 export default rootReducer;

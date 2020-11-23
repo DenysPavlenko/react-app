@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 // Components
@@ -14,14 +14,14 @@ import { ReactComponent as Poker } from 'assets/images/icons/poker.svg';
 import { ReactComponent as Game } from 'assets/images/icons/game.svg';
 
 const items = [
-  { title: 'Lobby', icon: Dice },
-  { title: 'Table games', icon: Roulette },
-  { title: 'Slots', icon: Slots },
-  { title: 'Video poker', icon: Poker },
-  { title: 'Speciality gamse', icon: Game },
+  { title: 'Lobby', category: '', icon: Dice },
+  { title: 'Table games', category: 'tableGames', icon: Roulette },
+  { title: 'Slots', category: 'slots', icon: Slots },
+  { title: 'Video poker', category: 'videoPocker', icon: Poker },
+  { title: 'Speciality gamse', category: 'specialityGames', icon: Game },
 ];
 
-const CasinoNavigation = ({ className }) => {
+const CasinoNavigation = ({ className, activeCategory, handleNavigation, handleSearch }) => {
   const classes = classNames({
     'casino-navigation': true,
     [className]: className,
@@ -30,15 +30,15 @@ const CasinoNavigation = ({ className }) => {
   return (
     <div className={classes}>
       <div className="casino-navigation__items">
-        {items.map(({ title, icon: Icon }, idx) => (
-          <div key={idx} className={`casino-navigation__item ${idx === 0 && 'is-active'}`}>
+        {items.map(({ title, icon: Icon, category }, idx) => (
+          <div key={idx} className={`casino-navigation__item ${activeCategory === category ? 'is-active' : ''}`} onClick={() => handleNavigation(category)}>
             <Icon className="casino-navigation__icon" />
-            <Typography component="h6" className="casino-navigation__text text-uppercase">{title}</Typography>
+            <Typography component="h6" className="casino-navigation__title text-uppercase">{title}</Typography>
           </div>
         ))}
       </div>
       <div className="casino-navigation__search">
-        <Search radius />
+        <Search radius handleSearchInput={handleSearch} />
       </div>
     </div>
   );
@@ -46,6 +46,8 @@ const CasinoNavigation = ({ className }) => {
 
 CasinoNavigation.propTypes = {
   className: PropTypes.string,
+  activeCategory: PropTypes.string,
+  handleNavigation: PropTypes.func,
 };
 
 export default CasinoNavigation;

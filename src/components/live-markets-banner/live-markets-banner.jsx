@@ -14,7 +14,7 @@ const LiveMarketsBanner = ({ className, image }) => {
 
   return (
     <div className={classes}>
-      <Image className="live-banner__image" bgimage={image} />
+      <Image className="live-banner__image" bgImage={image} />
     </div>
   );
 };

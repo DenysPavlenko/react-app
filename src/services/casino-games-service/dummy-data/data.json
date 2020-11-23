@@ -1,0 +1,98 @@
+[
+  {
+    "id": "1",
+    "image": "https://ezlive.bet/theme/Design/img/banners/soccer/Untitled-1.jpg",
+    "title": "Game 1",
+    "minBet": 1,
+    "category": "tableGames",
+    "maxBet": 100
+  },
+  {
+    "id": "2",
+    "image": "https://ezlive.bet/theme/Design/img/banners/soccer/Untitled-1.jpg",
+    "title": "Game 2",
+    "minBet": 1,
+    "category": "slots",
+    "maxBet": 100
+  },
+  {
+    "id": "3",
+    "image": "https://ezlive.bet/theme/Design/img/banners/soccer/Untitled-1.jpg",
+    "title": "Game 3",
+    "minBet": 1,
+    "category": "videoPocker",
+    "maxBet": 100
+  },
+  {
+    "id": "4",
+    "image": "https://ezlive.bet/theme/Design/img/banners/soccer/Untitled-1.jpg",
+    "title": "Game 4",
+    "minBet": 1,
+    "category": "specialityGames",
+    "maxBet": 100
+  },
+  {
+    "id": "5",
+    "image": "https://ezlive.bet/theme/Design/img/banners/soccer/Untitled-1.jpg",
+    "title": "Game 5",
+    "minBet": 1,
+    "category": "tableGames",
+    "maxBet": 100
+  },
+  {
+    "id": "6",
+    "image": "https://ezlive.bet/theme/Design/img/banners/soccer/Untitled-1.jpg",
+    "title": "Game 6",
+    "minBet": 1,
+    "category": "slots",
+    "maxBet": 100
+  },
+  {
+    "id": "7",
+    "image": "https://ezlive.bet/theme/Design/img/banners/soccer/Untitled-1.jpg",
+    "title": "Game 7",
+    "minBet": 1,
+    "category": "videoPocker",
+    "maxBet": 100
+  },
+  {
+    "id": "8",
+    "image": "https://ezlive.bet/theme/Design/img/banners/soccer/Untitled-1.jpg",
+    "title": "Game 8",
+    "minBet": 1,
+    "category": "specialityGames",
+    "maxBet": 100
+  },
+  {
+    "id": "9",
+    "image": "https://ezlive.bet/theme/Design/img/banners/soccer/Untitled-1.jpg",
+    "title": "Game 9",
+    "minBet": 1,
+    "category": "tableGames",
+    "maxBet": 100
+  },
+  {
+    "id": "10",
+    "image": "https://ezlive.bet/theme/Design/img/banners/soccer/Untitled-1.jpg",
+    "title": "Game 10",
+    "minBet": 1,
+    "category": "slots",
+    "maxBet": 100
+  },
+  {
+    "id": "11",
+    "image": "https://ezlive.bet/theme/Design/img/banners/soccer/Untitled-1.jpg",
+    "title": "Game 11",
+    "minBet": 1,
+    "category": "videoPocker",
+    "maxBet": 100
+  },
+  {
+    "id": "12",
+    "image": "https://ezlive.bet/theme/Design/img/banners/soccer/Untitled-1.jpg",
+    "title": "Game 12",
+    "minBet": 1,
+    "category": "specialityGames",
+    "maxBet": 100
+  }
+]

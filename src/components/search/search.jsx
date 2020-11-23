@@ -11,25 +11,29 @@ import './search.sass';
 // Assets
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const Search = ({ className, radius }) => {
+const Search = ({ className, radius, handleSearch, handleSearchInput }) => {
   const [searchValue, setSearchValue] = useState('');
   const [hideButton, setHideButton] = useState(true);
 
-  const handleSearch = (e) => {
+  const handleInput = (e) => {
     const value = e.target.value;
     setSearchValue(value);
-    if (value) {
-      setHideButton(false);
+    if (typeof handleSearchInput !== 'function') {
+      if (value) {
+        setHideButton(false);
+      } else {
+        setHideButton(true);
+      }
     } else {
-      setHideButton(true);
+      handleSearchInput(value);
     }
   };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    if (!searchValue) {
-      return;
-    }
+    if (typeof handleSearchInput === 'function') { return; }
+    if (!searchValue) { return; }
+    handleSearch(searchValue);
   };
 
   const classes = classNames({
@@ -40,7 +44,7 @@ const Search = ({ className, radius }) => {
   return (
     <Form onSubmit={handleSearchSubmit} className={classes}>
       <FontAwesomeIcon icon={faSearch} className="search__icon" />
-      <Input className="search__input" placeholder="Search..." value={searchValue} onChange={handleSearch} noRadius={!radius} />
+      <Input className="search__input" placeholder="Search..." value={searchValue} onChange={handleInput} noRadius={!radius} />
       <Button type="submit" className={`search__button ${hideButton ? 'is-hidden' : ''}`} variant="accent" size="sm">Go</Button>
     </Form>
   );
@@ -49,6 +53,8 @@ const Search = ({ className, radius }) => {
 Search.propTypes = {
   radius: PropTypes.bool,
   className: PropTypes.string,
+  handleSearch: PropTypes.func,
+  handleSearchInput: PropTypes.func,
 };
 
 export default Search;
