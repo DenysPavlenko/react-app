@@ -1,6 +1,7 @@
 import React from 'react';
 // Components
 import HorsesSelect from 'components/horses-select/horses-select';
+import HorsesHeader from 'components/horses-header/horses-header';
 // Styles
 import './horses-preview.sass';
 
@@ -12,7 +13,7 @@ const HorsesPreview = () => {
           <HorsesSelect />
         </div>
         <div className="horses-preview__center">
-          <div></div>
+          <HorsesHeader />
         </div>
         <div className="horses-preview__right">
           <div></div>

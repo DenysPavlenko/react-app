@@ -45,7 +45,7 @@ const HeaderMenu = ({ defaultColorScheme, className, toggleSportsPageSchedule, i
   }, [breakpoints, currentBreakpoint]);
 
   const handleToggleMenu = () => {
-    isMobile && setIsMenuOpened(!isMenuOpened);
+    isMobile && setIsMenuOpened(isMenuOpened => !isMenuOpened);
   };
 
   const classes = classNames({
