@@ -3,14 +3,6 @@
 
 .pagination
   width: 100%
-  // Color schemes
-  @each $name, $color in $sch-colors
-    &--#{$name}
-      .pagination__item
-        background-color: $color
-        &.is-active,
-        &:hover
-          background-color: lighten($color, 10%)
   &__wrap
     display: flex
     flex-wrap: wrap
@@ -25,3 +17,6 @@
     line-height: 25px
     text-align: center
     transition: 0.2s
+    background-color: $c-accent-blue
+    &:hover
+      background-color: rgba($c-accent-blue, 0.5)
