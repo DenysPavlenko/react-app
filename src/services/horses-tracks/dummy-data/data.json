@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "title": "Thoroughbred",
+    "items": [
+      {
+        "id": "1",
+        "title": "Delta Downs",
+        "place": "1st",
+        "total": ">10h"
+      },
+      {
+        "id": "2",
+        "title": "Mahoning Valley",
+        "place": "1st",
+        "total": ">9h"
+      },
+      {
+        "id": "3",
+        "title": "Mountaineer Park",
+        "place": "1st",
+        "total": ">15h"
+      },
+      {
+        "id": "4",
+        "title": "Parx Racing",
+        "place": "1st",
+        "total": ">8h"
+      },
+      {
+        "id": "5",
+        "title": "Remington Park",
+        "place": "1st",
+        "total": ">9h"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Thoroughbred 2",
+    "items": [
+      {
+        "id": "1",
+        "title": "Delta Downs",
+        "place": "1st",
+        "total": ">10h"
+      },
+      {
+        "id": "2",
+        "title": "Mahoning Valley",
+        "place": "1st",
+        "total": ">9h"
+      },
+      {
+        "id": "3",
+        "title": "Mountaineer Park",
+        "place": "1st",
+        "total": ">15h"
+      },
+      {
+        "id": "4",
+        "title": "Parx Racing",
+        "place": "1st",
+        "total": ">8h"
+      },
+      {
+        "id": "5",
+        "title": "Remington Park",
+        "place": "1st",
+        "total": ">9h"
+      }
+    ]
+  }
+]

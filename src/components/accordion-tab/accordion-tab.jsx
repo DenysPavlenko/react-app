@@ -11,9 +11,10 @@ import Typography from 'components/typography/typography';
 // Styles
 import './accordion-tab.sass';
 
-const AccordionTab = ({ icon, title, counter, isActive, defaultColorScheme, onClick }) => {
+const AccordionTab = ({ icon, title, counter, isActive, defaultColorScheme, onClick, bordered }) => {
   const classes = classNames({
     'accordion-tab': true,
+    'accordion-tab--bordered': bordered,
     [`accordion-tab--${defaultColorScheme}`]: isActive && defaultColorScheme,
     'is-active': isActive,
   });

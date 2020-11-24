@@ -17,12 +17,13 @@
       background-color: $c-light
   &.is-active
     color: $c-light
+  &--bordered
+    border-bottom: 1px solid $c-alt-gray
   // Color schemes
   @each $name, $color in $sch-colors
     &--#{$name}
       &.is-active
         background-color: $color
-
   &__icon
     margin-right: 5px
     font-size: rem(20px)

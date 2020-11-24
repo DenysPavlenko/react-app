@@ -23,12 +23,12 @@
       padding: 0 5px
   &__wrap
     height: 100%
+    width: 100%
     +media-max($bp-lg)
       position: fixed
       top: $h-header
       left: -100%
       transition: 0.2s
-      width: 100%
       height: calc( 100% - 60px )
       background-color: $c-black
       flex-wrap: wrap
@@ -45,8 +45,8 @@
   &__item
     height: 100%
     padding: 0 10px
-    width: 8vw
-    max-width: 120px
+    width: 16%
+    min-width: 120px
     display: flex
     align-items: center
     flex-direction: column

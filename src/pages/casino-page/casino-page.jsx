@@ -31,27 +31,25 @@ const CasinoPage = ({ casinoGames: { loading, data, error }, fetchCasinoGamesDat
 
   return (
     <div className="casino-page">
-      <div className="casino-page__container">
-        <CasinoNavigation activeCategory={currentCategory} className="casino-page__navigation" handleNavigation={handleNavigation} handleSearch={handleSearch} />
-        {error && <div className="casino-page__info"><ErrorIndicator light /></div>}
-        {(!error && loading) && <div className="casino-page__info"><Spinner light /></div>}
-        {(!error && !loading) &&
-          <div className="casino-page__games">
-            {data
-              .filter(({ category }) => {
-                return currentCategory === '' ? true : category === currentCategory
-              })
-              .filter(({ title }) => {
-                return searchValue === '' ? true : (title.toLowerCase().indexOf(searchValue) !== -1)
-              })
-              .map(({ id, image, title, minBet, maxBet }) => (
-                <div key={id} className="casino-page__game">
-                  <CasinoCard image={image} title={title} minBet={minBet} maxBet={maxBet} />
-                </div>
-              ))}
-          </div>
-        }
-      </div>
+      <CasinoNavigation activeCategory={currentCategory} className="casino-page__navigation" handleNavigation={handleNavigation} handleSearch={handleSearch} />
+      {error && <div className="casino-page__info"><ErrorIndicator light /></div>}
+      {(!error && loading) && <div className="casino-page__info"><Spinner light /></div>}
+      {(!error && !loading) &&
+        <div className="casino-page__games">
+          {data
+            .filter(({ category }) => {
+              return currentCategory === '' ? true : category === currentCategory
+            })
+            .filter(({ title }) => {
+              return searchValue === '' ? true : (title.toLowerCase().indexOf(searchValue) !== -1)
+            })
+            .map(({ id, image, title, minBet, maxBet }) => (
+              <div key={id} className="casino-page__game">
+                <CasinoCard image={image} title={title} minBet={minBet} maxBet={maxBet} />
+              </div>
+            ))}
+        </div>
+      }
     </div>
   );
 };

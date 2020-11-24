@@ -26,15 +26,16 @@ const SportsPage = ({ isScheduleShown, breakpoints, currentBreakpoint }) => {
 
   return (
     <div className="sports-page">
-      <div className={`sports-page__left ${isScheduleShown ? 'is-active' : ''}`}>
-        {isMobile && <WagerTypes />}
-        {!isMobile && <Search />}
-        <SportsSchedule />
-      </div>
-      <div className="sports-page__right">
-        {!isMobile && <WagerTypes />}
-        {isMobile && <Search className="sports-page__search" />}
-        <SportsPreview />
+      <div className="sports-page__row">
+        <div className={`sports-page__left ${isScheduleShown ? 'is-active' : ''}`}>
+          {!isMobile && <Search />}
+          <SportsSchedule />
+        </div>
+        <div className="sports-page__right">
+          <WagerTypes />
+          {isMobile && <Search className="sports-page__search" />}
+          <SportsPreview />
+        </div>
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import livePlayProgram from './live-play-program/reducer';
 import livePendingReducer from './live-pending/reducer';
 import liveHistoryReducer from './live-history/reducer';
 import casinoGamesReducer from './casino-games/reducer';
+import HorsesTracksReducer from './horses-tracks/reducer';
 
 const rootReducer = combineReducers({
   personalize: personalizeReducer,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   livePending: livePendingReducer,
   liveHistory: liveHistoryReducer,
   casinoGames: casinoGamesReducer,
+  horsesTracks: HorsesTracksReducer,
 });
 
 export default rootReducer;

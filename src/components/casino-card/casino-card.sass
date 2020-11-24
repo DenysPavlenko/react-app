@@ -4,6 +4,14 @@
 .casino-card
   overflow: hidden
   border-radius: $r-primary $r-primary 0 0
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &--#{$name}
+      .casino-card__footer
+        background-color: $color
+      .casino-card__play
+        border: 2px solid $color
+
   &__body
     position: relative
     height: 100px
@@ -32,7 +40,6 @@
     display: flex
     justify-content: center
     align-items: center
-    border: 2px solid $c-accent-blue
     background-color: rgba($c-black, 0.4)
     border-radius: 50%
     z-index: 2
@@ -44,7 +51,6 @@
       font-size: rem(18px)
       padding-left: 4px
   &__footer
-    background-color: $c-primary
     text-align: center
     padding: 10px
   &__title
