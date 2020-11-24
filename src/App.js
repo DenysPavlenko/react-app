@@ -24,18 +24,18 @@ const App = ({ location }) => {
       <Personalize />
       <div className="app__background" />
       {(location.pathname !== '/sign-in') && <Header />}
-      <div className="app__content">
-        <ScrollToTop>
-          <Switch>
-            <Route path="/sign-in" exact component={SignInPage} />
+      <ScrollToTop>
+        <Switch>
+          <Route path="/sign-in" exact component={SignInPage} />
+          <div className="app__content">
             <Route path="/sports" exact component={SportsPage} />
             <Route path="/live" component={LivePage} />
             <Route path="/casino" exact component={CasinoPage} />
             <Route path="/horses" exact component={HorsesPage} />
             <Redirect to="/horses" />
-          </Switch>
-        </ScrollToTop>
-      </div>
+          </div>
+        </Switch>
+      </ScrollToTop>
     </div>
   );
 };

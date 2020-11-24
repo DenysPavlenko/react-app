@@ -4,12 +4,18 @@ import { withRouter } from 'react-router-dom';
 import Container from 'layout/container/container';
 // Components
 import SignIn from 'components/sign-in/sign-in';
+import Image from 'components/image/image';
 // Styles
 import './sign-in-page.sass';
+// Assets
+import logo from 'assets/images/logo.png';
 
 const LoginPage = ({ history }) => {
   return (
     <div className="sign-in-page">
+      <div className="sign-in-page__logo">
+        <Image src={logo} alt="logo"/>
+      </div>
       <Container>
         <SignIn onSignIn={() => { history.push('/sports') }} />
       </Container>
