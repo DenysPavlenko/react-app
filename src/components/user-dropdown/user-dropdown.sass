@@ -13,7 +13,7 @@
     transition: 0.2s
     &:hover,
     &.is-active
-      background-color: lighten($c-primary, 5%)
+      background-color: $c-primary-light
     &.is-active
       .user-dropdown__toggle-chevron
         transform: rotate(180deg)
@@ -36,7 +36,7 @@
       font-size: rem(15px)
 
   &__box
-    background-color: rgba($c-black, 0.95)
+    background-color: $c-primary
     width: 100%
     +media-max($bp-md)
       width: 250px

@@ -2,7 +2,7 @@
 @import ~styles/abstract/mixins
 
 .accordion-tab
-  color: $c-dark
+  color: $c-primary
   display: flex
   align-items: center
   background-color: $c-light
@@ -12,7 +12,7 @@
   user-select: none
   transition: background-color 0.2s
   &:hover
-    background-color: darken($c-light, 8%)
+    background-color: $c-light-gray
     +media-max($bp-lg)
       background-color: $c-light
   &.is-active
