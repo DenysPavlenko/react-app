@@ -7,6 +7,20 @@
   align-items: center
   cursor: pointer
   user-select: none
+  &--lg
+    .checkbox__box
+      width: 25px
+      height: 25px
+    .checkbox__checkmark-icon
+      font-size: rem(12px)
+      margin-left: 1px
+  &--light
+    .checkbox__checkmark
+      border: 2px solid $c-light
+      &-icon
+        color: $c-dark
+    .checkbox__input:checked ~ .checkbox__checkmark
+      background-color: $c-light !important
   &__label
     flex: 1
     &:first-child
@@ -30,10 +44,11 @@
     display: flex
     justify-content: center
     align-items: center
+    border-radius: $r-primary
     &-icon
       opacity: 0
       transition: 0.2s
-      font-size: 10px
+      font-size: rem(10px)
       color: $c-light
   .checkbox__input:checked ~ .checkbox__checkmark
     background-color: $c-dark

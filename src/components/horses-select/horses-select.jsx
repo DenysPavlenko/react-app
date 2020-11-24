@@ -36,7 +36,7 @@ const HorsesSelect = ({ horsesTracks: { loading, data, error }, fetchHorsesTrack
             <AccordionTab icon="search" title="Search" bordered />
           </Accordion.Toggle>
           <Accordion.Content className="horses-select__search">
-            <Typography component="h4" className="horses-select__search-title text-dark">Track</Typography>
+            <Typography component="h4" className="horses-select__search-title">Track</Typography>
             <Search className="horses-select__search-input" radius handleSearchInput={handleSearch} />
             <Button className="horses-select__search-button" fluid variant="accent">Advanced Search</Button>
           </Accordion.Content>
@@ -59,10 +59,10 @@ const HorsesSelect = ({ horsesTracks: { loading, data, error }, fetchHorsesTrack
                     })
                     .map(({ id, title, place, total }) => (
                       <div key={id} className="horses-select__list-item">
-                        <Typography component="h4" className="horses-select__list-item-title text-dark">{title}</Typography>
+                        <Typography component="h4" className="horses-select__list-item-title">{title}</Typography>
                         <div className="horses-select__list-item-info">
-                          <Typography component="p" className="horses-select__list-item-place text-dark">{place}</Typography>
-                          <Typography component="p" className="horses-select__list-item-total text-dark">{total}</Typography>
+                          <Typography component="p" className="horses-select__list-item-place">{place}</Typography>
+                          <Typography component="p" className="horses-select__list-item-total">{total}</Typography>
                         </div>
                       </div>
                     ))}

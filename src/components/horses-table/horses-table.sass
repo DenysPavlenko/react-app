@@ -1,0 +1,10 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.horses-table
+  overflow: auto
+  &__item
+    &:nth-child(odd)
+      background-color: $c-light-gray
+    &:nth-child(even)
+      background-color: $c-light

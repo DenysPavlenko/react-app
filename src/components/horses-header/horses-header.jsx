@@ -21,7 +21,6 @@ const HorsesHeader = () => {
   const handleSwitcherClick = () => {
     setShowDetails(showDetails => !showDetails);
   };
-  console.log('showDetails:', showDetails)
 
   return (
     <div className="horses-header">

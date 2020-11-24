@@ -1,23 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+// Redux
+import { selectColorScheme } from 'redux/color-scheme/selectors';
 // Styles
 import './horses-filters.sass';
 
-const filters = [
-  { id: 'straight', title: 'Straight' },
-  { id: 'exacta', title: 'Exacta' },
-  { id: 'trifecta', title: 'Trifecta' },
-  { id: 'superfecta', title: 'Superfecta' },
-  { id: 'dailyDouble', title: 'Daily Double' },
-  { id: 'pick3', title: 'Pick 3' },
-  { id: 'pick4', title: 'Pick 4' },
-];
+const HorsesFilters = ({ filters, currentFilter, handleFilter, defaultColorScheme }) => {
+  const classes = classNames({
+    'horses-filters': true,
+    [`horses-filters--${defaultColorScheme}`]: defaultColorScheme
+  });
 
-const HorsesFilters = () => {
   return (
-    <div className="horses-filters">
+    <div className={classes}>
       <div className="horses-filters__row">
         {filters.map(({ id, title }) => (
-          <div key={id} className="horses-filters__filter">
+          <div key={id} className={`horses-filters__filter ${id === currentFilter ? 'is-active' : ''}`} onClick={() => handleFilter(id)}>
             {title}
           </div>
         ))}
@@ -26,4 +27,15 @@ const HorsesFilters = () => {
   );
 };
 
-export default HorsesFilters;
+HorsesFilters.propTypes = {
+  filters: PropTypes.array,
+  currentFilter: PropTypes.string,
+  handleFilter: PropTypes.func,
+  defaultColorScheme: PropTypes.string,
+}
+
+const mapStateToProps = createStructuredSelector({
+  defaultColorScheme: selectColorScheme,
+});
+
+export default connect(mapStateToProps)(HorsesFilters);

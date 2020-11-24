@@ -3,6 +3,12 @@
 
 .horses-filters
   width: 100%
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &--#{$name}
+      .horses-filters__filter.is-active
+        background-color: $color
+
   &__row
     display: flex
     flex-wrap: wrap
@@ -22,5 +28,3 @@
     transition: background-color 0.2s
     &:hover
       background-color: rgba($c-alt-gray, 0.5)
-    &:is-active
-      background-color: $c-accent-blue

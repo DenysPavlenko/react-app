@@ -7,16 +7,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './checkbox.sass';
 
-const Checkbox = ({ checked, className, label, onChange, ...otherProps }) => {
+const Checkbox = ({ checked, className, label, onChange, size, variant, name, ...otherProps }) => {
   const classnames = classNames({
     'checkbox': true,
+    [`checkbox--${size}`]: size,
+    [`checkbox--${variant}`]: variant,
     [className]: className,
   });
 
   return (
     <label className={classnames} {...otherProps} onClick={(e) => e.stopPropagation()}>
       <div className="checkbox__box">
-        <Input standard={false} className="checkbox__input" type="checkbox" checked={checked} onChange={onChange} />
+        <Input standard={false} className="checkbox__input" type="checkbox" checked={checked} name={name} onChange={onChange} />
         <span className="checkbox__checkmark">
           <FontAwesomeIcon className="checkbox__checkmark-icon" icon="check" />
         </span>
@@ -32,6 +34,7 @@ Checkbox.defaultProps = {
 
 Checkbox.propTypes = {
   className: PropTypes.string,
+  name: PropTypes.string,
   label: PropTypes.node,
   onChange: PropTypes.func,
 };
