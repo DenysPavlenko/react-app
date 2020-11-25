@@ -4,7 +4,7 @@ import './live-preview.sass';
 // Components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SoccerLive from 'components/live-media/soccer-live/soccer-live';
-import BetSlip from 'components/bet-slip/bet-slip';
+import LiveBetSlip from 'components/live-bet-slip/live-bet-slip';
 // Assets
 import { ReactComponent as Field } from 'assets/images/icons/soccer-field.svg';
 
@@ -19,7 +19,7 @@ const LivePreview = () => {
         <SoccerLive />
       </div>
       <div className="live-preview__bet-slip">
-        <BetSlip />
+        <LiveBetSlip />
       </div>
     </div >
   );
