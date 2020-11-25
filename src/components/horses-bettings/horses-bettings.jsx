@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 // data
 import descriptions from './betting-descriptions';
 import bettings from './bettings';
+import limits from './betting-limits';
 // Components
 import HorsesFilters from 'components/horses-filters/horses-filters';
 import HorsesTable from 'components/horses-table/horses-table';
 import HorsesBetAmount from 'components/horses-bet-amount/horses-bet-amount';
+import HorsesBetLimits from 'components/horses-bet-limits/horses-bet-limits';
 import Typography from 'components/typography/typography';
 import Button from 'components/button/button';
 // Styles
 import './horses-bettings.sass';
 
 const HorseBettings = () => {
-  const [currentFilter, setCurrentFilter] = useState('exacta');
+  const [currentFilter, setCurrentFilter] = useState('straight');
   const [amountOption, setAmountOption] = useState('keyBox');
 
   const horseFilters = descriptions.map(({ id, title }) => ({ id, title }));
@@ -61,6 +63,13 @@ const HorseBettings = () => {
       </div>
       <div className="horses-bettings__add-bet">
         <Button variant="accent">Add bet slip</Button>
+      </div>
+      <div className="horses-bettings__limits">
+        {limits
+          .filter(({ id }) => id === currentFilter)
+          .map(({ id, title, min, max }) => (
+            <HorsesBetLimits showDetails={id === 'straight'} key={id} title={title} min={min} max={max} />
+          ))}
       </div>
     </div>
   );
