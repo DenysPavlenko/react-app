@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
-import { withBreakpoints } from 'react-breakpoints';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { NavLink } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
+import { withBreakpoints } from 'react-breakpoints';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux

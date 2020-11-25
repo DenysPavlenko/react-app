@@ -3,6 +3,7 @@ import React from 'react';
 import HorsesSelect from 'components/horses-select/horses-select';
 import HorsesHeader from 'components/horses-header/horses-header';
 import HorseBettings from 'components/horses-bettings/horses-bettings';
+import HorsesBetSlip from 'components/horses-bet-slip/horses-bet-slip';
 // Styles
 import './horses-preview.sass';
 
@@ -18,7 +19,7 @@ const HorsesPreview = () => {
           <HorseBettings />
         </div>
         <div className="horses-preview__right">
-          <div></div>
+          <HorsesBetSlip />
         </div>
       </div>
     </div>
