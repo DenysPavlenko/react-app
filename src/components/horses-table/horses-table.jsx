@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // Components
 import Table from 'components/table/table';
@@ -8,14 +8,52 @@ import HorsesTableItem from './horses-table-item/horses-table-item';
 // Styles
 import './horses-table.sass';
 
-const HorsesTable = ({ data }) => {
+const HorsesTable = ({ data, withCheckbox, checkboxColumns }) => {
+  const [globalBoxes, setGlobalBoxes] = useState([]);
+  const [checkedBoxes, setCheckedBoxes] = useState([]);
+
+  // Clear all boxes on checkboxColumns change
+  useEffect(() => {
+    setCheckedBoxes([]);
+    setGlobalBoxes([]);
+  }, [checkboxColumns]);
+
+  const handleItemCheck = e => {
+    const name = e.target.name;
+    setCheckedBoxes(checkedBoxes => {
+      return setHelper(checkedBoxes, name);
+    });
+  };
+
+  const handleItemsCheck = e => {
+    const name = e.target.name;
+    const checked = e.target.checked;
+    // Handle global checkboxes
+    setGlobalBoxes(globalBoxes => {
+      return setHelper(globalBoxes, name);
+    });
+    // Handle checkboxes
+    setCheckedBoxes(checkedBoxes => {
+      const items = data.map(({ bets }) => bets[name]);
+      if (checked) {
+        return [...checkedBoxes, ...items];
+      } else {
+        return [...checkedBoxes.filter((item) => !items.includes(item))];
+      }
+    });
+  };
+
+  const setHelper = (selects, name) => {
+    return selects.includes(name) ? selects.filter((item) => item !== name) : [...selects, name];
+  };
+
   return (
     <div className="horses-table">
       <HorsesTableTitle title="Race 1" />
       <Table className="horses-table">
-        <HorsesTableHeader />
+        <HorsesTableHeader handleItemsCheck={handleItemsCheck} withCheckbox={withCheckbox} checkboxColumns={checkboxColumns} globalBoxes={globalBoxes} />
         {data.map(({ id, ...otherProps }) => (
-          <HorsesTableItem key={id} id={id} {...otherProps} className="horses-table__item" />
+          <HorsesTableItem key={id} className="horses-table__item" checkedBoxes={checkedBoxes} handleItemCheck={handleItemCheck} withCheckbox={withCheckbox} id={id} checkboxColumns={checkboxColumns} {...otherProps} />
         ))}
       </Table>
     </div>
@@ -24,6 +62,7 @@ const HorsesTable = ({ data }) => {
 
 HorsesTable.propTypes = {
   data: PropTypes.array,
+  type: PropTypes.string,
 };
 
 export default HorsesTable;

@@ -34,7 +34,7 @@ Checkbox.defaultProps = {
 
 Checkbox.propTypes = {
   className: PropTypes.string,
-  name: PropTypes.string,
+  name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.node,
   onChange: PropTypes.func,
 };

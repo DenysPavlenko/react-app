@@ -11,22 +11,33 @@ import Button from 'components/button/button';
 // Styles
 import './horses-bettings.sass';
 
-const filters = descriptions.map(({ id, title }) => ({ id, title }));
-
 const HorseBettings = () => {
+  const [currentFilter, setCurrentFilter] = useState('exacta');
+  const [amountOption, setAmountOption] = useState('keyBox');
 
-  const [currentFilter, setCurrentFilter] = useState('straight');
+  const horseFilters = descriptions.map(({ id, title }) => ({ id, title }));
 
   const handleFilter = (filter) => {
     setCurrentFilter(filter);
+    setAmountOption('keyBox');
   };
 
-  const handleBoxesShow = () => (currentFilter === 'exacta' || currentFilter === 'trifecta' || currentFilter === 'superfecta');
+  const handleAmountOption = value => setAmountOption(value);
+
+  const handleButtonsShow = () => (currentFilter === 'exacta' || currentFilter === 'trifecta' || currentFilter === 'superfecta');
+
+  const checkboxColumns = () => {
+    if (amountOption === 'box') return 1;
+    else if (currentFilter === 'exacta') return 2;
+    else if (currentFilter === 'trifecta') return 3;
+    else if (currentFilter === 'superfecta') return 4;
+    else return 1;
+  };
 
   return (
     <div className="horses-bettings">
       <div className="horses-bettings__wrap">
-        <HorsesFilters currentFilter={currentFilter} filters={filters} handleFilter={handleFilter} />
+        <HorsesFilters currentFilter={currentFilter} filters={horseFilters} handleFilter={handleFilter} />
         <div className="horses-bettings__description">
           {descriptions
             .filter(({ id }) => id === currentFilter)
@@ -34,10 +45,19 @@ const HorseBettings = () => {
               <Typography key={id} component="p">{text}</Typography>
             ))}
         </div>
-        {currentFilter !== 'straight' && <HorsesBetAmount showBoxes={handleBoxesShow()} />}
+        {currentFilter !== 'straight' &&
+          <HorsesBetAmount
+            amountOption={amountOption}
+            options={[
+              { title: 'Box', option: 'box' },
+              { title: 'Box with key', option: 'keyBox' },
+            ]}
+            handleAmountOption={handleAmountOption}
+            showButtons={handleButtonsShow()}
+          />}
       </div>
       <div className="horses-bettings__table">
-        <HorsesTable data={bettings} />
+        <HorsesTable withCheckbox={currentFilter !== 'straight'} data={bettings} checkboxColumns={checkboxColumns()} />
       </div>
       <div className="horses-bettings__add-bet">
         <Button variant="accent">Add bet slip</Button>
