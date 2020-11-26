@@ -10,7 +10,6 @@ const createData = (id) => {
       {
         id: '12',
         time: '05:20 PM PST',
-        title: 'broadcast - fox',
         channel: 'fox',
         teams: [
           {
@@ -56,8 +55,7 @@ const createData = (id) => {
       {
         id: '13',
         time: '05:20 PM PST',
-        title: 'broadcast - fox',
-        channel: 'fox',
+        channel: 'CBS',
         teams: [
           {
             id: 'cardinals',
@@ -104,7 +102,8 @@ const createData = (id) => {
 };
 
 const data = [
-  createData('1')
+  createData('1'),
+  createData('2'),
 ];
 
 export default data;

@@ -6,11 +6,11 @@ import Typography from 'components/typography/typography';
 // Styles
 import './sports-table-item.sass'
 
-const SportsTableItem = ({ title, info, infoVertical, infoLeft, onClick }) => {
+const SportsTableItem = ({ title, info, infoPosition, infoLeft, onClick }) => {
   const infoClasses = classNames({
     'sports-table-item__info': true,
     'sports-table-item__info--left': infoLeft,
-    [`sports-table-item__info--${infoVertical}`]: infoVertical,
+    [`sports-table-item__info--${infoPosition}`]: infoPosition,
   });
 
   return (
@@ -24,7 +24,7 @@ const SportsTableItem = ({ title, info, infoVertical, infoLeft, onClick }) => {
 SportsTableItem.propTypes = {
   title: PropTypes.string,
   info: PropTypes.string,
-  infoVertical: PropTypes.bool,
+  infoPosition: PropTypes.string,
   infoLeft: PropTypes.bool,
   onClick: PropTypes.func,
 };

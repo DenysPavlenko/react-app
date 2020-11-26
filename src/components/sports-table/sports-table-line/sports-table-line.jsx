@@ -40,17 +40,17 @@ const SportsTableLine = ({ id, title, icon, spread, moneyLine, total, teamTotalF
       }
       {(!totalType || totalType === 'total') &&
         <td>
-          <SportsTableItem title={total.value} info={total.type} infoVertical={isFirst ? 'top' : 'bottom'} />
+          <SportsTableItem title={total.value} info={total.type} infoPosition={isFirst ? 'top' : 'bottom'} />
         </td>
       }
       {(!totalType || totalType === 'team total') &&
         <td>
           <div className="sports-table-line__row">
             <div className="sports-table-line__col">
-              <SportsTableItem title={teamTotalFirst.value} info={teamTotalFirst.type} infoVertical={isFirst ? 'top' : 'bottom'} infoLeft />
+              <SportsTableItem title={teamTotalFirst.value} info={teamTotalFirst.type} infoPosition={isFirst ? 'top' : 'bottom'} infoLeft />
             </div>
             <div className="sports-table-line__col">
-              <SportsTableItem title={teamTotalLast.value} info={teamTotalLast.type} infoVertical={isFirst ? 'top' : 'bottom'} />
+              <SportsTableItem title={teamTotalLast.value} info={teamTotalLast.type} infoPosition={isFirst ? 'top' : 'bottom'} />
             </div>
           </div>
         </td>
@@ -60,9 +60,18 @@ const SportsTableLine = ({ id, title, icon, spread, moneyLine, total, teamTotalF
 };
 
 SportsTableLine.propTypes = {
-  className: PropTypes.string,
+  id: PropTypes.string,
   icon: PropTypes.string,
   title: PropTypes.string,
+  spread: PropTypes.string,
+  moneyLine: PropTypes.string,
+  total: PropTypes.object,
+  teamTotalFirst: PropTypes.object,
+  teamTotalLast: PropTypes.object,
+  isFirst: PropTypes.bool,
+  spreadType: PropTypes.string,
+  totalType: PropTypes.string,
+  className: PropTypes.string,
   defaultColorScheme: PropTypes.string,
 };
 

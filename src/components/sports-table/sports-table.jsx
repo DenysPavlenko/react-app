@@ -40,7 +40,7 @@ const SportsTable = ({ breakpoints, currentBreakpoint }) => {
           <SportsTableHeaderB day={day} spread={spread} moneyLine={moneyLine} total={total} teamTotal={teamTotal} spreadType={spreadType} totalType={totalType} />
           {games.map(({ id, time, title, channel, teams }) => (
             <React.Fragment key={id}>
-              <SportsTableHeaderC time={time} title={title} channel={channel} />
+              <SportsTableHeaderC time={time} channel={channel} />
               <tbody>
                 {teams.map(({ id, ...otherProps }, idx) => (
                   <SportsTableLine key={id} id={id} isFirst={idx === 0} spreadType={spreadType} totalType={totalType} className="sports-table__item" {...otherProps} />
