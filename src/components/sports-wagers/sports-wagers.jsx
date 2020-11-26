@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect'
 // Redux
 import { selectSportsWages } from 'redux/sports-wagers/selectors';
+import { clearSportsWagers } from 'redux/sports-wagers/actions';
 // Components
 import Typography from 'components/typography/typography';
 import WagerTypes from 'components/wager-types/wager-types';
@@ -11,7 +13,7 @@ import SportsWager from 'components/sports-wager/sports-wager';
 // Styles
 import './sports-wagers.sass';
 
-const SportsBettings = ({ sportsWages }) => {
+const SportsBettings = ({ sportsWages, clearSportsWagers }) => {
   return (
     <div className="sports-wagers">
       <div className="sports-wagers__header">
@@ -36,7 +38,7 @@ const SportsBettings = ({ sportsWages }) => {
           </div>
           <div className="sports-wagers__buttons">
             <div className="sports-wagers__button">
-              <Button variant="danger" fluid>Clear all</Button>
+              <Button variant="danger" fluid onClick={clearSportsWagers}>Clear all</Button>
             </div>
             <div className="sports-wagers__button">
               <Button variant="accent" fluid>Place Wager(s)</Button>
@@ -48,8 +50,17 @@ const SportsBettings = ({ sportsWages }) => {
   );
 };
 
+SportsBettings.propTypes = {
+  sportsWages: PropTypes.array,
+  clearSportsWagers: PropTypes.func,
+};
+
 const mapStateToProps = createStructuredSelector({
   sportsWages: selectSportsWages
 });
 
-export default connect(mapStateToProps)(SportsBettings);
+const mapDispatchToProps = dispatch => ({
+  clearSportsWagers: () => dispatch(clearSportsWagers())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SportsBettings);
