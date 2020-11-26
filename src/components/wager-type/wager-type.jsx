@@ -8,7 +8,7 @@ import { selectColorScheme } from 'redux/color-scheme/selectors';
 // Styles
 import './wager-type.sass';
 
-const WagerType = ({ type, title, icon, defaultColorScheme, isActive, className, ...otherProps }) => {
+const WagerType = ({ type, title, icon, defaultColorScheme, isActive, className }) => {
   const classes = classNames({
     'wager-type': true,
     'is-active': isActive,
@@ -17,7 +17,7 @@ const WagerType = ({ type, title, icon, defaultColorScheme, isActive, className,
   });
 
   return (
-    <div className={classes} {...otherProps}>
+    <div className={classes}>
       <span className="wager-type__char">{title[0]}</span>
       <span className="wager-type__title">{title}</span>
     </div>

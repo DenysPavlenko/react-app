@@ -16,7 +16,7 @@ const SportsBettings = () => {
       <WagerTypes />
       <div className="sports-bettings__body"></div>
       <div className="sports-bettings__totals">
-        <Typography component="h4" className="sports-bettings__total"> Total Wagered: <span>$0.00</span></Typography>
+        <Typography component="h4" className="sports-bettings__total">Total Wagered: <span>$0.00</span></Typography>
         <Typography component="h4" className="sports-bettings__total">Total Possible Win: <span>$0.00</span></Typography>
       </div>
       <div className="sports-bettings__buttons">

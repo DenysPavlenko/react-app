@@ -1,33 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { withBreakpoints } from 'react-breakpoints';
+// Data
+import data from './data.js';
 // Components
 import Table from 'components/table/table';
 import SportsTableHeaderA from './sports-table-header-a/sports-table-header-a';
 import SportsTableHeaderB from './sports-table-header-b/sports-table-header-b';
 import SportsTableHeaderC from './sports-table-header-c/sports-table-header-c';
-import SportsTableItem from './sports-table-item/sports-table-item';
+import SportsTableLine from './sports-table-line/sports-table-line';
 // Styles
 import './sports-table.sass';
-// Assets
-import ArizonaCardianls from 'assets/images/team-logos/Arizona-Cardinals.png';
-import SeattleSeahawks from 'assets/images/team-logos/Seattle-Seahawks.png';
-import PhiladelphiaEagles from 'assets/images/team-logos/Philadelphia-Eagles.png';
-import ClevelandBrowns from 'assets/images/team-logos/Cleveland-Browns.png';
-
-const table = [
-  {
-    id: '1', day: 'thursday 11/19', spread: '50,000', moneyLine: '20,000', total: '20,000', teamTotal: '5,000', time: '05:20 PM PST', title: 'broadcast - fox', channel: 'fox', teams: [
-      { id: '1', icon: ArizonaCardianls, title: 'Arizona Cardinals' },
-      { id: '2', icon: SeattleSeahawks, title: 'Seattle Seahawks' },
-    ]
-  },
-  {
-    id: '2', day: 'sunday 11/22', spread: '50,000', moneyLine: '20,000', total: '20,000', teamTotal: '5,000', time: '05:20 PM PST', title: 'broadcast - fox', channel: 'fox', teams: [
-      { id: '1', icon: PhiladelphiaEagles, title: 'Philadelphia Eagles' },
-      { id: '2', icon: ClevelandBrowns, title: 'Cleveland Browns' },
-    ]
-  },
-];
 
 const SportsTable = ({ breakpoints, currentBreakpoint }) => {
   const [spreadType, setSpreadType] = useState(null);
@@ -53,20 +35,21 @@ const SportsTable = ({ breakpoints, currentBreakpoint }) => {
   return (
     <Table className="sports-table">
       <SportsTableHeaderA setTotalType={setTotalType} toggleSpreadType={toggleSpreadType} spreadType={spreadType} toggleTotalType={toggleTotalType} totalType={totalType} />
-      {table.map((data) => {
-        const { id, day, spread, moneyLine, total, teamTotal, time, title, channel, teams } = data;
-        return (
-          <React.Fragment key={id}>
-            <SportsTableHeaderB day={day} spread={spread} moneyLine={moneyLine} total={total} teamTotal={teamTotal} spreadType={spreadType} totalType={totalType} />
-            <SportsTableHeaderC time={time} title={title} channel={channel} />
-            <tbody>
-              {teams.map(({ id, icon, title }) => (
-                <SportsTableItem spreadType={spreadType} totalType={totalType} className="sports-table__item" key={id} icon={icon} title={title} />
-              ))}
-            </tbody>
-          </React.Fragment>
-        )
-      })}
+      {data.map(({ id, day, spread, moneyLine, total, teamTotal, games }) => (
+        <React.Fragment key={id}>
+          <SportsTableHeaderB day={day} spread={spread} moneyLine={moneyLine} total={total} teamTotal={teamTotal} spreadType={spreadType} totalType={totalType} />
+          {games.map(({ id, time, title, channel, teams }) => (
+            <React.Fragment key={id}>
+              <SportsTableHeaderC time={time} title={title} channel={channel} />
+              <tbody>
+                {teams.map(({ id, ...otherProps }, idx) => (
+                  <SportsTableLine key={id} id={id} isFirst={idx === 0} spreadType={spreadType} totalType={totalType} className="sports-table__item" {...otherProps} />
+                ))}
+              </tbody>
+            </React.Fragment>
+          ))}
+        </React.Fragment>
+      ))}
     </Table>
   );
 };
