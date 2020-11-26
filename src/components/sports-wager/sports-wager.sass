@@ -1,13 +1,14 @@
 @import ~styles/abstract/variables
 @import ~styles/abstract/mixins
 
-.sports-bettings-item
+.sports-wager
   color: $c-dark
   // Color schemes
   @each $name, $color in $sch-colors
     &--#{$name}
-      .sports-bettings-item__header
+      .sports-wager__header
         background-color: $color
+
   &__header
     padding: 3px 10px
     display: flex
@@ -15,8 +16,14 @@
     justify-content: space-between
     flex-wrap: wrap
     color: $c-light
+    cursor: pointer
+    user-select: none
     &-icon
       font-size: rem(14px)
+      line-height: 1
+      transition: 0.2s
+      &.is-active
+        transform: rotate(180deg)
   &__info
     display: flex
     align-items: center
@@ -34,7 +41,7 @@
     border: 1px solid $c-light-gray
     padding: 2px 5px
   &__details
-    padding: 0 10px 10px 10px
+    padding: 0 10px 15px 10px
   &__detail
     span
       font-weight: 700
@@ -47,11 +54,10 @@
     justify-content: space-between
   &__delete
     margin-right: 40px
+    cursor: pointer
   &__inputs
     display: flex
     align-items: center
-  &__input
-    max-width: 100%
     &-title
       white-space: nowrap
       margin: 0 10px

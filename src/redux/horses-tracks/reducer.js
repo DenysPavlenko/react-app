@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   errorDetails: null,
 };
 
-const HorsesTracksReducer = (state = INITIAL_STATE, action) => {
+const horsesTracksReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case HorsesTracksActionTypes.FETCH_HORSES_TRACKS_REQUEST:
       return {
@@ -35,4 +35,4 @@ const HorsesTracksReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default HorsesTracksReducer;
+export default horsesTracksReducer;

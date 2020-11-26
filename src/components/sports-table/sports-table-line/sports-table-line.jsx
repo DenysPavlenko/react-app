@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
 import { selectColorScheme } from 'redux/color-scheme/selectors';
+import { addSportsWager } from 'redux/sports-wagers/actions';
+import { selectActiveSportsWagers } from 'redux/sports-wagers/selectors';
 // Components
 import Image from 'components/image/image';
 import Typography from 'components/typography/typography';
@@ -12,13 +14,18 @@ import SportsTableItem from '../sports-table-item/sports-table-item';
 // Styles
 import './sports-table-line.sass';
 
-const SportsTableLine = ({ id, title, icon, spread, moneyLine, total, teamTotalFirst, teamTotalLast, isFirst, defaultColorScheme, spreadType, totalType, className }) => {
-
+const SportsTableLine = ({ id, title, icon, spread, moneyLine, total, teamTotalFirst, teamTotalLast, isFirst, defaultColorScheme, spreadType, totalType, className, addSportsWager, activeSportsWagers }) => {
   const classes = classNames({
     'sports-table-line': true,
     [`sports-table-line--${defaultColorScheme}`]: defaultColorScheme,
     [className]: className,
   });
+
+  const handleItemClick = (value, selection) => {
+    addSportsWager({
+      id: id + selection, icon, title, value, scheduled: 'November 29, 2020 10:00 AM PST', selection, notes: 'Broadcast - FOX'
+    });
+  };
 
   return (
     <tr className={classes}>
@@ -30,27 +37,27 @@ const SportsTableLine = ({ id, title, icon, spread, moneyLine, total, teamTotalF
       </td>
       {(!spreadType || (spreadType === 'spread' && totalType !== 'team total')) &&
         <td>
-          <SportsTableItem title={spread} />
+          <SportsTableItem value={spread} selection="spread" handleItemClick={handleItemClick} isActive={activeSportsWagers.includes(id + 'spread')} />
         </td>
       }
       {(!spreadType || (spreadType === 'moneyline' && totalType !== 'team total')) &&
         <td>
-          <SportsTableItem title={moneyLine} />
+          <SportsTableItem value={moneyLine} selection="moneyLine" handleItemClick={handleItemClick} isActive={activeSportsWagers.includes(id + 'moneyLine')} />
         </td>
       }
       {(!totalType || totalType === 'total') &&
         <td>
-          <SportsTableItem title={total.value} info={total.type} infoPosition={isFirst ? 'top' : 'bottom'} />
+          <SportsTableItem value={total.value} info={total.type} infoPosition={isFirst ? 'top' : 'bottom'} selection="total" handleItemClick={handleItemClick} isActive={activeSportsWagers.includes(id + 'total')} />
         </td>
       }
       {(!totalType || totalType === 'team total') &&
         <td>
           <div className="sports-table-line__row">
             <div className="sports-table-line__col">
-              <SportsTableItem title={teamTotalFirst.value} info={teamTotalFirst.type} infoPosition={isFirst ? 'top' : 'bottom'} infoLeft />
+              <SportsTableItem value={teamTotalFirst.value} info={teamTotalFirst.type} infoPosition={isFirst ? 'top' : 'bottom'} infoLeft selection="teamTotalFirst" handleItemClick={handleItemClick} isActive={activeSportsWagers.includes(id + 'teamTotalFirst')} />
             </div>
             <div className="sports-table-line__col">
-              <SportsTableItem title={teamTotalLast.value} info={teamTotalLast.type} infoPosition={isFirst ? 'top' : 'bottom'} />
+              <SportsTableItem value={teamTotalLast.value} info={teamTotalLast.type} infoPosition={isFirst ? 'top' : 'bottom'} selection="teamTotalLast" handleItemClick={handleItemClick} isActive={activeSportsWagers.includes(id + 'teamTotalLast')} />
             </div>
           </div>
         </td>
@@ -73,10 +80,17 @@ SportsTableLine.propTypes = {
   totalType: PropTypes.string,
   className: PropTypes.string,
   defaultColorScheme: PropTypes.string,
+  addSportsWager: PropTypes.func,
+  activeSportsWagers: PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme
+  defaultColorScheme: selectColorScheme,
+  activeSportsWagers: selectActiveSportsWagers,
 });
 
-export default connect(mapStateToProps)(SportsTableLine);
+const mapDispatchToProps = dispatch => ({
+  addSportsWager: (wager) => dispatch(addSportsWager(wager))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SportsTableLine);

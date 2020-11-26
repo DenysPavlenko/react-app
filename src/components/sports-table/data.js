@@ -13,7 +13,7 @@ const createData = (id) => {
         channel: 'fox',
         teams: [
           {
-            id: 'cardinals',
+            id: 'cardinals1',
             icon: 'https://ssl.gstatic.com/onebox/media/sports/logos/5Mh3xcc8uAsxAi3WZvfEyQ_48x48.png',
             title: 'Cardinals',
             spread: '+3 200',
@@ -32,7 +32,7 @@ const createData = (id) => {
             },
           },
           {
-            id: 'seahawks',
+            id: 'seahawks1',
             icon: 'https://ssl.gstatic.com/onebox/media/sports/logos/iVPY42GLuHmD05DiOvNSVg_96x96.png',
             title: 'Seahawks',
             spread: '+3 200',
@@ -58,7 +58,7 @@ const createData = (id) => {
         channel: 'CBS',
         teams: [
           {
-            id: 'cardinals',
+            id: 'cardinals2',
             icon: 'https://ssl.gstatic.com/onebox/media/sports/logos/5Mh3xcc8uAsxAi3WZvfEyQ_48x48.png',
             title: 'Cardinals',
             spread: '+3 200',
@@ -77,7 +77,7 @@ const createData = (id) => {
             },
           },
           {
-            id: 'seahawks',
+            id: 'seahawks2',
             icon: 'https://ssl.gstatic.com/onebox/media/sports/logos/iVPY42GLuHmD05DiOvNSVg_96x96.png',
             title: 'Seahawks',
             spread: '+3 200',
@@ -103,7 +103,6 @@ const createData = (id) => {
 
 const data = [
   createData('1'),
-  createData('2'),
 ];
 
 export default data;

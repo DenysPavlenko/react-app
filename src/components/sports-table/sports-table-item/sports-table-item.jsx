@@ -1,12 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+// Redux
+import { selectColorScheme } from 'redux/color-scheme/selectors';
 // Components
 import Typography from 'components/typography/typography';
 // Styles
 import './sports-table-item.sass'
 
-const SportsTableItem = ({ title, info, infoPosition, infoLeft, onClick }) => {
+const SportsTableItem = ({ value, info, infoPosition, infoLeft, isActive, selection, handleItemClick, defaultColorScheme }) => {
+  const classes = classNames({
+    'sports-table-item': true,
+    'is-active': isActive,
+    [`sports-table-item--${defaultColorScheme}`]: defaultColorScheme,
+  });
+
   const infoClasses = classNames({
     'sports-table-item__info': true,
     'sports-table-item__info--left': infoLeft,
@@ -14,19 +24,24 @@ const SportsTableItem = ({ title, info, infoPosition, infoLeft, onClick }) => {
   });
 
   return (
-    <div className="sports-table-item" onClick={onClick}>
-      <Typography component="span" variant="p-sm">{title}</Typography>
+    <div className={classes} onClick={() => handleItemClick(value, selection)}>
+      <Typography component="span" variant="p-sm">{value}</Typography>
       <Typography className={infoClasses}>{info}</Typography>
     </div>
   );
 };
 
 SportsTableItem.propTypes = {
-  title: PropTypes.string,
+  value: PropTypes.string,
   info: PropTypes.string,
   infoPosition: PropTypes.string,
+  defaultColorScheme: PropTypes.string,
   infoLeft: PropTypes.bool,
   onClick: PropTypes.func,
 };
 
-export default SportsTableItem;
+const mapStateToProps = createStructuredSelector({
+  defaultColorScheme: selectColorScheme,
+});
+
+export default connect(mapStateToProps)(SportsTableItem);

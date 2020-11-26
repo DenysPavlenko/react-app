@@ -14,7 +14,7 @@
 
   &__burger
     display: none
-    +media-max($bp-lg)
+    +media-max($bp-xl)
       display: flex
       height: 100%
       padding: 0 10px
@@ -24,7 +24,7 @@
   &__wrap
     height: 100%
     width: 100%
-    +media-max($bp-lg)
+    +media-max($bp-xl)
       position: fixed
       top: $h-header
       left: -100%
@@ -39,7 +39,7 @@
   &__items
     display: flex
     height: 100%
-    +media-max($bp-lg)
+    +media-max($bp-xl)
       flex-wrap: wrap
       height: auto
   &__item
@@ -54,7 +54,7 @@
     cursor: pointer
     transition: opacity 0.2s, background-color 0.2s
     opacity: 0.5
-    +media-max($bp-lg)
+    +media-max($bp-xl)
       height: 120px
       max-width: none
       width: 50%
@@ -62,7 +62,7 @@
     &.active
       opacity: 1
     &.active
-      +media-max($bp-lg)
+      +media-max($bp-xl)
         background-color: transparent !important
   &__text
     margin-top: -4px

@@ -1,0 +1,7 @@
+const SportsWagersActionTypes = {
+  TOGGLE_SPORTS_WAGER: 'TOGGLE_SPORTS_WAGER',
+  REMOVE_SPORTS_WAGER: 'REMOVE_SPORTS_WAGER',
+  CLEAR_SPORTS_WAGERS: 'CLEAR_SPORTS_WAGERS',
+};
+
+export default SportsWagersActionTypes;

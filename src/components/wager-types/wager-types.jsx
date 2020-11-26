@@ -19,7 +19,7 @@ const WagerTypes = () => {
   return (
     <div className="wager-types">
       {types.map(({ title, wager }, idx) => (
-        <WagerType key={idx} className="wager-types__type" title={title} wager={wager} isActive={activeWager === wager} onClick={() => setActiveWager(wager)} />
+        <WagerType key={idx} className="wager-types__type" title={title} wager={wager} isActive={activeWager === wager} setActiveWager={() => setActiveWager(wager)} />
       ))}
     </div>
   );

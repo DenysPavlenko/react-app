@@ -36,7 +36,7 @@ const HeaderMenu = ({ defaultColorScheme, className, toggleSportsPageSchedule, i
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (breakpoints[currentBreakpoint] < breakpoints.lg) {
+    if (breakpoints[currentBreakpoint] < breakpoints.xl) {
       setIsMobile(true);
     } else {
       setIsMobile(false);

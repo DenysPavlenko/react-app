@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withBreakpoints } from 'react-breakpoints';
 import { createStructuredSelector } from 'reselect';
 // Redux
 import { selectSportsPageSchedule } from 'redux/sports-page-schedule/selectors';
@@ -9,34 +8,23 @@ import { selectSportsPageSchedule } from 'redux/sports-page-schedule/selectors';
 import Search from 'components/search/search';
 import SportsSchedule from 'components/sports-schedule/sports-schedule';
 import SportsPreview from 'components/sports-preview/sports-preview';
-import SportsBettings from 'components/sports-bettings/sports-bettings';
+import SportsWagers from 'components/sports-wagers/sports-wagers';
 // Styles
 import './sports-page.sass';
 
 const SportsPage = ({ isScheduleShown, breakpoints, currentBreakpoint }) => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    if (breakpoints[currentBreakpoint] < breakpoints.lg) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  }, [breakpoints, currentBreakpoint]);
-
   return (
     <div className="sports-page">
       <div className="sports-page__row">
         <div className={`sports-page__left ${isScheduleShown ? 'is-active' : ''}`}>
-          {!isMobile && <Search />}
           <SportsSchedule />
         </div>
         <div className="sports-page__center">
-          {isMobile && <Search className="sports-page__search" />}
+          <Search className="sports-page__search" />
           <SportsPreview />
         </div>
         <div className="sports-page__right">
-          <SportsBettings />
+          <SportsWagers />
         </div>
       </div>
     </div>
@@ -53,4 +41,4 @@ const mapStateToProps = createStructuredSelector({
   isScheduleShown: selectSportsPageSchedule
 });
 
-export default connect(mapStateToProps)(withBreakpoints(SportsPage));
+export default connect(mapStateToProps)(SportsPage);

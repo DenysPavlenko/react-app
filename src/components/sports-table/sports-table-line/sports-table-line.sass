@@ -3,9 +3,9 @@
 
 .sports-table-line
   color: $c-primary
+  height: 1px
   // Color schemes
   @each $name, $color in $sch-colors
-    height: 1px
     &--#{$name}
       td:first-child
         border-right: 2px solid $color
@@ -25,18 +25,6 @@
     &-icon
       width: 25px
       margin-right: 4px
-  &__button
-    position: relative
-    width: 100%
-    height: 100%
-    display: block
-    text-align: center
-    border: 1px solid $c-alt-gray
-    background-color: $c-light
-    transition: 0.2s
-    cursor: pointer
-    &:hover
-      background-color: darken($c-light, 10%)
   &__info
     position: absolute
     right: 2px

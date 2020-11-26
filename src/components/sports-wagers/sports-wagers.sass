@@ -1,19 +1,20 @@
 @import ~styles/abstract/variables
 @import ~styles/abstract/mixins
 
-.sports-bettings
+.sports-wagers
   background-color: $c-light
   &__header
     background-color: $c-dark
     padding: 5px 10px
     display: flex
     justify-content: space-between
-  &__body
-    min-height: 300px
+  &__empty
+    min-height: 100px
+    padding: 10px
+    color: $c-dark
   &__totals
     color: $c-dark
     padding: 10px
-    border-top: 1px solid $c-light-gray
     border-bottom: 1px solid $c-light-gray
   &__total
     display: flex

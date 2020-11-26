@@ -11,8 +11,9 @@ import livePlayProgram from './live-play-program/reducer';
 import livePendingReducer from './live-pending/reducer';
 import liveHistoryReducer from './live-history/reducer';
 import casinoGamesReducer from './casino-games/reducer';
-import HorsesTracksReducer from './horses-tracks/reducer';
-import HorsesBetsReducer from './horses-bets/reducer';
+import horsesTracksReducer from './horses-tracks/reducer';
+import horsesBetsReducer from './horses-bets/reducer';
+import sportsWagersReducer from './sports-wagers/reducer';
 
 const rootReducer = combineReducers({
   personalize: personalizeReducer,
@@ -26,8 +27,9 @@ const rootReducer = combineReducers({
   livePending: livePendingReducer,
   liveHistory: liveHistoryReducer,
   casinoGames: casinoGamesReducer,
-  horsesTracks: HorsesTracksReducer,
-  horsesBets: HorsesBetsReducer,
+  horsesTracks: horsesTracksReducer,
+  horsesBets: horsesBetsReducer,
+  sportsWagers: sportsWagersReducer,
 });
 
 export default rootReducer;
