@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
 import { selectColorScheme } from 'redux/color-scheme/selectors';
-// Components
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Typography from 'components/typography/typography';
 // Styles
 import './wager-type.sass';
 
@@ -21,12 +18,8 @@ const WagerType = ({ type, title, icon, defaultColorScheme, isActive, className,
 
   return (
     <div className={classes} {...otherProps}>
-      {icon ?
-        <FontAwesomeIcon className="wager-type__icon" icon={icon} />
-        :
-        <Typography component="span" variant="h3" className="wager-type__letter text-uppercase">{title[0]}</Typography>
-      }
-      <Typography component="span" variant="h6" className="wager-type__title text-uppercase">{title}</Typography>
+      <span className="wager-type__char">{title[0]}</span>
+      <span className="wager-type__title">{title}</span>
     </div>
   );
 };
