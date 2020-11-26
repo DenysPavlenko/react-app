@@ -8,8 +8,8 @@ import { selectSportsPageSchedule } from 'redux/sports-page-schedule/selectors';
 // Components
 import Search from 'components/search/search';
 import SportsSchedule from 'components/sports-schedule/sports-schedule';
-import WagerTypes from 'components/wager-types/wager-types';
 import SportsPreview from 'components/sports-preview/sports-preview';
+import SportsBettings from 'components/sports-bettings/sports-bettings';
 // Styles
 import './sports-page.sass';
 
@@ -31,10 +31,12 @@ const SportsPage = ({ isScheduleShown, breakpoints, currentBreakpoint }) => {
           {!isMobile && <Search />}
           <SportsSchedule />
         </div>
-        <div className="sports-page__right">
-          <WagerTypes />
+        <div className="sports-page__center">
           {isMobile && <Search className="sports-page__search" />}
           <SportsPreview />
+        </div>
+        <div className="sports-page__right">
+          <SportsBettings />
         </div>
       </div>
     </div>

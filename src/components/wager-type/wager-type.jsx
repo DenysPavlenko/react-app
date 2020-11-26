@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+// Redux
+import { selectColorScheme } from 'redux/color-scheme/selectors';
 // Components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Typography from 'components/typography/typography';
 // Styles
 import './wager-type.sass';
 
-const WagerType = ({ type, title, icon, background, isActive, className, ...otherProps }) => {
+const WagerType = ({ type, title, icon, defaultColorScheme, isActive, className, ...otherProps }) => {
   const classes = classNames({
     'wager-type': true,
     'is-active': isActive,
-    [`wager-type--${background}`]: background,
+    [`wager-type--${defaultColorScheme}`]: defaultColorScheme,
     [className]: className
   });
 
@@ -31,9 +35,13 @@ WagerType.propTypes = {
   type: PropTypes.string,
   title: PropTypes.string,
   icon: PropTypes.string,
-  background: PropTypes.string,
+  defaultColorScheme: PropTypes.string,
   className: PropTypes.string,
   isActive: PropTypes.bool,
 };
 
-export default WagerType;
+const mapStateToProps = createStructuredSelector({
+  defaultColorScheme: selectColorScheme
+});
+
+export default connect(mapStateToProps)(WagerType);

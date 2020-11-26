@@ -32,7 +32,7 @@ const App = ({ location }) => {
             <Route path="/live" component={LivePage} />
             <Route path="/casino" exact component={CasinoPage} />
             <Route path="/horses" exact component={HorsesPage} />
-            <Redirect to="/horses" />
+            <Redirect to="/sports" />
           </Switch>
         </ScrollToTop>
       </div>

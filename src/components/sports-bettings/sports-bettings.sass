@@ -1,0 +1,31 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.sports-bettings
+  background-color: $c-light
+  &__header
+    background-color: $c-dark
+    padding: 5px 10px
+    display: flex
+    justify-content: space-between
+  &__body
+    min-height: 200px
+  &__totals
+    color: $c-dark
+    padding: 10px
+    border-top: 1px solid $c-light-gray
+    border-bottom: 1px solid $c-light-gray
+  &__total
+    display: flex
+    justify-content: space-between
+    &:not(:last-child)
+      margin-bottom: 10px
+  &__buttons
+    display: flex
+    justify-content: space-between
+    padding: 10px 10px
+    margin: 0 -4px
+  &__button
+    flex: 1
+    white-space: nowrap
+    padding: 4px
