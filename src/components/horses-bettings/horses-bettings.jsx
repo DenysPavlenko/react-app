@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+// Redux
+import { addHorsesBet } from 'redux/horses-bets/actions'
 // data
 import descriptions from './betting-descriptions';
 import bettings from './bettings';
@@ -13,7 +16,9 @@ import Button from 'components/button/button';
 // Styles
 import './horses-bettings.sass';
 
-const HorseBettings = () => {
+const horsesBet = { id: '1', amount: '1.00', bets: '2', details: '1st[1, 2] - 2nd[1, 2]', info: 'Charles Town, Nov 25, Race #1', total: '2', type: 'exacta' };
+
+const HorseBettings = ({ addHorsesBet }) => {
   const [currentFilter, setCurrentFilter] = useState('straight');
   const [amountOption, setAmountOption] = useState('keyBox');
 
@@ -62,7 +67,7 @@ const HorseBettings = () => {
         <HorsesTable withCheckbox={currentFilter !== 'straight'} data={bettings} checkboxColumns={checkboxColumns()} />
       </div>
       <div className="horses-bettings__add-bet">
-        <Button variant="accent">Add bet slip</Button>
+        <Button variant="accent" onClick={() => addHorsesBet({ ...horsesBet, id: Math.random() * 10 })}>Add bet slip</Button>
       </div>
       <div className="horses-bettings__limits">
         {limits
@@ -75,4 +80,8 @@ const HorseBettings = () => {
   );
 };
 
-export default HorseBettings;
+const mapDispatchToProps = dispatch => ({
+  addHorsesBet: (bet) => dispatch(addHorsesBet(bet))
+});
+
+export default connect(null, mapDispatchToProps)(HorseBettings);

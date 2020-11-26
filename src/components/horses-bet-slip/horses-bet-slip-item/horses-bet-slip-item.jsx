@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './horses-bet-slip-item.sass';
 
-const HorsesBetSlipItem = ({ id, type, info, details, bets, amount, total, className }) => {
+const HorsesBetSlipItem = ({ id, type, info, details, bets, amount, total, className, removeHorsesBet }) => {
   const classes = classNames({
     'horses-bet-slip-item': true,
     [className]: className
@@ -16,7 +16,7 @@ const HorsesBetSlipItem = ({ id, type, info, details, bets, amount, total, class
     <div className={classes}>
       <div className="horses-bet-slip-item__header">
         <Typography component="h4" className="horses-bet-slip-item__title">{type}</Typography>
-        <div className="horses-bet-slip-item__close">
+        <div className="horses-bet-slip-item__close" onClick={() => removeHorsesBet(id)}>
           <FontAwesomeIcon icon="times" />
         </div>
       </div>
