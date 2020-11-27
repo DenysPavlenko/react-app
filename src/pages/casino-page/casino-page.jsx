@@ -32,7 +32,7 @@ const CasinoPage = ({ casinoGames: { loading, data, error }, fetchCasinoGamesDat
   return (
     <div className="casino-page">
       <CasinoNavigation activeCategory={currentCategory} className="casino-page__navigation" handleNavigation={handleNavigation} handleSearch={handleSearch} />
-      {error && <div className="casino-page__info"><ErrorIndicator light /></div>}
+      {error && <div className="casino-page__info"><ErrorIndicator light retry={fetchCasinoGamesData} /></div>}
       {(!error && loading) && <div className="casino-page__info"><Spinner light /></div>}
       {(!error && !loading) &&
         <div className="casino-page__games">

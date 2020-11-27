@@ -11,7 +11,7 @@ import TicketTableContent from './ticket-table-content/ticket-table-content';
 // Styles
 import './ticket-table.sass';
 
-const TicketTable = ({ title, data }) => {
+const TicketTable = ({ title, data, retry }) => {
   return (
     <div className="ticket-table">
       <Typography component="h1" className="ticket-table__heading text-uppercase">{title}</Typography>
@@ -22,7 +22,7 @@ const TicketTable = ({ title, data }) => {
               <td className="ticket-table__left">
                 <Table>
                   <TicketTableHeader />
-                  <TicketTableItemsContainer {...data} />
+                  <TicketTableItemsContainer retry={retry} {...data} />
                 </Table>
               </td>
               <td className="ticket-table__right">
@@ -41,13 +41,13 @@ TicketTable.propTypes = {
   data: PropTypes.object,
 };
 
-const TicketTableItemsContainer = ({ loading, error, data }) => {
+const TicketTableItemsContainer = ({ loading, error, data, retry }) => {
   return (
     <tbody>
       { error &&
         <tr>
           <td className="ticket-table__indicator">
-            <ErrorIndicator light />
+            <ErrorIndicator light retry={retry} />
           </td>
         </tr>
       }
@@ -82,6 +82,7 @@ TicketTableItemsContainer.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.bool,
   data: PropTypes.array,
+  retry: PropTypes.func,
 };
 
 export default TicketTable;

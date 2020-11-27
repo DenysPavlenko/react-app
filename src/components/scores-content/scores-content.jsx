@@ -28,7 +28,7 @@ const ScoresContent = ({ toggleScores, fetchLiveProgramData, scores: { loading, 
         <Typography component="h2">Scoreboard</Typography>
       </div>
       <div className="scores-content__list">
-        {error && <ErrorIndicator light />}
+        {error && <ErrorIndicator light retry={fetchLiveProgramData} />}
         {(loading && !error) && <div className="scores-content__spinner"><Spinner className="" light /></div>}
         {(!loading && !error) &&
           <Simplebar className="custom-scroll">

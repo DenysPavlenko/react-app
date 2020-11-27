@@ -28,7 +28,7 @@ const LiveMarkets = ({ className, liveMarkets: { loading, error, data }, fetchLi
 
   return (
     <div className={classes}>
-      {error && <ErrorIndicator className="live-markets__error" />}
+      {error && <ErrorIndicator className="live-markets__error" retry={fetchLiveMarketsData} />}
       {(!error && loading) && <div className="live-markets__spinner"><Spinner /></div>}
       {(!error && !loading) &&
         <>

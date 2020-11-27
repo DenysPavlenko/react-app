@@ -13,6 +13,7 @@ import liveHistoryReducer from './live-history/reducer';
 import casinoGamesReducer from './casino-games/reducer';
 import horsesTracksReducer from './horses-tracks/reducer';
 import horsesBetsReducer from './horses-bets/reducer';
+import horsesPreviewSelectReducer from './horses-preview-select/reducer';
 import sportsWagersReducer from './sports-wagers/reducer';
 import scoresReducer from './scores/reducer';
 
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   casinoGames: casinoGamesReducer,
   horsesTracks: horsesTracksReducer,
   horsesBets: horsesBetsReducer,
+  horsesPreviewSelect: horsesPreviewSelectReducer,
   sportsWagers: sportsWagersReducer,
   scores: scoresReducer,
 });

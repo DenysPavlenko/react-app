@@ -3,12 +3,13 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 // Components
 import Typography from 'components/typography/typography';
+import Button from 'components/button/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './error-indicator.sass';
 // Assets
 
-const ErrorIndicator = ({ className, light }) => {
+const ErrorIndicator = ({ className, light, retry }) => {
   const classes = classNames({
     'error-indicator': true,
     [className]: className
@@ -19,6 +20,7 @@ const ErrorIndicator = ({ className, light }) => {
       <FontAwesomeIcon className="error-indicator__icon" icon="exclamation-triangle" />
       <Typography component="h4" className={`${light ? 'text-light' : 'text-dark'}`}>BOOM!</Typography>
       <Typography component="p" className={`${light ? 'text-light' : 'text-dark'}`}> Something has gone terribly wrong</Typography>
+      {retry && <Button className="error-indicator__button" variant="accent-blue" size="md" onClick={retry}>Retry</Button>}
     </div>
   );
 };
@@ -26,6 +28,7 @@ const ErrorIndicator = ({ className, light }) => {
 ErrorIndicator.propTypes = {
   className: PropTypes.string,
   light: PropTypes.bool,
+  retry: PropTypes.func,
 };
 
 export default ErrorIndicator;

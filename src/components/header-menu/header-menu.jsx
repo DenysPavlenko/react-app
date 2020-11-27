@@ -11,16 +11,19 @@ import { selectSportsPageSchedule } from 'redux/sports-page-schedule/selectors';
 import { toggleSportsPageSchedule } from 'redux/sports-page-schedule/actions';
 import { selectLivePlayProgram } from 'redux/live-play-program/selectors';
 import { toggleLivePlayProgram } from 'redux/live-play-program/actions';
+import { selectHorsesPreviewSelect } from 'redux/horses-preview-select/selectors';
+import { toggleHorsesPreviewSelect } from 'redux/horses-preview-select/actions';
 // Components
 import Burger from 'components/burger/burger';
 import Image from 'components/image/image';
 // Assets
-import cupIcon from 'assets/images/icons/cup.png'
-import timerIcn from 'assets/images/icons/timer.png'
-import cardsIcn from 'assets/images/icons/cards.png'
-import horseIcn from 'assets/images/icons/horse.png'
-import calendarIcn from 'assets/images/icons/calendar.png'
-import programIcn from 'assets/images/icons/list.png'
+import cupIcon from 'assets/images/icons/cup.png';
+import timerIcn from 'assets/images/icons/timer.png';
+import cardsIcn from 'assets/images/icons/cards.png';
+import horseIcn from 'assets/images/icons/horse.png';
+import calendarIcn from 'assets/images/icons/calendar.png';
+import programIcn from 'assets/images/icons/list.png';
+import horseSelectIcn from 'assets/images/icons/horse-alt.png';
 // Styles
 import './header-menu.sass';
 
@@ -31,7 +34,7 @@ const menu = [
   { name: 'Horses', rootName: '/horses', icon: horseIcn, alt: "horses" },
 ];
 
-const HeaderMenu = ({ defaultColorScheme, className, toggleSportsPageSchedule, isScheduleShown, location, breakpoints, currentBreakpoint, isProgramShown, toggleLivePlayProgram }) => {
+const HeaderMenu = ({ defaultColorScheme, className, toggleSportsPageSchedule, isScheduleShown, location, breakpoints, currentBreakpoint, isProgramShown, toggleLivePlayProgram, isHorsesSelectShown, toggleHorsesPreviewSelect }) => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -43,9 +46,7 @@ const HeaderMenu = ({ defaultColorScheme, className, toggleSportsPageSchedule, i
     }
   }, [breakpoints, currentBreakpoint]);
 
-  const handleToggleMenu = () => {
-    isMobile && setIsMenuOpened(isMenuOpened => !isMenuOpened);
-  };
+  const handleToggleMenu = () => isMobile && setIsMenuOpened(isMenuOpened => !isMenuOpened);
 
   const classes = classNames({
     'header-menu': true,
@@ -80,6 +81,12 @@ const HeaderMenu = ({ defaultColorScheme, className, toggleSportsPageSchedule, i
           <Image src={programIcn} className="header-menu__icon" alt="nav-icon" icon />
         </div>
       }
+      {(location.pathname === '/horses' && isMobile) &&
+        <div className={`header-menu__button ${isHorsesSelectShown ? 'is-active ' : ''}`} onClick={toggleHorsesPreviewSelect}>
+          <span className="header-menu__text">Program</span>
+          <Image src={horseSelectIcn} className="header-menu__icon" alt="nav-icon" icon />
+        </div>
+      }
     </div>
   );
 };
@@ -91,6 +98,8 @@ HeaderMenu.propTypes = {
   isScheduleShown: PropTypes.bool,
   toggleLivePlayProgram: PropTypes.func,
   isProgramShown: PropTypes.bool,
+  isHorsesSelectShown: PropTypes.bool,
+  toggleHorsesPreviewSelect: PropTypes.func,
   location: PropTypes.object,
   breakpoints: PropTypes.object,
   currentBreakpoint: PropTypes.string,
@@ -100,11 +109,13 @@ const mapStateToProps = createStructuredSelector({
   defaultColorScheme: selectColorScheme,
   isScheduleShown: selectSportsPageSchedule,
   isProgramShown: selectLivePlayProgram,
+  isHorsesSelectShown: selectHorsesPreviewSelect,
 });
 
 const mapDispatchToProps = dispatch => ({
   toggleSportsPageSchedule: () => dispatch(toggleSportsPageSchedule()),
   toggleLivePlayProgram: () => dispatch(toggleLivePlayProgram()),
+  toggleHorsesPreviewSelect: () => dispatch(toggleHorsesPreviewSelect()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(withBreakpoints(HeaderMenu)));

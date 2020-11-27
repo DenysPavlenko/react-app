@@ -12,7 +12,7 @@ import SportsWagers from 'components/sports-wagers/sports-wagers';
 // Styles
 import './sports-page.sass';
 
-const SportsPage = ({ isScheduleShown, breakpoints, currentBreakpoint }) => {
+const SportsPage = ({ isScheduleShown }) => {
   return (
     <div className="sports-page">
       <div className="sports-page__row">
@@ -33,8 +33,6 @@ const SportsPage = ({ isScheduleShown, breakpoints, currentBreakpoint }) => {
 
 SportsPage.propTypes = {
   isScheduleShown: PropTypes.bool,
-  breakpoints: PropTypes.object,
-  currentBreakpoint: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({

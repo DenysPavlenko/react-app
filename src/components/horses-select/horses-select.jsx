@@ -43,7 +43,7 @@ const HorsesSelect = ({ horsesTracks: { loading, data, error }, fetchHorsesTrack
         </Accordion>
       </div>
       <div className="horses-select__item">
-        {error && <ErrorIndicator />}
+        {error && <ErrorIndicator retry={fetchHorsesTracksData}/>}
         {(!error && loading) && <div className="horses-select__spinner"><Spinner /></div>}
         {(!error && !loading) &&
           <>
