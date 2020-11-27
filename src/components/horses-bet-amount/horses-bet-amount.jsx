@@ -42,7 +42,7 @@ const HorsesBetAmount = ({ showButtons, options, amountOption, handleAmountOptio
           }
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

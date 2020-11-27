@@ -21,7 +21,7 @@ const LivePreview = () => {
       <div className="live-preview__bet-slip">
         <LiveBetSlip />
       </div>
-    </div >
+    </div>
   );
 };
 

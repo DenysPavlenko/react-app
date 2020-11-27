@@ -22,7 +22,7 @@ const LiveProgramListItem = ({ team1, team2, time, score, className }) => {
         <Typography component="span" variant="p" className="live-program-list-item__detail">{score}</Typography>
         <Typography component="span" variant="p" className="live-program-list-item__detail">{time}</Typography>
       </div>
-    </div >
+    </div>
   );
 };
 
