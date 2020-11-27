@@ -16,7 +16,7 @@ const UserDropdownMenu = ({ history, togglePersonalize, toggleScores }) => {
   const menu = [
     { icon: 'random', title: 'Betting style' },
     { icon: 'calendar', title: 'Scores', handler: toggleScores },
-    { icon: 'file-alt', title: 'Rules' },
+    { icon: 'file-alt', title: 'Rules', rootName: '/rules' },
     { icon: 'envelope', title: 'Mail' },
     { icon: 'cog', title: 'Settings' },
     { icon: 'paint-brush', title: 'Personalize it', handler: togglePersonalize },

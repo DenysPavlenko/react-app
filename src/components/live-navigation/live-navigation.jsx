@@ -8,7 +8,7 @@ const nav = [
   { title: 'In-Play', rootName: '/live' },
   { title: 'Pending', rootName: '/live/pending' },
   { title: 'History', rootName: '/live/history' },
-  { title: 'Rules', rootName: '/sports' },
+  { title: 'Rules', rootName: '/rules' },
   { title: 'LiveTv', rootName: '/sports' },
 ];
 

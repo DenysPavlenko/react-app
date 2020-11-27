@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import PropTypes from 'prop-types';
 // Components
 import Typography from 'components/typography/typography';
 import Button from 'components/button/button';

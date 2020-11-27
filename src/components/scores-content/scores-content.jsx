@@ -15,7 +15,7 @@ import ScoresGroup from 'components/scores-group/scores-group';
 // Styles
 import './scores-content.sass';
 
-const ScoresContent = ({ fetchLiveProgramData, scores: { loading, data, error } }) => {
+const ScoresContent = ({ toggleScores, fetchLiveProgramData, scores: { loading, data, error } }) => {
 
   useEffect(() => {
     fetchLiveProgramData();

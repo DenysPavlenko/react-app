@@ -13,7 +13,7 @@ import SportsPage from 'pages/sports-page/sports-page';
 import LivePage from 'pages/live-page/live-page';
 import CasinoPage from 'pages/casino-page/casino-page';
 import HorsesPage from 'pages/horses-page/horses-page';
-import Simplebar from 'simplebar-react';
+import RulesPage from 'pages/rules-page/rules-page';
 // Styles
 import './app.sass';
 
@@ -35,7 +35,8 @@ const App = ({ location }) => {
             <Route path="/live" component={LivePage} />
             <Route path="/casino" exact component={CasinoPage} />
             <Route path="/horses" exact component={HorsesPage} />
-            <Redirect to="/sports" />
+            <Route path="/rules" exact component={RulesPage} />
+            <Redirect to="/rules" />
           </Switch>
         </ScrollToTop>
       </div>
