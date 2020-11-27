@@ -36,7 +36,7 @@ const App = ({ location }) => {
             <Route path="/casino" exact component={CasinoPage} />
             <Route path="/horses" exact component={HorsesPage} />
             <Route path="/rules" exact component={RulesPage} />
-            <Redirect to="/rules" />
+            <Redirect to="/sports" />
           </Switch>
         </ScrollToTop>
       </div>
