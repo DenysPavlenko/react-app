@@ -1,0 +1,35 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.mail-item
+  position: relative
+  width: 100%
+  background-color: $c-primary-light
+  display: flex
+  cursor: pointer
+  transition: background-color 0.2s
+  &:hover
+    background-color: $c-primary
+  &__left
+    width: 23px
+    background-color: $c-danger
+    display: flex
+    justify-content: center
+    align-items: center
+  &__center
+    flex: 1
+    display: flex
+    padding: 20px 10px
+    align-items: center
+  &__check
+    margin-right: 10px
+  &__name,
+  &__text
+    text-overflow: ellipsis
+    overflow: hidden
+    white-space: nowrap
+    max-width: 270px
+  &__date
+    position: absolute
+    top: 5px
+    right: 10px

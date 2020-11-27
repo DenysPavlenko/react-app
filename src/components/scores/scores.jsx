@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
-import { toggleScores, fetchLiveProgramData } from 'redux/scores/actions';
-import { selectScoresActive, selectScores } from 'redux/scores/selectors';
+import { toggleScores } from 'redux/scores/actions';
+import { selectScoresActive } from 'redux/scores/selectors';
 // Components
 import ScoresContent from 'components/scores-content/scores-content';
 // Styles
@@ -26,12 +26,10 @@ const Scores = ({ isActive, toggleScores }) => {
 
 Scores.propTypes = {
   isActive: PropTypes.bool,
-  scores: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({
   isActive: selectScoresActive,
-  scores: selectScores,
 });
 
 const mapDispatchToProps = dispatch => ({

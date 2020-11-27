@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
-import { toggleScores, fetchLiveProgramData } from 'redux/scores/actions';
+import { toggleScores, fetchScoresData } from 'redux/scores/actions';
 import { selectScores } from 'redux/scores/selectors';
 // Components
 import Typography from 'components/typography/typography';
@@ -15,11 +15,11 @@ import ScoresGroup from 'components/scores-group/scores-group';
 // Styles
 import './scores-content.sass';
 
-const ScoresContent = ({ toggleScores, fetchLiveProgramData, scores: { loading, data, error } }) => {
+const ScoresContent = ({ toggleScores, fetchScoresData, scores: { loading, data, error } }) => {
 
   useEffect(() => {
-    fetchLiveProgramData();
-  }, [fetchLiveProgramData])
+    fetchScoresData();
+  }, [fetchScoresData])
 
   return (
     <div className="scores-content">
@@ -28,8 +28,8 @@ const ScoresContent = ({ toggleScores, fetchLiveProgramData, scores: { loading, 
         <Typography component="h2">Scoreboard</Typography>
       </div>
       <div className="scores-content__list">
-        {error && <ErrorIndicator light retry={fetchLiveProgramData} />}
-        {(loading && !error) && <div className="scores-content__spinner"><Spinner className="" light /></div>}
+        {error && <ErrorIndicator light retry={fetchScoresData} />}
+        {(loading && !error) && <Spinner light boxed />}
         {(!loading && !error) &&
           <Simplebar className="custom-scroll">
             {data.map(({ id, title, scores }) => (
@@ -43,7 +43,7 @@ const ScoresContent = ({ toggleScores, fetchLiveProgramData, scores: { loading, 
 };
 
 ScoresContent.propTypes = {
-  fetchLiveProgramData: PropTypes.func,
+  fetchScoresData: PropTypes.func,
   toggleScores: PropTypes.func,
   scores: PropTypes.object,
 };
@@ -54,7 +54,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = dispatch => ({
   toggleScores: () => dispatch(toggleScores()),
-  fetchLiveProgramData: () => dispatch(fetchLiveProgramData()),
+  fetchScoresData: () => dispatch(fetchScoresData()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScoresContent);

@@ -1,3 +1,4 @@
+import { requestData, setData, setError } from '../_utils/fetch-utils';
 import SportsScheduleActionTypes from './types';
 
 const INITIAL_STATE = {
@@ -10,26 +11,11 @@ const INITIAL_STATE = {
 const sportsScheduleReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case SportsScheduleActionTypes.FETCH_SPORTS_SCHEDULE_REQUEST:
-      return {
-        loading: true,
-        data: null,
-        error: false,
-        errorDetails: null,
-      }
+      return requestData();
     case SportsScheduleActionTypes.FETCH_SPORTS_SCHEDULE_SUCCESS:
-      return {
-        loading: false,
-        data: action.payload,
-        error: false,
-        errorDetails: null,
-      }
+      return setData(action.payload);
     case SportsScheduleActionTypes.FETCH_SPORTS_SCHEDULE_FAILURE:
-      return {
-        loading: false,
-        data: null,
-        error: true,
-        errorDetails: action.payload,
-      }
+      return setError(action.payload);
     default:
       return state;
   }

@@ -1,3 +1,4 @@
+import { requestData, setData, setError } from '../_utils/fetch-utils';
 import LivePendingActionTypes from './types';
 
 const INITIAL_STATE = {
@@ -10,26 +11,11 @@ const INITIAL_STATE = {
 const livePendingReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case LivePendingActionTypes.FETCH_LIVE_PENDING_REQUEST:
-      return {
-        loading: true,
-        data: null,
-        error: false,
-        errorDetails: null,
-      }
+      return requestData();
     case LivePendingActionTypes.FETCH_LIVE_PENDING_SUCCESS:
-      return {
-        loading: false,
-        data: action.payload,
-        error: false,
-        errorDetails: null,
-      }
+      return setData(action.payload);
     case LivePendingActionTypes.FETCH_LIVE_PENDING_FAILURE:
-      return {
-        loading: false,
-        data: null,
-        error: true,
-        errorDetails: action.payload,
-      }
+      return setError(action.payload);
     default:
       return state;
   }

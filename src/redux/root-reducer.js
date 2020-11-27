@@ -16,6 +16,7 @@ import horsesBetsReducer from './horses-bets/reducer';
 import horsesPreviewSelectReducer from './horses-preview-select/reducer';
 import sportsWagersReducer from './sports-wagers/reducer';
 import scoresReducer from './scores/reducer';
+import mailReducer from './mail/reducer';
 
 const rootReducer = combineReducers({
   personalize: personalizeReducer,
@@ -34,6 +35,7 @@ const rootReducer = combineReducers({
   horsesPreviewSelect: horsesPreviewSelectReducer,
   sportsWagers: sportsWagersReducer,
   scores: scoresReducer,
+  mail: mailReducer,
 });
 
 export default rootReducer;

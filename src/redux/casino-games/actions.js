@@ -18,6 +18,6 @@ const casinoGamesError = error => ({
 export const fetchCasinoGamesData = () => (dispatch) => {
   dispatch(casinoGamesRequested());
   casinoGamesService.getCasinoGames()
-    .then((data) => dispatch(casinoGamesLoaded(data)))
-    .catch((error) => dispatch(casinoGamesError(error)))
+    .then(data => dispatch(casinoGamesLoaded(data)))
+    .catch(error => dispatch(casinoGamesError(error)))
 };

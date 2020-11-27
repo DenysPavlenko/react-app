@@ -1,3 +1,4 @@
+import { requestData, setData, setError } from '../_utils/fetch-utils';
 import ScoresActionTypes from './types';
 
 const INITIAL_STATE = {
@@ -21,32 +22,17 @@ const scoresReducer = (state = INITIAL_STATE, action) => {
     case ScoresActionTypes.FETCH_SCORES_REQUEST:
       return {
         ...state,
-        scores: {
-          loading: true,
-          data: null,
-          error: false,
-          errorDetails: null,
-        }
+        scores: requestData()
       }
     case ScoresActionTypes.FETCH_SCORES_SUCCESS:
       return {
         ...state,
-        scores: {
-          loading: false,
-          data: action.payload,
-          error: false,
-          errorDetails: null,
-        }
+        scores: setData(action.payload)
       }
     case ScoresActionTypes.FETCH_SCORES_FAILURE:
       return {
         ...state,
-        scores: {
-          loading: false,
-          data: null,
-          error: true,
-          errorDetails: action.payload,
-        }
+        scores: setError(action.payload)
       }
     default:
       return state;

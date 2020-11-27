@@ -11,8 +11,8 @@ import AccordionTab from 'components/accordion-tab/accordion-tab';
 import Search from 'components/search/search';
 import Typography from 'components/typography/typography';
 import Button from 'components/button/button';
-import ErrorIndicator from 'components/error-indicator/error-indicator';
 import Spinner from 'components/spinner/spinner';
+import ErrorIndicator from 'components/error-indicator/error-indicator';
 // Styles
 import './horses-select.sass';
 
@@ -44,7 +44,7 @@ const HorsesSelect = ({ horsesTracks: { loading, data, error }, fetchHorsesTrack
       </div>
       <div className="horses-select__item">
         {error && <ErrorIndicator retry={fetchHorsesTracksData}/>}
-        {(!error && loading) && <div className="horses-select__spinner"><Spinner /></div>}
+        {(!error && loading) && <Spinner boxed/>}
         {(!error && !loading) &&
           <>
             {data.map(({ id, title, items }) => (

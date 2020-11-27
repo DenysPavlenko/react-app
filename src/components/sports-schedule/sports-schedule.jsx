@@ -28,7 +28,7 @@ const SportsSchedule = ({ sportsSchedule: { loading, error, data }, fetchSportsS
         <Button type="button" variant="accent" className="sports-schedule__header-button" size="sm" onClick={toggleSportsPageSchedule}>Show</Button>
       </div>
       {error && <ErrorIndicator retry={fetchSportsScheduleData} />}
-      {(!error && loading) && <div className="sports-schedule__spinner"><Spinner /></div>}
+      {(!error && loading) && <Spinner boxed />}
       {(!error && !loading) &&
         <div className="sports-schedule__items">
           {data.map(({ title, icon, content, id }) => (

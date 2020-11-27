@@ -1,3 +1,4 @@
+import { requestData, setData, setError } from '../_utils/fetch-utils';
 import LiveHistoryActionTypes from './types';
 
 const INITIAL_STATE = {
@@ -10,26 +11,11 @@ const INITIAL_STATE = {
 const liveHistoryReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case LiveHistoryActionTypes.FETCH_LIVE_HISTORY_REQUEST:
-      return {
-        loading: true,
-        data: null,
-        error: false,
-        errorDetails: null,
-      }
+      return requestData();
     case LiveHistoryActionTypes.FETCH_LIVE_HISTORY_SUCCESS:
-      return {
-        loading: false,
-        data: action.payload,
-        error: false,
-        errorDetails: null,
-      }
+      return setData(action.payload);
     case LiveHistoryActionTypes.FETCH_LIVE_HISTORY_FAILURE:
-      return {
-        loading: false,
-        data: null,
-        error: true,
-        errorDetails: action.payload,
-      }
+      return setError(action.payload);
     default:
       return state;
   }

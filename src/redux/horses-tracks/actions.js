@@ -18,6 +18,6 @@ const horsesTracksError = error => ({
 export const fetchHorsesTracksData = () => (dispatch) => {
   dispatch(horsesTracksRequested());
   horsesTracksService.getHorsesTracks()
-    .then((data) => dispatch(horsesTracksLoaded(data)))
-    .catch((error) => dispatch(horsesTracksError(error)))
+    .then(data => dispatch(horsesTracksLoaded(data)))
+    .catch(error => dispatch(horsesTracksError(error)))
 };

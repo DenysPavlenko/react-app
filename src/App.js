@@ -7,6 +7,7 @@ import ScrollToTop from 'components/scroll-to-top/scroll-to-top';
 import Header from 'components/header/header';
 import Personalize from 'components/personalize/personalize';
 import Scores from 'components/scores/scores';
+import Mail from 'components/mail/mail';
 // Pages
 import SignInPage from 'pages/sign-in-page/sign-in-page';
 import SportsPage from 'pages/sports-page/sports-page';
@@ -25,6 +26,7 @@ const App = ({ location }) => {
     <div className="app">
       <Personalize />
       <Scores />
+      <Mail />
       <div className="app__background" />
       {(location.pathname !== '/sign-in') && <Header />}
       <div className={`${location.pathname !== '/sign-in' ? 'app__content' : ''}`}>

@@ -21,7 +21,7 @@ const LiveProgram = ({ liveProgram: { loading, error, data }, fetchLiveProgramDa
   return (
     <div className="live-program">
       {error && <ErrorIndicator retry={fetchLiveProgramData} />}
-      {(!error && loading) && <div className="live-program__spinner"><Spinner /></div>}
+      {(!error && loading) && <Spinner boxed />}
       {(!error && !loading) &&
         <div className="live-program__items">
           {data.map(({ id, icon, title, program }) => (

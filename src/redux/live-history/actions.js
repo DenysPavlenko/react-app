@@ -18,6 +18,6 @@ const liveHistoryError = error => ({
 export const fetchLiveHistoryData = () => (dispatch) => {
   dispatch(liveHistoryRequested());
   liveHistoryService.getLiveHistory()
-    .then((data) => dispatch(liveHistoryLoaded(data)))
-    .catch((error) => dispatch(liveHistoryError(error)))
+    .then(data => dispatch(liveHistoryLoaded(data)))
+    .catch(error => dispatch(liveHistoryError(error)))
 };

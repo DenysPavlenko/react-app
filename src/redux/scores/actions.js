@@ -19,9 +19,9 @@ const scoresError = error => ({
   payload: error
 });
 
-export const fetchLiveProgramData = () => (dispatch) => {
+export const fetchScoresData = () => (dispatch) => {
   dispatch(scoresRequested());
   scoresService.getScores()
-    .then((data) => dispatch(scoresLoaded(data)))
-    .catch((error) => dispatch(scoresError(error)))
+    .then(data => dispatch(scoresLoaded(data)))
+    .catch(error => dispatch(scoresError(error)))
 };

@@ -18,6 +18,6 @@ const liveProgramError = error => ({
 export const fetchLiveProgramData = () => (dispatch) => {
   dispatch(liveProgramRequested());
   liveProgramService.getLiveProgram()
-    .then((data) => dispatch(liveProgramLoaded(data)))
-    .catch((error) => dispatch(liveProgramError(error)))
+    .then(data => dispatch(liveProgramLoaded(data)))
+    .catch(error => dispatch(liveProgramError(error)))
 };

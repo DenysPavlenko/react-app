@@ -18,6 +18,6 @@ const sportsScheduleError = error => ({
 export const fetchSportsScheduleData = () => (dispatch) => {
   dispatch(sportsScheduleRequested());
   sportsScheduleService.getSportsSchedule()
-    .then((data) => dispatch(sportsScheduleLoaded(data)))
-    .catch((error) => dispatch(sportsScheduleError(error)))
+    .then(data => dispatch(sportsScheduleLoaded(data)))
+    .catch(error => dispatch(sportsScheduleError(error)))
 };

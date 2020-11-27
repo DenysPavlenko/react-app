@@ -18,6 +18,6 @@ const livePendingError = error => ({
 export const fetchLivePendingData = () => (dispatch) => {
   dispatch(livePendingRequested());
   livePendingService.getLivePending()
-    .then((data) => dispatch(livePendingLoaded(data)))
-    .catch((error) => dispatch(livePendingError(error)))
+    .then(data => dispatch(livePendingLoaded(data)))
+    .catch(error => dispatch(livePendingError(error)))
 };
