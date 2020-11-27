@@ -4,21 +4,22 @@ import classNames from 'classnames';
 // Assets
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
-import './close.sass';
+import './chevron.sass';
 
-const Close = ({ className, ...otherProps }) => {
+const Chevron = ({ className, isActive, ...otherProps }) => {
   const classes = classNames({
-    'close': true,
+    'chevron': true,
+    'is-active': isActive,
     [className]: className,
   });
 
   return (
-    <FontAwesomeIcon icon="times" className={classes} {...otherProps} />
+    <FontAwesomeIcon icon="chevron-down" className={classes} {...otherProps} />
   );
 };
 
-Close.propTypes = {
+Chevron.propTypes = {
   className: PropTypes.string,
 };
 
-export default Close;
+export default Chevron;

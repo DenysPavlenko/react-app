@@ -14,6 +14,7 @@ import casinoGamesReducer from './casino-games/reducer';
 import horsesTracksReducer from './horses-tracks/reducer';
 import horsesBetsReducer from './horses-bets/reducer';
 import sportsWagersReducer from './sports-wagers/reducer';
+import scoresReducer from './scores/reducer';
 
 const rootReducer = combineReducers({
   personalize: personalizeReducer,
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   horsesTracks: horsesTracksReducer,
   horsesBets: horsesBetsReducer,
   sportsWagers: sportsWagersReducer,
+  scores: scoresReducer,
 });
 
 export default rootReducer;

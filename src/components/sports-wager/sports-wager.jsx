@@ -10,7 +10,7 @@ import { removeSportsWager } from 'redux/sports-wagers/actions';
 import Typography from 'components/typography/typography';
 import Image from 'components/image/image';
 import Input from 'components/input/input';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Chevron from 'components/chevron/chevron';
 // Styles
 import './sports-wager.sass';
 
@@ -30,7 +30,7 @@ const SportsWager = ({ id, icon, title, value, scheduled, selection, notes, remo
     <div className={classes}>
       <div className="sports-wager__header" onClick={handleHeaderClick}>
         <Typography component="h5" className="sports-wager__header-title">NFL</Typography>
-        <FontAwesomeIcon icon="chevron-down" className={`sports-wager__header-icon ${showDetails ? 'is-active' : ''}`} />
+        <Chevron isActive={showDetails} />
       </div>
       <div className="sports-wager__info">
         <div className="sports-wager__team">

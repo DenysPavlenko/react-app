@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 // Redux
 import { togglePersonalize } from 'redux/personalize/actions';
+import { toggleScores } from 'redux/scores/actions';
 // Components
 import Image from 'components/image/image';
 import BalanceOverview from 'components/balance-overview/balance-overview';
@@ -11,10 +12,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './user-dropdown-menu.sass';
 
-const UserDropdownMenu = ({ history, togglePersonalize }) => {
+const UserDropdownMenu = ({ history, togglePersonalize, toggleScores }) => {
   const menu = [
     { icon: 'random', title: 'Betting style' },
-    { icon: 'calendar', title: 'Scores' },
+    { icon: 'calendar', title: 'Scores', handler: toggleScores },
     { icon: 'file-alt', title: 'Rules' },
     { icon: 'envelope', title: 'Mail' },
     { icon: 'cog', title: 'Settings' },
@@ -49,11 +50,13 @@ const UserDropdownMenu = ({ history, togglePersonalize }) => {
 
 UserDropdownMenu.propTypes = {
   togglePersonalize: PropTypes.func,
+  toggleScores: PropTypes.func,
   history: PropTypes.object,
 };
 
 const mapDispatchToProps = dispatch => ({
   togglePersonalize: () => dispatch(togglePersonalize()),
+  toggleScores: () => dispatch(toggleScores()),
 });
 
 export default connect(null, mapDispatchToProps)(withRouter(UserDropdownMenu));

@@ -1,7 +1,6 @@
 import LiveHistoryActionTypes from './types';
-// Services
+// Live history service
 import LiveHistoryService from 'services/live-history-service';
-// Games service
 const liveHistoryService = new LiveHistoryService();
 
 const liveHistoryRequested = () => ({

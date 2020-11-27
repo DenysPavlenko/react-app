@@ -1,7 +1,6 @@
 import LiveMarketsActionTypes from './types';
-// Services
+// Live markets service
 import LiveMarketsService from 'services/live-markets-service';
-// Games service
 const liveMarketsService = new LiveMarketsService();
 
 const liveProgramRequested = () => ({

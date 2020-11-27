@@ -9,6 +9,7 @@ import { store } from './redux/store';
 import App from './App';
 // Styles
 import './index.sass';
+import 'simplebar/dist/simplebar.min.css';
 
 const breakpoints = {
   xs: 461,

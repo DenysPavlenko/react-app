@@ -1,7 +1,6 @@
 import LiveProgramActionTypes from './types';
-// Services
+// Live program service
 import LiveProgramService from 'services/live-program-service';
-// Games service
 const liveProgramService = new LiveProgramService();
 
 const liveProgramRequested = () => ({

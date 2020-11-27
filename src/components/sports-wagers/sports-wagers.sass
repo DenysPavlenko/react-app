@@ -12,11 +12,20 @@
     min-height: 100px
     padding: 10px
     color: $c-dark
+  &__wrap
+    height: calc( 100vh - 99px )
+    display: flex
+    flex-direction: column
+  &__list
+    flex: 1
+    min-height: 0
   &__totals
     color: $c-dark
     padding: 10px
     border-bottom: 1px solid $c-light-gray
+    margin-top: auto
   &__total
+    margin-top: auto
     display: flex
     justify-content: space-between
     &:not(:last-child)

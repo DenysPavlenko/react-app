@@ -6,12 +6,14 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import ScrollToTop from 'components/scroll-to-top/scroll-to-top';
 import Header from 'components/header/header';
 import Personalize from 'components/personalize/personalize';
+import Scores from 'components/scores/scores';
 // Pages
 import SignInPage from 'pages/sign-in-page/sign-in-page';
 import SportsPage from 'pages/sports-page/sports-page';
 import LivePage from 'pages/live-page/live-page';
 import CasinoPage from 'pages/casino-page/casino-page';
 import HorsesPage from 'pages/horses-page/horses-page';
+import Simplebar from 'simplebar-react';
 // Styles
 import './app.sass';
 
@@ -22,6 +24,7 @@ const App = ({ location }) => {
   return (
     <div className="app">
       <Personalize />
+      <Scores />
       <div className="app__background" />
       {(location.pathname !== '/sign-in') && <Header />}
       <div className={`${location.pathname !== '/sign-in' ? 'app__content' : ''}`}>

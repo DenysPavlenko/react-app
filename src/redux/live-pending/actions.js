@@ -1,7 +1,6 @@
 import LivePendingActionTypes from './types';
-// Services
+// Live pending service
 import LivePendingService from 'services/live-pending-service';
-// Games service
 const livePendingService = new LivePendingService();
 
 const livePendingRequested = () => ({

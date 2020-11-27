@@ -9,18 +9,18 @@
   height: 100%
   width: 100%
   max-width: 350px
-  padding: 15px
   box-shadow: $s-primary
   display: flex
   flex-direction: column
   z-index: 500
-  +media-max($bp-sm)
-    max-width: 70%
   &__close
-    margin-bottom: 20px
+    margin: 10px
   &__items
+    flex: 1
+    min-height: 0
     display: flex
     flex-direction: column
+    padding: 10px
   &__item
     &:not(:last-child)
       margin-bottom: 10px

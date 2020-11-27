@@ -6,6 +6,7 @@ import { createStructuredSelector } from 'reselect'
 import { selectSportsWages } from 'redux/sports-wagers/selectors';
 import { clearSportsWagers } from 'redux/sports-wagers/actions';
 // Components
+import Simplebar from 'simplebar-react';
 import Typography from 'components/typography/typography';
 import WagerTypes from 'components/wager-types/wager-types';
 import Button from 'components/button/button';
@@ -25,12 +26,14 @@ const SportsBettings = ({ sportsWages, clearSportsWagers }) => {
           <Typography component="h4">There are no active wagers</Typography>
         </div>
         :
-        <>
+        <div className="sports-wagers__wrap">
           <WagerTypes />
           <div className="sports-wagers__list">
-            {sportsWages.map(({ id, icon, title, value, scheduled, selection, notes }) => (
-              <SportsWager key={id} id={id} icon={icon} title={title} value={value} scheduled={scheduled} selection={selection} notes={notes} />
-            ))}
+            <Simplebar className="custom-scroll">
+              {sportsWages.map(({ id, icon, title, value, scheduled, selection, notes }) => (
+                <SportsWager key={id} id={id} icon={icon} title={title} value={value} scheduled={scheduled} selection={selection} notes={notes} />
+              ))}
+            </Simplebar>
           </div>
           <div className="sports-wagers__totals">
             <Typography component="h4" className="sports-wagers__total">Total Wagered: <span>$0.00</span></Typography>
@@ -44,7 +47,7 @@ const SportsBettings = ({ sportsWages, clearSportsWagers }) => {
               <Button variant="accent" fluid>Place Wager(s)</Button>
             </div>
           </div>
-        </>
+        </div>
       }
     </div>
   );

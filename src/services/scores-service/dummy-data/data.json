@@ -1,0 +1,92 @@
+[
+  {
+    "id": "college",
+    "title": "College",
+    "scores": [
+      {
+        "id": "1",
+        "time": "12:00 PM ST",
+        "channel": "ABC",
+        "team1": {
+          "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/5Mh3xcc8uAsxAi3WZvfEyQ_48x48.png",
+          "title": "Cardinals"
+        },
+        "team2": {
+          "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/iVPY42GLuHmD05DiOvNSVg_96x96.png",
+          "title": "Seahawks"
+        }
+      },
+      {
+        "id": "2",
+        "time": "12:00 PM PST",
+        "channel": "ABC",
+        "team1": {
+          "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/5Mh3xcc8uAsxAi3WZvfEyQ_48x48.png",
+          "title": "U Mass"
+        },
+        "team2": {
+          "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/iVPY42GLuHmD05DiOvNSVg_96x96.png",
+          "title": "Liberty"
+        }
+      },
+      {
+        "id": "3",
+        "time": "12:00 PM ST",
+        "channel": "ABC",
+        "team1": {
+          "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/5Mh3xcc8uAsxAi3WZvfEyQ_48x48.png",
+          "title": "Cardinals"
+        },
+        "team2": {
+          "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/iVPY42GLuHmD05DiOvNSVg_96x96.png",
+          "title": "Seahawks"
+        }
+      },
+      {
+        "id": "4",
+        "time": "12:00 PM PST",
+        "channel": "ABC",
+        "team1": {
+          "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/5Mh3xcc8uAsxAi3WZvfEyQ_48x48.png",
+          "title": "U Mass"
+        },
+        "team2": {
+          "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/iVPY42GLuHmD05DiOvNSVg_96x96.png",
+          "title": "Liberty"
+        }
+      }
+    ]
+  },
+  {
+    "id": "ncaa",
+    "title": "NCAA",
+    "scores": [
+      {
+        "id": "1",
+        "time": "1:00 PM PST",
+        "channel": "ESPN2",
+        "team1": {
+          "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/5Mh3xcc8uAsxAi3WZvfEyQ_48x48.png",
+          "title": "Drake"
+        },
+        "team2": {
+          "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/iVPY42GLuHmD05DiOvNSVg_96x96.png",
+          "title": "S Dalota"
+        }
+      },
+      {
+        "id": "2",
+        "time": "12:00 PM PST",
+        "channel": "",
+        "team1": {
+          "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/5Mh3xcc8uAsxAi3WZvfEyQ_48x48.png",
+          "title": "Belmont"
+        },
+        "team2": {
+          "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/iVPY42GLuHmD05DiOvNSVg_96x96.png",
+          "title": "George Mason"
+        }
+      }
+    ]
+  }
+]

@@ -8,6 +8,7 @@ import { togglePersonalize } from 'redux/personalize/actions';
 import { selectColorSchemes } from 'redux/color-scheme/selectors';
 // Components
 import PersonalizeItem from 'components/personalize-item/personalize-item';
+import Simplebar from 'simplebar-react';
 import Close from 'components/close/close';
 // Styles
 import './personalize-content.sass';
@@ -23,9 +24,11 @@ const Personalize = ({ colorSchemes, togglePersonalize }) => {
         <Close onClick={togglePersonalize} />
       </div>
       <div className="personalize-content__items">
-        {colorSchemes.map((color, idx) => (
-          <PersonalizeItem key={idx} title={color} color={color} className="personalize-content__item" />
-        ))}
+        <Simplebar className="custom-scroll">
+          {colorSchemes.map((color, idx) => (
+            <PersonalizeItem key={idx} title={color} color={color} className="personalize-content__item" />
+          ))}
+        </Simplebar>
       </div>
     </div>
   );

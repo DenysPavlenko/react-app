@@ -1,7 +1,6 @@
 import CasinoGamesActionTypes from './types';
-// Services
+// Casino games service
 import CasinoGamesService from 'services/casino-games-service';
-// Games service
 const casinoGamesService = new CasinoGamesService();
 
 const casinoGamesRequested = () => ({
