@@ -1,0 +1,47 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.sidebar-item
+  &__overlay
+    content: ''
+    background-color: rgba($c-dark, 0.5)
+    position: fixed
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    z-index: 300
+  &__content
+    position: fixed
+    right: 0
+    top: 0
+    background-color: $c-primary
+    height: 100%
+    width: 100%
+    max-width: 350px
+    box-shadow: $s-primary
+    z-index: 500
+
+// Overlay animations
+.sidebar-item-overlay-animation-enter
+  opacity: 0
+  transition: opacity 0.3s
+.sidebar-item-overlay-animation-enter-active
+  opacity: 1
+.sidebar-item-overlay-animation-exit
+  opacity: 1
+  transition: opacity 0.3s
+.sidebar-item-overlay-animation-exit-active
+  opacity: 0
+
+// Content animations
+.sidebar-item-content-animation-enter
+  transform: translateX(100%)
+  transition: transform 0.3s
+.sidebar-item-content-animation-enter-active
+  transform: translateX(0)
+.sidebar-item-content-animation-exit
+  transform: translateX(0)
+  transition: transform 0.3s
+.sidebar-item-content-animation-exit-active
+  transform: translateX(100%)

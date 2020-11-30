@@ -2,36 +2,17 @@
 @import ~styles/abstract/mixins
 
 .personalize
-  &__overlay
-    content: ''
-    background-color: rgba($c-dark, 0.5)
-    position: fixed
-    width: 100%
-    height: 100%
-    top: 0
-    left: 0
-    z-index: 300
-
-  // Overlay animations
-  .personalize-overlay-animation-enter
-    opacity: 0
-    transition: opacity 0.3s
-  .personalize-overlay-animation-enter-active
-    opacity: 1
-  .personalize-overlay-animation-exit
-    opacity: 1
-    transition: opacity 0.3s
-  .personalize-overlay-animation-exit-active
-    opacity: 0
-
-  // Content animations
-  .personalize-content-animation-enter
-    transform: translateX(100%)
-    transition: transform 0.3s
-  .personalize-content-animation-enter-active
-    transform: translateX(0)
-  .personalize-content-animation-exit
-    transform: translateX(0)
-    transition: transform 0.3s
-  .personalize-content-animation-exit-active
-    transform: translateX(100%)
+  height: 100%
+  display: flex
+  flex-direction: column
+  &__close
+    margin: 10px
+  &__items
+    flex: 1
+    min-height: 0
+    display: flex
+    flex-direction: column
+    padding: 10px
+  &__item
+    &:not(:last-child)
+      margin-bottom: 10px

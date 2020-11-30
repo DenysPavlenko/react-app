@@ -2,36 +2,19 @@
 @import ~styles/abstract/mixins
 
 .scores
-  &__overlay
-    content: ''
-    background-color: rgba($c-dark, 0.5)
-    position: fixed
-    width: 100%
-    height: 100%
-    top: 0
-    left: 0
-    z-index: 300
-
-  // Overlay animations
-  .scores-overlay-animation-enter
-    opacity: 0
-    transition: opacity 0.3s
-  .scores-overlay-animation-enter-active
-    opacity: 1
-  .scores-overlay-animation-exit
-    opacity: 1
-    transition: opacity 0.3s
-  .scores-overlay-animation-exit-active
-    opacity: 0
-
-  // Content animations
-  .scores-content-animation-enter
-    transform: translateX(100%)
-    transition: transform 0.3s
-  .scores-content-animation-enter-active
-    transform: translateX(0)
-  .scores-content-animation-exit
-    transform: translateX(0)
-    transition: transform 0.3s
-  .scores-content-animation-exit-active
-    transform: translateX(100%)
+  height: 100%
+  display: flex
+  flex-direction: column
+  &__header
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 10px
+    user-select: none
+    &-close
+      position: absolute
+      left: 10px
+  &__list
+    flex: 1
+    min-height: 0
