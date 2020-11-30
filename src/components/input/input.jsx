@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 // Styles
 import './input.sass';
 
-const Input = ({ className, standard, size, noRadius, isInvalid, fluid, ...otherProps }) => {
+const Input = forwardRef(({ className, standard, size, noRadius, isInvalid, fluid, ...otherProps }, ref) => {
   const classes = classNames({
     'input': standard !== false,
     'input--no-radius': noRadius,
@@ -17,7 +17,7 @@ const Input = ({ className, standard, size, noRadius, isInvalid, fluid, ...other
   return (
     <input className={classes} {...otherProps} />
   );
-};
+});
 
 Input.propTypes = {
   className: PropTypes.string,

@@ -18,7 +18,7 @@ const Mail = ({ isActive, fetchMessages, messages, toggleMail }) => {
   const [currentCategory, setCurrentCategory] = useState('inbox');
 
   const handleCategorySwitch = category => {
-    setCurrentCategory(category)
+    setCurrentCategory(category);
   };
 
   useLayoutEffect(() => {
@@ -29,10 +29,16 @@ const Mail = ({ isActive, fetchMessages, messages, toggleMail }) => {
     <SidebarItem isActive={isActive} toggle={toggleMail}>
       <div className="mail">
         <Close className="mail__close" onClick={toggleMail} />
-        <MailCategories className="mail__categories" currentCategory={currentCategory} handleCategorySwitch={handleCategorySwitch} />
+        <MailCategories
+          className="mail__categories"
+          currentCategory={currentCategory}
+          handleCategorySwitch={handleCategorySwitch}
+        />
         <div className="mail__content">
           <Simplebar className="custom-scroll">
-            {currentCategory !== 'new' && <MailBox messages={messages} retry={() => fetchMessages(currentCategory)} />}
+            {currentCategory !== 'new' &&
+              <MailBox messages={messages} retry={() => fetchMessages(currentCategory)} />
+            }
           </Simplebar>
         </div>
       </div>

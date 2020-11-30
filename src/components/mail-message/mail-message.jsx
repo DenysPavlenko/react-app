@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // Redux
 import { deleteMessage } from 'redux/mail/actions';
 // Components
 import Typography from 'components/typography/typography';
+import MessageReply from 'components/message-reply/message-reply';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './mail-message.sass';
 
 const MailMessage = ({ id, date, from, to, text, subject, handleClose, deleteMessage }) => {
+  const [reply, setReply] = useState(false);
 
   const handleDelete = () => {
     deleteMessage(id);
     handleClose();
-  }
+  };
+
+  const handleReply = () => {
+    setReply(false);
+  };
 
   return (
-    <div className="mail-message" >
+    <div className="mail-message">
       <div className="mail-message__actions">
         <div className="mail-message__action" onClick={handleClose}>
           <FontAwesomeIcon icon="arrow-left" />
@@ -25,7 +31,7 @@ const MailMessage = ({ id, date, from, to, text, subject, handleClose, deleteMes
         <div className="mail-message__action" onClick={handleDelete}>
           <FontAwesomeIcon icon="trash" />
         </div>
-        <div className="mail-message__action" >
+        <div className="mail-message__action" onClick={() => setReply(true)} >
           <FontAwesomeIcon icon="share" />
         </div>
       </div>
@@ -41,6 +47,9 @@ const MailMessage = ({ id, date, from, to, text, subject, handleClose, deleteMes
         <Typography component="h4" className="mail-message__subject weight-bold">{subject}</Typography>
         <Typography component="p" className="mail-message__text">{text}</Typography>
       </div>
+
+      {reply && <MessageReply to={from} handleReply={handleReply} />}
+
     </div>
   );
 };

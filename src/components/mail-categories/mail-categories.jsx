@@ -12,7 +12,7 @@ const categories = [
   { category: 'inbox', title: 'inbox' },
   { category: 'sent', title: 'sent' },
   { category: 'new', title: 'new' },
-]
+];
 
 const MailCategories = ({ defaultColorScheme, currentCategory, handleCategorySwitch, className }) => {
   const classes = classNames({

@@ -7,27 +7,32 @@
   background-color: $c-primary-light
   display: flex
   transition: background-color 0.2s
+  user-select: none
   &:hover
     background-color: $c-primary
-  &__left
+  &__letter
     width: 23px
     background-color: $c-danger
     display: flex
     justify-content: center
     align-items: center
-  &__center
+  &__content
     flex: 1
     display: flex
-    padding: 20px 10px
+    padding: 0 10px
     align-items: center
   &__check
     margin-right: 10px
+  &__details
+    padding: 20px 0
   &__name,
   &__text
     text-overflow: ellipsis
     overflow: hidden
     white-space: nowrap
     max-width: 270px
+  &__name
+    margin-bottom: 5px
   &__date
     position: absolute
     top: 5px

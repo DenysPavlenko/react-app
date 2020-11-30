@@ -11,8 +11,3 @@ export const selectMessages = createSelector(
   [scoresMail],
   mail => mail.messages
 );
-
-// export const selectMailSent = createSelector(
-//   [scoresMail],
-//   mail => mail.sent
-// );
