@@ -32,7 +32,7 @@ const MessageReply = ({ to, handleReply }) => {
         <Typography>{to}</Typography>
       </div>
       <div className="message-reply__body">
-        <Textarea ref={inputRef} variant="transparent" rows="5" noPadding value={value} onChange={handleInput} />
+        <Textarea ref={inputRef} rows="5" value={value} onChange={handleInput} variant="transparent" noPadding />
       </div>
       <div className="message-reply__footer">
         <Button variant="accent-blue" size="sm" onClick={handleSend}>Send</Button>

@@ -11,6 +11,7 @@ import SidebarItem from 'components/sidebar-item/sidebar-item';
 import Close from 'components/close/close';
 import MailCategories from 'components/mail-categories/mail-categories';
 import MailBox from 'components/mail-box/mail-box';
+import MessageNew from 'components/message-new/message-new';
 // Styles
 import './mail.sass';
 
@@ -36,8 +37,10 @@ const Mail = ({ isActive, fetchMessages, messages, toggleMail }) => {
         />
         <div className="mail__content">
           <Simplebar className="custom-scroll">
-            {currentCategory !== 'new' &&
+            {currentCategory !== 'new' ?
               <MailBox messages={messages} retry={() => fetchMessages(currentCategory)} />
+              :
+              <MessageNew />
             }
           </Simplebar>
         </div>
