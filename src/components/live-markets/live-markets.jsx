@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
@@ -22,7 +22,7 @@ const LiveMarkets = ({ className, liveMarkets: { loading, error, data }, fetchLi
     [className]: className
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetchLiveMarketsData();
   }, [fetchLiveMarketsData]);
 

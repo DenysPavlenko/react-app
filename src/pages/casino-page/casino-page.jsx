@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -17,7 +17,7 @@ const CasinoPage = ({ casinoGames: { loading, data, error }, fetchCasinoGamesDat
   const [currentCategory, setCurrentCategory] = useState('');
   const [searchValue, setSearchValue] = useState('');
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetchCasinoGamesData();
   }, [fetchCasinoGamesData]);
 

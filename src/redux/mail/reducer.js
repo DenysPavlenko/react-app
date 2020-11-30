@@ -3,13 +3,7 @@ import MailActionTypes from './types';
 
 const INITIAL_STATE = {
   isActive: true,
-  inbox: {
-    loading: true,
-    data: null,
-    error: false,
-    errorDetails: null,
-  },
-  sent: {
+  messages: {
     loading: true,
     data: null,
     error: false,
@@ -18,6 +12,8 @@ const INITIAL_STATE = {
 };
 
 const mailReducer = (state = INITIAL_STATE, action) => {
+  const { messages, messages: { data } } = state;
+
   switch (action.type) {
     case MailActionTypes.TOGGLE_MAIL:
       const { isActive } = state;
@@ -25,37 +21,35 @@ const mailReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isActive: !isActive
       }
-    case MailActionTypes.FETCH_INBOX_REQUEST:
+    case MailActionTypes.FETCH_MESSAGES_REQUEST:
       return {
         ...state,
-        inbox: requestData()
+        messages: requestData()
       }
-    case MailActionTypes.FETCH_INBOX_SUCCESS:
+    case MailActionTypes.FETCH_MESSAGES_SUCCESS:
       return {
         ...state,
-        inbox: setData(action.payload)
+        messages: setData(action.payload)
       }
-    case MailActionTypes.FETCH_INBOX_FAILURE:
+    case MailActionTypes.FETCH_MESSAGES_FAILURE:
       return {
         ...state,
-        inbox: setError(action.payload)
+        messages: setError(action.payload)
       }
 
-    case MailActionTypes.FETCH_SENT_REQUEST:
+    case MailActionTypes.DELETE_MESSAGE:
       return {
         ...state,
-        sent: requestData()
+        messages: { ...messages, data: data.filter(({ id }) => id !== action.payload) }
       }
-    case MailActionTypes.FETCH_SENT_SUCCESS:
+
+    case MailActionTypes.DELETE_MESSAGES:
+      const newData = data.filter(({ id }) => !action.payload.includes(id));
       return {
         ...state,
-        sent: setData(action.payload)
+        messages: { ...messages, data: newData }
       }
-    case MailActionTypes.FETCH_SENT_FAILURE:
-      return {
-        ...state,
-        sent: setError(action.payload)
-      }
+
     default:
       return state;
   }

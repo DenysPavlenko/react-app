@@ -7,40 +7,34 @@ export const toggleMail = () => ({
   type: MailActionTypes.TOGGLE_MAIL
 });
 
-const inboxRequested = () => ({
-  type: MailActionTypes.FETCH_INBOX_REQUEST
+const messagesRequested = () => ({
+  type: MailActionTypes.FETCH_MESSAGES_REQUEST
 });
-const inboxLoaded = messages => ({
-  type: MailActionTypes.FETCH_INBOX_SUCCESS,
+const messagesLoaded = messages => ({
+  type: MailActionTypes.FETCH_MESSAGES_SUCCESS,
   payload: messages
 });
-const inboxError = error => ({
-  type: MailActionTypes.FETCH_INBOX_FAILURE,
+const messagesError = error => ({
+  type: MailActionTypes.FETCH_MESSAGES_FAILURE,
   payload: error
 });
-
-const sentRequested = () => ({
-  type: MailActionTypes.FETCH_SENT_REQUEST
-});
-const sentLoaded = messages => ({
-  type: MailActionTypes.FETCH_SENT_SUCCESS,
-  payload: messages
-});
-const sentError = error => ({
-  type: MailActionTypes.FETCH_SENT_FAILURE,
-  payload: error
-});
-
-export const fetchInbox = () => (dispatch) => {
-  dispatch(inboxRequested());
-  mailService.getInboxMessages()
-    .then(data => dispatch(inboxLoaded(data)))
-    .catch(error => dispatch(inboxError(error)))
+export const fetchMessages = (category) => (dispatch) => {
+  let service;
+  if (category === 'inbox') { service = mailService.getInboxMessages; }
+  else if (category === 'sent') { service = mailService.getSentMessages; }
+  else { return; }
+  dispatch(messagesRequested());
+  service()
+    .then(data => dispatch(messagesLoaded(data)))
+    .catch(error => dispatch(messagesError(error)))
 };
 
-export const fetchSent = () => (dispatch) => {
-  dispatch(sentRequested());
-  mailService.getSentMessages()
-    .then(data => dispatch(sentLoaded(data)))
-    .catch(error => dispatch(sentError(error)))
-};
+export const deleteMessage = id => ({
+  type: MailActionTypes.DELETE_MESSAGE,
+  payload: id
+});
+
+export const deleteMessages = ids => ({
+  type: MailActionTypes.DELETE_MESSAGES,
+  payload: ids
+});

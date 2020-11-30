@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
@@ -10,7 +10,7 @@ import TicketTable from 'components/ticket-table/ticket-table';
 
 const LiveHistory = ({ liveHistory, fetchLiveHistoryData }) => {
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetchLiveHistoryData();
   }, [fetchLiveHistoryData]);
 

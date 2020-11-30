@@ -7,12 +7,12 @@ export const selectMailActive = createSelector(
   mail => mail.isActive
 );
 
-export const selectMailInbox = createSelector(
+export const selectMessages = createSelector(
   [scoresMail],
-  mail => mail.inbox
+  mail => mail.messages
 );
 
-export const selectMailSent = createSelector(
-  [scoresMail],
-  mail => mail.sent
-);
+// export const selectMailSent = createSelector(
+//   [scoresMail],
+//   mail => mail.sent
+// );

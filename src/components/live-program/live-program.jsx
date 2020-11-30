@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
@@ -14,7 +14,7 @@ import './live-program.sass';
 
 const LiveProgram = ({ liveProgram: { loading, error, data }, fetchLiveProgramData }) => {
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetchLiveProgramData();
   }, [fetchLiveProgramData]);
 

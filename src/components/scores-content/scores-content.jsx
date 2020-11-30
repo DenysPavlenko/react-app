@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -17,7 +17,7 @@ import './scores-content.sass';
 
 const ScoresContent = ({ toggleScores, fetchScoresData, scores: { loading, data, error } }) => {
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetchScoresData();
   }, [fetchScoresData])
 

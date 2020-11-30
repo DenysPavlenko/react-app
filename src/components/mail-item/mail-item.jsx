@@ -7,7 +7,7 @@ import Typography from 'components/typography/typography';
 // Styles
 import './mail-item.sass';
 
-const MailItem = ({ id, date, from, to, text, className }) => {
+const MailItem = ({ id, date, from, to, text, className, handleOpen, handleCheck, checked }) => {
   const classes = classNames({
     'mail-item': true,
     [className]: className
@@ -19,8 +19,8 @@ const MailItem = ({ id, date, from, to, text, className }) => {
         <Typography component="h4">A</Typography>
       </div>
       <div className="mail-item__center">
-        <Checkbox className="mail-item__check" onChange={() => { }} variant="light" />
-        <div className="mail-item__details">
+        <Checkbox className="mail-item__check" onChange={() => { handleCheck(id) }} checked={checked} variant="light" />
+        <div className="mail-item__details" onClick={() => handleOpen(id)}>
           <Typography component="h5" className="mail-item__name">{from}</Typography>
           <Typography component="p" variant="p-sm" className="mail-item__text">{text}</Typography>
         </div>

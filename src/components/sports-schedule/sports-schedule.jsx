@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
@@ -17,7 +17,7 @@ import './sports-schedule.sass';
 
 const SportsSchedule = ({ sportsSchedule: { loading, error, data }, fetchSportsScheduleData, toggleSportsPageSchedule }) => {
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetchSportsScheduleData();
   }, [fetchSportsScheduleData]);
 

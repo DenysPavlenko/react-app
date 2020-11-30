@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -20,7 +20,7 @@ const HorsesSelect = ({ horsesTracks: { loading, data, error }, fetchHorsesTrack
 
   const [searchValue, setSearchValue] = useState('');
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetchHorsesTracksData();
   }, [fetchHorsesTracksData]);
 
