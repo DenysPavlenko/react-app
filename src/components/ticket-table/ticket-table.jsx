@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 // Components
-import Spinner from 'components/spinner/spinner';
-import ErrorIndicator from 'components/error-indicator/error-indicator';
 import Typography from 'components/typography/typography';
 import Table from 'components/table/table';
 import TicketTableHeader from './ticket-table-header/ticket-table-header';
-import TicketTableItem from './ticket-table-item/ticket-table-item';
-import TicketTableContent from './ticket-table-content/ticket-table-content';
+import TicketTableItems from './ticket-table-items/ticket-table-items';
+import TicketTableDetails from './ticket-table-details/ticket-table-details';
 // Styles
 import './ticket-table.sass';
 
-const TicketTable = ({ title, data, retry }) => {
+const TicketTable = ({ title, info, info: { data }, retry }) => {
+  const [activeItem, setActiveItem] = useState(0);
+
   return (
     <div className="ticket-table">
       <Typography component="h1" className="ticket-table__heading text-uppercase">{title}</Typography>
@@ -22,11 +22,11 @@ const TicketTable = ({ title, data, retry }) => {
               <td className="ticket-table__left">
                 <Table>
                   <TicketTableHeader />
-                  <TicketTableItemsContainer retry={retry} {...data} />
+                  <TicketTableItems retry={retry} activeItem={activeItem} handleItem={setActiveItem} {...info} />
                 </Table>
               </td>
               <td className="ticket-table__right">
-                <TicketTableContent />
+                <TicketTableDetails data={data && data[activeItem].details} />
               </td>
             </tr>
           </tbody>
@@ -39,50 +39,6 @@ const TicketTable = ({ title, data, retry }) => {
 TicketTable.propTypes = {
   title: PropTypes.string,
   data: PropTypes.object,
-};
-
-const TicketTableItemsContainer = ({ loading, error, data, retry }) => {
-  return (
-    <tbody>
-      { error &&
-        <tr>
-          <td className="ticket-table__indicator">
-            <ErrorIndicator light retry={retry} />
-          </td>
-        </tr>
-      }
-      {
-        (!error && loading) &&
-        <tr>
-          <td className="ticket-table__indicator">
-            <Spinner light />
-          </td>
-        </tr>
-      }
-      {
-        (!error && !loading) &&
-        <>
-          {data.map(({ id, ...otherProps }) => (
-            <TicketTableItem key={id} id={id} {...otherProps} className="ticket-table__item" />
-          ))}
-        </>
-      }
-      {(!error && !loading && !data.length) &&
-        <tr>
-          <td className="ticket-table__indicator">
-            <Typography component="h3" className="ticket-table__heading text-uppercase">There is no data</Typography>
-          </td>
-        </tr>
-      }
-    </tbody>
-  )
-}
-
-TicketTableItemsContainer.propTypes = {
-  loading: PropTypes.bool,
-  error: PropTypes.bool,
-  data: PropTypes.array,
-  retry: PropTypes.func,
 };
 
 export default TicketTable;

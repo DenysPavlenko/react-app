@@ -16,7 +16,7 @@ const LiveHistory = ({ liveHistory, fetchLiveHistoryData }) => {
 
   return (
     <div className="live-hisoty">
-      <TicketTable retry={fetchLiveHistoryData} title="Hisoty ticket" data={liveHistory} />
+      <TicketTable retry={fetchLiveHistoryData} title="Hisoty ticket" info={liveHistory} />
     </div>
   );
 };

@@ -6,14 +6,15 @@ import Typography from 'components/typography/typography';
 // Styles
 import './ticket-table-item.sass';
 
-const TicketTableItem = ({ className, id, type, stake, toWin, result, created }) => {
+const TicketTableItem = ({ id, type, stake, toWin, result, created, isActive, className, onClick }) => {
   const classes = classNames({
     'ticket-table-item': true,
+    'is-active': isActive,
     [className]: className,
   });
 
   return (
-    <tr className={classes}>
+    <tr className={classes} onClick={onClick}>
       <td>
         <div>
           <Typography component="p" variant="p-sm">#{id}</Typography>
@@ -54,7 +55,14 @@ const TicketTableItem = ({ className, id, type, stake, toWin, result, created })
 };
 
 TicketTableItem.propTypes = {
-  className: PropTypes.string
+  id: PropTypes.string,
+  type: PropTypes.string,
+  stake: PropTypes.string,
+  toWin: PropTypes.string,
+  result: PropTypes.string,
+  created: PropTypes.string,
+  isActive: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default TicketTableItem;

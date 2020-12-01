@@ -16,7 +16,7 @@ const LivePending = ({ livePending, fetchLivePendingData }) => {
 
   return (
     <div className="live-pending">
-      <TicketTable retry={fetchLivePendingData} title="Pending ticket" data={livePending} />
+      <TicketTable retry={fetchLivePendingData} title="Pending ticket" info={livePending} />
     </div>
   );
 };

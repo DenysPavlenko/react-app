@@ -1,11 +1,22 @@
 [
   {
-    "id": "26862003",
+    "id": "28041158",
     "type": "Straight",
-    "stake": "50.00",
-    "toWin": "23.33",
-    "result": "WIN",
-    "created": "Nov-07 16:00"
+    "stake": "30.00",
+    "toWin": "31.50",
+    "result": "loss",
+    "created": "Nov-07 16:00",
+    "details": {
+      "id": "28041158",
+      "title": "AMERICAN FOOTBALL - NFL",
+      "team1": "LA Rams",
+      "team2": "TB Buccaneers",
+      "wpick": "Money Line • TB Buccaneers",
+      "wprice": "+105",
+      "loss": "L",
+      "score": "27--24",
+      "wlast": "Q4 02:35"
+    }
   },
   {
     "id": "26862004",
@@ -13,7 +24,18 @@
     "stake": "40.00",
     "toWin": "33.33",
     "result": "LOSS",
-    "created": "Nov-08 21:00"
+    "created": "Nov-08 21:00",
+    "details": {
+      "id": "26862004",
+      "title": "AMERICAN FOOTBALL - NFL",
+      "team1": "LA Rams",
+      "team2": "TB Buccaneers",
+      "wpick": "Money Line • TB Buccaneers",
+      "wprice": "+105",
+      "loss": "L",
+      "score": "27--24",
+      "wlast": "Q4 02:35"
+    }
   },
   {
     "id": "26862005",
@@ -21,7 +43,18 @@
     "stake": "60.00",
     "toWin": "13.33",
     "result": "WIN",
-    "created": "Nov-09 15:00"
+    "created": "Nov-09 15:00",
+    "details": {
+      "id": "26862005",
+      "title": "AMERICAN FOOTBALL - NFL",
+      "team1": "LA Rams",
+      "team2": "TB Buccaneers",
+      "wpick": "Money Line • TB Buccaneers",
+      "wprice": "+105",
+      "loss": "L",
+      "score": "27--24",
+      "wlast": "Q4 02:35"
+    }
   },
   {
     "id": "26862006",
@@ -29,6 +62,17 @@
     "stake": "60.00",
     "toWin": "13.33",
     "result": "WIN",
-    "created": "Nov-10 10:00"
+    "created": "Nov-10 10:00",
+    "details": {
+      "id": "26862006",
+      "title": "AMERICAN FOOTBALL - NFL",
+      "team1": "LA Rams",
+      "team2": "TB Buccaneers",
+      "wpick": "Money Line • TB Buccaneers",
+      "wprice": "+105",
+      "loss": "L",
+      "score": "27--24",
+      "wlast": "Q4 02:35"
+    }
   }
 ]

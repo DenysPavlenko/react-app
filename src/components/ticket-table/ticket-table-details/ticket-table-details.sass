@@ -1,7 +1,7 @@
 @import ~styles/abstract/variables
 @import ~styles/abstract/mixins
 
-.ticket-table-content
+.ticket-table-details
   td
     padding: 0
   &__header
@@ -9,10 +9,14 @@
     th
       padding: 6px 10px
       white-space: nowrap
+  &__title,
+  &__teams,
+  &__total,
+    padding: 3px 10px
   &__title
-    padding: 5px 10px
-  &__total
-    padding: 5px 10px
+    padding-top: 10px
+  &__teams
+    margin-bottom: 5px
   &__boxes
     display: flex
     &:last-child

@@ -47,7 +47,7 @@ const UserDropdownMenu = ({ history, togglePersonalize, toggleScores, toggleMail
         </div>
       ))}
       <div className="user-dropdown-menu__balance">
-        <BalanceOverview vertical noBalance />
+        <BalanceOverview vertical />
       </div>
 
       <SettingsModal isHidden={!showSettings} close={toggleSettings} />
