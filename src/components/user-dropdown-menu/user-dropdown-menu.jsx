@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -9,17 +9,21 @@ import { toggleMail } from 'redux/mail/actions';
 // Components
 import Image from 'components/image/image';
 import BalanceOverview from 'components/balance-overview/balance-overview';
+import SettingsModal from 'components/settings-modal/settings-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './user-dropdown-menu.sass';
 
 const UserDropdownMenu = ({ history, togglePersonalize, toggleScores, toggleMail }) => {
+  const [showSettings, setShowSettings] = useState(false);
+
+  const toggleSettings = () => setShowSettings(settings => !settings);
+
   const menu = [
-    { icon: 'random', title: 'Betting style' },
     { icon: 'calendar', title: 'Scores', handler: toggleScores },
     { icon: 'file-alt', title: 'Rules', rootName: '/rules' },
     { icon: 'envelope', title: 'Mail', handler: toggleMail },
-    { icon: 'cog', title: 'Settings' },
+    { icon: 'cog', title: 'Settings', handler: toggleSettings },
     { icon: 'paint-brush', title: 'Personalize it', handler: togglePersonalize },
     { icon: 'power-off', title: 'Sign out', rootName: '/sign-in' },
   ];
@@ -45,6 +49,9 @@ const UserDropdownMenu = ({ history, togglePersonalize, toggleScores, toggleMail
       <div className="user-dropdown-menu__balance">
         <BalanceOverview vertical noBalance />
       </div>
+
+      <SettingsModal isHidden={!showSettings} close={toggleSettings} />
+
     </div>
   );
 };

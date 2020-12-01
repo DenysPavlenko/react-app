@@ -2,7 +2,7 @@ import { requestData, setData, setError } from '../_utils/fetch-utils';
 import MailActionTypes from './types';
 
 const INITIAL_STATE = {
-  isActive: true,
+  isActive: false,
   messages: {
     loading: true,
     data: null,

@@ -1,0 +1,28 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.settings-modal
+  color: $c-dark
+  &__header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 20px
+
+  &__box
+    border: 1px solid $c-light-gray
+    margin-bottom: 5px
+  &__item
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 8px 10px
+    &:nth-child(even)
+      background-color: $c-light-gray
+    &-title
+      text-transform: capitalize
+
+  &__footer
+    margin-top: 20px
+    display: flex
+    justify-content: flex-end

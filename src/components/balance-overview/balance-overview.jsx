@@ -7,10 +7,10 @@ import BalanceItem from 'components/balance-item/balance-item';
 import './balance-overview.sass';
 
 const balance = [
-  { title: 'Balance', total: '-74' },
-  { title: 'Pending', total: '120' },
-  { title: 'Available', total: '160' },
-  { title: 'Free play', total: '0' },
+  { title: 'balance', total: '-74' },
+  { title: 'pending', total: '120' },
+  { title: 'available', total: '160' },
+  { title: 'free play', total: '0' },
 ];
 
 const BalanceOverview = ({ noFreePlay, noBalance, shrinkOnMobile, vertical, className, ...otherProps }) => {
@@ -25,8 +25,8 @@ const BalanceOverview = ({ noFreePlay, noBalance, shrinkOnMobile, vertical, clas
     <div className={classes} {...otherProps}>
       {balance
         .filter((arr) => {
-          if (noFreePlay && arr.title === 'Free play') { return false; }
-          if (noBalance && arr.title === 'Balance') { return false; }
+          if (noFreePlay && arr.title === 'free play') { return false; }
+          if (noBalance && arr.title === 'balance') { return false; }
           return true;
         })
         .map(({ title, total }, idx) => (
