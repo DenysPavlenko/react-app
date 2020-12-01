@@ -1,7 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-// Layout
-import Container from 'layout/container/container';
 // Components
 import SignIn from 'components/sign-in/sign-in';
 import Image from 'components/image/image';
@@ -10,17 +8,17 @@ import './sign-in-page.sass';
 // Assets
 import logo from 'assets/images/logo.png';
 
-const LoginPage = ({ history }) => {
+const SignInPage = ({ history }) => {
   return (
     <div className="sign-in-page">
       <div className="sign-in-page__logo">
-        <Image src={logo} alt="logo"/>
+        <Image src={logo} alt="logo" />
       </div>
-      <Container>
+      <div className="sign-in-page__wrap">
         <SignIn onSignIn={() => { history.push('/sports') }} />
-      </Container>
+      </div>
     </div>
   );
 };
 
-export default withRouter(LoginPage);
+export default withRouter(SignInPage);

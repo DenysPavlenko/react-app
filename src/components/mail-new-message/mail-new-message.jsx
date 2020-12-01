@@ -14,14 +14,7 @@ const MessageNew = () => {
     message: ''
   });
 
-  const handleInput = ({ target: { name, value } }) => {
-    setData(data => {
-      return {
-        ...data,
-        [name]: value,
-      }
-    })
-  };
+  const handleInput = ({ target: { value, name } }) => setData(data => ({ ...data, [name]: value }));
 
   return (
     <div className="mail-new-message">

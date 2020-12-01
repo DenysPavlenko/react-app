@@ -10,6 +10,7 @@ import App from './App';
 // Styles
 import './index.sass';
 import 'simplebar/dist/simplebar.min.css';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 
 const breakpoints = {
   xs: 461,
