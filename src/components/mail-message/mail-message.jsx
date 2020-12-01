@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { deleteMessage } from 'redux/mail/actions';
 // Components
 import Typography from 'components/typography/typography';
-import MessageReply from 'components/message-reply/message-reply';
+import MailReply from 'components/mail-reply/mail-reply';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './mail-message.sass';
@@ -48,7 +48,7 @@ const MailMessage = ({ id, date, from, to, text, subject, handleClose, deleteMes
         <Typography component="p" className="mail-message__text">{text}</Typography>
       </div>
 
-      {reply && <MessageReply to={from} handleReply={handleReply} />}
+      {reply && <MailReply to={from} handleReply={handleReply} />}
 
     </div>
   );

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Textarea from 'components/textarea/textarea';
 import Button from 'components/button/button';
 // Styles
-import './message-reply.sass';
+import './mail-reply.sass';
 
 const MessageReply = ({ to, handleReply }) => {
   const [value, setValue] = useState('');
@@ -26,15 +26,15 @@ const MessageReply = ({ to, handleReply }) => {
   };
 
   return (
-    <div className="message-reply">
-      <div className="message-reply__to">
-        <FontAwesomeIcon icon="share" className="message-reply__to-icon" />
+    <div className="mail-reply">
+      <div className="mail-reply__to">
+        <FontAwesomeIcon icon="share" className="mail-reply__to-icon" />
         <Typography>{to}</Typography>
       </div>
-      <div className="message-reply__body">
+      <div className="mail-reply__body">
         <Textarea ref={inputRef} rows="5" value={value} onChange={handleInput} variant="transparent" noPadding />
       </div>
-      <div className="message-reply__footer">
+      <div className="mail-reply__footer">
         <Button variant="accent-blue" size="sm" onClick={handleSend}>Send</Button>
       </div>
     </div>
