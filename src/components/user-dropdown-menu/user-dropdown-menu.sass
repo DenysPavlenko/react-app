@@ -2,7 +2,7 @@
 @import ~styles/abstract/mixins
 
 .user-dropdown-menu
-  +media-max(1139px)
+  +media-max($bp-xl)
     height: calc( 100vh - 60px )
     overflow-y: auto
   &__item
@@ -31,5 +31,5 @@
   &__balance
     display: none
     padding: 20px 15px
-    +media-max(1139px)
+    +media-max($bp-xl)
       display: block

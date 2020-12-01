@@ -11,7 +11,7 @@
   &:hover
     background-color: $c-primary
   &__letter
-    width: 23px
+    width: 25px
     background-color: $c-danger
     display: flex
     justify-content: center
@@ -31,6 +31,8 @@
     overflow: hidden
     white-space: nowrap
     max-width: 270px
+    +media-max($bp-xs)
+      max-width: 75vw
   &__name
     margin-bottom: 5px
   &__date

@@ -13,7 +13,7 @@ const balance = [
   { title: 'free play', total: '0' },
 ];
 
-const BalanceOverview = ({ noFreePlay, noBalance, shrinkOnMobile, vertical, className, ...otherProps }) => {
+const BalanceOverview = ({ shrinkOnMobile, vertical, className, ...otherProps }) => {
   const classes = classNames({
     'balance-overview': true,
     'balance-overview--vertical': vertical,
@@ -23,33 +23,23 @@ const BalanceOverview = ({ noFreePlay, noBalance, shrinkOnMobile, vertical, clas
 
   return (
     <div className={classes} {...otherProps}>
-      {balance
-        .filter((arr) => {
-          if (noFreePlay && arr.title === 'free play') { return false; }
-          if (noBalance && arr.title === 'balance') { return false; }
-          return true;
-        })
-        .map(({ title, total }, idx) => (
-          <div key={idx} className="balance-overview__item">
-            <BalanceItem title={title} total={`$${total}`} negative={total < 0} />
-          </div>
-        ))}
+      {balance.map(({ title, total }, idx) => (
+        <div key={idx} className="balance-overview__item">
+          <BalanceItem title={title} total={`$${total}`} negative={total < 0} />
+        </div>
+      ))}
     </div>
   );
 };
 
 BalanceOverview.defaultProps = {
-  noFreePlay: false,
-  noBalance: false,
   shrinkOnMobile: false,
   vertical: false,
 };
 
 BalanceOverview.propTypes = {
-  noFreePlay: PropTypes.bool,
   shrinkOnMobile: PropTypes.bool,
   vertical: PropTypes.bool,
-  noBalance: PropTypes.bool,
   className: PropTypes.string,
 };
 

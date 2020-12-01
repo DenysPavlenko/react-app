@@ -15,7 +15,7 @@ const Header = () => {
           <HeaderMenu />
         </div>
         <div className="header__balance">
-          <BalanceOverview noFreePlay shrinkOnMobile />
+          <BalanceOverview shrinkOnMobile />
         </div>
         <div className="header__user">
           <UserDropdown />
