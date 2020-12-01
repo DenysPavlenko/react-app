@@ -7,8 +7,6 @@ import { createStructuredSelector } from 'reselect';
 import { selectColorScheme } from 'redux/color-scheme/selectors';
 import { selectHorsesBets, selectTotalHorsesBets, selectTotalHorsesSlips } from 'redux/horses-bets/selectors';
 import { removeHorsesBet, clearHorsesBet } from 'redux/horses-bets/actions';
-// Data
-import data from './data';
 // Components
 import Typography from 'components/typography/typography';
 import Button from 'components/button/button';
