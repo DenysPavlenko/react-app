@@ -15,7 +15,7 @@ import './casino-card.sass';
 const CasinoCard = ({ image, title, minBet, maxBet, defaultColorScheme }) => {
   const classes = classNames({
     'casino-card': true,
-    [`casino-card--${defaultColorScheme}`]: defaultColorScheme
+    [`theme-${defaultColorScheme}`]: defaultColorScheme
   });
 
   return (

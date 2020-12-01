@@ -11,7 +11,7 @@ import './horses-filters.sass';
 const HorsesFilters = ({ filters, currentFilter, handleFilter, defaultColorScheme }) => {
   const classes = classNames({
     'horses-filters': true,
-    [`horses-filters--${defaultColorScheme}`]: defaultColorScheme
+    [`theme-${defaultColorScheme}`]: defaultColorScheme
   });
 
   return (

@@ -6,7 +6,7 @@
   align-items: center
   // Color schemes
   @each $name, $color in $sch-colors
-    &--#{$name}
+    &.theme-#{$name}
       .mail-categories__category.is-active
         background-color: $color
 

@@ -17,7 +17,7 @@ import './sports-table-line.sass';
 const SportsTableLine = ({ id, title, icon, spread, moneyLine, total, teamTotalFirst, teamTotalLast, isFirst, defaultColorScheme, spreadType, totalType, className, addSportsWager, activeSportsWagers }) => {
   const classes = classNames({
     'sports-table-line': true,
-    [`sports-table-line--${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${defaultColorScheme}`]: defaultColorScheme,
     [className]: className,
   });
 

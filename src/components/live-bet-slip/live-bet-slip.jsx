@@ -15,7 +15,7 @@ import './live-bet-slip.sass';
 const LiveBetSlip = ({ defaultColorScheme }) => {
   const classes = classNames({
     'live-bet-slip': true,
-    [`live-bet-slip--${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${defaultColorScheme}`]: defaultColorScheme,
   });
 
   return (

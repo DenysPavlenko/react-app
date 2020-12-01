@@ -14,7 +14,7 @@
   user-select: none
   // Color schemes
   @each $name, $color in $sch-colors
-    &--#{$name}
+    &.theme-#{$name}
       &.is-active
         background-color: $color !important
         color: $c-light

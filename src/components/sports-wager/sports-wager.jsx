@@ -23,7 +23,7 @@ const SportsWager = ({ id, icon, title, value, scheduled, selection, notes, remo
 
   const classes = classNames({
     'sports-wager': true,
-    [`sports-wager--${defaultColorScheme}`]: defaultColorScheme
+    [`theme-${defaultColorScheme}`]: defaultColorScheme
   });
 
   return (

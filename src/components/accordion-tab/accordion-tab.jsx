@@ -15,7 +15,7 @@ const AccordionTab = ({ icon, title, counter, isActive, defaultColorScheme, onCl
   const classes = classNames({
     'accordion-tab': true,
     'accordion-tab--bordered': bordered,
-    [`accordion-tab--${defaultColorScheme}`]: isActive && defaultColorScheme,
+    [`theme-${defaultColorScheme}`]: isActive && defaultColorScheme,
     'is-active': isActive,
   });
 

@@ -18,7 +18,7 @@ import './horses-bet-slip.sass';
 const HorsesBetSlip = ({ defaultColorScheme, horsesBets, removeHorsesBet, clearHorsesBet, totalHorsesBets, totalHorsesSlips }) => {
   const classes = classNames({
     'horses-bet-slip': true,
-    [`horses-bet-slip--${defaultColorScheme}`]: defaultColorScheme
+    [`theme-${defaultColorScheme}`]: defaultColorScheme
   });
 
   return (

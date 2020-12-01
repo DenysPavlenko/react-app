@@ -14,7 +14,7 @@
   transition: background-color 0.2s
   // Color schemes
   @each $name, $color in $sch-colors
-    &--#{$name}
+    &.theme-#{$name}
       background-color: $color
       &:hover
         background-color: rgba($color, 0.7)

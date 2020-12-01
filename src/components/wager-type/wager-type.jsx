@@ -12,7 +12,7 @@ const WagerType = ({ type, title, defaultColorScheme, isActive, className, setAc
   const classes = classNames({
     'wager-type': true,
     'is-active': isActive,
-    [`wager-type--${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${defaultColorScheme}`]: defaultColorScheme,
     [className]: className
   });
 

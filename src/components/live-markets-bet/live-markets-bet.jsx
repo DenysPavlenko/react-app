@@ -13,7 +13,7 @@ import './live-markets-bet.sass';
 const LiveMarketsBet = ({ title, className, odd, defaultColorScheme }) => {
   const classes = classNames({
     'live-markets-bet': true,
-    [`live-markets-bet--${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${defaultColorScheme}`]: defaultColorScheme,
     [className]: className
   });
 

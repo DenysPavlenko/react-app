@@ -1,7 +1,7 @@
 @import ~styles/abstract/variables
 @import ~styles/abstract/mixins
 
-$select-height: 30px
+$select-height: 40px
 
 .select
   position: relative
@@ -25,6 +25,8 @@ $select-height: 30px
         box-shadow: none
     .select__dropdown
       margin-top: 5px
+    .select__option
+      padding: 9px 10px
   &--text-sm
     .select__label,
     .select__option
@@ -81,8 +83,7 @@ $select-height: 30px
     border-radius: $r-primary
     z-index: 200
     &-scroll
-      max-height: 120px
-      overflow: auto
+      max-height: 159px
   &__search
     padding: 10px
     width: 100%
@@ -92,7 +93,7 @@ $select-height: 30px
     overflow: hidden
     display: flex
     align-items: center
-    padding: 8px 10px
+    padding: 13px 10px
     font-size: rem(14px)
     line-height: 1
     white-space: nowrap

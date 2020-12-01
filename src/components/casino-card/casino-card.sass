@@ -6,7 +6,7 @@
   border-radius: $r-primary $r-primary 0 0
   // Color schemes
   @each $name, $color in $sch-colors
-    &--#{$name}
+    &.theme-#{$name}
       .casino-card__footer
         background-color: $color
       .casino-card__play

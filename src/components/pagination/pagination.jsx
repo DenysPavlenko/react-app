@@ -11,7 +11,7 @@ import './pagination.sass';
 const Pagination = ({ pages, defaultColorScheme }) => {
   const classes = classNames({
     'pagination': true,
-    [`pagination--${defaultColorScheme}`]: defaultColorScheme
+    [`theme-${defaultColorScheme}`]: defaultColorScheme
   });
 
   return (

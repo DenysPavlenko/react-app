@@ -5,7 +5,7 @@
   border-bottom: 1px solid $c-primary
   // Color schemes
   @each $name, $color in $sch-colors
-    &--#{$name}
+    &.theme-#{$name}
       &.is-active
         .sports-schedule-item__heading
           background-color: $color

@@ -12,7 +12,7 @@ import './personalize-item.sass';
 const PersonalizeItem = ({ title, color, className, setColorScheme, defaultColorScheme, ...otherProps }) => {
   const classes = classNames({
     'personalize-item': true,
-    [`personalize-item--${color}`]: color,
+    [`theme-${color}`]: color,
     'is-active': defaultColorScheme === color,
     [className]: className
   });

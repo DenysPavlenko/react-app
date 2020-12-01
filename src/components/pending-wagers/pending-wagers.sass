@@ -1,0 +1,28 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.pending-wagers
+  &__heading
+    margin-bottom: 10px
+  &__table-wrap
+    +media-max($bp-xl)
+      overflow: auto
+      white-space: nowrap
+  &__table
+    margin-bottom: 5px
+    border-radius: $r-primary
+    overflow: hidden
+    &-item
+      background-color: $c-light
+      &:nth-child(even)
+        background-color: $c-light-gray
+  &__footer
+    display: flex
+    justify-content: flex-end
+    background-color: $c-light
+    color: $c-dark
+    padding: 10px
+    border-radius: $r-primary
+    &-title
+      &:not(:last-child)
+        margin-right: 10px

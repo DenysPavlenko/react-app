@@ -14,7 +14,7 @@ import './sports-schedule-list-item.sass';
 const SportsScheduleListItem = ({ title, defaultColorScheme, isActive, className, onClick, onChange }) => {
   const classes = classNames({
     'sports-schedule-list-item': true,
-    [`sports-schedule-list-item--${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${defaultColorScheme}`]: defaultColorScheme,
     'is-active': isActive,
     [className]: className
   });

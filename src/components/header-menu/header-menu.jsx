@@ -50,7 +50,7 @@ const HeaderMenu = ({ defaultColorScheme, className, toggleSportsPageSchedule, i
 
   const classes = classNames({
     'header-menu': true,
-    [`header-menu--${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${defaultColorScheme}`]: defaultColorScheme,
     [className]: className
   });
 

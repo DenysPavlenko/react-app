@@ -21,7 +21,7 @@
     background-color: darken($c-light-gray, 10%)
   // Color schemes
   @each $name, $color in $sch-colors
-    &--#{$name}
+    &.theme-#{$name}
       &.is-active
         background-color: $color
         color: $c-light

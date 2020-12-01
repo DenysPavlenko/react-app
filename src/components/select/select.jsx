@@ -4,6 +4,7 @@ import classNames from 'classnames';
 // Components
 import Input from 'components/input/input';
 import Button from 'components/button/button';
+import Simplebar from 'simplebar-react';
 // Styles
 import './select.sass';
 
@@ -79,7 +80,7 @@ class Select extends Component {
 
         {isExpanded &&
           <div className="select__dropdown">
-            <div className="select__dropdown-scroll">
+            <Simplebar className="custom-scroll select__dropdown-scroll">
               <div className="select__options">
                 {options.map(({ value, label }, idx) => (
                   <div key={value} className={`select__option ${idx === selectedOption && 'is-selected'}`} data-option={value} onClick={(e) => { this.handleOptionClick(e, idx, value) }}>
@@ -87,7 +88,7 @@ class Select extends Component {
                   </div>
                 ))}
               </div>
-            </div>
+            </Simplebar>
           </div>
         }
         <Input onChange={() => { }} value={value} type="hidden" disabled hidden standard={false} />

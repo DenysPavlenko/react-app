@@ -17,7 +17,7 @@ const categories = [
 const MailCategories = ({ defaultColorScheme, currentCategory, handleCategorySwitch, className }) => {
   const classes = classNames({
     'mail-categories': true,
-    [`mail-categories--${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${defaultColorScheme}`]: defaultColorScheme,
     className: [className]
   });
 

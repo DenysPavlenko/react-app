@@ -14,7 +14,7 @@ import './sports-preview-header.sass';
 const SportsPreviewHeader = ({ title, icon, defaultColorScheme, className }) => {
   const classes = classNames({
     'sports-preview-header': true,
-    [`sports-preview-header--${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${defaultColorScheme}`]: defaultColorScheme,
     [className]: className
   });
 

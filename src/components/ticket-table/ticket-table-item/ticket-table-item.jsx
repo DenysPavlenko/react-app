@@ -37,7 +37,7 @@ const TicketTableItem = ({ id, type, stake, toWin, result, created, isActive, cl
       </td>
       <td>
         <div>
-          <Typography component="p" variant="p-sm" className="text-danger text-uppercase">{result}</Typography>
+          <Typography component="p" variant="p-sm" className={`text-uppercase ${result.toLowerCase() === 'loss' ? 'text-danger' : 'text-accent'}`}>{result}</Typography>
         </div>
       </td>
       <td>

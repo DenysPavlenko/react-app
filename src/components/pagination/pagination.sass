@@ -5,7 +5,7 @@
   width: 100%
   // Color schemes
   @each $name, $color in $sch-colors
-    &--#{$name}
+    &.theme-#{$name}
       .pagination__item
         background-color: $color
         &.is-active,

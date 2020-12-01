@@ -14,7 +14,7 @@ const SportsTableItem = ({ value, info, infoPosition, infoLeft, isActive, select
   const classes = classNames({
     'sports-table-item': true,
     'is-active': isActive,
-    [`sports-table-item--${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${defaultColorScheme}`]: defaultColorScheme,
   });
 
   const infoClasses = classNames({
