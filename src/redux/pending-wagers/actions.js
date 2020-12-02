@@ -1,5 +1,5 @@
 import PendingWagersActionTypes from './types';
-// Horses tracks service
+// Pending wagers service
 import PendingWagersService from 'services/pending-wagers-service';
 const pendingWagersService = new PendingWagersService();
 
@@ -15,9 +15,9 @@ const pendingWagersError = error => ({
   payload: error
 });
 
-export const fetchPendingWagersData = figure => (dispatch) => {
+export const fetchPendingWagersData = () => (dispatch) => {
   dispatch(pendingWagersRequested());
-  pendingWagersService.getPendingWagers(figure)
+  pendingWagersService.getPendingWagers()
     .then(data => dispatch(pendingWagersLoaded(data)))
     .catch(error => dispatch(pendingWagersError(error)))
 };

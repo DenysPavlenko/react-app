@@ -2,6 +2,7 @@ import React from 'react';
 // Components
 import WeeklyFigures from 'components/weekly-figures/weekly-figures';
 import PendingWagers from 'components/pending-wagers/pending-wagers';
+import Transactions from 'components/transactions/transactions';
 // Styles
 import './balance-page.sass';
 
@@ -15,7 +16,9 @@ const BalancePage = () => {
         <div className="balance-page__center">
           <PendingWagers />
         </div>
-        <div className="balance-page__right"></div>
+        <div className="balance-page__right">
+          <Transactions />
+        </div>
       </div>
     </div>
   );

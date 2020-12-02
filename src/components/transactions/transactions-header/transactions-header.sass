@@ -1,0 +1,11 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.transactions-header
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      background-color: $color
+  th
+    padding: 10px
+    white-space: nowrap

@@ -1,5 +1,5 @@
 import WeeklyFiguresActionTypes from './types';
-// Horses tracks service
+// Weekly figures service
 import WeeklyFiguresService from 'services/weekly-figures-service';
 const weeklyFiguresService = new WeeklyFiguresService();
 

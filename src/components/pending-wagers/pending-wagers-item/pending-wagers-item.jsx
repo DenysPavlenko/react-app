@@ -22,11 +22,11 @@ const PendingWagersItem = ({ id, date, description, result, risk, toWin, details
   return (
     <tr className={classes} onClick={() => setShowDetails(showDetails => !showDetails)}>
       <td>
-        <Typography component="p" variant="p-sm">{date}</Typography>
+        <Typography component="p" variant="p-sm" className="text-alt-gray">{date}</Typography>
         <Typography component="p" variant="p-sm" className="text-accent-blue">{id}</Typography>
       </td>
       <td>
-        <Typography component="p" variant="p-sm">{description} {result}</Typography>
+        <Typography component="p" variant="p">{description} {result}</Typography>
         {showDetails &&
           <div className="pending-wagers-item__details">
             <div className="pending-wagers-item__detail">
@@ -69,10 +69,10 @@ const PendingWagersItem = ({ id, date, description, result, risk, toWin, details
         }
       </td>
       <td>
-        <Typography component="p" variant="p-sm" className="text-danger">${risk}</Typography>
+        <Typography component="p" variant="p" className="text-danger">${risk}</Typography>
       </td>
       <td>
-        <Typography component="p" variant="p-sm">${toWin}</Typography>
+        <Typography component="p" variant="p">${toWin}</Typography>
       </td>
     </tr>
   );

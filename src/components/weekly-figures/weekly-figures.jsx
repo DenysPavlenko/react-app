@@ -51,8 +51,8 @@ const WeeklyFigures = ({ weeklyFigures: { loading, data, error }, fetchWeeklyFig
               const textColor = (+total < 0 && 'text-danger') || (+total > 0 && 'text-accent') || '';
               return (
                 <div key={idx} className="weekly-figures__item">
-                  <Typography component="h5">{title}</Typography>
-                  <Typography component="h5" className={textColor}>${total}</Typography>
+                  <Typography component="p">{title}</Typography>
+                  <Typography component="p" className={textColor}>${total}</Typography>
                 </div>
               )
             })}

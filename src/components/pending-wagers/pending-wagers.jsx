@@ -38,10 +38,10 @@ const PendingWagers = ({ pendingWagers: { loading, data, error }, fetchPendingWa
             </Table>
           </div>
           <div className="pending-wagers__footer">
-            <Typography component="h5" className="pending-wagers__footer-title">Total Risk:
+            <Typography component="p" className="pending-wagers__footer-title">Total Risk:
             <Typography component="span" className="text-danger"> ${totalRisk}</Typography>
             </Typography>
-            <Typography component="h5" className="pending-wagers__footer-title">Total Win:
+            <Typography component="p" className="pending-wagers__footer-title">Total Win:
             <Typography component="span" className="text-danger"> ${totalWin}</Typography>
             </Typography>
           </div>
