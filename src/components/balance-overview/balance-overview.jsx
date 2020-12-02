@@ -15,6 +15,7 @@ const balance = [
 ];
 
 const BalanceOverview = ({ shrinkOnMobile, vertical, className, history }) => {
+  console.log('history:', history)
   const classes = classNames({
     'balance-overview': true,
     'balance-overview--vertical': vertical,
@@ -41,6 +42,7 @@ BalanceOverview.defaultProps = {
 BalanceOverview.propTypes = {
   shrinkOnMobile: PropTypes.bool,
   vertical: PropTypes.bool,
+  history: PropTypes.object,
   className: PropTypes.string,
 };
 
