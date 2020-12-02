@@ -1,6 +1,6 @@
 import WeeklyFiguresActionTypes from './types';
 // Horses tracks service
-import WeeklyFiguresService from 'services/weekly-figures';
+import WeeklyFiguresService from 'services/weekly-figures-service';
 const weeklyFiguresService = new WeeklyFiguresService();
 
 const weeklyFiguresRequested = () => ({

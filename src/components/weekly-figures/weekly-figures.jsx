@@ -43,7 +43,7 @@ const WeeklyFigures = ({ weeklyFigures: { loading, data, error }, fetchWeeklyFig
         ]}
       />
       <div className="weekly-figures__items">
-        {error && <ErrorIndicator retry={fetchWeeklyFiguresData} />}
+        {error && <ErrorIndicator retry={() => fetchWeeklyFiguresData(currentFigure)} />}
         {(!error && loading) && <Spinner boxed />}
         {(!error && !loading) &&
           <>

@@ -9,6 +9,7 @@
       overflow: auto
       white-space: nowrap
   &__table
+    position: relative
     margin-bottom: 5px
     border-radius: $r-primary
     overflow: hidden
@@ -16,6 +17,9 @@
       background-color: $c-light
       &:nth-child(even)
         background-color: $c-light-gray
+  &__indicator
+    background-color: $c-light
+    border-radius: $r-primary
   &__footer
     display: flex
     justify-content: flex-end
