@@ -6,10 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './close.sass';
 
-const Close = ({ className, dark, ...otherProps }) => {
+const Close = ({ className, dark, size, ...otherProps }) => {
   const classes = classNames({
     'close': true,
     'close--dark': dark,
+    [`close--${size}`]: size,
     [className]: className,
   });
 
@@ -20,6 +21,8 @@ const Close = ({ className, dark, ...otherProps }) => {
 
 Close.propTypes = {
   className: PropTypes.string,
+  size: PropTypes.string,
+  dark: PropTypes.bool,
 };
 
 export default Close;

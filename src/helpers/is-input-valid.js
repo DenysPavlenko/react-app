@@ -5,6 +5,9 @@ const isInputValid = (type, value) => {
     case 'text':
       regx = /^[a-zA-Z ]{2,30}$/;
       return regx.test(strValue);
+    case 'textarea':
+      regx = /^[a-zA-Z ]{2,30}$/;
+      return regx.test(strValue);
     case 'email':
       regx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return regx.test(strValue);

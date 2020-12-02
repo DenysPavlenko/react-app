@@ -26,13 +26,11 @@ const SignIn = ({ onSignIn }) => {
   const [data, setData] = useState(initialForm);
 
   const handleInput = ({ target: { name, type, value } }) => {
-    setData(data => {
-      return {
-        ...data,
-        [name]: value,
-        [`${name}Invalid`]: data.formErrors && !isInputValid(type, value),
-      }
-    });
+    setData(data => ({
+      ...data,
+      [name]: value,
+      [`${name}Invalid`]: data.formErrors && !isInputValid(type, value),
+    }));
   };
 
   const handleSubmit = e => {
