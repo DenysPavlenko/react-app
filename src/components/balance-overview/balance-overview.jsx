@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames'
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 // Components
 import BalanceItem from 'components/balance-item/balance-item';
 // Styles
@@ -13,7 +14,7 @@ const balance = [
   { title: 'free play', total: '0' },
 ];
 
-const BalanceOverview = ({ shrinkOnMobile, vertical, className, ...otherProps }) => {
+const BalanceOverview = ({ shrinkOnMobile, vertical, className, history }) => {
   const classes = classNames({
     'balance-overview': true,
     'balance-overview--vertical': vertical,
@@ -22,7 +23,7 @@ const BalanceOverview = ({ shrinkOnMobile, vertical, className, ...otherProps })
   });
 
   return (
-    <div className={classes} {...otherProps}>
+    <div className={classes} onClick={() => history.push('/balance')}>
       {balance.map(({ title, total }, idx) => (
         <div key={idx} className="balance-overview__item">
           <BalanceItem title={title} total={`$${total}`} negative={total < 0} />
@@ -43,4 +44,4 @@ BalanceOverview.propTypes = {
   className: PropTypes.string,
 };
 
-export default BalanceOverview;
+export default withRouter(BalanceOverview);
