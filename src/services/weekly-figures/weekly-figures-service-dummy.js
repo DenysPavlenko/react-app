@@ -3,9 +3,9 @@ import * as data from './dummy-data/data.json';
 // Helpers
 import getDummyData from 'services/_helpers/get-dummy-data';
 
-export default class LiveMarketsServiceDummy {
+export default class HorsesTracksService {
 
-  getLiveMarkets = async () => {
+  getWeeklyFigures = async () => {
     return getDummyData({ data })
   }
 

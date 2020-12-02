@@ -1,6 +1,6 @@
 import HorsesTracksActionTypes from './types';
 // Horses tracks service
-import HorsesTracksService from 'services/horses-tracks';
+import HorsesTracksService from 'services/horses-tracks-service';
 const horsesTracksService = new HorsesTracksService();
 
 const horsesTracksRequested = () => ({

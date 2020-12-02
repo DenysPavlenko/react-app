@@ -6,7 +6,7 @@ import getDummyData from 'services/_helpers/get-dummy-data';
 export default class LiveHistoryService {
 
   getLiveHistory = async () => {
-    return getDummyData({ data, timeOut: 1000 })
+    return getDummyData({ data })
   }
 
 };

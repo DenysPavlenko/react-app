@@ -12,7 +12,6 @@ import './pending-wagers.sass';
 const PendingWagers = () => {
   const totalRisk = data.reduce((acc, item) => acc + parseInt(item.risk), 0);
   const totalWin = data.reduce((acc, item) => acc + parseInt(item.toWin), 0);
-  console.log('totalRisk:', totalRisk)
   return (
     <div className="pending-wagers">
       <Typography component="h2" className="pending-wagers__heading">Pending wagers</Typography>

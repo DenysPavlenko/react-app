@@ -6,7 +6,7 @@ import getDummyData from 'services/_helpers/get-dummy-data';
 export default class CasinoGamesService {
 
   getCasinoGames = async () => {
-    return getDummyData({ data, timeOut: 1000 })
+    return getDummyData({ data})
   }
 
 };

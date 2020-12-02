@@ -1,30 +1,31 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+// Redux
+import { fetchWeeklyFiguresData } from 'redux/weekly-figures/actions';
+import { selectWeeklyFigures } from 'redux/weekly-figures/selectors';
 // Components
 import Select from 'components/select/select';
 import Typography from 'components/typography/typography';
+import ErrorIndicator from 'components/error-indicator/error-indicator';
+import Spinner from 'components/spinner/spinner';
 // Styles
 import './weekly-figures.sass';
 
-const items = [
-  { title: 'Carry', value: '-226.5' },
-  { title: 'Mon(11/30)', value: '0.00' },
-  { title: 'Tue(12/1)', value: '0.00' },
-  { title: 'Wed(12/2)', value: '0.00' },
-  { title: 'Thu(12/3)', value: '0.00' },
-  { title: 'Fri(12/4)', value: '0.00' },
-  { title: 'Sat(12/5)', value: '0.00' },
-  { title: 'Sun(12/6)', value: '0.00' },
-  { title: 'Transactions', value: '226.5' },
-  { title: 'End Balance', value: '0.00' },
-];
+const WeeklyFigures = ({ weeklyFigures: { loading, data, error }, fetchWeeklyFiguresData }) => {
+  const [currentFigure, setCurrentFigure] = useState('0');
 
-const WeeklyFigures = () => {
+  useLayoutEffect(() => {
+    fetchWeeklyFiguresData(currentFigure);
+  }, [fetchWeeklyFiguresData, currentFigure]);
+
   return (
     <div className="weekly-figures">
       <Typography component="h2" className="weekly-figures__heading">Weekly figures</Typography>
       <Select
         className="weekly-figures__select"
-        onChange={() => { }}
+        onChange={(value) => setCurrentFigure(value)}
         options={[
           { label: 'This week', value: '0' },
           { label: 'Last Week', value: '1' },
@@ -42,18 +43,37 @@ const WeeklyFigures = () => {
         ]}
       />
       <div className="weekly-figures__items">
-        {items.map(({ title, value }, idx) => {
-          const textColor = (+value < 0 && 'text-danger') || (+value > 0 && 'text-accent') || '';
-          return (
-            <div key={idx} className="weekly-figures__item">
-              <Typography component="h5">{title}</Typography>
-              <Typography component="h5" className={textColor}>${value}</Typography>
-            </div>
-          )
-        })}
+        {error && <ErrorIndicator retry={fetchWeeklyFiguresData} />}
+        {(!error && loading) && <Spinner boxed />}
+        {(!error && !loading) &&
+          <>
+            {data.map(({ title, total }, idx) => {
+              const textColor = (+total < 0 && 'text-danger') || (+total > 0 && 'text-accent') || '';
+              return (
+                <div key={idx} className="weekly-figures__item">
+                  <Typography component="h5">{title}</Typography>
+                  <Typography component="h5" className={textColor}>${total}</Typography>
+                </div>
+              )
+            })}
+          </>
+        }
       </div>
     </div>
   );
 };
 
-export default WeeklyFigures;
+WeeklyFigures.propTypes = {
+  weeklyFigures: PropTypes.object,
+  fetchWeeklyFiguresData: PropTypes.func,
+};
+
+const mapStateToProps = createStructuredSelector({
+  weeklyFigures: selectWeeklyFigures
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchWeeklyFiguresData: (currentFigure) => dispatch(fetchWeeklyFiguresData(currentFigure))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeeklyFigures);
