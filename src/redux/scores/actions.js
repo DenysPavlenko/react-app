@@ -19,7 +19,7 @@ const scoresError = error => ({
   payload: error
 });
 
-export const fetchScoresData = () => (dispatch) => {
+export const fetchScoresData = () => dispatch => {
   dispatch(scoresRequested());
   scoresService.getScores()
     .then(data => dispatch(scoresLoaded(data)))

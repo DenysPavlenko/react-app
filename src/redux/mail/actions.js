@@ -18,7 +18,7 @@ const messagesError = error => ({
   type: MailActionTypes.FETCH_MESSAGES_FAILURE,
   payload: error
 });
-export const fetchMessages = (category) => (dispatch) => {
+export const fetchMessages = (category) => dispatch => {
   let service;
   if (category === 'inbox') { service = mailService.getInboxMessages; }
   else if (category === 'sent') { service = mailService.getSentMessages; }

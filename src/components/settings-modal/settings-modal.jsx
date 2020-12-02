@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+// Redux
+import { fetchBalanceData } from 'redux/balance/actions';
+import { selectBalance } from 'redux/balance/selectors';
 // Components
 import Modal from 'components/modal/modal';
 import Typography from 'components/typography/typography';
 import Close from 'components/close/close';
 import Select from 'components/select/select';
 import Buton from 'components/button/button';
+import ErrorIndicator from 'components/error-indicator/error-indicator';
+import Spinner from 'components/spinner/spinner'
 // Styles
 import './settings-modal.sass';
 
-const balance = [
-  { title: 'balance', total: '-74' },
-  { title: 'pending', total: '120' },
-  { title: 'available', total: '160' },
-  { title: 'free play', total: '0' },
-];
+const SettingsModal = ({ isHidden, close, fetchBalanceData, balance: { loading, data, error } }) => {
+  useLayoutEffect(() => {
+    !isHidden && fetchBalanceData();
+  }, [isHidden, fetchBalanceData]);
 
-const SettingsModal = ({ isHidden, close }) => {
   return (
     <Modal className="settings-modal" hidden={isHidden} closeModal={close} size="sm" noClose>
       <div className="settings-modal__header">
@@ -23,12 +28,28 @@ const SettingsModal = ({ isHidden, close }) => {
         <Close onClick={close} dark />
       </div>
       <div className="settings-modal__box">
-        {balance.map(({ title, total }, idx) => (
-          <div key={idx} className="settings-modal__item">
-            <Typography component="h5" className="settings-modal__item-title">{title}</Typography>
-            <Typography component="h5">${total}</Typography>
-          </div>
-        ))}
+        {error && <ErrorIndicator retry={fetchBalanceData} />}
+        {(!error && loading) && <Spinner boxed />}
+        {(!error && !loading) &&
+          <>
+            <div className="settings-modal__item">
+              <Typography component="h5" className="settings-modal__item-title">balance</Typography>
+              <Typography component="h5" className={data.balance < 0 ? 'text-danger' : ''}>${data.balance}</Typography>
+            </div>
+            <div className="settings-modal__item">
+              <Typography component="h5" className="settings-modal__item-title">pending</Typography>
+              <Typography component="h5" className={data.pending < 0 ? 'text-danger' : ''}>${data.pending}</Typography>
+            </div>
+            <div className="settings-modal__item">
+              <Typography component="h5" className="settings-modal__item-title">available</Typography>
+              <Typography component="h5" className={data.available < 0 ? 'text-danger' : ''}>${data.available}</Typography>
+            </div>
+            <div className="settings-modal__item">
+              <Typography component="h5" className="settings-modal__item-title">free play</Typography>
+              <Typography component="h5" className={data.freePlay < 0 ? 'text-danger' : ''}>${data.freePlay}</Typography>
+            </div>
+          </>
+        }
       </div>
       <div className="settings-modal__box">
         <div className="settings-modal__item">
@@ -84,4 +105,20 @@ const SettingsModal = ({ isHidden, close }) => {
   );
 };
 
-export default SettingsModal;
+
+SettingsModal.propTypes = {
+  isHidden: PropTypes.bool,
+  close: PropTypes.func,
+  balance: PropTypes.object,
+  fetchBalanceData: PropTypes.func,
+};
+
+const mapStateToProps = createStructuredSelector({
+  balance: selectBalance,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchBalanceData: () => dispatch(fetchBalanceData()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsModal);

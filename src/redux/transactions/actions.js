@@ -15,7 +15,7 @@ const transactionsError = error => ({
   payload: error
 });
 
-export const fetchTransactionsData = () => (dispatch) => {
+export const fetchTransactionsData = () => dispatch => {
   dispatch(transactionsRequested());
   transactionsService.getTransactions()
     .then(data => dispatch(transactionsLoaded(data)))

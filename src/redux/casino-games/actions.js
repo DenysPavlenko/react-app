@@ -15,7 +15,7 @@ const casinoGamesError = error => ({
   payload: error
 });
 
-export const fetchCasinoGamesData = () => (dispatch) => {
+export const fetchCasinoGamesData = () => dispatch => {
   dispatch(casinoGamesRequested());
   casinoGamesService.getCasinoGames()
     .then(data => dispatch(casinoGamesLoaded(data)))

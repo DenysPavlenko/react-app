@@ -15,7 +15,7 @@ const sportsScheduleError = error => ({
   payload: error
 });
 
-export const fetchSportsScheduleData = () => (dispatch) => {
+export const fetchSportsScheduleData = () => dispatch => {
   dispatch(sportsScheduleRequested());
   sportsScheduleService.getSportsSchedule()
     .then(data => dispatch(sportsScheduleLoaded(data)))

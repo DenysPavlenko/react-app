@@ -15,7 +15,7 @@ const liveHistoryError = error => ({
   payload: error
 });
 
-export const fetchLiveHistoryData = () => (dispatch) => {
+export const fetchLiveHistoryData = () => dispatch => {
   dispatch(liveHistoryRequested());
   liveHistoryService.getLiveHistory()
     .then(data => dispatch(liveHistoryLoaded(data)))

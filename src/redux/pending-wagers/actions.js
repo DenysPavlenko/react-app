@@ -15,7 +15,7 @@ const pendingWagersError = error => ({
   payload: error
 });
 
-export const fetchPendingWagersData = () => (dispatch) => {
+export const fetchPendingWagersData = () => dispatch => {
   dispatch(pendingWagersRequested());
   pendingWagersService.getPendingWagers()
     .then(data => dispatch(pendingWagersLoaded(data)))

@@ -15,7 +15,7 @@ const horsesTracksError = error => ({
   payload: error
 });
 
-export const fetchHorsesTracksData = () => (dispatch) => {
+export const fetchHorsesTracksData = () => dispatch => {
   dispatch(horsesTracksRequested());
   horsesTracksService.getHorsesTracks()
     .then(data => dispatch(horsesTracksLoaded(data)))

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { withBreakpoints } from 'react-breakpoints';
 import { connect } from 'react-redux';
 // Redux
 import { togglePersonalize } from 'redux/personalize/actions';
@@ -14,25 +15,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './user-dropdown-menu.sass';
 
-const UserDropdownMenu = ({ history, togglePersonalize, toggleScores, toggleMail }) => {
+const UserDropdownMenu = ({ history, togglePersonalize, toggleScores, toggleMail, breakpoints, currentBreakpoint }) => {
   const [showSettings, setShowSettings] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const toggleSettings = () => setShowSettings(settings => !settings);
+  useEffect(() => {
+    if (breakpoints[currentBreakpoint] < breakpoints.xl) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  }, [breakpoints, currentBreakpoint]);
+
+  const handleShowSettings = () => setShowSettings(true);
+  const handleHideSettings = () => setShowSettings(false);
 
   const menu = [
     { icon: 'calendar', title: 'Scores', handler: toggleScores },
     { icon: 'file-alt', title: 'Rules', rootName: '/rules' },
     { icon: 'envelope', title: 'Mail', handler: toggleMail },
-    { icon: 'cog', title: 'Settings', handler: toggleSettings },
+    { icon: 'cog', title: 'Settings', handler: handleShowSettings },
     { icon: 'paint-brush', title: 'Personalize it', handler: togglePersonalize },
     { icon: 'power-off', title: 'Sign out', rootName: '/sign-in' },
   ];
 
   const handleItemClick = (rootName, handler) => {
     if (rootName) { history.push(`${rootName}`); }
-    if (handler) {
-      handler();
-    }
+    if (handler) { handler(); }
   };
 
   return (
@@ -46,11 +55,10 @@ const UserDropdownMenu = ({ history, togglePersonalize, toggleScores, toggleMail
           {flag && <Image src={flag} className="user-dropdown-menu__flag" alt="usa" icon />}
         </div>
       ))}
-      <div className="user-dropdown-menu__balance">
-        <BalanceOverview vertical />
-      </div>
 
-      <SettingsModal isHidden={!showSettings} close={toggleSettings} />
+      {isMobile && <BalanceOverview className="user-dropdown-menu__balance" vertical />}
+
+      <SettingsModal isHidden={!showSettings} close={handleHideSettings} />
 
     </div>
   );
@@ -61,6 +69,8 @@ UserDropdownMenu.propTypes = {
   toggleScores: PropTypes.func,
   toggleMail: PropTypes.func,
   history: PropTypes.object,
+  breakpoints: PropTypes.object,
+  currentBreakpoint: PropTypes.string,
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -69,4 +79,4 @@ const mapDispatchToProps = dispatch => ({
   toggleMail: () => dispatch(toggleMail()),
 });
 
-export default connect(null, mapDispatchToProps)(withRouter(UserDropdownMenu));
+export default connect(null, mapDispatchToProps)(withRouter(withBreakpoints(UserDropdownMenu)));

@@ -15,7 +15,7 @@ const weeklyFiguresError = error => ({
   payload: error
 });
 
-export const fetchWeeklyFiguresData = figure => (dispatch) => {
+export const fetchWeeklyFiguresData = figure => dispatch => {
   dispatch(weeklyFiguresRequested());
   weeklyFiguresService.getWeeklyFigures(figure)
     .then(data => dispatch(weeklyFiguresLoaded(data)))

@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import classNames from 'classnames'
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+// Redux
+import { fetchBalanceData } from 'redux/balance/actions';
+import { selectBalance } from 'redux/balance/selectors';
 // Components
 import BalanceItem from 'components/balance-item/balance-item';
 // Styles
 import './balance-overview.sass';
 
-const balance = [
-  { title: 'balance', total: '-74' },
-  { title: 'pending', total: '120' },
-  { title: 'available', total: '160' },
-  { title: 'free play', total: '0' },
-];
+const BalanceOverview = ({ shrinkOnMobile, vertical, className, fetchBalanceData, balance, balance: { loading, data, error }, history }) => {
+  useLayoutEffect(() => {
+    fetchBalanceData();
+  }, [fetchBalanceData]);
 
-const BalanceOverview = ({ shrinkOnMobile, vertical, className, history }) => {
-  console.log('history:', history)
   const classes = classNames({
     'balance-overview': true,
     'balance-overview--vertical': vertical,
@@ -25,25 +26,28 @@ const BalanceOverview = ({ shrinkOnMobile, vertical, className, history }) => {
 
   return (
     <div className={classes} onClick={() => history.push('/balance')}>
-      {balance.map(({ title, total }, idx) => (
-        <div key={idx} className="balance-overview__item">
-          <BalanceItem title={title} total={`$${total}`} negative={total < 0} />
-        </div>
-      ))}
+      <BalanceItem className="balance-overview__item" title="balance" total={data && data.balance} error={error} loading={loading} />
+      <BalanceItem className="balance-overview__item" title="pending" total={data && data.pending} error={error} loading={loading} />
+      <BalanceItem className="balance-overview__item" title="available" total={data && data.available} error={error} loading={loading} />
+      <BalanceItem className="balance-overview__item" title="free play" total={data && data.freePlay} error={error} loading={loading} />
     </div>
   );
-};
-
-BalanceOverview.defaultProps = {
-  shrinkOnMobile: false,
-  vertical: false,
 };
 
 BalanceOverview.propTypes = {
   shrinkOnMobile: PropTypes.bool,
   vertical: PropTypes.bool,
-  history: PropTypes.object,
   className: PropTypes.string,
+  balance: PropTypes.object,
+  fetchBalanceData: PropTypes.func,
 };
 
-export default withRouter(BalanceOverview);
+const mapStateToProps = createStructuredSelector({
+  balance: selectBalance,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchBalanceData: () => dispatch(fetchBalanceData()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(BalanceOverview));

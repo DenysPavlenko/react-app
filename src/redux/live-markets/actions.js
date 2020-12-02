@@ -15,7 +15,7 @@ const liveProgramError = error => ({
   payload: error
 });
 
-export const fetchLiveMarketsData = () => (dispatch) => {
+export const fetchLiveMarketsData = () => dispatch => {
   dispatch(liveProgramRequested());
   liveMarketsService.getLiveMarkets()
     .then(data => dispatch(liveProgramLoaded(data)))

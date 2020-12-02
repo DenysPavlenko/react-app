@@ -15,7 +15,7 @@ const livePendingError = error => ({
   payload: error
 });
 
-export const fetchLivePendingData = () => (dispatch) => {
+export const fetchLivePendingData = () => dispatch => {
   dispatch(livePendingRequested());
   livePendingService.getLivePending()
     .then(data => dispatch(livePendingLoaded(data)))

@@ -20,6 +20,7 @@ import mailReducer from './mail/reducer';
 import weeklyFiguresReducer from './weekly-figures/reducer';
 import pendingWagersReducer from './pending-wagers/reducer';
 import transactionsReducer from './transactions/reducer';
+import balanceReducer from './balance/reducer';
 
 const rootReducer = combineReducers({
   personalize: personalizeReducer,
@@ -42,6 +43,7 @@ const rootReducer = combineReducers({
   weeklyFigures: weeklyFiguresReducer,
   pendingWagers: pendingWagersReducer,
   transactions: transactionsReducer,
+  balance: balanceReducer,
 });
 
 export default rootReducer;
