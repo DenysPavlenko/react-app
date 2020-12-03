@@ -1,26 +1,15 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+// Hooks
+import useOnClickOutside from 'hooks/useClickOutside'
 // Styles
 import './dropdown-toggle.sass';
 
 const DropdownToggle = ({ children, className, toggleDropdown, isExpanded }) => {
   const toggleRef = useRef();
 
-  const handleClickOutside = useCallback(({ target }) => {
-    const toggle = toggleRef.current;
-    const dropdown = toggle.closest('.dropdown');
-    if (!dropdown.contains(target)) {
-      toggleDropdown();
-    }
-  }, [toggleDropdown]);
-
-  useEffect(() => {
-    if (isExpanded) {
-      document.addEventListener('click', handleClickOutside);
-      return () => document.removeEventListener('click', handleClickOutside);
-    }
-  }, [isExpanded, handleClickOutside]);
+  useOnClickOutside(toggleRef, () => toggleDropdown(), isExpanded);
 
   const classnames = classNames({
     'dropdown-toggle': true,
