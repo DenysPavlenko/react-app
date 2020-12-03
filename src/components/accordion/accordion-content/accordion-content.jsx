@@ -9,6 +9,7 @@ const AccordionContent = ({ children, className, isExpanded }) => {
 
   useEffect(() => {
     const content = contentRef.current;
+    const clearMaxHeight = () => content.style.maxHeight = 'none';
     if (isExpanded) {
       content.style.maxHeight = content.scrollHeight + 'px';
       content.addEventListener('transitionend', clearMaxHeight);
@@ -24,11 +25,6 @@ const AccordionContent = ({ children, className, isExpanded }) => {
       }
     }
   }, [isExpanded]);
-
-  const clearMaxHeight = () => {
-    const content = contentRef.current;
-    content.style.maxHeight = 'none';
-  }
 
   const classes = classNames({
     [className]: className,

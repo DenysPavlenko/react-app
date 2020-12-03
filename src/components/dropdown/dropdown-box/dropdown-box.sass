@@ -1,7 +1,6 @@
 @import '~styles/abstract/variables'
 
 .dropdown-box
-  display: none
   position: absolute
   top: 100%
   right: 0
@@ -10,5 +9,14 @@
   background-color: $c-primary
   box-shadow: $s-primary
   z-index: 1
-  &.is-expanded
-    display: block
+// Animations
+.dropdown-box-animation-enter
+  opacity: 0
+.dropdown-box-animation-enter-active
+  opacity: 1
+  transition: opacity 0.3s
+.dropdown-box-animation-exit
+  opacity: 1
+.dropdown-box-animation-exit-active
+  opacity: 0
+  transition: opacity 0.3s

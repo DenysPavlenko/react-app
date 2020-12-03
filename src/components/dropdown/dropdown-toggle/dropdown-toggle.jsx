@@ -1,58 +1,45 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 // Styles
 import './dropdown-toggle.sass';
 
-class DropdownToggle extends Component {
-  toggleRef = React.createRef();
+const DropdownToggle = ({ children, className, toggleDropdown, isExpanded }) => {
+  const toggleRef = useRef();
 
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    className: PropTypes.string
-  };
-
-  componentDidMount() {
-    document.addEventListener('click', this.handleClickOutside);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('click', this.handleClickOutside);
-  }
-
-  handleClickOutside = (e) => {
-    const toggle = this.toggleRef.current;
+  const handleClickOutside = useCallback(({ target }) => {
+    const toggle = toggleRef.current;
     const dropdown = toggle.closest('.dropdown');
-    const dropdownBox = dropdown.querySelector('.dropdown-box');
-    if (!dropdown.contains(e.target)) {
-      toggle.classList.remove('is-active');
-      dropdownBox.classList.remove('is-expanded');
+    if (!dropdown.contains(target)) {
+      toggleDropdown();
     }
-  }
+  }, [toggleDropdown]);
 
-  handleToggleClick = () => {
-    const { disabled } = this.props;
-    if (disabled) { return; }
-    const toggle = this.toggleRef.current;
-    const dropdown = toggle.closest('.dropdown');
-    const dropdownBox = dropdown.querySelector('.dropdown-box');
-    toggle.classList.toggle('is-active');
-    dropdownBox.classList.toggle('is-expanded');
-  }
+  useEffect(() => {
+    if (isExpanded) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [isExpanded, handleClickOutside]);
 
-  render() {
-    const { children, className } = this.props;
-    const classnames = classNames({
-      'dropdown-toggle': true,
-      [className]: className,
-    });
+  const classnames = classNames({
+    'dropdown-toggle': true,
+    'is-active': isExpanded,
+    [className]: className,
+  });
 
-    return (
-      <div ref={this.toggleRef} className={classnames} onClick={this.handleToggleClick}>
-        {children}
-      </div>
-    );
-  }
-}
+  return (
+    <div ref={toggleRef} className={classnames} onClick={toggleDropdown}>
+      {children}
+    </div>
+  )
+};
+
+DropdownToggle.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  isExpanded: PropTypes.bool,
+  toggleDropdown: PropTypes.func,
+};
 
 export default DropdownToggle;

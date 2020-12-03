@@ -4,21 +4,30 @@ import classNames from 'classnames';
 // Components
 import DropdownToggle from './dropdown-toggle/dropdown-toggle';
 import DropdownBox from './dropdown-box/dropdown-box';
-import DropdownClose from './dropdown-close/dropdown-close';
 // Styles
 import './dropdown.sass';
 
 class Dropdown extends Component {
   static Toggle = DropdownToggle;
   static Box = DropdownBox;
-  static Close = DropdownClose;
+
   static propTypes = {
     children: PropTypes.node.isRequired,
-    className: PropTypes.string
+    className: PropTypes.string,
+    closeOnClick: PropTypes.bool,
+  };
+
+  state = {
+    isExpanded: false
+  };
+
+  toggleDropdown = () => {
+    this.setState(({ isExpanded }) => ({ isExpanded: !isExpanded }));
   };
 
   render() {
-    const { children, className, disabled } = this.props;
+    const { children, className, closeOnClick } = this.props;
+    const { isExpanded } = this.state;
     const classnames = classNames({
       'dropdown': true,
       [className]: className,
@@ -27,7 +36,7 @@ class Dropdown extends Component {
     return (
       <div className={classnames}>
         {React.Children.map(children, child => (
-          React.cloneElement(child, { disabled })
+          React.cloneElement(child, { closeOnClick, isExpanded, toggleDropdown: this.toggleDropdown })
         ))}
       </div>
     );

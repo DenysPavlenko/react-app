@@ -9,16 +9,14 @@ import './user-dropdown.sass';
 
 const UserDropdown = () => {
   return (
-    <Dropdown className="user-dropdown">
+    <Dropdown className="user-dropdown" closeOnClick>
       <Dropdown.Toggle className="user-dropdown__toggle">
         <FontAwesomeIcon icon={faUser} className="user-dropdown__toggle-icon" />
         <div className="user-dropdown__toggle-name">PA47</div>
         <FontAwesomeIcon icon={faChevronDown} className="user-dropdown__toggle-chevron" />
       </Dropdown.Toggle>
       <Dropdown.Box className="user-dropdown__box">
-        <Dropdown.Close >
-          <UserDropdownMenu />
-        </Dropdown.Close >
+        <UserDropdownMenu />
       </Dropdown.Box>
     </Dropdown>
   );
