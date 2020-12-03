@@ -34,7 +34,7 @@ const NotificationContent = forwardRef(({ title, message, close }, ref) => {
   useEffect(() => {
     const timer = setTimeout(() => close(), 3000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [close]);
 
   return createPortal(
     <div ref={ref} className="notification" onClick={close}>

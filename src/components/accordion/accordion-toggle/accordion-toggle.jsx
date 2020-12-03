@@ -5,6 +5,7 @@ import classNames from 'classnames';
 const AccordionToggle = ({ children, toggleAccordion, className }) => {
 
   const classes = classNames({
+    'accordion-toggle': true,
     [className]: className,
   });
 

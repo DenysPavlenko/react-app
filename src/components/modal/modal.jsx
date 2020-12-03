@@ -41,15 +41,18 @@ const ModalContent = forwardRef(({ children, closeModal, noClose, size, classNam
 
   const toggleScroll = (hide) => {
     const html = document.querySelector('html');
+    const header = document.querySelector('.header');
     const documentWidth = document.documentElement.clientWidth;
     const windowWidth = window.innerWidth;
     const scrollBarWidth = windowWidth - documentWidth;
     if (hide) {
       html.style.overflowY = 'hidden';
       html.style.paddingRight = `${scrollBarWidth}px`;
+      header.style.paddingRight = `${scrollBarWidth}px`;
     } else {
       html.style.overflowY = 'auto';
       html.style.paddingRight = 0;
+      header.style.paddingRight = 0;
     }
   };
 

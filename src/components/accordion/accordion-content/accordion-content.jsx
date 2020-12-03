@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+// Styles
+import './accordion-content.sass'
 
 const AccordionContent = ({ children, className, isExpanded }) => {
+  const content = useRef(null);
+  const [maxHeight, setMaxHeight] = useState(0);
+
+  useEffect(() => {
+    setMaxHeight(content.current.scrollHeight);
+  }, [setMaxHeight]);
 
   const classes = classNames({
     [className]: className,
   });
 
   return (
-    <div className={classes} style={{ display: `${isExpanded ? 'block' : 'none'}` }}>
-      {children}
+    <div ref={content} className="accordion-content" style={{ 'maxHeight': `${isExpanded ? maxHeight : '0'}px` }}>
+      <div className={classes}>
+        {children}
+      </div>
     </div>
   );
 };
