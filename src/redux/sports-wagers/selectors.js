@@ -11,3 +11,8 @@ export const selectActiveSportsWagers = createSelector(
   [sportsWagersSelector],
   sportsWagers => sportsWagers.wagers.map(({ id }) => id)
 );
+
+export const selectTotalWagered = createSelector(
+  [sportsWagersSelector],
+  sportsWagers => sportsWagers.totalWagered
+);

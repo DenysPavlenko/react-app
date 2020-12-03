@@ -13,3 +13,8 @@ export const removeSportsWager = id => ({
 export const clearSportsWagers = () => ({
   type: SportsWagersActionTypes.CLEAR_SPORTS_WAGERS,
 });
+
+export const setTotalWagered = total => ({
+  type: SportsWagersActionTypes.SET_TOTAL_WAGERED,
+  payload: total
+});

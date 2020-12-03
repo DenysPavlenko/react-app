@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { selectSportsWages } from 'redux/sports-wagers/selectors';
+import { selectSportsWages, selectTotalWagered } from 'redux/sports-wagers/selectors';
 import { clearSportsWagers } from 'redux/sports-wagers/actions';
 // Components
 import Simplebar from 'simplebar-react';
@@ -14,7 +14,9 @@ import SportsWager from 'components/sports-wager/sports-wager';
 // Styles
 import './sports-wagers.sass';
 
-const SportsBettings = ({ sportsWages, clearSportsWagers }) => {
+const SportsBettings = ({ sportsWages, clearSportsWagers, totalWagered }) => {
+  const [wagerType, setWagerType] = useState('straight');
+
   return (
     <div className="sports-wagers">
       <div className="sports-wagers__header">
@@ -27,7 +29,7 @@ const SportsBettings = ({ sportsWages, clearSportsWagers }) => {
         </div>
         :
         <div className="sports-wagers__wrap">
-          <WagerTypes />
+          <WagerTypes currentType={wagerType} handleWagerType={setWagerType} />
           <div className="sports-wagers__list">
             <Simplebar className="custom-scroll">
               {sportsWages.map(({ id, icon, title, value, scheduled, selection, notes }) => (
@@ -36,7 +38,7 @@ const SportsBettings = ({ sportsWages, clearSportsWagers }) => {
             </Simplebar>
           </div>
           <div className="sports-wagers__totals">
-            <Typography component="h4" className="sports-wagers__total">Total Wagered: <span>$0.00</span></Typography>
+            <Typography component="h4" className="sports-wagers__total">Total Wagered: <span>${totalWagered}</span></Typography>
             <Typography component="h4" className="sports-wagers__total">Total Possible Win: <span>$0.00</span></Typography>
           </div>
           <div className="sports-wagers__buttons">
@@ -56,10 +58,12 @@ const SportsBettings = ({ sportsWages, clearSportsWagers }) => {
 SportsBettings.propTypes = {
   sportsWages: PropTypes.array,
   clearSportsWagers: PropTypes.func,
+  totalWagered: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
-  sportsWages: selectSportsWages
+  sportsWages: selectSportsWages,
+  totalWagered: selectTotalWagered,
 });
 
 const mapDispatchToProps = dispatch => ({
