@@ -22,9 +22,10 @@ const SportsTableLine = ({ id, title, icon, spread, moneyLine, total, teamTotalF
   });
 
   const handleItemClick = (value, selection) => {
-    addSportsWager({
+    const wager = {
       id: id + selection, icon, title, value, scheduled: 'November 29, 2020 10:00 AM PST', selection, notes: 'Broadcast - FOX'
-    });
+    }
+    addSportsWager(wager);
   };
 
   return (

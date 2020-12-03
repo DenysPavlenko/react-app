@@ -9,7 +9,7 @@ import SportsTableLine from './sports-table-line/sports-table-line';
 // Styles
 import './sports-table.sass';
 
-const SportsTable = ({ day: { date, spread, moneyLine, total, teamTotal, games }, breakpoints, currentBreakpoint }) => {
+const SportsTable = ({ schedule, breakpoints, currentBreakpoint }) => {
   const [spreadType, setSpreadType] = useState(null);
   const [totalType, setTotalType] = useState(null);
 
@@ -33,22 +33,26 @@ const SportsTable = ({ day: { date, spread, moneyLine, total, teamTotal, games }
   return (
     <Table className="sports-table">
       <SportsTableHeaderA setTotalType={setTotalType} toggleSpreadType={toggleSpreadType} spreadType={spreadType} toggleTotalType={toggleTotalType} totalType={totalType} />
-      <SportsTableHeaderB date={date} spread={spread} moneyLine={moneyLine} total={total} teamTotal={teamTotal} spreadType={spreadType} totalType={totalType} />
-      {games.map(({ id, time, channel, teams }) => (
+      {schedule.map(({ id, date, spread, moneyLine, total, teamTotal, spreadType, totalType, games }) => (
         <React.Fragment key={id}>
-          <SportsTableHeaderC time={time} channel={channel} />
-          <tbody>
-            {teams.map(({ id, ...otherProps }, idx) => (
-              <SportsTableLine
-                key={id}
-                id={id}
-                isFirst={idx === 0}
-                spreadType={spreadType}
-                totalType={totalType}
-                className="sports-table__item" {...otherProps}
-              />
-            ))}
-          </tbody>
+          <SportsTableHeaderB key={id} date={date} spread={spread} moneyLine={moneyLine} total={total} teamTotal={teamTotal} spreadType={spreadType} totalType={totalType} />
+          {games.map(({ id, time, channel, teams }) => (
+            <React.Fragment key={id}>
+              <SportsTableHeaderC time={time} channel={channel} />
+              <tbody>
+                {teams.map(({ id, ...otherProps }, idx) => (
+                  <SportsTableLine
+                    key={id}
+                    id={id}
+                    isFirst={idx === 0}
+                    spreadType={spreadType}
+                    totalType={totalType}
+                    className="sports-table__item" {...otherProps}
+                  />
+                ))}
+              </tbody>
+            </React.Fragment>
+          ))}
         </React.Fragment>
       ))}
     </Table>

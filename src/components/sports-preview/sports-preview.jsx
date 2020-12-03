@@ -10,14 +10,12 @@ import './sports-preview.sass';
 const SportsPreview = () => {
   return (
     <div className="sports-preview">
-      {data.map(({ id, icon, title, day }) => {
-        return (
-          <div key={id} className="sports-preview__item">
-            <SportsPreviewHeader title={title} icon={icon} />
-            <SportsTable day={day} />
-          </div>
-        )
-      })}
+      {data.map(({ id, icon, title, schedule }) => (
+        <div key={id} className="sports-preview__item">
+          <SportsPreviewHeader title={title} icon={icon} />
+          <SportsTable schedule={schedule} />
+        </div>
+      ))}
     </div>
   );
 };
