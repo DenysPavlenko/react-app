@@ -5,13 +5,13 @@ import Typography from 'components/typography/typography';
 // Styles
 import './sports-table-header-b.sass';
 
-const SportsTableHeaderB = ({ day, spread, moneyLine, total, teamTotal, breakpoints, currentBreakpoint, spreadType, totalType }) => {
+const SportsTableHeaderB = ({ date, spread, moneyLine, total, teamTotal, breakpoints, currentBreakpoint, spreadType, totalType }) => {
   return (
     <thead className="sports-table-header-b">
       <tr>
         <th>
           <div className="sports-table-header-b__wrap">
-            <Typography component="p" variant="h6">{day}</Typography>
+            <Typography component="p" variant="h6">{date}</Typography>
             <Typography component="p" variant="h6">MAX:</Typography>
           </div>
         </th>
