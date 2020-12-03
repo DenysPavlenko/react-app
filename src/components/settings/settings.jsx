@@ -5,6 +5,8 @@ import { createStructuredSelector } from 'reselect';
 // Redux
 import { fetchBalanceData } from 'redux/balance/actions';
 import { selectBalance } from 'redux/balance/selectors';
+import { selectSettings } from 'redux/settings/selectors';
+import { hideSettings } from 'redux/settings/actions';
 // Components
 import Modal from 'components/modal/modal';
 import Typography from 'components/typography/typography';
@@ -14,46 +16,46 @@ import Buton from 'components/button/button';
 import ErrorIndicator from 'components/error-indicator/error-indicator';
 import Spinner from 'components/spinner/spinner'
 // Styles
-import './settings-modal.sass';
+import './settings.sass';
 
-const SettingsModal = ({ isHidden, close, fetchBalanceData, balance: { loading, data, error } }) => {
+const Settings = ({ isSettingsShown, hideSettings, fetchBalanceData, balance: { loading, data, error } }) => {
   useLayoutEffect(() => {
-    !isHidden && fetchBalanceData();
-  }, [isHidden, fetchBalanceData]);
+    isSettingsShown && fetchBalanceData();
+  }, [isSettingsShown, fetchBalanceData]);
 
   return (
-    <Modal className="settings-modal" hidden={isHidden} closeModal={close} size="sm" noClose>
-      <div className="settings-modal__header">
-        <Typography component="h4" className="settings-modal__item-title">My account</Typography>
-        <Close onClick={close} dark />
+    <Modal className="settings" hidden={!isSettingsShown} closeModal={hideSettings} size="sm" noClose>
+      <div className="settings__header">
+        <Typography component="h4" className="settings__item-title">My account</Typography>
+        <Close onClick={hideSettings} dark />
       </div>
-      <div className="settings-modal__box">
+      <div className="settings__box">
         {error && <ErrorIndicator retry={fetchBalanceData} />}
         {(!error && loading) && <Spinner boxed />}
         {(!error && !loading) &&
           <>
-            <div className="settings-modal__item">
-              <Typography component="h5" className="settings-modal__item-title">balance</Typography>
+            <div className="settings__item">
+              <Typography component="h5" className="settings__item-title">balance</Typography>
               <Typography component="h5" className={data.balance < 0 ? 'text-danger' : ''}>${data.balance}</Typography>
             </div>
-            <div className="settings-modal__item">
-              <Typography component="h5" className="settings-modal__item-title">pending</Typography>
+            <div className="settings__item">
+              <Typography component="h5" className="settings__item-title">pending</Typography>
               <Typography component="h5" className={data.pending < 0 ? 'text-danger' : ''}>${data.pending}</Typography>
             </div>
-            <div className="settings-modal__item">
-              <Typography component="h5" className="settings-modal__item-title">available</Typography>
+            <div className="settings__item">
+              <Typography component="h5" className="settings__item-title">available</Typography>
               <Typography component="h5" className={data.available < 0 ? 'text-danger' : ''}>${data.available}</Typography>
             </div>
-            <div className="settings-modal__item">
-              <Typography component="h5" className="settings-modal__item-title">free play</Typography>
+            <div className="settings__item">
+              <Typography component="h5" className="settings__item-title">free play</Typography>
               <Typography component="h5" className={data.freePlay < 0 ? 'text-danger' : ''}>${data.freePlay}</Typography>
             </div>
           </>
         }
       </div>
-      <div className="settings-modal__box">
-        <div className="settings-modal__item">
-          <Typography component="h5" className="settings-modal__item-title">Game sort(dispaly)</Typography>
+      <div className="settings__box">
+        <div className="settings__item">
+          <Typography component="h5" className="settings__item-title">Game sort(dispaly)</Typography>
           <Select
             onChange={() => { }}
             options={[
@@ -64,9 +66,9 @@ const SettingsModal = ({ isHidden, close, fetchBalanceData, balance: { loading, 
           />
         </div>
       </div>
-      <div className="settings-modal__box">
-        <div className="settings-modal__item">
-          <Typography component="h5" className="settings-modal__item-title">Time</Typography>
+      <div className="settings__box">
+        <div className="settings__item">
+          <Typography component="h5" className="settings__item-title">Time</Typography>
           <Select
             onChange={() => { }}
             options={[
@@ -79,9 +81,9 @@ const SettingsModal = ({ isHidden, close, fetchBalanceData, balance: { loading, 
           />
         </div>
       </div>
-      <div className="settings-modal__box">
-        <div className="settings-modal__item">
-          <Typography component="h5" className="settings-modal__item-title">Default Pitcher Setting</Typography>
+      <div className="settings__box">
+        <div className="settings__item">
+          <Typography component="h5" className="settings__item-title">Default Pitcher Setting</Typography>
           <Select
             onChange={() => { }}
             options={[
@@ -92,22 +94,21 @@ const SettingsModal = ({ isHidden, close, fetchBalanceData, balance: { loading, 
           />
         </div>
       </div>
-      <div className="settings-modal__box">
-        <div className="settings-modal__item">
-          <Typography component="h5" className="settings-modal__item-title">Version</Typography>
+      <div className="settings__box">
+        <div className="settings__item">
+          <Typography component="h5" className="settings__item-title">Version</Typography>
           <Typography component="h5">1.0.0</Typography>
         </div>
       </div>
-      <div className="settings-modal__footer">
-        <Buton variant="danger" size="sm" onClick={close}>Close</Buton>
+      <div className="settings__footer">
+        <Buton variant="danger" size="sm" onClick={hideSettings}>Close</Buton>
       </div>
     </Modal>
   );
 };
 
-
-SettingsModal.propTypes = {
-  isHidden: PropTypes.bool,
+Settings.propTypes = {
+  isSettingsShown: PropTypes.bool,
   close: PropTypes.func,
   balance: PropTypes.object,
   fetchBalanceData: PropTypes.func,
@@ -115,10 +116,12 @@ SettingsModal.propTypes = {
 
 const mapStateToProps = createStructuredSelector({
   balance: selectBalance,
+  isSettingsShown: selectSettings,
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchBalanceData: () => dispatch(fetchBalanceData()),
+  hideSettings: () => dispatch(hideSettings()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SettingsModal);
+export default connect(mapStateToProps, mapDispatchToProps)(Settings);

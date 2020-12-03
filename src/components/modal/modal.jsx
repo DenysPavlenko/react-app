@@ -32,10 +32,10 @@ const ModalContent = forwardRef(({ children, closeModal, noClose, size, classNam
 
   useEffect(() => {
     document.body.appendChild(container);
-    toggleScroll(true)
+    toggleScroll(true);
     return () => {
-      document.body.removeChild(container)
-      toggleScroll(false)
+      document.body.removeChild(container);
+      toggleScroll(false);
     }
   }, [container]);
 

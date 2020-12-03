@@ -8,6 +8,7 @@ import Header from 'components/header/header';
 import Personalize from 'components/personalize/personalize';
 import Scores from 'components/scores/scores';
 import Mail from 'components/mail/mail';
+import Settings from 'components/settings/settings';
 // Pages
 import SignInPage from 'pages/sign-in-page/sign-in-page';
 import SportsPage from 'pages/sports-page/sports-page';
@@ -25,11 +26,16 @@ library.add(fas);
 const App = ({ location }) => {
   return (
     <div className="app">
-      <Personalize />
-      <Scores />
-      <Mail />
       <div className="app__background" />
-      {(location.pathname !== '/sign-in') && <Header />}
+      {(location.pathname !== '/sign-in') &&
+        <>
+          <Header />
+          <Settings />
+          <Personalize />
+          <Scores />
+          <Mail />
+        </>
+      }
       <div className={`${location.pathname !== '/sign-in' ? 'app__content' : ''}`}>
         <ScrollToTop>
           <Switch>

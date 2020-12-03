@@ -21,6 +21,7 @@ import weeklyFiguresReducer from './weekly-figures/reducer';
 import pendingWagersReducer from './pending-wagers/reducer';
 import transactionsReducer from './transactions/reducer';
 import balanceReducer from './balance/reducer';
+import settingsReducer from './settings/reducer';
 
 const rootReducer = combineReducers({
   personalize: personalizeReducer,
@@ -44,6 +45,7 @@ const rootReducer = combineReducers({
   pendingWagers: pendingWagersReducer,
   transactions: transactionsReducer,
   balance: balanceReducer,
+  settings: settingsReducer,
 });
 
 export default rootReducer;
