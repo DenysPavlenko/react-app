@@ -14,26 +14,18 @@ export const selectActiveSportsWagers = createSelector(
 
 export const selectTotalWagered = createSelector(
   [sportsWagersSelector],
-  ({ wagers }) => {
-    let total;
-    if (wagers.length > 0) {
-      total = wagers.reduce((acc, wager) => wager.risk ? acc + parseFloat(wager.risk) : acc, 0);
-    } else {
-      total = 0;
-    }
-    return total.toFixed(2);
-  }
+  ({ wagers }) => getTotal(wagers, 'risk')
 );
 
 export const selectTotalPossibleWin = createSelector(
   [sportsWagersSelector],
-  ({ wagers }) => {
-    let total;
-    if (wagers.length > 0) {
-      total = wagers.reduce((acc, wager) => wager.toWin ? acc + parseFloat(wager.toWin) : acc, 0);
-    } else {
-      total = 0;
-    }
-    return total.toFixed(2);
-  }
+  ({ wagers }) => getTotal(wagers, 'toWin')
 );
+
+const getTotal = (arr, key) => {
+  let total = 0;
+  if (arr.length > 0) {
+    total = arr.reduce((acc, wager) => wager[key] ? acc + parseFloat(wager[key]) : acc, 0);
+  }
+  return total.toFixed(2);
+}
