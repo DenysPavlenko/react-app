@@ -1,13 +1,12 @@
 import SportsWagersActionTypes from './types';
-import { toggleWager } from './utils';
+import { toggleWager, addRiskAndWin } from './utils';
 
 const INITIAL_STATE = {
-  wagers: [],
-  totalWagered: '0.00'
+  wagers: []
 };
 
 const sportsWagersReducer = (state = INITIAL_STATE, action) => {
-  const { wagers, totalWagered } = state;
+  const { wagers } = state;
   switch (action.type) {
     case SportsWagersActionTypes.TOGGLE_SPORTS_WAGER:
       return {
@@ -24,10 +23,10 @@ const sportsWagersReducer = (state = INITIAL_STATE, action) => {
         ...state,
         wagers: []
       }
-    case SportsWagersActionTypes.SET_TOTAL_WAGERED:
+    case SportsWagersActionTypes.ADD_RISK_AND_WIN:
       return {
         ...state,
-        totalWagered: parseInt(totalWagered) + parseInt(action.payload)
+        wagers: addRiskAndWin(wagers, action.payload)
       }
     default:
       return state;

@@ -9,10 +9,31 @@ export const selectSportsWages = createSelector(
 
 export const selectActiveSportsWagers = createSelector(
   [sportsWagersSelector],
-  sportsWagers => sportsWagers.wagers.map(({ id }) => id)
+  ({ wagers }) => wagers.map(({ id }) => id)
 );
 
 export const selectTotalWagered = createSelector(
   [sportsWagersSelector],
-  sportsWagers => sportsWagers.totalWagered
+  ({ wagers }) => {
+    let total;
+    if (wagers.length > 0) {
+      total = wagers.reduce((acc, wager) => wager.risk ? acc + parseFloat(wager.risk) : acc, 0);
+    } else {
+      total = 0;
+    }
+    return total.toFixed(2);
+  }
+);
+
+export const selectTotalPossibleWin = createSelector(
+  [sportsWagersSelector],
+  ({ wagers }) => {
+    let total;
+    if (wagers.length > 0) {
+      total = wagers.reduce((acc, wager) => wager.toWin ? acc + parseFloat(wager.toWin) : acc, 0);
+    } else {
+      total = 0;
+    }
+    return total.toFixed(2);
+  }
 );

@@ -14,7 +14,7 @@ export const clearSportsWagers = () => ({
   type: SportsWagersActionTypes.CLEAR_SPORTS_WAGERS,
 });
 
-export const setTotalWagered = total => ({
-  type: SportsWagersActionTypes.SET_TOTAL_WAGERED,
-  payload: total
+export const addRiskAndWin = (id, risk, toWin) => ({
+  type: SportsWagersActionTypes.ADD_RISK_AND_WIN,
+  payload: { id, risk, toWin }
 });

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { selectSportsWages, selectTotalWagered } from 'redux/sports-wagers/selectors';
+import { selectSportsWages, selectTotalWagered, selectTotalPossibleWin } from 'redux/sports-wagers/selectors';
 import { clearSportsWagers } from 'redux/sports-wagers/actions';
 // Components
 import Simplebar from 'simplebar-react';
@@ -14,7 +14,7 @@ import SportsWager from 'components/sports-wager/sports-wager';
 // Styles
 import './sports-wagers.sass';
 
-const SportsBettings = ({ sportsWages, clearSportsWagers, totalWagered }) => {
+const SportsBettings = ({ sportsWages, clearSportsWagers, totalWagered, totalPossibleWin }) => {
   const [wagerType, setWagerType] = useState('straight');
 
   return (
@@ -39,7 +39,7 @@ const SportsBettings = ({ sportsWages, clearSportsWagers, totalWagered }) => {
           </div>
           <div className="sports-wagers__totals">
             <Typography component="h4" className="sports-wagers__total">Total Wagered: <span>${totalWagered}</span></Typography>
-            <Typography component="h4" className="sports-wagers__total">Total Possible Win: <span>$0.00</span></Typography>
+            <Typography component="h4" className="sports-wagers__total">Total Possible Win: <span>${totalPossibleWin}</span></Typography>
           </div>
           <div className="sports-wagers__buttons">
             <div className="sports-wagers__button">
@@ -64,6 +64,7 @@ SportsBettings.propTypes = {
 const mapStateToProps = createStructuredSelector({
   sportsWages: selectSportsWages,
   totalWagered: selectTotalWagered,
+  totalPossibleWin: selectTotalPossibleWin,
 });
 
 const mapDispatchToProps = dispatch => ({

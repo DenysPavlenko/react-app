@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
 import { selectColorScheme } from 'redux/color-scheme/selectors';
-import { removeSportsWager, setTotalWagered } from 'redux/sports-wagers/actions';
+import { removeSportsWager, addRiskAndWin } from 'redux/sports-wagers/actions';
 // Components
 import Typography from 'components/typography/typography';
 import Image from 'components/image/image';
@@ -14,7 +14,7 @@ import Chevron from 'components/chevron/chevron';
 // Styles
 import './sports-wager.sass';
 
-const SportsWager = ({ id, icon, title, value, scheduled, selection, notes, removeSportsWager, setTotalWagered, defaultColorScheme }) => {
+const SportsWager = ({ id, icon, title, value, scheduled, selection, notes, removeSportsWager, addRiskAndWin, defaultColorScheme }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [data, setData] = useState({
     risk: '',
@@ -24,19 +24,21 @@ const SportsWager = ({ id, icon, title, value, scheduled, selection, notes, remo
   const handleHeaderClick = () => setShowDetails(showDetails => !showDetails);
 
   const handleInput = ({ target: { name, value: inputValue } }) => {
+    const regx = /[^\d]/g;
+    if (regx.test(inputValue)) return;
+
     let risk, toWin;
+    const decimalValue = parseInt(value) / 100;
     if (name === 'risk') {
-      toWin = inputValue * parseInt(value) / 100;
+      toWin = (inputValue * decimalValue).toFixed(2);
       risk = inputValue;
     }
     if (name === 'toWin') {
       toWin = inputValue;
-      risk = toWin === '0' ? 0 : (inputValue / (parseInt(value) / 100)).toFixed(2);
+      risk = toWin === '0' ? '0' : (inputValue / decimalValue).toFixed(2);
     }
     setData((data) => ({ ...data, risk, toWin }));
-    if (risk) {
-      setTotalWagered(risk);
-    }
+    addRiskAndWin(id, risk, toWin);
   };
 
   const classes = classNames({
@@ -69,9 +71,9 @@ const SportsWager = ({ id, icon, title, value, scheduled, selection, notes, remo
       <div className="sports-wager__footer">
         <Typography component="p" variant="p-sm" className="sports-wager__delete text-danger" onClick={() => removeSportsWager(id)}>Delete</Typography>
         <div className="sports-wager__inputs">
-          <Input type="number" size="xs" value={risk} name="risk" onChange={handleInput} placeholder="Risk Amount" fluid />
+          <Input type="text" size="xs" value={risk} name="risk" onChange={handleInput} placeholder="Risk Amount" fluid />
           <Typography component="p" variant="p-sm" className="sports-wager__inputs-title">To win</Typography>
-          <Input type="number" size="xs" value={toWin} name="toWin" onChange={handleInput} placeholder="Win Amount" fluid />
+          <Input type="text" size="xs" value={toWin} name="toWin" onChange={handleInput} placeholder="Win Amount" fluid />
         </div>
       </div>
     </div>
@@ -88,7 +90,7 @@ SportsWager.propTypes = {
   selection: PropTypes.string,
   notes: PropTypes.string,
   removeSportsWager: PropTypes.func,
-  setTotalWagered: PropTypes.func,
+  addRiskAndWin: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -97,7 +99,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = dispatch => ({
   removeSportsWager: (id) => dispatch(removeSportsWager(id)),
-  setTotalWagered: (total) => dispatch(setTotalWagered(total)),
+  addRiskAndWin: (id, risk, toWin) => dispatch(addRiskAndWin(id, risk, toWin)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SportsWager);
