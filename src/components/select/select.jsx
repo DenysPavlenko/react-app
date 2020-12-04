@@ -13,6 +13,19 @@ import './select.sass';
 const Select = ({ options, placeholder, inline, textSm, onChange, className }) => {
   const selectDopdownRef = useRef(null);
   const selectRef = useRef(null);
+  const selectOptionsRef = useRef(null);
+
+  const handleOnEnter = () => {
+    let maxWidth;
+    const selectOptions = selectOptionsRef.current;
+    const selectDopdown = selectDopdownRef.current;
+    const options = selectOptions.querySelectorAll('.select__option');
+    for (let i = 0; i < options.length; i++) {
+      maxWidth = Math.max(options[i].scrollWidth);
+    }
+    console.log('maxWidth:', options[1].scrollWidth + 7)
+    selectDopdown.style.minWidth = maxWidth + 'px'
+  }
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [data, setData] = useState({
@@ -34,7 +47,6 @@ const Select = ({ options, placeholder, inline, textSm, onChange, className }) =
   const classes = classNames({
     'select': true,
     'select--inline': inline,
-    'select--text-sm': textSm,
     [className]: className
   });
 
@@ -46,16 +58,17 @@ const Select = ({ options, placeholder, inline, textSm, onChange, className }) =
         {placeholder || options[selectedOption].label}
       </Button>
 
-      <CSSTransition nodeRef={selectDopdownRef} in={isExpanded} timeout={300} unmountOnExit classNames="select-box-animation">
+      <CSSTransition nodeRef={selectDopdownRef} in={isExpanded} timeout={300} onEnter={handleOnEnter} unmountOnExit classNames="select-box-animation">
         <div ref={selectDopdownRef} className="select__dropdown">
           <Simplebar className="custom-scroll select__dropdown-scroll">
-            <div className="select__options">
+            <div className="select__options" ref={selectOptionsRef}>
               {options.map(({ value, label }, idx) => (
                 <div
                   key={value}
-                  className={`select__option ${idx === selectedOption && 'is-selected'}`}
+                  className={`select__option ${idx === selectedOption ? 'is-selected' : ''}`}
                   data-option={value}
-                  onClick={(e) => { handleOptionClick(e, idx, value) }}>
+                  onClick={(e) => { handleOptionClick(e, idx, value) }}
+                >
                   {label}
                 </div>
               ))}
