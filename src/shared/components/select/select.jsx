@@ -23,9 +23,8 @@ const Select = ({ options, placeholder, inline, onChange, fluid, className }) =>
     for (let i = 0; i < options.length; i++) {
       maxWidth = Math.max(options[i].scrollWidth);
     }
-    console.log('maxWidth:', options[1].scrollWidth + 7)
     selectDopdown.style.minWidth = maxWidth + 'px'
-  }
+  };
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [data, setData] = useState({

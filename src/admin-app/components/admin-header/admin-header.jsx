@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withBreakpoints } from 'react-breakpoints';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchBalanceData } from 'admin-app/redux/balance/actions';
 import { selectBalance } from 'admin-app/redux/balance/selectors';
 import { togglePersonalize } from 'shared/redux/personalize/actions';
 import { toggleMail } from 'shared/redux/mail/actions';
@@ -13,7 +12,7 @@ import { toggleAdminMenu } from 'admin-app/redux/admin-menu/actions';
 // Components
 import Header from 'shared/components/header/header';
 import HeaderMenu from 'shared/components/header-menu/header-menu';
-import BalanceItem from 'shared/components/balance-item/balance-item';
+import Balance from 'admin-app/components/balance/balance';
 import Search from 'shared/components/search/search';
 import Select from 'shared/components/select/select';
 import HeaderDropdown from 'shared/components/header-dropdown/header-dropdown';
@@ -33,12 +32,8 @@ const menu = [
   { name: 'position', rootName: '/position', icon: positionIcn, alt: "position" },
 ];
 
-const AdminHeader = ({ breakpoints, currentBreakpoint, toggleMail, showSettings, togglePersonalize, toggleAdminMenu, fetchBalanceData, balance }) => {
+const AdminHeader = ({ breakpoints, currentBreakpoint, toggleMail, showSettings, togglePersonalize, toggleAdminMenu }) => {
   const [isMobile, setIsMobile] = useState(false);
-
-  useLayoutEffect(() => {
-    fetchBalanceData();
-  }, [fetchBalanceData])
 
   const dropdownMenu = [
     { icon: 'envelope', title: 'Mail', handler: toggleMail },
@@ -59,9 +54,9 @@ const AdminHeader = ({ breakpoints, currentBreakpoint, toggleMail, showSettings,
     <Header
       sideMenu={toggleAdminMenu}
       menu={<HeaderMenu menu={menu} />}
-      content={!isMobile && <Widgets balance={balance} />}
+      content={!isMobile && <Widgets />}
       dropdown={
-        <HeaderDropdown name="PA47">
+        <HeaderDropdown name="PA47" closeOnClick={!isMobile}>
           <HeaderDropdownMenu menu={dropdownMenu} footer={<Widgets />} />
         </HeaderDropdown>
       }
@@ -69,7 +64,7 @@ const AdminHeader = ({ breakpoints, currentBreakpoint, toggleMail, showSettings,
   );
 };
 
-const Widgets = ({ balance: { loading, data, error } }) => {
+const Widgets = () => {
   return (
     <div className="header-widgets">
       <div className="header-widgets__widget">
@@ -86,7 +81,7 @@ const Widgets = ({ balance: { loading, data, error } }) => {
         />
       </div>
       <div className="header-widgets__widget">
-        <BalanceItem title="balance" total={data && data.balance} loading={loading} error={error} />
+        <Balance />
       </div>
     </div>
   )
@@ -99,7 +94,6 @@ AdminHeader.propTypes = {
   showSettings: PropTypes.func,
   togglePersonalize: PropTypes.func,
   toggleAdminMenu: PropTypes.func,
-  fetchBalanceData: PropTypes.func,
   balance: PropTypes.object,
 };
 
@@ -108,7 +102,6 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchBalanceData: () => dispatch(fetchBalanceData()),
   toggleMail: () => dispatch(toggleMail()),
   showSettings: () => dispatch(showSettings()),
   togglePersonalize: () => dispatch(togglePersonalize()),

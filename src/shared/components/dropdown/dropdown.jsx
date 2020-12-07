@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 // Components
@@ -8,6 +8,8 @@ import DropdownBox from './dropdown-box/dropdown-box';
 import './dropdown.sass';
 
 class Dropdown extends Component {
+  dropdownRef = createRef(null);
+
   static Toggle = DropdownToggle;
   static Box = DropdownBox;
 
@@ -15,6 +17,23 @@ class Dropdown extends Component {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     closeOnClick: PropTypes.bool,
+  };
+
+  componentDidMount() {
+    document.addEventListener('click', this.clickOutside);
+  };
+  componentWillUnmount() {
+    document.removeEventListener('click', this.clickOutside);
+    console.log(1);
+  };
+
+  clickOutside = e => {
+    const { isExpanded } = this.state;
+    if (isExpanded) {
+      if (!this.dropdownRef.current || this.dropdownRef.current.contains(e.target)) {
+        return; }
+      this.toggleDropdown();
+    }
   };
 
   state = {
@@ -34,7 +53,7 @@ class Dropdown extends Component {
     });
 
     return (
-      <div className={classnames}>
+      <div className={classnames} ref={this.dropdownRef}>
         {React.Children.map(children, child => (
           React.cloneElement(child, { closeOnClick, isExpanded, toggleDropdown: this.toggleDropdown })
         ))}

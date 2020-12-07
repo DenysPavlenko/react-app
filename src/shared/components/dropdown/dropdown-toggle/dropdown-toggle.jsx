@@ -1,16 +1,10 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-// Hooks
-import useOnClickOutside from 'shared/hooks/useClickOutside'
 // Styles
 import './dropdown-toggle.sass';
 
 const DropdownToggle = ({ children, className, toggleDropdown, isExpanded }) => {
-  const toggleRef = useRef();
-
-  useOnClickOutside(toggleRef, () => toggleDropdown(), isExpanded);
-
   const classnames = classNames({
     'dropdown-toggle': true,
     'is-active': isExpanded,
@@ -18,7 +12,7 @@ const DropdownToggle = ({ children, className, toggleDropdown, isExpanded }) => 
   });
 
   return (
-    <div ref={toggleRef} className={classnames} onClick={toggleDropdown}>
+    <div className={classnames} onClick={toggleDropdown}>
       {children}
     </div>
   )
