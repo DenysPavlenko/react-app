@@ -20,33 +20,35 @@ const RecentLogins = ({ fetchRecentLoginsData, recentLogins: { loading, data, er
   }, [fetchRecentLoginsData])
 
   return (
-    <Table className="recent-logins">
-      <RecentLoginsTitle />
-      <RecentLoginsHeader />
-      <thead>
-        {error &&
-          <tr>
-            <th colSpan="2">
-              <ErrorIndicator retry={fetchRecentLoginsData} light />
-            </th>
-          </tr>
-        }
-        {(!error && loading) &&
-          <tr>
-            <th colSpan="2">
-              <Spinner boxed light />
-            </th>
-          </tr>
-        }
-        {(!error && !loading) &&
-          <Fragment>
-            {data.map(({ id, date, ip }) => (
-              <RecentLoginsItem className="recent-logins__item" key={id} date={date} ip={ip} />
-            ))}
-          </Fragment>
-        }
-      </thead>
-    </Table>
+    <div className="recent-logins">
+      <Table>
+        <RecentLoginsTitle />
+        <RecentLoginsHeader />
+        <thead>
+          {error &&
+            <tr>
+              <th colSpan="2">
+                <ErrorIndicator retry={fetchRecentLoginsData} light />
+              </th>
+            </tr>
+          }
+          {(!error && loading) &&
+            <tr>
+              <th colSpan="2">
+                <Spinner boxed light />
+              </th>
+            </tr>
+          }
+          {(!error && !loading) &&
+            <Fragment>
+              {data.map(({ id, date, ip }) => (
+                <RecentLoginsItem className="recent-logins__item" key={id} date={date} ip={ip} />
+              ))}
+            </Fragment>
+          }
+        </thead>
+      </Table>
+    </div>
   );
 };
 
