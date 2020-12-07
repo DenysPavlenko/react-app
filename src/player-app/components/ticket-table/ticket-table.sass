@@ -1,0 +1,38 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.ticket-table
+  &__heading
+    width: 100%
+    text-align: center
+    padding: 15px
+  &__wrap
+    position: relative
+    width: 100%
+    border-bottom: 1px solid $c-alt-gray
+    border-left: 1px solid $c-alt-gray
+    border-right: 1px solid $c-alt-gray
+    overflow: auto
+    min-height: 236px
+  &__row
+    vertical-align: top
+  &__left,
+  &__right
+    padding: 0
+  &__left
+    border-right: 1px solid $c-alt-gray
+    width: 75%
+    height: 100%
+  &__indicator
+    position: absolute
+    left: 0
+    top: 10px
+    bottom: 0
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+  &__item
+    border-bottom: 1px solid $c-alt-gray
+  &__right
+    width: 25%

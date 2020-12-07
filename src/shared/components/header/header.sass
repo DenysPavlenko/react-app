@@ -1,0 +1,53 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.header-gap
+  height: $h-header
+.header
+  position: fixed
+  height: $h-header
+  width: calc( 100% - 8px )
+  top: 0
+  left: 4px
+  background-color: $c-primary
+  display: flex
+  z-index: 200
+
+  // Burger
+  &__burger
+    padding: 0 20px
+    height: 100%
+    display: flex
+    align-items: center
+    cursor: pointer
+  // Menu
+  &__menu
+    display: flex
+    align-items: center
+    height: 100%
+    flex: 1
+    max-width: 50%
+    +media-max($bp-sm)
+      width: auto
+      margin-right: 10px
+
+  // Content
+  &__content
+    display: flex
+    align-items: center
+    margin-left: auto
+    margin-right: 40px
+    +media-max($bp-md)
+      margin-right: 20px
+
+  // User
+  &__user
+    border-left: 1px solid $c-gray
+    width: 20%
+    height: 100%
+    min-width: 250px
+    +media-max($bp-xl)
+      margin-left: 0
+    +media-max($bp-md)
+      width: 60px
+      min-width: auto

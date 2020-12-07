@@ -1,0 +1,19 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+@import ~shared/styles/abstract/grid
+
+.home-page
+  width: 100%
+  overflow: hidden
+  padding-top: 6px
+  &__widgets
+    display: flex
+    flex-wrap: wrap
+    +row()
+  &__widget
+    +col(3)
+    margin-bottom: 20px
+    +media-max($bp-lg)
+      +col(6)
+    +media-max($bp-sm)
+      +col(12)

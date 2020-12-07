@@ -1,35 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
-import ReactBreakpoints from 'react-breakpoints';
-// Store
-import { store } from './redux/store';
-// Components
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
 // Styles
 import './index.sass';
 import 'simplebar/dist/simplebar.min.css';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
-const breakpoints = {
-  xs: 461,
-  sm: 576,
-  md: 768,
-  lg: 992,
-  xl: 1171,
-  xxl: 1201,
-};
+const BUILD_TARGETS = [
+  {
+    name: "admin",
+    path: "./admin-app",
+  },
+  {
+    name: "player",
+    path: "./player-app",
+  },
+];
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <Router>
-        <ReactBreakpoints breakpoints={breakpoints} debounceResize={true} debounceDelay={50}>
-          <App />
-        </ReactBreakpoints >
-      </Router>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+// Determine which entry point to import
+const { path } = BUILD_TARGETS.find(({ name }) => process.env.REACT_APP_BUILD_TARGET.trim() === name);
+
+// Import the entry point and render its default export
+import(`${path}`).then(({ default: BuildTarget }) =>
+  ReactDOM.render(
+    <React.StrictMode>
+      <BuildTarget />
+    </React.StrictMode>,
+    document.getElementById("root")
+  )
 );

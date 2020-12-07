@@ -1,0 +1,32 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.horses-select
+  color: $c-dark
+  &__item
+    background-color: $c-light
+    &:not(:last-child)
+      margin-bottom: 4px
+  &__search
+    padding: 10px
+    &-title
+      margin-bottom: 4px
+    &-input
+      margin-bottom: 10px
+  &__list
+    &-item
+      display: flex
+      align-items: center
+      padding: 5px 10px
+      cursor: pointer
+      transition: background-color 0.2s
+      border-bottom: 1px solid $c-light-gray
+      &:hover,
+      &.is-active
+        background-color: $c-light-gray
+      &-title
+        width: 70%
+      &-info
+        display: flex
+        width: 30%
+        justify-content: space-between

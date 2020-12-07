@@ -1,0 +1,51 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.horses-bet-slip
+  background-color: $c-primary
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      .horses-bet-slip__header-counter
+        background-color: $color
+
+  &__header
+    display: flex
+    align-items: center
+    padding: 10px
+    &-icon
+      margin-right: 8px
+      font-size: rem(14px)
+    &-title
+      margin-right: 6px
+    &-counter
+      display: block
+      width: 21px
+      line-height: 21px
+      text-align: center
+      border-radius: $r-primary
+  &__empty
+    background-color: $c-primary-light
+    padding: 10px
+  &__items
+    background-color: $c-primary-light
+  &__item
+    &:not(:last-child)
+      border-bottom: 1px solid rgba($c-light, 0.3)
+  &__footer
+    background-color: $c-light
+    color: $c-dark
+    padding: 10px
+  &__total
+    margin-bottom: 10px
+    text-align: right
+  &__buttons
+    display: flex
+    justify-content: space-between
+    align-content: center
+    flex-wrap: wrap
+    margin: 0 -4px
+  &__button
+    flex: 1
+    white-space: nowrap
+    padding: 4px

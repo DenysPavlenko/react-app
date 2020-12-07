@@ -1,0 +1,32 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.info-widget
+  display: flex
+  border-radius: $r-primary
+  border: 1px solid $c-alt-gray
+  &--accent
+    .info-widget__icon
+      color: $c-accent
+  &--danger
+    .info-widget__icon
+      color: $c-danger
+  &--accent-orange
+    .info-widget__icon
+      color: $c-accent-orange
+
+  &__left
+    display: flex
+    min-width: 90px
+    flex-direction: column
+    align-items: center
+    padding: 15px
+    padding-right: 5px
+  &__icon
+    font-size: rem(40px)
+    margin-bottom: 5px
+  &__right
+    flex: 1
+    text-align: right
+    padding: 15px
+    padding-left: 5px

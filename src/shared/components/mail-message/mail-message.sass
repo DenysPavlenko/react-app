@@ -1,0 +1,47 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.mail-message
+  padding: 0 10px
+  &__actions
+    display: flex
+    align-items: center
+    margin: 0 -10px
+    border-bottom: 1px solid rgba($c-light, 0.2)
+    margin-bottom: 10px
+  &__action
+    padding: 10px 5px
+    margin: 0 5px
+    cursor: pointer
+    font-size: rem(14px)
+    transition: 0.2s
+    &:hover
+      opacity: 0.5
+  &__header
+    position: relative
+    display: flex
+    margin-bottom: 20px
+    &-letter
+      width: 40px
+      background-color: $c-danger
+      display: flex
+      align-items: center
+      justify-content: center
+      margin-right: 10px
+      user-select: none
+    &-from
+      margin-bottom: 3px
+      span
+        font-weight: 700
+        text-overflow: ellipsis
+        overflow: hidden
+        white-space: nowrap
+        max-width: 100px
+    &-date
+      position: absolute
+      right: 0
+      top: 0
+  &__subject
+    margin-bottom: 5px
+  &__body
+    padding-bottom: 20px

@@ -1,0 +1,31 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.soccer-live-stat
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  &__title
+    margin-bottom: 5px
+    text-align: center
+  &__wrap
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+  &__score
+    &:first-child
+      margin-right: 5px
+    &:last-child
+      margin-left: 5px
+  &__circle
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    background-color: #ccc
+  &__line
+    max-width: 120px
+    width: 100%
+    height: 2px
+    background-color: #ccc

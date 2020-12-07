@@ -1,0 +1,44 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.input
+  width: 100%
+  background-color: $c-light
+  border: 1px solid $input-border
+  border-radius: $r-primary
+  color: $c-primary
+  padding: 7px 10px 8px
+  font-family: inherit
+  font-size: rem(14px)
+  line-height: 1
+  transition: 0.2s
+  &:placeholder
+    color: rgba($c-primary, 0.8)
+  &:focus
+    box-shadow: 0 0 0 0.15rem rgba($c-accent-blue, .25)
+  &--no-radius
+    border-radius: 0
+  &--invalid
+    border: 1px solid $c-danger !important
+  &--transparent
+    background-color: transparent
+    border-color: transparent
+    color: $c-light
+    &:focus
+      box-shadow: none
+  // Sizes
+  &--sm
+    padding: 5px 10px
+    font-size: rem(13px)
+  &--xs
+    padding: 2px 5px
+    text-align: center
+    font-size: rem(12px)
+    max-width: 50px
+  &--fluid
+    width: 100%
+    max-width: 100%
+  &--primary-light
+    background-color: $c-primary-light
+    border-color: $c-primary-light
+    color: $c-light

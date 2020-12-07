@@ -1,0 +1,21 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.mail-categories
+  display: flex
+  align-items: center
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      .mail-categories__category.is-active
+        background-color: $color
+
+  &__category
+    flex: 1
+    text-align: center
+    text-transform: uppercase
+    font-size: rem(16px)
+    background-color: $c-primary-light
+    padding: 7px 5px
+    user-select: none
+    cursor: pointer

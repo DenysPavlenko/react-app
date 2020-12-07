@@ -1,0 +1,20 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.sports-schedule-list
+  cursor: pointer
+  user-select: none
+  transition: background-color 0.2s
+  color: $c-primary
+  &__heading
+    padding: 2px 5px
+  .is-expanded
+    .sports-schedule-list__chevron
+      transform: rotate(180deg)
+  &__chevron
+    font-size: rem(14px)
+    margin-right: 9px
+    margin-left: 4px
+    transition: 0.2s
+  &__content
+    width: 100%

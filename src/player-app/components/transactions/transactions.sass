@@ -1,0 +1,21 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.transactions
+  &__heading
+    margin-bottom: 10px
+  &__table-wrap
+    +media-max($bp-xl)
+      overflow: auto
+      white-space: nowrap
+  &__table
+    position: relative
+    border-radius: $r-primary
+    overflow: hidden
+    &-item
+      background-color: $c-light
+      &:nth-child(even)
+        background-color: $c-light-gray
+  &__indicator
+    background-color: $c-light
+    border-radius: $r-primary

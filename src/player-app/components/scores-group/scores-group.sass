@@ -1,0 +1,22 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.scores-group
+  &__header
+    display: flex
+    align-items: center
+    background-color: $c-dark
+    justify-content: space-between
+    padding: 5px 5px
+    user-select: none
+    cursor: pointer
+    &-title
+      margin-right: 5px
+  &__items
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+  &__item
+    width: 50%
+    &:nth-child(odd)
+      border-right: 1px solid $c-light-gray

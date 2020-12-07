@@ -1,0 +1,12 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.ticket-table-item
+  transition: 0.2s
+  cursor: pointer
+  &.is-active,
+  &:hover
+    background-color: $c-primary
+  td
+    padding: 12px 10px
+    white-space: nowrap

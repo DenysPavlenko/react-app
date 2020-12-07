@@ -1,0 +1,30 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.horses-filters
+  width: 100%
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      .horses-filters__filter.is-active
+        background-color: $color
+
+  &__row
+    display: flex
+    flex-wrap: wrap
+    margin: 0 -3px
+  &__filter
+    margin: 3px
+    font-size: rem(14px)
+    line-height: 1
+    padding: 10px 5px
+    background-color: $c-alt-gray
+    text-align: center
+    user-select: none
+    cursor: pointer
+    border-radius: $r-primary
+    min-width: 10%
+    white-space: nowrap
+    transition: background-color 0.2s
+    &:hover
+      background-color: rgba($c-alt-gray, 0.5)

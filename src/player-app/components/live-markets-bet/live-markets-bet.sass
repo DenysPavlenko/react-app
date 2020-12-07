@@ -1,0 +1,26 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.live-markets-bet
+  width: 100%
+  border-radius: $r-primary
+  color: $c-light
+  padding: 7px 10px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  cursor: pointer
+  overflow: hidden
+  transition: background-color 0.2s
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      background-color: $color
+      &:hover
+        background-color: rgba($color, 0.7)
+
+  &__title
+    width: 80%
+    text-overflow: ellipsis
+    overflow: hidden
+    white-space: nowrap

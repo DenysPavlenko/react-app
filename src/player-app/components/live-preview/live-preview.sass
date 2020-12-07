@@ -1,0 +1,26 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.live-preview
+  &__control
+    position: relative
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 5px
+    border-bottom: 1px solid $c-gray
+    background-color: $c-dark
+    &-volume
+      position: absolute
+      left: 5px
+      font-size: rem(13px)
+      color: $c-light
+      cursor: pointer
+    &-field
+      height: 20px
+      width: 20px
+      fill: $c-light
+      cursor: pointer
+  &__content
+    margin-bottom: 4px

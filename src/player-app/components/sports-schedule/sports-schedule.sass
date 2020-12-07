@@ -1,0 +1,21 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.sports-schedule
+  width: 100%
+  background-color: $c-light
+  &__header
+    position: relative
+    background-color: $c-dark
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 13px 5px
+    +media-max($bp-lg)
+      justify-content: space-between
+    &-button
+      display: none
+      +media-max($bp-lg)
+        position: absolute
+        right: 5px
+        display: block

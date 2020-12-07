@@ -1,0 +1,14 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.sports-schedule-item
+  border-bottom: 1px solid $c-primary
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      &.is-active
+        .sports-schedule-item__heading
+          background-color: $color
+  &__content
+    padding-bottom: 5px
+    background-color: $c-light

@@ -1,0 +1,35 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.admin-settings
+  color: $c-dark
+  &__header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 20px
+  &__divider
+    padding-top: 10px
+    margin-bottom: 10px
+  &__box
+    border: 1px solid $c-light-gray
+    margin-bottom: 10px
+    border-radius: $r-primary
+  &__item
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 8px 10px
+    &:nth-child(even)
+      background-color: $c-light-gray
+    &-title
+      text-transform: capitalize
+    &-input
+      max-width: 60%
+  &__footer
+    margin-top: 20px
+    display: flex
+    justify-content: flex-end
+    &-item
+      &:not(:last-child)
+        margin-right: 10px

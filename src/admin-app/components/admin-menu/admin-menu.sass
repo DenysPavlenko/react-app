@@ -1,0 +1,31 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.admin-menu
+  height: 100%
+  display: flex
+  flex-direction: column
+  &__close
+    margin: 20px 10px
+    margin-left: auto
+  &__items
+    flex: 1
+    min-height: 0
+    display: flex
+    flex-direction: column
+  &__item
+    display: flex
+    align-items: center
+    padding: 15px 10px
+    border-bottom: 1px solid rgba($c-light, 0.1)
+    transition: 0.2s
+    cursor: pointer
+    text-transform: uppercase
+    &:first-child
+      border-top: 1px solid rgba($c-light, 0.1)
+    &:hover
+      background-color: $c-primary-light
+    &-icon
+      margin-right: 15px
+      font-size: rem(25px)
+      min-width: 25px
