@@ -2,6 +2,21 @@
 @import ~shared/styles/abstract/mixins
 
 .sidebar-item
+  &--left
+    .sidebar-item__content
+      right: auto
+      left: 0
+    // Content animations
+    .sidebar-item-content-animation-enter
+      transform: translateX(-100%)
+    .sidebar-item-content-animation-enter-active
+      transform: translateX(0)
+    .sidebar-item-content-animation-exit-active
+      transform: translateX(-100%)
+  &--sm
+    .sidebar-item__content
+      max-width: 300px
+
   &__overlay
     content: ''
     background-color: $overlay-bg
@@ -23,9 +38,7 @@
     z-index: 500
     +media-max($bp-xs)
       max-width: none
-    &--left
-      right: auto
-      left: 0
+
 
 // Overlay animations
 .sidebar-item-overlay-animation-enter
@@ -50,15 +63,3 @@
   transition: transform 0.3s
 .sidebar-item-content-animation-exit-active
   transform: translateX(100%)
-
-// Content animations
-.sidebar-item-content-animation-left-enter
-  transform: translateX(-100%)
-  transition: transform 0.3s
-.sidebar-item-content-animation-left-enter-active
-  transform: translateX(0)
-.sidebar-item-content-animation-left-exit
-  transform: translateX(0)
-  transition: transform 0.3s
-.sidebar-item-content-animation-left-exit-active
-  transform: translateX(-100%)

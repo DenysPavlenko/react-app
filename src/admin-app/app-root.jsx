@@ -12,6 +12,7 @@ import Mail from 'shared/components/mail/mail';
 // Pages
 import SignInPage from 'shared/pages/sign-in-page/sign-in-page';
 import HomePage from 'admin-app/pages/home-page/home-page';
+import CustomerListPage from 'admin-app/pages/customer-list-page/customer-list-page';
 // Styles
 import './app-root.sass';
 
@@ -35,6 +36,7 @@ const AdminAppContainer = ({ location }) => {
           <Switch>
             <Route path="/sign-in" exact component={SignInPage} />
             <Route path="/" exact component={HomePage} />
+            <Route path="/customer-list" exact component={CustomerListPage} />
             <Redirect to="/" />
           </Switch>
         </ScrollToTop>

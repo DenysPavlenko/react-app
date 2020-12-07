@@ -1,5 +1,5 @@
 import { requestData, setData, setError } from 'shared/redux/_utils/fetch-utils';
-import TransactionsActionTypes from './types';
+import RecentLoginsActionTypes from './types';
 
 const INITIAL_STATE = {
   loading: true,
@@ -8,17 +8,17 @@ const INITIAL_STATE = {
   errorDetails: null,
 };
 
-const transactionsReducer = (state = INITIAL_STATE, action) => {
+const recentLoginsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case TransactionsActionTypes.FETCH_TRANSACTIONS_REQUEST:
+    case RecentLoginsActionTypes.FETCH_RECENT_LOGINS_REQUEST:
       return requestData();
-    case TransactionsActionTypes.FETCH_TRANSACTIONS_SUCCESS:
+    case RecentLoginsActionTypes.FETCH_RECENT_LOGINS_SUCCESS:
       return setData(action.payload);
-    case TransactionsActionTypes.FETCH_TRANSACTIONS_FAILURE:
+    case RecentLoginsActionTypes.FETCH_RECENT_LOGINS_FAILURE:
       return setError(action.payload);
     default:
       return state;
   }
 };
 
-export default transactionsReducer;
+export default recentLoginsReducer;

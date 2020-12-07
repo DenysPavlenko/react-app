@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
+import PropTypes from 'prop-types';
 import { withBreakpoints } from 'react-breakpoints';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect'
@@ -56,7 +57,7 @@ const AdminHeader = ({ breakpoints, currentBreakpoint, toggleMail, showSettings,
 
   return (
     <Header
-      burger={toggleAdminMenu}
+      sideMenu={toggleAdminMenu}
       menu={<HeaderMenu menu={menu} />}
       content={!isMobile && <Widgets balance={balance} />}
       dropdown={
@@ -89,6 +90,17 @@ const Widgets = ({ balance: { loading, data, error } }) => {
       </div>
     </div>
   )
+};
+
+AdminHeader.propTypes = {
+  breakpoints: PropTypes.object,
+  currentBreakpoint: PropTypes.string,
+  toggleMail: PropTypes.func,
+  showSettings: PropTypes.func,
+  togglePersonalize: PropTypes.func,
+  toggleAdminMenu: PropTypes.func,
+  fetchBalanceData: PropTypes.func,
+  balance: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
@@ -16,33 +17,33 @@ import Close from 'shared/components/close/close';
 import './admin-menu.sass';
 
 const items = [
-  { title: 'Customer List' },
-  { title: 'Pending' },
-  { title: 'Settle' },
-  { title: 'Messages' },
-  { title: 'Performance' },
-  { title: 'Cash Flow' },
-  { title: 'Agents' },
-  { title: 'Mail' },
-  { title: 'Cashier' },
-  { title: 'Action By Player' },
-  { title: 'New Accounts' },
+  { title: 'Customer List', rootName: '/customer-list' },
+  { title: 'Pending', rootName: '/pending' },
+  { title: 'Settle', rootName: '/settle' },
+  { title: 'Messages', rootName: '/messages' },
+  { title: 'Performance', rootName: '/performance' },
+  { title: 'Cash Flow', rootName: '/cash-flow' },
+  { title: 'Agents', rootName: '/Agents' },
+  { title: 'Mail', rootName: '/mail' },
+  { title: 'Cashier', rootName: '/cashier' },
+  { title: 'Action By Player', rootName: '/player-actions' },
+  { title: 'New Accounts', rootName: 'new-accounts' },
 ];
 
 const AdminMenu = ({ isActive, toggleAdminMenu }) => {
   return (
-    <SidebarItem isActive={isActive} toggle={toggleAdminMenu} left>
+    <SidebarItem isActive={isActive} toggle={toggleAdminMenu} left size="sm">
       <div className="admin-menu">
         <div className="admin-menu__close">
           <Close onClick={toggleAdminMenu} />
         </div>
         <div className="admin-menu__items">
           <Simplebar className="custom-scroll">
-            {items.map(({ title }, idx) => (
-              <div key={idx} className="admin-menu__item" onClick={toggleAdminMenu}>
+            {items.map(({ title, rootName }, idx) => (
+              <NavLink key={idx} to={rootName} exact={true} className="admin-menu__item" onClick={toggleAdminMenu}>
                 <FontAwesomeIcon className="admin-menu__item-icon" icon="users" />
                 <Typography component="h5" className="admin-menu__item-title">{title}</Typography>
-              </div>
+              </NavLink>
             ))}
           </Simplebar>
         </div>
@@ -66,4 +67,4 @@ const mapDispatchToProps = dispatch => ({
   toggleAdminMenu: () => dispatch(toggleAdminMenu()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminMenu);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(AdminMenu));

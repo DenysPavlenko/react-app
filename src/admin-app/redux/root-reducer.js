@@ -7,6 +7,7 @@ import personalizeReducer from 'shared/redux/personalize/reducer';
 // Reducers
 import adminMenuReducer from './admin-menu/reducer';
 import balanceReducer from './balance/reducer';
+import recentLoginsReducer from './recent-logins/reducer';
 
 const rootReducer = combineReducers({
   colorScheme: colorSchemeReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   mail: mailReducer,
   adminMenu: adminMenuReducer,
   balance: balanceReducer,
+  recentLogins: recentLoginsReducer,
 });
 
 export default rootReducer;

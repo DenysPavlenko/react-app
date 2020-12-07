@@ -11,6 +11,8 @@
   display: flex
   justify-content: center
   align-items: center
+  &:hover
+    span
   &--no-border
     border: none
     height: 20px
@@ -24,7 +26,6 @@
     height: 1px
     background-color: $c-light
     transition: 0.2s
-    transition-delay: 0.2s
     &:before,
     &:after,
       position: absolute
@@ -36,22 +37,8 @@
     &:before
       top: -6px
       transform: rotate(0)
-      transition: transform 0.2s, top 0.2s
-      transition-delay: 0s, 0.2s
+      transition: 0.2s
     &:after
       bottom: -6px
       transform: rotate(0)
-      transition: transform 0.2s, bottom 0.2s
-      transition-delay: 0s, 0.2s
-  &.is-active
-    span
-      background-color: transparent
-      transition-delay: 0s
-    span:before
-      top: 0
-      transition-delay: 0.2s, 0s
-      transform: rotate(45deg)
-    span:after
-      bottom: 0
-      transition-delay: 0.2s, 0s
-      transform: rotate(-45deg)
+      transition: 0.2s

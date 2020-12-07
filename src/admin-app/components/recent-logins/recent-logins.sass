@@ -2,8 +2,17 @@
 @import ~shared/styles/abstract/mixins
 
 .recent-logins
+  position: relative
   border-radius: $r-primary
   border: 1px solid $c-alt-gray
+  width: 100%
+  position: relative
+  min-height: 200px
+  &__indicator
+    position: absolute
+    top: 90px
+    left: 50%
+    transform: translateX(-50%)
   &__item
     &:nth-child(even)
       background-color: $c-alt-gray
