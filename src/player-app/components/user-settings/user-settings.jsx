@@ -12,7 +12,7 @@ import Settings from 'shared/components/settings/settings';
 import { SettingsBox, SettingsItem, SettingsInput, SettingsFooter } from 'shared/components/settings/settings.styles';
 import Typography from 'shared/components/typography/typography';
 import Select from 'shared/components/select/select';
-import Buton from 'shared/components/button/button';
+import Button from 'shared/components/button/button';
 import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 import Spinner from 'shared/components/spinner/spinner'
 
@@ -101,7 +101,7 @@ const UserSettings = ({ isSettingsShown, fetchBalanceData, balance: { loading, d
         </SettingsItem>
       </SettingsBox>
       <SettingsFooter>
-        <Buton variant="danger" size="sm" onClick={hideSettings}>Close</Buton>
+        <Button variant="danger" size="sm" onClick={hideSettings}>Close</Button>
       </SettingsFooter>
     </Settings>
   );

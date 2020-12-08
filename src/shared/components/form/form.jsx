@@ -20,6 +20,7 @@ const Form = ({ children, className, ...otherProps }) => {
 
 Form.propTypes = {
   className: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default Form;

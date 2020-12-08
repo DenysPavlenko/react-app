@@ -9,11 +9,11 @@ import { selectColorScheme } from 'shared/redux/color-scheme/selectors';
 // Styles
 import './personalize-item.sass';
 
-const PersonalizeItem = ({ title, color, className, setColorScheme, defaultColorScheme, ...otherProps }) => {
+const PersonalizeItem = ({ title, color, className, setColorScheme, colorScheme, ...otherProps }) => {
   const classes = classNames({
     'personalize-item': true,
     [`theme-${color}`]: color,
-    'is-active': defaultColorScheme === color,
+    'is-active': colorScheme === color,
     [className]: className
   });
 
@@ -30,11 +30,11 @@ PersonalizeItem.propTypes = {
   title: PropTypes.string,
   setColorScheme: PropTypes.func,
   color: PropTypes.string,
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme
+  colorScheme: selectColorScheme
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -8,11 +8,11 @@ import { selectColorScheme } from 'shared/redux/color-scheme/selectors';
 // Styles
 import './wager-type.sass';
 
-const WagerType = ({ title, defaultColorScheme, isActive, className, onClick }) => {
+const WagerType = ({ title, colorScheme, isActive, className, onClick }) => {
   const classes = classNames({
     'wager-type': true,
     'is-active': isActive,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${colorScheme}`]: colorScheme,
     [className]: className
   });
 
@@ -26,14 +26,14 @@ const WagerType = ({ title, defaultColorScheme, isActive, className, onClick }) 
 
 WagerType.propTypes = {
   title: PropTypes.string,
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
   className: PropTypes.string,
   isActive: PropTypes.bool,
   onClick: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme
+  colorScheme: selectColorScheme
 });
 
 export default connect(mapStateToProps)(WagerType);

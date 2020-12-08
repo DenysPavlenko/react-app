@@ -1,6 +1,18 @@
 @import "~shared/styles/abstract/variables"
 @import "~shared/styles/abstract/mixins"
 
+button
+  border: none
+  padding: 0
+  margin: 0
+  background-color: transparent
+  cursor: pointer
+  font-family: inherit
+  &:focus
+    outline: none
+button::-moz-focus-inner
+  border: 0
+
 .button
   display: inline-flex
   align-items: center
@@ -45,3 +57,9 @@
   &--disabled
     opacity: 0.6
     pointer-events: none
+
+  &__icon
+    &:first-child
+      margin-right: 5px
+    &:last-child
+      margin-left: 5px

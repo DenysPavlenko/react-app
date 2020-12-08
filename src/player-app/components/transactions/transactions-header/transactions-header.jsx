@@ -10,10 +10,10 @@ import Typography from 'shared/components/typography/typography';
 // Styles
 import './transactions-header.sass';
 
-const TransactionsHeader = ({ defaultColorScheme }) => {
+const TransactionsHeader = ({ colorScheme }) => {
   const classes = classNames({
     'transactions-header': true,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${colorScheme}`]: colorScheme,
   });
 
   return (
@@ -34,11 +34,11 @@ const TransactionsHeader = ({ defaultColorScheme }) => {
 };
 
 TransactionsHeader.propTypes = {
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
 });
 
 export default connect(mapStateToProps)(TransactionsHeader);

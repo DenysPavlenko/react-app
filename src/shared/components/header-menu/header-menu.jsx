@@ -13,7 +13,7 @@ import Image from 'shared/components/image/image';
 // Styles
 import './header-menu.sass';
 
-const HeaderMenu = ({ menu, defaultColorScheme, className, breakpoints, currentBreakpoint, mobileButtons, location }) => {
+const HeaderMenu = ({ menu, colorScheme, className, breakpoints, currentBreakpoint, mobileButtons, location }) => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -29,7 +29,7 @@ const HeaderMenu = ({ menu, defaultColorScheme, className, breakpoints, currentB
 
   const classes = classNames({
     'header-menu': true,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${colorScheme}`]: colorScheme,
     [className]: className
   });
 
@@ -64,14 +64,14 @@ const HeaderMenu = ({ menu, defaultColorScheme, className, breakpoints, currentB
 
 HeaderMenu.propTypes = {
   menu: PropTypes.array,
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
   className: PropTypes.string,
   breakpoints: PropTypes.object,
   currentBreakpoint: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
 });
 
 export default connect(mapStateToProps)(withRouter(withBreakpoints(HeaderMenu)));

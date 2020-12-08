@@ -10,10 +10,10 @@ import Typography from 'shared/components/typography/typography';
 // Styles
 import './pending-wagers-header.sass'
 
-const PendingWagersHeader = ({ defaultColorScheme }) => {
+const PendingWagersHeader = ({ colorScheme }) => {
   const classes = classNames({
     'pending-wagers-header': true,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${colorScheme}`]: colorScheme,
   });
 
   return (
@@ -37,11 +37,11 @@ const PendingWagersHeader = ({ defaultColorScheme }) => {
 };
 
 PendingWagersHeader.propTypes = {
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
 });
 
 export default connect(mapStateToProps)(PendingWagersHeader);

@@ -11,10 +11,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './sports-preview-header.sass';
 
-const SportsPreviewHeader = ({ title, icon, defaultColorScheme, className }) => {
+const SportsPreviewHeader = ({ title, icon, colorScheme, className }) => {
   const classes = classNames({
     'sports-preview-header': true,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${colorScheme}`]: colorScheme,
     [className]: className
   });
 
@@ -31,11 +31,11 @@ const SportsPreviewHeader = ({ title, icon, defaultColorScheme, className }) => 
 SportsPreviewHeader.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme
+  colorScheme: selectColorScheme
 });
 
 export default connect(mapStateToProps)(SportsPreviewHeader);

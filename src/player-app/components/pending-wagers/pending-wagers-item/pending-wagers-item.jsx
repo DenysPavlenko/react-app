@@ -10,13 +10,13 @@ import Typography from 'shared/components/typography/typography';
 // Styles
 import './pending-wagers-item.sass';
 
-const PendingWagersItem = ({ id, date, description, result, risk, toWin, details, className, defaultColorScheme }) => {
+const PendingWagersItem = ({ id, date, description, result, risk, toWin, details, className, colorScheme }) => {
   const [showDetails, setShowDetails] = useState(false);
 
   const classes = classNames({
     'pending-wagers-item': true,
     [className]: className,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${colorScheme}`]: colorScheme,
   });
 
   return (
@@ -79,11 +79,11 @@ const PendingWagersItem = ({ id, date, description, result, risk, toWin, details
 };
 
 PendingWagersItem.propTypes = {
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
 });
 
 export default connect(mapStateToProps)(PendingWagersItem);

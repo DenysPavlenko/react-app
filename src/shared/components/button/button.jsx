@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 // Styles
 import './button.sass';
 
-const Button = ({ children, href, className, standard, fluid, variant, size, isDisabled, ...otherProps }) => {
+const Button = ({ children, href, className, standard, fluid, variant, size, isDisabled, iconStart, iconEnd, ...otherProps }) => {
   const classes = classNames({
-    'button': standard !== false,
-    'button--disabled': isDisabled,
+    'button': standard,
+    'button--disabled': standard && isDisabled,
     'button--fluid': fluid,
     [`button--${variant}`]: variant,
     [`button--${size}`]: size,
@@ -18,12 +18,15 @@ const Button = ({ children, href, className, standard, fluid, variant, size, isD
 
   return (
     <Tag href={href} className={classes} {...otherProps} disabled={!href && isDisabled}>
+      {iconStart && <div className="button__icon">{iconStart}</div>}
       {children}
+      {iconEnd && <div className="button__icon">{iconEnd}</div>}
     </Tag>
   );
 };
 
 Button.defaultProps = {
+  standard: true,
   isDisabled: false,
   fluid: false,
 };
@@ -36,6 +39,8 @@ Button.propTypes = {
   variant: PropTypes.string,
   size: PropTypes.string,
   className: PropTypes.string,
+  iconStart: PropTypes.node,
+  iconEnd: PropTypes.node,
   href: PropTypes.string,
 };
 

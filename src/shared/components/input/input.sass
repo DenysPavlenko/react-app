@@ -1,8 +1,27 @@
 @import ~shared/styles/abstract/variables
 @import ~shared/styles/abstract/mixins
 
+input
+  outline: none
+  border: none
+  box-shadow: none
+  margin: 0
+  display: block
+  font-family: inherit
+  &::-ms-clear
+    display: none
+    height: 0
+    width: 0
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button
+    -webkit-appearance: none
+    margin: 0
+  &[type=number]
+    -moz-appearance: textfield
+
 .input
   width: 100%
+  max-width: 100%
   background-color: $c-light
   border: 1px solid $input-border
   border-radius: $r-primary
@@ -35,9 +54,6 @@
     text-align: center
     font-size: rem(12px)
     max-width: 50px
-  &--fluid
-    width: 100%
-    max-width: 100%
   &--primary-light
     background-color: $c-primary-light
     border-color: $c-primary-light

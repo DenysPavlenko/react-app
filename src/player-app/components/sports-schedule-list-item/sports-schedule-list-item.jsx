@@ -11,10 +11,10 @@ import Checkbox from 'shared/components/checkbox/checkbox';
 // Styles
 import './sports-schedule-list-item.sass';
 
-const SportsScheduleListItem = ({ title, defaultColorScheme, isActive, className, onClick, onChange }) => {
+const SportsScheduleListItem = ({ title, colorScheme, isActive, className, onClick, onChange }) => {
   const classes = classNames({
     'sports-schedule-list-item': true,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${colorScheme}`]: colorScheme,
     'is-active': isActive,
     [className]: className
   });
@@ -34,13 +34,13 @@ SportsScheduleListItem.defaultProps = {
 SportsScheduleListItem.propTypes = {
   title: PropTypes.string,
   className: PropTypes.string,
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
   onClick: PropTypes.func,
   onChange: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
 });
 
 

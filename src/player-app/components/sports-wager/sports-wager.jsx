@@ -14,7 +14,7 @@ import Chevron from 'shared/components/chevron/chevron';
 // Styles
 import './sports-wager.sass';
 
-const SportsWager = ({ id, icon, title, value, scheduled, selection, notes, removeSportsWager, addRiskAndWin, defaultColorScheme }) => {
+const SportsWager = ({ id, icon, title, value, scheduled, selection, notes, removeSportsWager, addRiskAndWin, colorScheme }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [data, setData] = useState({
     risk: '',
@@ -43,7 +43,7 @@ const SportsWager = ({ id, icon, title, value, scheduled, selection, notes, remo
 
   const classes = classNames({
     'sports-wager': true,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme
+    [`theme-${colorScheme}`]: colorScheme
   });
 
   const { risk, toWin } = data;
@@ -71,9 +71,9 @@ const SportsWager = ({ id, icon, title, value, scheduled, selection, notes, remo
       <div className="sports-wager__footer">
         <Typography component="p" variant="p-sm" className="sports-wager__delete text-danger" onClick={() => removeSportsWager(id)}>Delete</Typography>
         <div className="sports-wager__inputs">
-          <Input type="text" size="xs" value={risk} name="risk" onChange={handleInput} placeholder="Risk Amount" fluid />
+          <Input type="text" size="xs" value={risk} name="risk" onChange={handleInput} placeholder="Risk Amount" />
           <Typography component="p" variant="p-sm" className="sports-wager__inputs-title">To win</Typography>
-          <Input type="text" size="xs" value={toWin} name="toWin" onChange={handleInput} placeholder="Win Amount" fluid />
+          <Input type="text" size="xs" value={toWin} name="toWin" onChange={handleInput} placeholder="Win Amount" />
         </div>
       </div>
     </div>
@@ -81,7 +81,7 @@ const SportsWager = ({ id, icon, title, value, scheduled, selection, notes, remo
 };
 
 SportsWager.propTypes = {
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
   id: PropTypes.string,
   icon: PropTypes.string,
   title: PropTypes.string,
@@ -94,7 +94,7 @@ SportsWager.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
 });
 
 const mapDispatchToProps = dispatch => ({

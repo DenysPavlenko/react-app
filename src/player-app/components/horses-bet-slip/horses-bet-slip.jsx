@@ -15,10 +15,10 @@ import HorsesBetSlipItem from './horses-bet-slip-item/horses-bet-slip-item';
 // Styles
 import './horses-bet-slip.sass';
 
-const HorsesBetSlip = ({ defaultColorScheme, horsesBets, removeHorsesBet, clearHorsesBet, totalHorsesBets, totalHorsesSlips }) => {
+const HorsesBetSlip = ({ colorScheme, horsesBets, removeHorsesBet, clearHorsesBet, totalHorsesBets, totalHorsesSlips }) => {
   const classes = classNames({
     'horses-bet-slip': true,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme
+    [`theme-${colorScheme}`]: colorScheme
   });
 
   return (
@@ -57,7 +57,7 @@ const HorsesBetSlip = ({ defaultColorScheme, horsesBets, removeHorsesBet, clearH
 };
 
 HorsesBetSlip.propTypes = {
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
   horsesBets: PropTypes.array,
   removeHorsesBet: PropTypes.func,
   clearHorsesBet: PropTypes.func,
@@ -66,7 +66,7 @@ HorsesBetSlip.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
   totalHorsesBets: selectTotalHorsesBets,
   totalHorsesSlips: selectTotalHorsesSlips,
   horsesBets: selectHorsesBets,

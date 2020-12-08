@@ -11,7 +11,7 @@ import './search.sass';
 // Assets
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const Search = ({ className, radius, handleSearch, handleSearchInput }) => {
+const Search = ({ className, radius, handleSearch, handleSearchInput, ...otherProps }) => {
   const [searchValue, setSearchValue] = useState('');
   const [hideButton, setHideButton] = useState(true);
 
@@ -42,7 +42,7 @@ const Search = ({ className, radius, handleSearch, handleSearchInput }) => {
   });
 
   return (
-    <Form onSubmit={handleSearchSubmit} className={classes}>
+    <Form onSubmit={handleSearchSubmit} className={classes} {...otherProps}>
       <FontAwesomeIcon icon={faSearch} className="search__icon" />
       <Input className="search__input" placeholder="Search..." value={searchValue} onChange={handleInput} noRadius={!radius} />
       <Button type="submit" className={`search__button ${hideButton ? 'is-hidden' : ''}`} variant="accent" size="sm">Go</Button>

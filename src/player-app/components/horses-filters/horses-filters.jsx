@@ -8,10 +8,10 @@ import { selectColorScheme } from 'shared/redux/color-scheme/selectors';
 // Styles
 import './horses-filters.sass';
 
-const HorsesFilters = ({ filters, currentFilter, handleFilter, defaultColorScheme }) => {
+const HorsesFilters = ({ filters, currentFilter, handleFilter, colorScheme }) => {
   const classes = classNames({
     'horses-filters': true,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme
+    [`theme-${colorScheme}`]: colorScheme
   });
 
   return (
@@ -31,11 +31,11 @@ HorsesFilters.propTypes = {
   filters: PropTypes.array,
   currentFilter: PropTypes.string,
   handleFilter: PropTypes.func,
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
 }
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
 });
 
 export default connect(mapStateToProps)(HorsesFilters);

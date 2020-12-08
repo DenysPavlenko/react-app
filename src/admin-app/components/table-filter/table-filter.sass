@@ -1,0 +1,26 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.table-filter
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: 20px
+  color: $c-dark
+  &__header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 20px
+  &__filters
+    margin-bottom: 20px
+  &__filter
+    padding: 10px 0
+    border-bottom: 1px solid $c-light-gray
+    text-transform: capitalize
+  &__buttons
+    display: flex
+    justify-content: flex-end
+  &__button
+    &:not(:last-child)
+      margin-right: 10px

@@ -12,10 +12,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Styles
 import './casino-card.sass';
 
-const CasinoCard = ({ image, title, minBet, maxBet, defaultColorScheme }) => {
+const CasinoCard = ({ image, title, minBet, maxBet, colorScheme }) => {
   const classes = classNames({
     'casino-card': true,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme
+    [`theme-${colorScheme}`]: colorScheme
   });
 
   return (
@@ -35,11 +35,11 @@ const CasinoCard = ({ image, title, minBet, maxBet, defaultColorScheme }) => {
 };
 
 CasinoCard.propTypes = {
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
 });
 
 export default connect(mapStateToProps)(CasinoCard);

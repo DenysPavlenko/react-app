@@ -14,10 +14,10 @@ const categories = [
   { category: 'new', title: 'new' },
 ];
 
-const MailCategories = ({ defaultColorScheme, currentCategory, handleCategorySwitch, className }) => {
+const MailCategories = ({ colorScheme, currentCategory, handleCategorySwitch, className }) => {
   const classes = classNames({
     'mail-categories': true,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${colorScheme}`]: colorScheme,
     className: [className]
   });
 
@@ -36,14 +36,14 @@ const MailCategories = ({ defaultColorScheme, currentCategory, handleCategorySwi
 };
 
 MailCategories.propTypes = {
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
   className: PropTypes.string,
   currentCategory: PropTypes.string,
   handleCategorySwitch: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
 });
 
 export default connect(mapStateToProps)(MailCategories);

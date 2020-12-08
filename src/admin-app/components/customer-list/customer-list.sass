@@ -1,0 +1,13 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.customer-list
+  overflow: auto
+  &__header
+    margin-bottom: 4px
+  &__table
+    text-align: center
+    border: 1px solid $c-alt-gray
+  &__item
+    &:nth-child(even)
+      background-color: $c-alt-gray

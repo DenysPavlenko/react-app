@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Pagination from 'shared/components/pagination/pagination';
+import HorsesPagination from 'player-app/components/horses-pagination/horses-pagination';
 // Styles
 import './horses-header.sass';
 
@@ -31,7 +31,7 @@ const HorsesHeader = () => {
       </div>
       <div className="horses-header__pagination">
         <Typography component="h4" className="horses-header__pagination-title">Races:</Typography>
-        <Pagination pages={9} />
+        <HorsesPagination pages={9} />
       </div>
       <div className="horses-header__footer">
         <div className="horses-header__time">

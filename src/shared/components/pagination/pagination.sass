@@ -2,27 +2,35 @@
 @import ~shared/styles/abstract/mixins
 
 .pagination
-  width: 100%
   // Color schemes
   @each $name, $color in $sch-colors
     &.theme-#{$name}
-      .pagination__item
+      .pagination__button
         background-color: $color
         &.is-active,
         &:hover
           background-color: rgba($color, 0.5)
+        &.disabled
+          background-color: $color
+          color: rgba($c-light, 0.7)
 
-  &__wrap
+  &__list
     display: flex
-    flex-wrap: wrap
-    margin: 0 -3px
+    align-self: center
   &__item
-    user-select: none
-    cursor: pointer
-    padding: 0 5px
+    &:not(:last-child)
+      margin-right: 5px
+  &__button
+    width: 25px
+    height: 25px
+    color: $c-light
     border-radius: $r-primary
-    margin: 3px
-    min-width: 25px
+    font-size: rem(13px)
+    display: block
     line-height: 25px
-    text-align: center
+    user-select: none
     transition: 0.2s
+    &.disabled
+      pointer-events: none
+  &__chevron
+    font-size: rem(10px)

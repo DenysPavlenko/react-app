@@ -12,10 +12,10 @@ import { selectColorScheme } from 'shared/redux/color-scheme/selectors';
 // Styles
 import './live-bet-slip.sass';
 
-const LiveBetSlip = ({ defaultColorScheme }) => {
+const LiveBetSlip = ({ colorScheme }) => {
   const classes = classNames({
     'live-bet-slip': true,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${colorScheme}`]: colorScheme,
   });
 
   return (
@@ -63,11 +63,11 @@ const LiveBetSlip = ({ defaultColorScheme }) => {
 };
 
 LiveBetSlip.propTypes = {
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
 });
 
 export default connect(mapStateToProps)(LiveBetSlip);

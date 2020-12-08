@@ -11,11 +11,11 @@ import Typography from 'shared/components/typography/typography';
 // Styles
 import './accordion-tab.sass';
 
-const AccordionTab = ({ icon, title, counter, isActive, defaultColorScheme, onClick, bordered }) => {
+const AccordionTab = ({ icon, title, counter, isActive, colorScheme, onClick, bordered }) => {
   const classes = classNames({
     'accordion-tab': true,
     'accordion-tab--bordered': bordered,
-    [`theme-${defaultColorScheme}`]: isActive && defaultColorScheme,
+    [`theme-${colorScheme}`]: isActive && colorScheme,
     'is-active': isActive,
   });
 
@@ -33,11 +33,11 @@ AccordionTab.propTypes = {
   title: PropTypes.string,
   counter: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   isActive: PropTypes.bool,
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
 });
 
 export default connect(mapStateToProps, null)(AccordionTab);

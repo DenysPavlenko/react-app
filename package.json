@@ -31,8 +31,8 @@
   "scripts": {
     "admin": "SET REACT_APP_BUILD_TARGET=admin & react-scripts start",
     "player": "SET REACT_APP_BUILD_TARGET=player & react-scripts start",
-    "build:admin": "SET REACT_APP_BUILD_TARGET=admin & react-scripts build",
-    "build:player": "SET REACT_APP_BUILD_TARGET=player & react-scripts build",
+    "build:admin": "export REACT_APP_BUILD_TARGET=admin & react-scripts build",
+    "build:player": "export REACT_APP_BUILD_TARGET=player & react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

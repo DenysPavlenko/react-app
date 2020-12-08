@@ -10,10 +10,10 @@ import Typography from 'shared/components/typography/typography';
 // Styles
 import './live-markets-bet.sass';
 
-const LiveMarketsBet = ({ title, className, odd, defaultColorScheme }) => {
+const LiveMarketsBet = ({ title, className, odd, colorScheme }) => {
   const classes = classNames({
     'live-markets-bet': true,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${colorScheme}`]: colorScheme,
     [className]: className
   });
 
@@ -26,14 +26,14 @@ const LiveMarketsBet = ({ title, className, odd, defaultColorScheme }) => {
 };
 
 LiveMarketsBet.propTypes = {
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
   className: PropTypes.string,
   title: PropTypes.string,
   odd: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
 });
 
 export default connect(mapStateToProps)(LiveMarketsBet);

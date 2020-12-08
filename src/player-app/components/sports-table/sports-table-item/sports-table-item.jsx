@@ -10,11 +10,11 @@ import Typography from 'shared/components/typography/typography';
 // Styles
 import './sports-table-item.sass'
 
-const SportsTableItem = ({ value, info, infoPosition, infoLeft, isActive, selection, handleItemClick, defaultColorScheme }) => {
+const SportsTableItem = ({ value, info, infoPosition, infoLeft, isActive, selection, handleItemClick, colorScheme }) => {
   const classes = classNames({
     'sports-table-item': true,
     'is-active': isActive,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${colorScheme}`]: colorScheme,
   });
 
   const infoClasses = classNames({
@@ -35,13 +35,13 @@ SportsTableItem.propTypes = {
   value: PropTypes.string,
   info: PropTypes.string,
   infoPosition: PropTypes.string,
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
   infoLeft: PropTypes.bool,
   onClick: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
 });
 
 export default connect(mapStateToProps)(SportsTableItem);

@@ -1,0 +1,23 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.page-header-gap
+  height: $h-header
+.page-header
+  position: fixed
+  height: $h-header
+  width: calc( 100% - 8px )
+  top: calc( #{$h-header} + 4px )
+  left: 4px
+  background-color: $c-primary
+  display: flex
+  align-items: center
+  flex-wrap: wrap
+  padding: 0 10px
+  z-index: 2
+  &__left
+    padding-right: 20px
+  &__right
+    flex: 1
+    display: flex
+    justify-content: flex-end

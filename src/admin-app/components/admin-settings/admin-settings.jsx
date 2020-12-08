@@ -6,7 +6,7 @@ import { SettingsBox, SettingsItem, SettingsInput, SettingsFooter, SettingsFoote
 import Typography from 'shared/components/typography/typography';
 import Input from 'shared/components/input/input';
 import Select from 'shared/components/select/select';
-import Buton from 'shared/components/button/button';
+import Button from 'shared/components/button/button';
 
 const AdminSettings = () => {
   return (
@@ -100,10 +100,10 @@ const AdminSettings = () => {
       </SettingsBox>
       <SettingsFooter>
         <SettingsFooterItem>
-          <Buton variant="accent" size="sm" onClick={hideSettings}>Save</Buton>
+          <Button variant="accent" size="sm" onClick={hideSettings}>Save</Button>
         </SettingsFooterItem>
         <SettingsFooterItem>
-          <Buton variant="danger" size="sm" onClick={hideSettings}>Close</Buton>
+          <Button variant="danger" size="sm" onClick={hideSettings}>Close</Button>
         </SettingsFooterItem>
       </SettingsFooter>
     </Settings>

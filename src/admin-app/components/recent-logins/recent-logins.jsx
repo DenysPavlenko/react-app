@@ -1,4 +1,5 @@
 import React, { Fragment, useLayoutEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
@@ -50,6 +51,11 @@ const RecentLogins = ({ fetchRecentLoginsData, recentLogins: { loading, data, er
       </Table>
     </div>
   );
+};
+
+RecentLogins.propTypes = {
+  fetchRecentLoginsData: PropTypes.func,
+  recentLogins: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({

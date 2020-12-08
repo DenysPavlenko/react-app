@@ -1,0 +1,28 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.horses-pagination
+  width: 100%
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      .horses-pagination__item
+        background-color: $color
+        &.is-active,
+        &:hover
+          background-color: rgba($color, 0.5)
+
+  &__wrap
+    display: flex
+    flex-wrap: wrap
+    margin: 0 -3px
+  &__item
+    user-select: none
+    cursor: pointer
+    padding: 0 5px
+    border-radius: $r-primary
+    margin: 3px
+    min-width: 25px
+    line-height: 25px
+    text-align: center
+    transition: 0.2s

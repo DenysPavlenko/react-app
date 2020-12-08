@@ -14,10 +14,10 @@ import SportsTableItem from '../sports-table-item/sports-table-item';
 // Styles
 import './sports-table-line.sass';
 
-const SportsTableLine = ({ id, title, icon, spread, moneyLine, total, teamTotalFirst, teamTotalLast, isFirst, defaultColorScheme, spreadType, totalType, className, addSportsWager, activeSportsWagers }) => {
+const SportsTableLine = ({ id, title, icon, spread, moneyLine, total, teamTotalFirst, teamTotalLast, isFirst, colorScheme, spreadType, totalType, className, addSportsWager, activeSportsWagers }) => {
   const classes = classNames({
     'sports-table-line': true,
-    [`theme-${defaultColorScheme}`]: defaultColorScheme,
+    [`theme-${colorScheme}`]: colorScheme,
     [className]: className,
   });
 
@@ -80,13 +80,13 @@ SportsTableLine.propTypes = {
   spreadType: PropTypes.string,
   totalType: PropTypes.string,
   className: PropTypes.string,
-  defaultColorScheme: PropTypes.string,
+  colorScheme: PropTypes.string,
   addSportsWager: PropTypes.func,
   activeSportsWagers: PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({
-  defaultColorScheme: selectColorScheme,
+  colorScheme: selectColorScheme,
   activeSportsWagers: selectActiveSportsWagers,
 });
 

@@ -1,9 +1,11 @@
 import React from 'react';
+// Components
+import CustomerList from 'admin-app/components/customer-list/customer-list';
 
 const CustomerListPage = () => {
   return (
-    <div className="customer-list-page">
-<h1>customer-list</h1>
+    <div>
+      <CustomerList />
     </div>
   );
 };
