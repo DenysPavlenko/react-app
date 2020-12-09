@@ -4,9 +4,7 @@ import CustomerList from 'admin-app/components/customer-list/customer-list';
 
 const CustomerListPage = () => {
   return (
-    <div>
-      <CustomerList />
-    </div>
+    <CustomerList />
   );
 };
 

@@ -1,0 +1,21 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.tab
+  font-size: rem(14px)
+  line-height: 1
+  padding: 10px 5px
+  background-color: $c-alt-gray
+  text-align: center
+  user-select: none
+  cursor: pointer
+  border-radius: $r-primary
+  min-width: 10%
+  white-space: nowrap
+  transition: background-color 0.2s
+  color: $c-light
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      &.is-active,
+      &:hover
+        background-color: $color

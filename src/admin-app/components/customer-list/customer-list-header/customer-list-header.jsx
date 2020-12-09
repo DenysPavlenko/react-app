@@ -8,8 +8,6 @@ import RowGroup from 'shared/components/row-group/row-group';
 import Search from 'shared/components/search/search';
 import Button from 'shared/components/button/button';
 import Pagination from 'shared/components/pagination/pagination';
-// Styles
-import './customer-list-header.sass';
 
 const CustomerListHeader = ({ handleSettingsClick, handleSearch }) => {
   const [page, setPage] = useState(1);
@@ -18,7 +16,6 @@ const CustomerListHeader = ({ handleSettingsClick, handleSearch }) => {
 
   return (
     <PageHeader
-      className="customer-list-header"
       left={<Typography component="h2">Customer list</Typography>}
       right={
         <RowGroup>

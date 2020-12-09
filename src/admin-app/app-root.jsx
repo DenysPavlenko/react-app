@@ -13,6 +13,7 @@ import Mail from 'shared/components/mail/mail';
 import SignInPage from 'shared/pages/sign-in-page/sign-in-page';
 import HomePage from 'admin-app/pages/home-page/home-page';
 import CustomerListPage from 'admin-app/pages/customer-list-page/customer-list-page';
+import PendingPage from 'admin-app/pages/pending-page/pending-page';
 // Styles
 import './app-root.sass';
 
@@ -37,6 +38,7 @@ const AdminAppContainer = ({ location }) => {
             <Route path="/sign-in" exact component={SignInPage} />
             <Route path="/" exact component={HomePage} />
             <Route path="/customer-list" exact component={CustomerListPage} />
+            <Route path="/pending" exact component={PendingPage} />
             <Redirect to="/" />
           </Switch>
         </ScrollToTop>

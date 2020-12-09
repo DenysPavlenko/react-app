@@ -7,7 +7,8 @@ import descriptions from './betting-descriptions';
 import bettings from './bettings';
 import limits from './betting-limits';
 // Components
-import HorsesFilters from 'player-app/components/horses-filters/horses-filters';
+import Tabs from 'shared/components/tabs/tabs';
+import Tab from 'shared/components/tab/tab';
 import HorsesTable from 'player-app/components/horses-table/horses-table';
 import HorsesBetAmount from 'player-app/components/horses-bet-amount/horses-bet-amount';
 import HorsesBetLimits from 'player-app/components/horses-bet-limits/horses-bet-limits';
@@ -44,7 +45,13 @@ const HorseBettings = ({ addHorsesBet }) => {
   return (
     <div className="horses-bettings">
       <div className="horses-bettings__wrap">
-        <HorsesFilters currentFilter={currentFilter} filters={horseFilters} handleFilter={handleFilter} />
+        <Tabs>
+          {horseFilters.map(({ id, title }) => (
+            <Tab key={id} isActive={id === currentFilter} onClick={() => handleFilter(id)}>
+              {title}
+            </Tab>
+          ))}
+        </Tabs>
         <div className="horses-bettings__description">
           {descriptions
             .filter(({ id }) => id === currentFilter)

@@ -1,4 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+// Redux
 import { hideSettings } from 'shared/redux/settings/actions';
 // Components
 import Settings from 'shared/components/settings/settings';
@@ -8,7 +11,7 @@ import Input from 'shared/components/input/input';
 import Select from 'shared/components/select/select';
 import Button from 'shared/components/button/button';
 
-const AdminSettings = () => {
+const AdminSettings = ({ hideSettings }) => {
   return (
     <Settings title="Agent Setting">
       <SettingsBox>
@@ -110,4 +113,12 @@ const AdminSettings = () => {
   );
 };
 
-export default AdminSettings;
+AdminSettings.propTypes = {
+  hideSettings: PropTypes.func,
+};
+
+const mapDispatchToProps = dispatch => ({
+  hideSettings: () => dispatch(hideSettings()),
+});
+
+export default connect(null, mapDispatchToProps)(AdminSettings);

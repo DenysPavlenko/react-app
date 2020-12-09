@@ -17,17 +17,17 @@ import Close from 'shared/components/close/close';
 import './admin-menu.sass';
 
 const items = [
-  { title: 'Customer List', rootName: '/customer-list' },
-  { title: 'Pending', rootName: '/pending' },
-  { title: 'Settle', rootName: '/settle' },
-  { title: 'Messages', rootName: '/messages' },
-  { title: 'Performance', rootName: '/performance' },
-  { title: 'Cash Flow', rootName: '/cash-flow' },
-  { title: 'Agents', rootName: '/Agents' },
-  { title: 'Mail', rootName: '/mail' },
-  { title: 'Cashier', rootName: '/cashier' },
-  { title: 'Action By Player', rootName: '/player-actions' },
-  { title: 'New Accounts', rootName: 'new-accounts' },
+  { title: 'Customer List', rootName: '/customer-list', icon: 'address-book' },
+  { title: 'Pending', rootName: '/pending', icon: 'hourglass-half' },
+  { title: 'Settle', rootName: '/settle', icon: 'user' },
+  { title: 'Messages', rootName: '/messages', icon: 'user' },
+  { title: 'Performance', rootName: '/performance', icon: 'user' },
+  { title: 'Cash Flow', rootName: '/cash-flow', icon: 'user' },
+  { title: 'Agents', rootName: '/Agents', icon: 'user' },
+  { title: 'Mail', rootName: '/mail', icon: 'user' },
+  { title: 'Cashier', rootName: '/cashier', icon: 'user' },
+  { title: 'Action By Player', rootName: '/player-actions', icon: 'user' },
+  { title: 'New Accounts', rootName: 'new-accounts', icon: 'user' },
 ];
 
 const AdminMenu = ({ isActive, toggleAdminMenu }) => {
@@ -39,9 +39,9 @@ const AdminMenu = ({ isActive, toggleAdminMenu }) => {
         </div>
         <div className="admin-menu__items">
           <Simplebar className="custom-scroll">
-            {items.map(({ title, rootName }, idx) => (
+            {items.map(({ title, rootName, icon }, idx) => (
               <NavLink key={idx} to={rootName} exact={true} className="admin-menu__item" onClick={toggleAdminMenu}>
-                <FontAwesomeIcon className="admin-menu__item-icon" icon="users" />
+                <FontAwesomeIcon className="admin-menu__item-icon" icon={icon} />
                 <Typography component="h5" className="admin-menu__item-title">{title}</Typography>
               </NavLink>
             ))}
