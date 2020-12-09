@@ -64,6 +64,17 @@
     &.active
       +media-max($bp-xl)
         background-color: transparent !important
+    &--sm
+      min-width: auto
+      width: 10%
+      +media-max($bp-xl)
+        height: 120px
+        max-width: none
+        width: 50%
+      .header-menu__text
+        display: none
+        +media-max($bp-xl)
+          display: block
   &__text
     margin-top: -4px
     text-transform: uppercase

@@ -6,7 +6,7 @@ import SoccerLiveStat from './soccer-live-stat/soccer-live-stat';
 // Styles
 import './soccer-live.sass';
 // Assets
-import soccerPreview from 'player-app/assets/images/soccer-live/soccer-preview.png'
+import soccerPreview from './assets/soccer-preview.png'
 
 const stats = [
   { id: '1', title: 'Attacks', team1: '21', team2: '22' },

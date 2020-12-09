@@ -40,11 +40,21 @@ const HeaderMenu = ({ menu, colorScheme, className, breakpoints, currentBreakpoi
       </div>
       <div className={`header-menu__wrap ${isMenuOpened ? 'is-active' : ''}`}>
         <div className="header-menu__items">
-          {menu.map(({ name, rootName, icon }, idx) => (
-            <NavLink key={idx} to={rootName} exact={rootName === '/' && true} className="header-menu__item" onClick={handleToggleMenu}>
-              <span className="header-menu__text">{name}</span>
-              <Image src={icon} className="header-menu__icon" alt="nav-icon" icon />
-            </NavLink>
+          {menu.map(({ name, rootName, handler, icon }, idx) => (
+            <Fragment key={idx} >
+              {handler &&
+                <div onClick={() => { handler(); handleToggleMenu(); }} className="header-menu__item header-menu__item--sm">
+                  <span className="header-menu__text">{name}</span>
+                  <Image src={icon} className="header-menu__icon" alt="nav-icon" icon />
+                </div>
+              }
+              {rootName &&
+                <NavLink to={rootName} exact={rootName === '/' && true} className="header-menu__item" onClick={handleToggleMenu}>
+                  <span className="header-menu__text">{name}</span>
+                  <Image src={icon} className="header-menu__icon" alt="nav-icon" icon />
+                </NavLink>
+              }
+            </Fragment>
           ))}
         </div>
       </div>

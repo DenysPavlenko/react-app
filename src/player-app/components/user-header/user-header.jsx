@@ -20,13 +20,13 @@ import Balance from 'shared/components/balance/balance';
 import HeaderDropdown from 'shared/components/header-dropdown/header-dropdown';
 import HeaderDropdownMenu from 'shared/components/header-dropdown-menu/header-dropdown-menu';
 // Assets
-import cupIcon from 'player-app/assets/images/icons/cup.png';
-import timerIcn from 'player-app/assets/images/icons/timer.png';
-import cardsIcn from 'player-app/assets/images/icons/cards.png';
-import horseIcn from 'player-app/assets/images/icons/horse.png';
-import calendarIcn from 'player-app/assets/images/icons/calendar.png';
-import programIcn from 'player-app/assets/images/icons/list.png';
-import horseSelectIcn from 'player-app/assets/images/icons/horse-alt.png';
+import cupIcon from 'shared/assets/images/icons/cup.png';
+import timerIcn from 'shared/assets/images/icons/timer.png';
+import cardsIcn from 'shared/assets/images/icons/cards.png';
+import horseIcn from 'shared/assets/images/icons/horse.png';
+import calendarIcn from 'shared/assets/images/icons/calendar.png';
+import programIcn from 'shared/assets/images/icons/list.png';
+import horseSelectIcn from 'shared/assets/images/icons/horse-alt.png';
 // Styles
 import './user-header.sass';
 

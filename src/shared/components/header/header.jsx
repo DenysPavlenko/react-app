@@ -1,6 +1,4 @@
 import React, { Fragment } from 'react';
-// Components
-import Burger from 'shared/components/burger/burger';
 // Styles
 import './header.sass';
 
@@ -9,7 +7,6 @@ const Header = ({ sideMenu, menu, content, dropdown }) => {
     <Fragment>
       <div className="header-gap"></div>
       <div className="header">
-        {sideMenu && <div className="header__burger" onClick={sideMenu}><Burger noBorder /></div>}
         <div className="header__menu">
           {menu}
         </div>
