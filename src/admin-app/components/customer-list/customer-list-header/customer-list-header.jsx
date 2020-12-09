@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // Components
 import PageHeader from 'admin-app/components/page-header/page-header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +11,12 @@ import Pagination from 'shared/components/pagination/pagination';
 import './customer-list-header.sass';
 
 const CustomerListHeader = ({ handleSettingsClick }) => {
+  const [page, setPage] = useState(1);
+
+  const onPageChange = (page) => {
+    setPage(page)
+  };
+
   return (
     <PageHeader
       className="customer-list-header"
@@ -25,7 +31,7 @@ const CustomerListHeader = ({ handleSettingsClick }) => {
             iconStart={<FontAwesomeIcon icon="cog" style={{ 'fontSize': '14px' }} />}
           >
             Settings</Button>
-          <Pagination count={3} />
+          <Pagination pages={10} page={page} onChange={onPageChange} />
         </RowGroup>
       }
     />
