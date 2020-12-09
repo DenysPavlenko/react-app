@@ -9,6 +9,7 @@ import adminMenuReducer from './admin-menu/reducer';
 import balanceReducer from './balance/reducer';
 import recentLoginsReducer from './recent-logins/reducer';
 import customerListReducer from './customer-list/reducer';
+import pendingReducer from './pending/reducer';
 
 const rootReducer = combineReducers({
   colorScheme: colorSchemeReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   balance: balanceReducer,
   recentLogins: recentLoginsReducer,
   customerList: customerListReducer,
+  pending: pendingReducer,
 });
 
 export default rootReducer;

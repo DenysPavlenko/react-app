@@ -1,0 +1,28 @@
+[
+  {
+    "id": "1",
+    "name": "ZT2",
+    "title": "2020 USA Presidential Election - Winning Party (All in)",
+    "teamName": "Democratic +105",
+    "risk": "100.00 / 105.00",
+    "sport": "Specials",
+    "selection": "politics",
+    "accepted": "Sep 19, 2020 7:44 PM - Internet",
+    "scheduled": "Apr 15, 2020 7:00 PM",
+    "ticketNumber": "13508376",
+    "outcome": "Pending"
+  },
+  {
+    "id": "2",
+    "name": "ZT3",
+    "title": "2021 Super Bowl LV - Winner",
+    "teamName": "[50114] Chicago Bears +3800",
+    "risk": "100 / 3800",
+    "sport": "Football",
+    "selection": "NFL - Futures",
+    "accepted": "Sep 20, 2020 7:44 PM - Internet",
+    "scheduled": "Apr 15, 2020 7:00 PM",
+    "ticketNumber": "15668568",
+    "outcome": "Pending"
+  }
+]
