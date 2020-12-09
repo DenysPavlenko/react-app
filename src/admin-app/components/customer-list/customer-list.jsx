@@ -85,7 +85,9 @@ const CustomerList = ({ fetchCustomerlistData, customerList: { loading, data, er
                     tableItems.forEach((item) => obj[item] = list[item]);
                     return obj;
                   })
-                  .filter((list) => (Object.values(list).some((item) => item.toLowerCase().indexOf(searchValue) !== -1)))
+                  .filter((list) => {
+                    return Object.values(list).some((item) => typeof item === 'string' && item.toLowerCase().indexOf(searchValue) !== -1)
+                  })
                   .map((list, idx) => (
                     <CustomerListItem key={idx} data={list} className="customer-list__item" />
                   ))}
