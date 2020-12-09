@@ -15,6 +15,8 @@ import Table from 'shared/components/table/table';
 import TableFilter from 'admin-app/components/table-filter/table-filter';
 import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 import Spinner from 'shared/components/spinner/spinner'
+// Utils
+import searchFilter from 'shared/utils/search-filter';
 // Styles
 import './customer-list.sass';
 
@@ -85,9 +87,7 @@ const CustomerList = ({ fetchCustomerlistData, customerList: { loading, data, er
                     tableItems.forEach((item) => obj[item] = list[item]);
                     return obj;
                   })
-                  .filter((list) => {
-                    return Object.values(list).some((item) => typeof item === 'string' && item.toLowerCase().indexOf(searchValue) !== -1)
-                  })
+                  .filter((list) => searchFilter(list, searchValue))
                   .map((list, idx) => (
                     <CustomerListItem key={idx} data={list} className="customer-list__item" />
                   ))}

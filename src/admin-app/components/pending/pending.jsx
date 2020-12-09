@@ -10,26 +10,35 @@ import PendingHeader from './pending-header/pending-header';
 import CustomTable from 'admin-app/components/custom-table/custom-table';
 // Table constants
 import tableConstants from './table-constants';
+// Utils
+import searchFilter from 'shared/utils/search-filter';
 // Styles
 import './pending.sass';
 
-const Pending = ({ fetchPendingData, pending, pending: { loading, data, error } }) => {
+const Pending = ({ fetchPendingData, pending: { loading, data, error } }) => {
   const [currentFilter, setCurrentFilter] = useState('games');
+  const [searchValue, setSearchValue] = useState('');
 
   useLayoutEffect(() => {
     fetchPendingData(currentFilter)
   }, [currentFilter, fetchPendingData]);
 
-  const handleDelete = id => {
-    console.log('id:', id)
+  const handleSearch = value => {
+    setSearchValue(value.toLowerCase());
   };
+
+  const filteredData = () => {
+    return data && data.filter(item => searchFilter(item, searchValue));
+  };
+
+  const handleDelete = id => { console.log('id:', id) };
 
   return (
     <div className="pending">
       <div className="pending__header">
-        <PendingHeader currentFilter={currentFilter} setCurrentFilter={setCurrentFilter} />
+        <PendingHeader currentFilter={currentFilter} setCurrentFilter={setCurrentFilter} handleSearch={handleSearch} />
       </div>
-      <CustomTable cols={tableConstants(handleDelete)} loading={loading} data={data} error={error} retry={() => fetchPendingData(currentFilter)} />
+      <CustomTable cols={tableConstants(handleDelete)} loading={loading} data={filteredData()} error={error} retry={() => fetchPendingData(currentFilter)} />
     </div>
   );
 };

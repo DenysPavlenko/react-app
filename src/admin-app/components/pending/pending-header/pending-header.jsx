@@ -17,14 +17,14 @@ const tabs = [
   { title: 'live', value: 'live' },
 ];
 
-const PendingHeader = ({ currentFilter, setCurrentFilter }) => {
+const PendingHeader = ({ currentFilter, setCurrentFilter, handleSearch }) => {
   return (
     <PageHeader
       className="pending-header"
       left={<Typography component="h2">Pending</Typography>}
       right={
         <RowGroup>
-          <Search radius style={{ width: 'auto' }} handleSearchInput={() => { }} />
+          <Search radius style={{ width: 'auto' }} handleSearchInput={handleSearch} />
           <Tabs>
             {tabs.map(({ title, value }, idx) => (
               <Tab key={idx} isActive={currentFilter === value} onClick={() => setCurrentFilter(value)}>{title}</Tab>

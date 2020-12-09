@@ -19,17 +19,6 @@ const tableConstants = handleDelete => {
       },
     },
     {
-      title: 'Risk',
-      render: rowData => {
-        return (
-          <RowGroup noWrap size="sm">
-            <Typography component="p">{rowData.risk}</Typography>
-            <Button size="xxs" variant="danger" onClick={() => handleDelete(rowData.id)}>Delete</Button>
-          </RowGroup>
-        )
-      },
-    },
-    {
       title: 'Sport',
       render: rowData => {
         return <Typography component="p">{rowData.sport}</Typography>
@@ -63,6 +52,17 @@ const tableConstants = handleDelete => {
       title: 'Outcome',
       render: rowData => {
         return <Typography component="p">{rowData.outcome}</Typography>
+      },
+    },
+    {
+      title: 'Risk/Win',
+      render: rowData => {
+        return (
+          <RowGroup noWrap size="sm">
+            <Typography component="p">{rowData.risk}</Typography>
+            <Button size="xxs" variant="danger" onClick={() => handleDelete(rowData.id)}>Delete</Button>
+          </RowGroup>
+        )
       },
     },
   ];
