@@ -6,6 +6,7 @@ import { createStructuredSelector } from 'reselect'
 import { fetchPendingData } from 'admin-app/redux/pending/actions';
 import { selectPending } from 'admin-app/redux/pending/selectors';
 // Components
+import Pagination from 'shared/components/pagination/pagination';
 import PendingHeader from './pending-header/pending-header';
 import CustomTable from 'admin-app/components/custom-table/custom-table';
 // Table constants
@@ -18,6 +19,9 @@ import './pending.sass';
 const Pending = ({ fetchPendingData, pending: { loading, data, error } }) => {
   const [currentFilter, setCurrentFilter] = useState('games');
   const [searchValue, setSearchValue] = useState('');
+  const [page, setPage] = useState(1);
+
+  const onPageChange = page => setPage(page);
 
   useLayoutEffect(() => {
     fetchPendingData(currentFilter)
@@ -38,7 +42,12 @@ const Pending = ({ fetchPendingData, pending: { loading, data, error } }) => {
       <div className="pending__header">
         <PendingHeader currentFilter={currentFilter} setCurrentFilter={setCurrentFilter} handleSearch={handleSearch} />
       </div>
-      <CustomTable cols={tableConstants(handleDelete)} loading={loading} data={filteredData()} error={error} retry={() => fetchPendingData(currentFilter)} />
+      <div className="pending__table">
+        <CustomTable cols={tableConstants(handleDelete)} loading={loading} data={filteredData()} error={error} retry={() => fetchPendingData(currentFilter)} />
+      </div>
+      <div className="pending__footer">
+        <Pagination pages={10} page={page} onChange={onPageChange} />
+      </div>
     </div>
   );
 };
