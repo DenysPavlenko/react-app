@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import HorsesPagination from 'player-app/components/horses-pagination/horses-pagination';
+import Pagination from 'shared/components/pagination/pagination';
 // Styles
 import './horses-header.sass';
 
@@ -13,10 +13,13 @@ const raseDetails = [
   { id: '4', title: 'purse', info: '12000.00' },
   { id: '5', title: 'Location', info: 'Vinson , US' },
   { id: '6', title: 'Time zone', info: 'Central Standard Time' },
-]
+];
 
 const HorsesHeader = () => {
   const [showDetails, setShowDetails] = useState(false);
+  const [page, setPage] = useState(1);
+
+  const onPageChange = page => setPage(page);
 
   const handleSwitcherClick = () => {
     setShowDetails(showDetails => !showDetails);
@@ -31,7 +34,7 @@ const HorsesHeader = () => {
       </div>
       <div className="horses-header__pagination">
         <Typography component="h4" className="horses-header__pagination-title">Races:</Typography>
-        <HorsesPagination pages={9} />
+        <Pagination pages={10} page={page} onChange={onPageChange} />
       </div>
       <div className="horses-header__footer">
         <div className="horses-header__time">

@@ -13,9 +13,7 @@ import './customer-list-header.sass';
 const CustomerListHeader = ({ handleSettingsClick }) => {
   const [page, setPage] = useState(1);
 
-  const onPageChange = (page) => {
-    setPage(page)
-  };
+  const onPageChange = page => setPage(page);
 
   return (
     <PageHeader
