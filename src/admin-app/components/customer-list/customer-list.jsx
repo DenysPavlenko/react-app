@@ -21,11 +21,16 @@ import './customer-list.sass';
 const CustomerList = ({ fetchCustomerlistData, customerList: { loading, data, error } }) => {
   const [isFilterShown, setIsFilterShown] = useState(false);
   const [filters, setFilters] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
 
   useLayoutEffect(() => {
     fetchCustomerlistData();
     setFilters(filtersData);
   }, [setFilters, fetchCustomerlistData]);
+
+  const handleSearch = value => {
+    setSearchValue(value.toLowerCase());
+  };
 
   const handleCheck = (name, checked) => {
     setFilters(filters => {
@@ -44,10 +49,16 @@ const CustomerList = ({ fetchCustomerlistData, customerList: { loading, data, er
 
   return (
     <Fragment>
-      <TableFilter filters={filters} title="Columns: Turn on/off" isShown={isFilterShown} handleHide={handleFilterHide} handleCheck={handleCheck} />
+      <TableFilter
+        filters={filters}
+        title="Columns: Turn on/off"
+        isShown={isFilterShown}
+        handleHide={handleFilterHide}
+        handleCheck={handleCheck}
+      />
       <div className="customer-list">
         <div className="customer-list__header">
-          <CustomerListHeader handleSettingsClick={handleFilterShow} />
+          <CustomerListHeader handleSettingsClick={handleFilterShow} handleSearch={handleSearch} />
         </div>
         <Table className="customer-list__table">
           <CustomerListTop titles={tableTitles} />
@@ -74,6 +85,7 @@ const CustomerList = ({ fetchCustomerlistData, customerList: { loading, data, er
                     tableItems.forEach((item) => obj[item] = list[item]);
                     return obj;
                   })
+                  .filter((list) => (Object.values(list).some((item) => item.toLowerCase().indexOf(searchValue) !== -1)))
                   .map((list, idx) => (
                     <CustomerListItem key={idx} data={list} className="customer-list__item" />
                   ))}

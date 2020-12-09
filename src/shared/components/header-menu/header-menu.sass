@@ -64,10 +64,16 @@
     &.active
       +media-max($bp-xl)
         background-color: transparent !important
-    &--sm
+    &--handler
       min-width: auto
-      width: 10%
+      width: 65px
+      border-right: 1px solid $c-gray
+      opacity: 1
+      .header-menu__icon
+        opacity: 0.5
       +media-max($bp-xl)
+        border-right: 1px none
+        opacity: 0.5
         height: 120px
         max-width: none
         width: 50%

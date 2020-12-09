@@ -43,7 +43,7 @@ const HeaderMenu = ({ menu, colorScheme, className, breakpoints, currentBreakpoi
           {menu.map(({ name, rootName, handler, icon }, idx) => (
             <Fragment key={idx} >
               {handler &&
-                <div onClick={() => { handler(); handleToggleMenu(); }} className="header-menu__item header-menu__item--sm">
+                <div onClick={() => { handler(); handleToggleMenu(); }} className="header-menu__item header-menu__item--handler">
                   <span className="header-menu__text">{name}</span>
                   <Image src={icon} className="header-menu__icon" alt="nav-icon" icon />
                 </div>
