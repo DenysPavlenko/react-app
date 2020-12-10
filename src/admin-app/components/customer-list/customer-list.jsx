@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect'
 // filter
 import filtersData from './filters';
 // Redux
-import { fetchCustomerlistData } from 'admin-app/redux/customer-list/actions';
+import { fetchCustomerListData } from 'admin-app/redux/customer-list/actions';
 import { selectCustomerList } from 'admin-app/redux/customer-list/selectors';
 // Components
 import CustomerListHeader from './customer-list-header/customer-list-header';
@@ -20,15 +20,15 @@ import searchFilter from 'shared/utils/search-filter';
 // Styles
 import './customer-list.sass';
 
-const CustomerList = ({ fetchCustomerlistData, customerList: { loading, data, error } }) => {
+const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, error } }) => {
   const [isFilterShown, setIsFilterShown] = useState(false);
   const [filters, setFilters] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
   useLayoutEffect(() => {
-    fetchCustomerlistData();
+    fetchCustomerListData();
     setFilters(filtersData);
-  }, [setFilters, fetchCustomerlistData]);
+  }, [setFilters, fetchCustomerListData]);
 
   const handleSearch = value => {
     setSearchValue(value.toLowerCase());
@@ -68,7 +68,7 @@ const CustomerList = ({ fetchCustomerlistData, customerList: { loading, data, er
             {error &&
               <tr>
                 <th colSpan={checkedColumns.length}>
-                  <ErrorIndicator retry={fetchCustomerlistData} light />
+                  <ErrorIndicator retry={fetchCustomerListData} light />
                 </th>
               </tr>
             }
@@ -101,7 +101,7 @@ const CustomerList = ({ fetchCustomerlistData, customerList: { loading, data, er
 };
 
 CustomerList.propTypes = {
-  fetchCustomerlistData: PropTypes.func,
+  fetchCustomerListData: PropTypes.func,
   recentLogins: PropTypes.object,
 };
 
@@ -110,7 +110,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchCustomerlistData: () => dispatch(fetchCustomerlistData())
+  fetchCustomerListData: () => dispatch(fetchCustomerListData())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomerList);

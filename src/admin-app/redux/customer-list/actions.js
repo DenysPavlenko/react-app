@@ -15,7 +15,7 @@ const customerListError = error => ({
   payload: error
 });
 
-export const fetchCustomerlistData = () => dispatch => {
+export const fetchCustomerListData = () => dispatch => {
   dispatch(customerListRequested());
   customerListService.getCustomerList()
     .then(data => dispatch(customerListLoaded(data)))

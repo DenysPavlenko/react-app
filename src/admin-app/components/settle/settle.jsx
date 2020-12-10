@@ -1,9 +1,47 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+// Redux
+import { fetchSettleData } from 'admin-app/redux/settle/actions';
+import { selectSettle } from 'admin-app/redux/settle/selectors';
+// Components
+import SettleHeader from './settle-header/settle-header';
+import CustomTable from 'admin-app/components/custom-table/custom-table';
+// Table constants
+import tableConstants from './table-constants';
+// Styles
+import './settle.sass';
 
-const Settle = () => {
+const Settle = ({ fetchSettleData, settle, settle: { loading, data, error } }) => {
+  const [currentFilter, setCurrentFilter] = useState('12/7/2020');
+
+  useLayoutEffect(() => {
+    fetchSettleData(currentFilter);
+  }, [currentFilter, fetchSettleData]);
+
   return (
-    <h1>Settle</h1>
+    <div className="settle">
+      <div className="settle__header">
+        <SettleHeader currentFilter={currentFilter} setCurrentFilter={setCurrentFilter} />
+      </div>
+      <div className="pending__table">
+        <CustomTable cols={tableConstants()} loading={loading} data={data} error={error} retry={() => fetchSettleData(currentFilter)} />
+      </div>
+    </div>
   );
 };
 
-export default Settle;
+Settle.propTypes = {
+  fetchSettleData: PropTypes.func,
+};
+
+const mapStateToProps = createStructuredSelector({
+  settle: selectSettle
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchSettleData: category => dispatch(fetchSettleData(category))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Settle);

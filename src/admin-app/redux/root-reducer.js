@@ -10,6 +10,7 @@ import balanceReducer from './balance/reducer';
 import recentLoginsReducer from './recent-logins/reducer';
 import customerListReducer from './customer-list/reducer';
 import pendingReducer from './pending/reducer';
+import settleReducer from './settle/reducer';
 
 const rootReducer = combineReducers({
   colorScheme: colorSchemeReducer,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   recentLogins: recentLoginsReducer,
   customerList: customerListReducer,
   pending: pendingReducer,
+  settle: settleReducer,
 });
 
 export default rootReducer;

@@ -11,7 +11,7 @@ export default class ScoresService {
   }
 
   getPendingContests = async () => {
-    return getDummyData({ data: pendingGames });
+    return getDummyData({ data: pendingContests });
   }
 
   getPendingHorses = async () => {

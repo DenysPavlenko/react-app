@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
@@ -10,10 +10,24 @@ import Simplebar from 'simplebar-react';
 // Styles
 import './select.sass';
 
-const Select = ({ options, placeholder, inline, onChange, fluid, className }) => {
+const Select = ({ options, option, placeholder, inline, onChange, fluid, className }) => {
   const selectDopdownRef = useRef(null);
   const selectRef = useRef(null);
   const selectOptionsRef = useRef(null);
+
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [data, setData] = useState({
+    value: '',
+    selectedOption: 0,
+  });
+
+  useEffect(() => {
+    if (option !== undefined) {
+      setData(data => ({ ...data, selectedOption: options.findIndex(({ value }) => (value === option)) }));
+    }
+  }, [option])
+
+  useOnClickOutside(selectRef, () => setIsExpanded(false), isExpanded);
 
   const handleOnEnter = () => {
     let maxWidth;
@@ -26,20 +40,12 @@ const Select = ({ options, placeholder, inline, onChange, fluid, className }) =>
     selectDopdown.style.minWidth = maxWidth + 'px'
   };
 
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [data, setData] = useState({
-    value: '',
-    selectedOption: 0,
-  });
-
-  useOnClickOutside(selectRef, () => setIsExpanded(false), isExpanded);
-
   const handleSelectClick = () => setIsExpanded((isExpanded) => !isExpanded);
 
   const handleOptionClick = (e, idx, value) => {
     e.stopPropagation();
     setIsExpanded(false);
-    setData((data) => ({ ...data, value, selectedOption: idx }));
+    setData(data => ({ ...data, value, selectedOption: idx }));
     onChange(value);
   };
 
@@ -55,7 +61,7 @@ const Select = ({ options, placeholder, inline, onChange, fluid, className }) =>
   return (
     <div ref={selectRef} className={classes} onClick={handleSelectClick}>
       <Button className="select__label" standard={false}>
-        {placeholder || options[selectedOption].label}
+        {selectedOption !== -1 ? options[selectedOption].label : placeholder}
       </Button>
 
       <CSSTransition nodeRef={selectDopdownRef} in={isExpanded} timeout={300} onEnter={handleOnEnter} unmountOnExit classNames="select-box-animation">
@@ -82,6 +88,7 @@ const Select = ({ options, placeholder, inline, onChange, fluid, className }) =>
 
 Select.propTypes = {
   options: PropTypes.array.isRequired,
+  option: PropTypes.string,
   placeholder: PropTypes.string,
   inline: PropTypes.bool,
   textSm: PropTypes.bool,

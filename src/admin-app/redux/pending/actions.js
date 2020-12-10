@@ -1,6 +1,6 @@
 import PendingActionTypes from './types';
 // Recent logins service
-import PendingService from 'admin-app/services/pending';
+import PendingService from 'admin-app/services/pending-service';
 const pendingService = new PendingService();
 
 const pendingRequested = () => ({

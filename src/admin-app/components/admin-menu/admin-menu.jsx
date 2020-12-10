@@ -19,7 +19,7 @@ import './admin-menu.sass';
 const items = [
   { title: 'Customer List', rootName: '/customer-list', icon: 'address-book' },
   { title: 'Pending', rootName: '/pending', icon: 'hourglass-half' },
-  { title: 'Settle', rootName: '/settle', icon: 'user' },
+  { title: 'Settle', rootName: '/settle', icon: 'check' },
   { title: 'Messages', rootName: '/messages', icon: 'user' },
   { title: 'Performance', rootName: '/performance', icon: 'user' },
   { title: 'Cash Flow', rootName: '/cash-flow', icon: 'user' },

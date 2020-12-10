@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 // Components
 import PageHeader from 'admin-app/components/page-header/page-header';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Typography from 'shared/components/typography/typography';
 import RowGroup from 'shared/components/row-group/row-group';
 import Search from 'shared/components/search/search';
-import Tabs from 'shared/components/tabs/tabs';
-import Tab from 'shared/components/tab/tab';
+import ButtonGroup from 'shared/components/button-group/button-group';
+import Button from 'shared/components/button/button';
 
 const tabs = [
   { title: 'Games', value: 'games' },
@@ -20,16 +19,15 @@ const tabs = [
 const PendingHeader = ({ currentFilter, setCurrentFilter, handleSearch }) => {
   return (
     <PageHeader
-      className="pending-header"
       left={<Typography component="h2">Pending</Typography>}
       right={
         <RowGroup>
           <Search radius style={{ width: 'auto' }} handleSearchInput={handleSearch} />
-          <Tabs>
+          <ButtonGroup>
             {tabs.map(({ title, value }, idx) => (
-              <Tab key={idx} isActive={currentFilter === value} onClick={() => setCurrentFilter(value)}>{title}</Tab>
+              <Button key={idx} isActive={currentFilter === value} onClick={() => setCurrentFilter(value)} variant="alt-gray" size="sm">{title}</Button>
             ))}
-          </Tabs>
+          </ButtonGroup>
         </RowGroup>
       }
     />

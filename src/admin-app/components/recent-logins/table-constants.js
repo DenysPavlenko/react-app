@@ -6,14 +6,14 @@ const tableConstants = () => {
   return [
     {
       title: 'Date / Time',
-      render: rowData => {
-        return <Typography component="h5">{rowData.date}</Typography>
+      render: data => {
+        return <Typography component="h5">{data.date}</Typography>
       },
     },
     {
       title: 'Ip Address',
-      render: rowData => {
-        return <Typography component="h5">{rowData.ip}</Typography>
+      render: data => {
+        return <Typography component="h5">{data.ip}</Typography>
       },
     },
   ];

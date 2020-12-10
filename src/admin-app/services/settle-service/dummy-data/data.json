@@ -1,0 +1,20 @@
+[
+  {
+    "id": "ZTMA",
+    "name": "Sara",
+    "settleFigure": "Some figure",
+    "settled": "0.00"
+  },
+  {
+    "id": "ZT1MA",
+    "name": "John",
+    "settleFigure": "Some figure",
+    "settled": "0.00"
+  },
+  {
+    "id": "ZT1",
+    "name": "Sam",
+    "settleFigure": "Some figure",
+    "settled": "0.00"
+  }
+]
