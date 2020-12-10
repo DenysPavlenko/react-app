@@ -25,7 +25,7 @@ const Select = ({ options, option, placeholder, inline, onChange, fluid, classNa
     if (option !== undefined) {
       setData(data => ({ ...data, selectedOption: options.findIndex(({ value }) => (value === option)) }));
     }
-  }, [option])
+  }, [options, option])
 
   useOnClickOutside(selectRef, () => setIsExpanded(false), isExpanded);
 

@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // filter
@@ -9,21 +10,21 @@ import { fetchCustomerListData } from 'admin-app/redux/customer-list/actions';
 import { selectCustomerList } from 'admin-app/redux/customer-list/selectors';
 // Components
 import CustomerListHeader from './customer-list-header/customer-list-header';
-import CustomerListTop from './customer-list-top/customer-list-top';
-import CustomerListItem from './customer-list-item/customer-list-item';
-import Table from 'shared/components/table/table';
 import TableFilter from 'admin-app/components/table-filter/table-filter';
-import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
-import Spinner from 'shared/components/spinner/spinner'
+import CustomTable from 'admin-app/components/custom-table/custom-table';
+import Pagination from 'shared/components/pagination/pagination';
 // Utils
 import searchFilter from 'shared/utils/search-filter';
+// Table constants
+import tableConstants from './table-constants';
 // Styles
 import './customer-list.sass';
 
-const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, error } }) => {
+const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, error }, history }) => {
   const [isFilterShown, setIsFilterShown] = useState(false);
   const [filters, setFilters] = useState([]);
   const [searchValue, setSearchValue] = useState('');
+  const [page, setPage] = useState(1);
 
   useLayoutEffect(() => {
     fetchCustomerListData();
@@ -33,6 +34,8 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
   const handleSearch = value => {
     setSearchValue(value.toLowerCase());
   };
+
+  const handlePageChange = page => setPage(page);
 
   const handleCheck = (name, checked) => {
     setFilters(filters => {
@@ -46,8 +49,9 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
   const handleFilterHide = () => setIsFilterShown(false);
 
   const checkedColumns = filters.filter(({ checked }) => checked).map(({ columns }) => columns).flat();
-  const tableTitles = checkedColumns.map(({ title }) => title);
-  const tableItems = checkedColumns.map(({ id }) => id);
+  const tableTitles = checkedColumns.map(({ title }) => title.toLowerCase());
+
+  const filteredData = () => data && data.filter(item => searchFilter(item, searchValue));
 
   return (
     <Fragment>
@@ -60,41 +64,20 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
       />
       <div className="customer-list">
         <div className="customer-list__header">
-          <CustomerListHeader handleSettingsClick={handleFilterShow} handleSearch={handleSearch} />
+          <CustomerListHeader
+            handleSettingsClick={handleFilterShow}
+            handleSearch={handleSearch}
+            pages={10}
+            page={page}
+            handlePageChange={handlePageChange}
+          />
         </div>
-        <Table className="customer-list__table">
-          <CustomerListTop titles={tableTitles} />
-          <tbody>
-            {error &&
-              <tr>
-                <th colSpan={checkedColumns.length}>
-                  <ErrorIndicator retry={fetchCustomerListData} light />
-                </th>
-              </tr>
-            }
-            {(!error && loading) &&
-              <tr>
-                <th colSpan={checkedColumns.length}>
-                  <Spinner boxed light />
-                </th>
-              </tr>
-            }
-            {(!error && !loading) &&
-              <Fragment>
-                {data
-                  .map((list) => {
-                    let obj = {};
-                    tableItems.forEach((item) => obj[item] = list[item]);
-                    return obj;
-                  })
-                  .filter((list) => searchFilter(list, searchValue))
-                  .map((list, idx) => (
-                    <CustomerListItem key={idx} data={list} className="customer-list__item" />
-                  ))}
-              </Fragment>
-            }
-          </tbody>
-        </Table>
+        <div className="customer-list__table">
+          <CustomTable cols={tableConstants(history, tableTitles)} loading={loading} data={filteredData()} error={error} />
+        </div>
+        <div className="customer-list__footer">
+          <Pagination pages={10} page={page} onChange={handlePageChange} />
+        </div>
       </div>
     </Fragment>
   );
@@ -113,4 +96,4 @@ const mapDispatchToProps = dispatch => ({
   fetchCustomerListData: () => dispatch(fetchCustomerListData())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CustomerList);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CustomerList));
