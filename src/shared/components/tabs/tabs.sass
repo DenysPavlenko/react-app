@@ -1,9 +1,16 @@
+@import "~shared/styles/abstract/variables"
+@import "~shared/styles/abstract/mixins"
+
 .tabs
   display: flex
   flex-wrap: wrap
+  &--responsive
+    width: 100%
+    overflow: auto
+    flex-wrap: nowrap
   &>*
-    margin: 3px
     &:first-child
-      margin-left: 0
+      border-radius: $r-primary 0 0 0
     &:last-child
-      margin-right: 0
+      border-radius: 0 $r-primary 0 0
+

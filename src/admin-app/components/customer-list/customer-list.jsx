@@ -73,7 +73,7 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
           />
         </div>
         <div className="customer-list__table">
-          <CustomTable cols={tableConstants(history, tableTitles)} loading={loading} data={filteredData()} error={error} />
+          <CustomTable cols={tableConstants(history, tableTitles)} loading={loading} data={filteredData()} error={error} retry={fetchCustomerListData} />
         </div>
         <div className="customer-list__footer">
           <Pagination pages={10} page={page} onChange={handlePageChange} />

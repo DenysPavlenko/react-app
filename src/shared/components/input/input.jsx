@@ -15,7 +15,7 @@ const Input = forwardRef(({ className, standard, size, noRadius, isInvalid, vari
   });
 
   return (
-    <input className={classes} {...otherProps} />
+    <input className={classes} {...otherProps} ref={ref} />
   );
 });
 

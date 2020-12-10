@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 // Styles
 import './form-group.sass';
 
-const FormGroup = ({ children, className }) => {
+const FormGroup = ({ children, label, vertical, className }) => {
   const classes = classNames({
     'form-group': true,
+    'form-group--vertical': vertical,
     [className]: className
   });
 
   return (
     <div className={classes}>
+      {label && <label className="form-group__label">{label}</label>}
       {children}
     </div>
   );

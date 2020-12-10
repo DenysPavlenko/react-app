@@ -31,8 +31,9 @@ input
   font-size: rem(14px)
   line-height: 1
   transition: 0.2s
-  &:placeholder
+  &::placeholder
     color: rgba($c-primary, 0.8)
+    text-transform: capitalize !important
   &:focus
     box-shadow: 0 0 0 0.15rem rgba($c-accent-blue, .25)
   &--no-radius
@@ -45,6 +46,12 @@ input
     color: $c-light
     &:focus
       box-shadow: none
+  &--primary
+    background-color: $c-primary
+    border-color: transparent
+    color: $c-light
+    &::placeholder
+      color: rgba($c-light, 0.5)
   // Sizes
   &--sm
     padding: 5px 10px

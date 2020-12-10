@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 // Styles
-import './tabs.sass';
+import './tab-panel.sass';
 
-const Tabs = ({ children, responsive, className }) => {
+const TabPanel = ({ children, className }) => {
   const classes = classNames({
-    'tabs': true,
-    'tabs--responsive': responsive,
+    'tab-panel': true,
     [className]: className
   });
 
@@ -18,9 +17,9 @@ const Tabs = ({ children, responsive, className }) => {
   );
 };
 
-Tabs.propTypes = {
+TabPanel.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-}
+};
 
-export default Tabs;
+export default TabPanel;

@@ -2,15 +2,16 @@
 @import ~shared/styles/abstract/mixins
 
 .radio-button
-  display: flex
+  display: inline-flex
   align-items: center
   cursor: pointer
   user-select: none
+  text-transform: capitalize
   &__box
     position: relative
   &__input
-    width: 20px
-    height: 20px
+    width: 18px
+    height: 18px
     opacity: 0
     visibility: hidden
     &:checked ~ .radio-button__checkmark:after
@@ -22,7 +23,7 @@
     transform: translateY(-50%)
     height: 100%
     width: 100%
-    border-radius: $r-primary
+    border-radius: 50%
     background-color: $c-light
     &:after
       content: ''
@@ -32,9 +33,9 @@
       top: 50%
       left: 50%
       transform: translate(-50%, -50%)
-      width: 80%
-      height: 80%
-      border-radius: $r-primary
+      width: 12px
+      height: 12px
+      border-radius: 50%
       transition: 0.2s
   &__label
     font-size: rem(14px)

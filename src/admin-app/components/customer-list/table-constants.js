@@ -6,7 +6,9 @@ import StatusIcon from 'shared/components/status-icon/status-icon';
 const columns = history => [
   {
     title: 'User Id',
-    render: data => <Typography component="p" style={{ cursor: 'pointer' }} onClick={() => history.push('/')}>{data.id}</Typography>
+    render: data => (
+      <Typography component="p" style={{ cursor: 'pointer' }} onClick={() => history.push('/client-control-panel')}>{data.id}</Typography>
+    )
   },
   {
     title: 'Name',

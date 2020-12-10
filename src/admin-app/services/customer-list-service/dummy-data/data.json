@@ -18,7 +18,7 @@
     "intLimit": "1.000.00",
     "pending": "0.00",
     "lastWager": "10/12/2020",
-    "rating": "1",
+    "rating": "Bronze",
     "credit": "20,000.00",
     "mobile": "",
     "balance": "0.00"
@@ -42,7 +42,7 @@
     "intLimit": "5.000.00",
     "pending": "100.00",
     "lastWager": "12/12/2020",
-    "rating": "3",
+    "rating": "Silver",
     "credit": "5,000.00",
     "mobile": "",
     "balance": "5,000.00"
@@ -66,7 +66,7 @@
     "intLimit": "1.000.00",
     "pending": "0.00",
     "lastWager": "13/12/2020",
-    "rating": "2",
+    "rating": "Gold",
     "credit": "30,000.00",
     "mobile": "",
     "balance": "200.90"
@@ -90,7 +90,7 @@
     "intLimit": "6.000.00",
     "pending": "0.00",
     "lastWager": "14/12/2020",
-    "rating": "5",
+    "rating": "diamond",
     "credit": "30,000.00",
     "mobile": "",
     "balance": "250.00"

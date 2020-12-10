@@ -15,6 +15,7 @@ import HomePage from 'admin-app/pages/home-page/home-page';
 import CustomerListPage from 'admin-app/pages/customer-list-page/customer-list-page';
 import PendingPage from 'admin-app/pages/pending-page/pending-page';
 import SettlePage from 'admin-app/pages/settle-page/settle-page';
+import ClientControlPanelPage from 'admin-app/pages/client-control-panel-page/client-control-panel-page';
 // Styles
 import './app-root.sass';
 
@@ -41,6 +42,7 @@ const AdminAppContainer = ({ location }) => {
             <Route path="/customer-list" exact component={CustomerListPage} />
             <Route path="/pending" exact component={PendingPage} />
             <Route path="/settle" exact component={SettlePage} />
+            <Route path="/client-control-panel" exact component={ClientControlPanelPage} />
             <Redirect to="/" />
           </Switch>
         </ScrollToTop>

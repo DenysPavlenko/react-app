@@ -31,6 +31,22 @@ $select-height: 40px
       padding: 9px 10px
   &--fluid
     width: 100%
+
+  // Variants
+  &--primary
+    .select__label
+      background-color: $c-primary
+      border-color: $c-primary
+      color: $c-light
+      &:before
+        background-color: $c-primary
+    .select__dropdown
+      background-color: $c-primary
+    .select__option
+      color: $c-light
+      &:hover
+        background-color: $c-primary-light
+
   // Elements
   &__label
     position: relative

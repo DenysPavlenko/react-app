@@ -1,0 +1,20 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.settings-table
+  text-transform: capitalize
+  &__table
+    width: 100%
+    border-collapse: collapse
+    text-transform: capitalize
+  &__header
+    th
+      padding: 5px
+  &__title
+    background-color: $c-primary
+    border-radius: $r-primary
+  &__body
+    td
+      padding: 5px
+      &:first-child
+        width: 1px
