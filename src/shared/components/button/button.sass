@@ -26,26 +26,40 @@ button::-moz-focus-inner
   cursor: pointer
   user-select: none
   border-radius: $r-primary
-  text-transform: uppercase
   color: $c-light
-  &:hover
-    opacity: 0.7
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      &.button--alt-gray.is-active
+        background-color: $color
   &:focus
     box-shadow: $s-focus
   &--fluid
     width: 100%
+
   // Variants
-  &--gradient
-    background: $button-bg
   &--accent
     background: $c-accent
+    &:hover
+      background: darken($c-accent, 10%)
   &--accent-blue
     background: $c-accent-blue
+    &:hover
+      background: darken($c-accent-blue, 10%)
   &--danger
     background: $c-danger
+    &:hover
+      background: darken($c-danger, 10%)
   &--white
     background: $c-light
     color: $c-primary
+    &:hover
+      background: darken($c-light, 10%)
+  &--alt-gray
+    background: $c-alt-gray
+    &:hover
+      background: darken($c-alt-gray, 10%)
+
   // Sizes
   &--md
     padding: 11px 20px

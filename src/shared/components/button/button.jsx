@@ -1,23 +1,29 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+// Redux
+import { selectColorScheme } from 'shared/redux/color-scheme/selectors';
 // Styles
 import './button.sass';
 
-const Button = ({ children, href, className, standard, fluid, variant, size, isDisabled, iconStart, iconEnd, ...otherProps }) => {
+const Button = ({ children, href, className, standard, fluid, variant, size, isDisabled, iconStart, iconEnd, isActive, colorScheme, onClick }) => {
   const classes = classNames({
     'button': standard,
     'button--disabled': standard && isDisabled,
     'button--fluid': fluid,
+    'is-active': isActive,
     [`button--${variant}`]: variant,
     [`button--${size}`]: size,
+    [`theme-${colorScheme}`]: colorScheme,
     [className]: className
   });
 
   const Tag = href ? 'a' : 'button';
 
   return (
-    <Tag href={href} className={classes} {...otherProps} disabled={!href && isDisabled}>
+    <Tag href={href} className={classes} disabled={!href && isDisabled} onClick={onClick}>
       {iconStart && <div className="button__icon">{iconStart}</div>}
       {children}
       {iconEnd && <div className="button__icon">{iconEnd}</div>}
@@ -42,6 +48,11 @@ Button.propTypes = {
   iconStart: PropTypes.node,
   iconEnd: PropTypes.node,
   href: PropTypes.string,
+  colorScheme: PropTypes.string,
 };
 
-export default Button;
+const mapStateToProps = createStructuredSelector({
+  colorScheme: selectColorScheme
+});
+
+export default connect(mapStateToProps)(Button);
