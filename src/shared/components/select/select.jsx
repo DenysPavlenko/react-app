@@ -10,22 +10,19 @@ import Simplebar from 'simplebar-react';
 // Styles
 import './select.sass';
 
-const Select = ({ options, option, placeholder, inline, onChange, fluid, variant, className }) => {
+const Select = ({ options, name, value, placeholder, inline, onChange, fluid, variant, className }) => {
   const selectDopdownRef = useRef(null);
   const selectRef = useRef(null);
   const selectOptionsRef = useRef(null);
 
   const [isExpanded, setIsExpanded] = useState(false);
-  const [data, setData] = useState({
-    value: '',
-    selectedOption: 0,
-  });
+  const [selectedValue, setSelectedValue] = useState(null);
 
   useEffect(() => {
-    if (option !== undefined) {
-      setData(data => ({ ...data, selectedOption: options.findIndex(({ value }) => (value === option)) }));
+    if (value) {
+      setSelectedValue(value)
     }
-  }, [options, option])
+  }, [options, value]);
 
   useOnClickOutside(selectRef, () => setIsExpanded(false), isExpanded);
 
@@ -42,11 +39,11 @@ const Select = ({ options, option, placeholder, inline, onChange, fluid, variant
 
   const handleSelectClick = () => setIsExpanded((isExpanded) => !isExpanded);
 
-  const handleOptionClick = (e, idx, value) => {
+  const handleOptionClick = (e, value) => {
     e.stopPropagation();
     setIsExpanded(false);
-    setData(data => ({ ...data, value, selectedOption: idx }));
-    onChange(value);
+    setSelectedValue(value);
+    onChange({ target: { name, value } })
   };
 
   const classes = classNames({
@@ -57,24 +54,21 @@ const Select = ({ options, option, placeholder, inline, onChange, fluid, variant
     [className]: className
   });
 
-  const { selectedOption } = data;
-
   return (
     <div ref={selectRef} className={classes} onClick={handleSelectClick}>
       <Button className="select__label" standard={false}>
-        {selectedOption !== -1 ? options[selectedOption].label : placeholder}
+        {selectedValue !== null ? selectedValue : placeholder}
       </Button>
-
       <CSSTransition nodeRef={selectDopdownRef} in={isExpanded} timeout={300} onEnter={handleOnEnter} unmountOnExit classNames="select-box-animation">
         <div ref={selectDopdownRef} className="select__dropdown">
           <Simplebar className="custom-scroll select__dropdown-scroll">
             <div className="select__options" ref={selectOptionsRef}>
-              {options.map(({ value, label }, idx) => (
+              {options.map(({ value, label }) => (
                 <div
                   key={value}
-                  className={`select__option ${idx === selectedOption ? 'is-selected' : ''}`}
+                  className={`select__option ${value === selectedValue ? 'is-selected' : ''}`}
                   data-option={value}
-                  onClick={(e) => { handleOptionClick(e, idx, value) }}
+                  onClick={(e) => { handleOptionClick(e, value) }}
                 >
                   {label}
                 </div>
@@ -87,12 +81,18 @@ const Select = ({ options, option, placeholder, inline, onChange, fluid, variant
   )
 }
 
+Select.defaultProps = {
+  placeholder: '',
+};
+
 Select.propTypes = {
   options: PropTypes.array.isRequired,
-  option: PropTypes.string,
+  name: PropTypes.string,
+  value: PropTypes.string,
   placeholder: PropTypes.string,
   inline: PropTypes.bool,
-  textSm: PropTypes.bool,
+  fluid: PropTypes.bool,
+  variant: PropTypes.string,
   className: PropTypes.string,
   onChange: PropTypes.func,
 };

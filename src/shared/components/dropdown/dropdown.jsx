@@ -24,7 +24,6 @@ class Dropdown extends Component {
   };
   componentWillUnmount() {
     document.removeEventListener('click', this.clickOutside);
-    console.log(1);
   };
 
   clickOutside = e => {

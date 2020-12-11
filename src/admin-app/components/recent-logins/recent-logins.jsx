@@ -6,7 +6,7 @@ import { createStructuredSelector } from 'reselect'
 import { fetchRecentLoginsData } from 'admin-app/redux/recent-logins/actions';
 import { selectRecentLogins } from 'admin-app/redux/recent-logins/selectors';
 // Components
-import CustomTable from 'admin-app/components/custom-table/custom-table';
+import PrimaryTable from 'shared/components/primary-table/primary-table';
 import Typography from 'shared/components/typography/typography';
 // Table constants
 import tableConstants from './table-constants';
@@ -24,7 +24,7 @@ const RecentLogins = ({ fetchRecentLoginsData, recentLogins: { loading, data, er
         <Typography component="h2">Recent logins</Typography>
       </div>
 
-      <CustomTable cols={tableConstants()} loading={loading} data={data} error={error} retry={fetchRecentLoginsData} />
+      <PrimaryTable cols={tableConstants()} loading={loading} data={data} error={error} retry={fetchRecentLoginsData} />
 
     </div>
   );

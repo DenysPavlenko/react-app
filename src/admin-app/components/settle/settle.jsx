@@ -7,13 +7,13 @@ import { fetchSettleData } from 'admin-app/redux/settle/actions';
 import { selectSettle } from 'admin-app/redux/settle/selectors';
 // Components
 import SettleHeader from './settle-header/settle-header';
-import CustomTable from 'admin-app/components/custom-table/custom-table';
+import PrimaryTable from 'shared/components/primary-table/primary-table';
 // Table constants
 import tableConstants from './table-constants';
 // Styles
 import './settle.sass';
 
-const Settle = ({ fetchSettleData, settle, settle: { loading, data, error } }) => {
+const Settle = ({ fetchSettleData, settle: { loading, data, error } }) => {
   const [currentFilter, setCurrentFilter] = useState('12/7/2020');
 
   useLayoutEffect(() => {
@@ -26,7 +26,7 @@ const Settle = ({ fetchSettleData, settle, settle: { loading, data, error } }) =
         <SettleHeader currentFilter={currentFilter} setCurrentFilter={setCurrentFilter} />
       </div>
       <div className="pending__table">
-        <CustomTable cols={tableConstants()} loading={loading} data={data} error={error} retry={() => fetchSettleData(currentFilter)} />
+        <PrimaryTable cols={tableConstants()} loading={loading} data={data} error={error} retry={() => fetchSettleData(currentFilter)} />
       </div>
     </div>
   );

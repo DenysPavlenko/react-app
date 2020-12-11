@@ -42,7 +42,7 @@ const AdminAppContainer = ({ location }) => {
             <Route path="/customer-list" exact component={CustomerListPage} />
             <Route path="/pending" exact component={PendingPage} />
             <Route path="/settle" exact component={SettlePage} />
-            <Route path="/client-control-panel" exact component={ClientControlPanelPage} />
+            <Route path="/client-control-panel/:clientId" exact component={ClientControlPanelPage} />
             <Redirect to="/" />
           </Switch>
         </ScrollToTop>

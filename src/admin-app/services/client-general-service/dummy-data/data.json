@@ -1,0 +1,23 @@
+{
+  "name": "John",
+  "email": "testEmail@gmail.com",
+  "mobile": "35284894565",
+  "password": "10",
+  "referedBy": "Some",
+  "home": "Some street 57, USA",
+  "wagerAlerts": "",
+  "rating": "silver",
+  "privateNotes": "",
+  "accountStatus": "open",
+  "viewOnly": false,
+  "sportCallAccess": true,
+  "sportInternetAccess": true,
+  "liveSportCallAccess": false,
+  "liveSportInternetAccess": false,
+  "horsesCallAccess": true,
+  "horsesInternetAccess": false,
+  "straightGamesFreePlayAcc": true,
+  "straightContestsFreePlayAcc": false,
+  "parlayFreePlayAcc": false,
+  "teaserFreePlayAcc": true
+}

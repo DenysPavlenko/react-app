@@ -4,22 +4,22 @@ import Typography from 'shared/components/typography/typography';
 import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 import Spinner from 'shared/components/spinner/spinner';
 // Styles
-import './custom-table.sass'
+import './primary-table.sass'
 
-const CustomTable = ({ cols, data, loading, error, retry }) => {
+const PrimaryTable = ({ cols, data, loading, error, retry }) => {
   const colSpan = cols.length;
 
   return (
-    <div className="custom-table">
-      <table className="custom-table__table">
-        <thead className="custom-table__header">
+    <div className="primary-table">
+      <table className="primary-table__table">
+        <thead className="primary-table__header">
           <tr>
             {cols.map((headerItem, index) => (
               <th key={index}>{headerItem.title}</th>
             ))}
           </tr>
         </thead>
-        <tbody className="custom-table__body">
+        <tbody className="primary-table__body">
           {error &&
             <tr>
               <th colSpan={colSpan}>
@@ -37,7 +37,7 @@ const CustomTable = ({ cols, data, loading, error, retry }) => {
           {(!error && !loading && data) &&
             <Fragment>
               {data.map((item, idx) => (
-                <tr key={idx} className="custom-table__row">
+                <tr key={idx} className="primary-table__row">
                   {cols.map((col, key) => (
                     <td key={key}>{col.render(item)}</td>
                   ))}
@@ -46,7 +46,7 @@ const CustomTable = ({ cols, data, loading, error, retry }) => {
             </Fragment>
           }
           {(!error && !loading && !data) &&
-            <tr className="custom-table__empty">
+            <tr className="primary-table__empty">
               <td colSpan={colSpan}>
                 <Typography component="h3" className="text-center">There is no data</Typography>
               </td>
@@ -58,4 +58,4 @@ const CustomTable = ({ cols, data, loading, error, retry }) => {
   );
 };
 
-export default CustomTable;
+export default PrimaryTable;

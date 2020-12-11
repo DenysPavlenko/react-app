@@ -75,6 +75,8 @@ const Widgets = () => {
       <div className="header-widgets__widget">
         <Select
           onChange={() => { }}
+          value="ztma"
+          name="test"
           options={[
             { label: 'ztma', value: 'ztma' },
             { label: 'ztma1', value: 'ztma1' },

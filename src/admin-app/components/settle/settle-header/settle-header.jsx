@@ -14,15 +14,16 @@ const tabs = [
 
 const SettleHeader = ({ currentFilter, setCurrentFilter }) => {
 
+  const handleSelect = ({ target: { value } }) => setCurrentFilter(value);
+
   return (
     <PageHeader
       left={<Typography component="h2">Settle</Typography>}
       right={
         <RowGroup>
           <Select
-            onChange={setCurrentFilter}
-            placeholder="Select date"
-            option={currentFilter}
+            onChange={handleSelect}
+            value={currentFilter}
             options={[
               { label: '12/7/2020', value: '12/7/2020' },
               { label: '11/30/2020', value: '11/30/2020' },

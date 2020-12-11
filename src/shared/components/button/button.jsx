@@ -38,7 +38,7 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   isDisabled: PropTypes.bool,
   fluid: PropTypes.bool,
   standard: PropTypes.bool,

@@ -11,7 +11,7 @@ import { selectCustomerList } from 'admin-app/redux/customer-list/selectors';
 // Components
 import CustomerListHeader from './customer-list-header/customer-list-header';
 import TableFilter from 'admin-app/components/table-filter/table-filter';
-import CustomTable from 'admin-app/components/custom-table/custom-table';
+import PrimaryTable from 'shared/components/primary-table/primary-table';
 import Pagination from 'shared/components/pagination/pagination';
 // Utils
 import searchFilter from 'shared/utils/search-filter';
@@ -73,7 +73,7 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
           />
         </div>
         <div className="customer-list__table">
-          <CustomTable cols={tableConstants(history, tableTitles)} loading={loading} data={filteredData()} error={error} retry={fetchCustomerListData} />
+          <PrimaryTable cols={tableConstants(history, tableTitles)} loading={loading} data={filteredData()} error={error} retry={fetchCustomerListData} />
         </div>
         <div className="customer-list__footer">
           <Pagination pages={10} page={page} onChange={handlePageChange} />

@@ -6,7 +6,7 @@ import Input from 'shared/components/input/input';
 // Styles
 import './radio-button.sass';
 
-const RadioButton = ({ label, className, onChange, name, checked, ...otherProps }) => {
+const RadioButton = ({ label, className, onChange, name, value, checked, ...otherProps }) => {
   const classnames = classNames({
     'radio-button': true,
     [className]: className,
@@ -15,7 +15,7 @@ const RadioButton = ({ label, className, onChange, name, checked, ...otherProps 
   return (
     <label className={classnames} {...otherProps} onClick={(e) => e.stopPropagation()}>
       <div className="radio-button__box">
-        <Input standard={false} className="radio-button__input" onChange={onChange} checked={checked} type="radio" {...otherProps} />
+        <Input standard={false} className="radio-button__input" onChange={onChange} name={name} value={value} checked={checked} type="radio" {...otherProps} />
         <span className="radio-button__checkmark"></span>
       </div>
       {label && <span className="radio-button__label">{label}</span>}
