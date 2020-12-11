@@ -3,9 +3,32 @@
 
 .primary-table
   border: 1px solid $c-alt-gray
+  border-top: none
   border-radius: 4px
   width: 100%
   overflow: auto
+  // Variants
+  &--dark
+    border-color: $c-primary
+    .primary-table__header
+      border-color: $c-primary
+      background: $c-primary
+    .primary-table__row
+      background-color: transparent !important
+      &:not(:last-child)
+        border-bottom: 1px solid $c-primary
+  // Sizes
+  &--sm
+    .primary-table__header th,
+    .primary-table__body td
+      padding: 7px 5px
+
+  &--center
+    text-align: center
+    .primary-table__header th:first-child,
+    .primary-table__body td:first-child
+      text-align: left
+
   +media-max($bp-xl)
     white-space: nowrap
   &__table
@@ -14,6 +37,7 @@
     text-transform: capitalize
   &__header
     border-bottom: 1px solid $c-alt-gray
+    border-top: 1px solid $c-alt-gray
   &__header th,
   &__body td
     padding: 10px 5px
@@ -27,3 +51,32 @@
   &__empty
     text-align: center
     height: 123px
+
+// .settings-table
+//   border: 1px solid $c-primary
+//   border-radius: 4px
+//   width: 100%
+//   overflow: auto
+//   +media-max($bp-xl)
+//     white-space: nowrap
+//   &__table
+//     width: 100%
+//     border-collapse: collapse
+//     text-transform: capitalize
+//   &__header
+//     background: $c-primary
+//   &__header th,
+//   &__body td
+//     padding: 7px 5px
+//     text-align: center
+//     &:first-child
+//       padding-left: 10px
+//       text-align: left
+//     &:last-child
+//       padding-right: 10px
+//   &__row
+//     &:not(:last-child)
+//       border-bottom: 1px solid $c-primary
+//   &__empty
+//     text-align: center
+//     height: 123px

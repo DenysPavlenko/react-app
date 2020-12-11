@@ -14,7 +14,7 @@ import Select from 'shared/components/select/select';
 import Textarea from 'shared/components/textarea/textarea';
 import Typography from 'shared/components/typography/typography';
 import Button from 'shared/components/button/button';
-import SettingsTable from 'admin-app/components/settings-table/settings-table';
+import PrimaryTable from 'shared/components/primary-table/primary-table';
 // Styles
 import './client-control-general.sass';
 import { statusTable, statusTableData } from './status-table';
@@ -128,7 +128,15 @@ const ClientControlGeneral = ({ fetchClientGeneralData, clientGeneral: { loading
           </div>
           <div className="client-control-general__right">
             <Typography component="h2" className="client-control-general__title">Account Status / Access</Typography>
-            <SettingsTable lines={statusTable(handleInput, clientData)} loading={false} error={false} data={statusTableData} />
+            <PrimaryTable
+              rows={statusTable(handleInput, clientData)}
+              loading={false}
+              error={false}
+              data={statusTableData}
+              variant="dark"
+              size="sm"
+              center
+            />
           </div>
         </div>
         <div className="client-control-general__footer">
