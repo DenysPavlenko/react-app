@@ -5,7 +5,7 @@ import getDummyData from 'shared/services/_utils/get-dummy-data';
 
 export default class DummyService {
 
-  getBalance = async () => {
+  getClientLimits = async () => {
     return getDummyData({ data })
   }
 

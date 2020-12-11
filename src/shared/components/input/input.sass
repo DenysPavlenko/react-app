@@ -52,7 +52,8 @@ input
     color: $c-light
     &::placeholder
       color: rgba($c-light, 0.5)
-  // Sizes
+
+  // Size
   &--sm
     padding: 5px 10px
     font-size: rem(13px)
@@ -65,3 +66,11 @@ input
     background-color: $c-primary-light
     border-color: $c-primary-light
     color: $c-light
+
+  // Width
+  &--width-50
+    max-width: 50%
+    +media-max($bp-sm)
+      max-width: 100%
+  &--width-auto
+    width: auto

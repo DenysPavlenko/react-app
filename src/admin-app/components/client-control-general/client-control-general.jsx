@@ -71,7 +71,7 @@ const ClientControlGeneral = ({ fetchClientGeneralData, clientGeneral: { loading
     <Fragment>
       <LoadingOverlay loading={loading} error={error} retry={fetchClientGeneralData} />
       <Form className="client-control-general" onSubmit={handleSubmit}>
-        <div className="client-control-general__wrap">
+        <div className="client-control-general__content">
           <div className="client-control-general__left">
             <Typography component="h2" className="client-control-general__title">Personal Settings</Typography>
             <div className="client-control-general__item">
@@ -126,15 +126,7 @@ const ClientControlGeneral = ({ fetchClientGeneralData, clientGeneral: { loading
           </div>
           <div className="client-control-general__right">
             <Typography component="h2" className="client-control-general__title">Account Status / Access</Typography>
-            <PrimaryTable
-              rows={statusTable(handleInput, clientData)}
-              loading={false}
-              error={false}
-              data={statusTableData}
-              variant="dark"
-              size="sm"
-              center
-            />
+            <PrimaryTable rows={statusTable(handleInput, clientData)} data={statusTableData} variant="primary" size="sm" center />
           </div>
         </div>
         <div className="client-control-general__footer">

@@ -14,6 +14,7 @@ import settleReducer from './settle/reducer';
 import clientBalanceReducer from './client-balance/reducer';
 import clientGeneralReducer from './client-general/reducer';
 import clientAccountingReducer from './client-accounting/reducer';
+import clientLimitsReducer from './client-limits/reducer';
 
 const rootReducer = combineReducers({
   colorScheme: colorSchemeReducer,
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   clientBalance: clientBalanceReducer,
   clientGeneral: clientGeneralReducer,
   clientAccounting: clientAccountingReducer,
+  clientLimits: clientLimitsReducer,
 });
 
 export default rootReducer;

@@ -3,7 +3,7 @@ import * as data from './dummy-data/data.json';
 // Helpers
 import getDummyData from 'shared/services/_utils/get-dummy-data';
 
-export default class LiveProgramServiceDummy {
+export default class DummyService {
 
   getLiveProgram = async () => {
     return getDummyData({ data })

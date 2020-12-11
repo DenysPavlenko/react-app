@@ -24,7 +24,7 @@ const ClientControlAccounting = ({ fetchClientAccountingData, clientAccounting: 
       <Typography className="h3">Accounting Task:</Typography>
       </div>
       <div className="client-control-accounting__table">
-        <PrimaryTable cols={tableConstants()} loading={loading} data={data} error={error} retry={() => fetchClientAccountingData()} variant="dark" />
+        <PrimaryTable cols={tableConstants()} loading={loading} data={data} error={error} retry={() => fetchClientAccountingData()} variant="primary" />
       </div>
     </div>
   );
@@ -33,6 +33,7 @@ const ClientControlAccounting = ({ fetchClientAccountingData, clientAccounting: 
 ClientControlAccounting.propTypes = {
   fetchClientAccountingData: PropTypes.func,
   clientAccounting: PropTypes.object,
+  clientId: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({

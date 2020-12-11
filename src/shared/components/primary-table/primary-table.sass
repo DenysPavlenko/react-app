@@ -7,8 +7,11 @@
   border-radius: 4px
   width: 100%
   overflow: auto
+  +media-max($bp-xl)
+    white-space: nowrap
+
   // Variants
-  &--dark
+  &--primary
     border-color: $c-primary
     .primary-table__header
       border-color: $c-primary
@@ -29,8 +32,12 @@
     .primary-table__body td:first-child
       text-align: left
 
-  +media-max($bp-xl)
-    white-space: nowrap
+  &--aligned
+    .primary-table__header th:first-child,
+    .primary-table__body td:first-child
+      width: 1px
+      white-space: nowrap
+
   &__table
     width: 100%
     border-collapse: collapse
@@ -51,32 +58,3 @@
   &__empty
     text-align: center
     height: 123px
-
-// .settings-table
-//   border: 1px solid $c-primary
-//   border-radius: 4px
-//   width: 100%
-//   overflow: auto
-//   +media-max($bp-xl)
-//     white-space: nowrap
-//   &__table
-//     width: 100%
-//     border-collapse: collapse
-//     text-transform: capitalize
-//   &__header
-//     background: $c-primary
-//   &__header th,
-//   &__body td
-//     padding: 7px 5px
-//     text-align: center
-//     &:first-child
-//       padding-left: 10px
-//       text-align: left
-//     &:last-child
-//       padding-right: 10px
-//   &__row
-//     &:not(:last-child)
-//       border-bottom: 1px solid $c-primary
-//   &__empty
-//     text-align: center
-//     height: 123px
