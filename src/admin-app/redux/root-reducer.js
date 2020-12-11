@@ -11,8 +11,9 @@ import recentLoginsReducer from './recent-logins/reducer';
 import customerListReducer from './customer-list/reducer';
 import pendingReducer from './pending/reducer';
 import settleReducer from './settle/reducer';
-import clientGeneralReducer from './client-general/reducer';
 import clientBalanceReducer from './client-balance/reducer';
+import clientGeneralReducer from './client-general/reducer';
+import clientAccountingReducer from './client-accounting/reducer';
 
 const rootReducer = combineReducers({
   colorScheme: colorSchemeReducer,
@@ -25,8 +26,9 @@ const rootReducer = combineReducers({
   customerList: customerListReducer,
   pending: pendingReducer,
   settle: settleReducer,
-  clientGeneral: clientGeneralReducer,
   clientBalance: clientBalanceReducer,
+  clientGeneral: clientGeneralReducer,
+  clientAccounting: clientAccountingReducer,
 });
 
 export default rootReducer;

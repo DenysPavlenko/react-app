@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "from": "1",
+    "to": "10",
+    "transType": "Type 1",
+    "applied": "500",
+    "toApply": "100"
+  },
+  {
+    "id": "2",
+    "from": "5",
+    "to": "100",
+    "transType": "Type 2",
+    "applied": "100",
+    "toApply": "200"
+  },
+  {
+    "id": "3",
+    "from": "20",
+    "to": "1000",
+    "transType": "Type 3",
+    "applied": "100",
+    "toApply": "300"
+  }
+]

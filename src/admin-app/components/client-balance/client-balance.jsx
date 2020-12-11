@@ -1,5 +1,4 @@
 import React, { useLayoutEffect } from 'react';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect'
@@ -11,8 +10,7 @@ import BalanceItem from 'shared/components/balance-item/balance-item';
 // Styles
 import './client-balance.sass';
 
-const ClientBalance = ({ fetchClientBalanceData, clientBalance: { loading, data, error }, match }) => {
-  const clientId = match.params.clientId;
+const ClientBalance = ({ fetchClientBalanceData, clientBalance: { loading, data, error }, clientId }) => {
 
   useLayoutEffect(() => {
     fetchClientBalanceData(clientId);
@@ -39,7 +37,7 @@ const ClientBalance = ({ fetchClientBalanceData, clientBalance: { loading, data,
 ClientBalance.propTypes = {
   fetchClientBalanceData: PropTypes.func,
   clientBalance: PropTypes.object,
-  match: PropTypes.object,
+  clientId: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -50,4 +48,4 @@ const mapDispatchToProps = dispatch => ({
   fetchClientBalanceData: clientId => dispatch(fetchClientBalanceData(clientId)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ClientBalance));
+export default connect(mapStateToProps, mapDispatchToProps)(ClientBalance);

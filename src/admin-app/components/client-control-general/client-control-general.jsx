@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useLayoutEffect, useState } from 'react';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -44,10 +43,8 @@ const initialState = {
   teaserFreePlayAcc: false
 };
 
-const ClientControlGeneral = ({ fetchClientGeneralData, clientGeneral: { loading, data, error }, match }) => {
+const ClientControlGeneral = ({ fetchClientGeneralData, clientGeneral: { loading, data, error }, clientId }) => {
   const [clientData, setClientData] = useState(initialState);
-
-  const clientId = match.params.clientId;
 
   useLayoutEffect(() => {
     fetchClientGeneralData(clientId);
@@ -151,7 +148,7 @@ const ClientControlGeneral = ({ fetchClientGeneralData, clientGeneral: { loading
 ClientControlGeneral.propTypes = {
   clientGeneral: PropTypes.object,
   fetchClientGeneralData: PropTypes.func,
-  match: PropTypes.object,
+  clientId: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -162,4 +159,4 @@ const mapDispatchToProps = dispatch => ({
   fetchClientGeneralData: clientId => dispatch(fetchClientGeneralData(clientId))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ClientControlGeneral));
+export default connect(mapStateToProps, mapDispatchToProps)(ClientControlGeneral);

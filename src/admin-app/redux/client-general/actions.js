@@ -6,11 +6,11 @@ const clientGeneralService = new ClientGeneralService();
 const clientGeneralRequested = () => ({
   type: ClientGeneralActionTypes.FETCH_CLIENT_GENERAL_REQUEST
 });
-const recentLoginsLoaded = data => ({
+const clientGeneralLoaded = data => ({
   type: ClientGeneralActionTypes.FETCH_CLIENT_GENERAL_SUCCESS,
   payload: data
 });
-const recentLoginsError = error => ({
+const clientGeneralError = error => ({
   type: ClientGeneralActionTypes.FETCH_CLIENT_GENERAL_FAILURE,
   payload: error
 });
@@ -18,6 +18,6 @@ const recentLoginsError = error => ({
 export const fetchClientGeneralData = () => dispatch => {
   dispatch(clientGeneralRequested());
   clientGeneralService.getClientGeneral()
-    .then(data => dispatch(recentLoginsLoaded(data)))
-    .catch(error => dispatch(recentLoginsError(error)))
+    .then(data => dispatch(clientGeneralLoaded(data)))
+    .catch(error => dispatch(clientGeneralError(error)))
 };
