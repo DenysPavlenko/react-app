@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-// Styles
-import './client-control-panel.sass';
 // Components
 import Tabs from 'shared/components/tabs/tabs';
 import Tab from 'shared/components/tab/tab';

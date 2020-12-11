@@ -5,7 +5,7 @@ import getDummyData from 'shared/services/_utils/get-dummy-data';
 
 export default class WeeklyFiguresService {
 
-  getBalance = async () => {
+  getClientBalance = async () => {
     return getDummyData({ data })
   }
 

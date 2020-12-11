@@ -6,7 +6,7 @@ import Typography from 'shared/components/typography/typography';
 // Styles
 import './balance-item.sass';
 
-const BalanceItem = ({ title, total, loading, error, className }) => {
+const BalanceItem = ({ title, total, loading, error, className, noDollar }) => {
   const classes = classNames({
     'balance-item': true,
     [className]: className
@@ -18,10 +18,16 @@ const BalanceItem = ({ title, total, loading, error, className }) => {
       <Typography component="h5" className={total < 0 ? 'text-danger' : ''}>
         {error && <Typography component="span" className="text-danger">...</Typography>}
         {(!error && loading) && '...'}
-        {(!error && !loading) && `$${total}`}
+        {(!error && !loading) && `${noDollar ? '' : '$'}${total}`}
       </Typography>
     </div>
   );
+};
+
+BalanceItem.defaultProps = {
+  loading: false,
+  error: false,
+  noDollar: false,
 };
 
 BalanceItem.propTypes = {
@@ -30,6 +36,7 @@ BalanceItem.propTypes = {
   title: PropTypes.string,
   total: PropTypes.string,
   className: PropTypes.string,
+  noDollar: PropTypes.bool,
 };
 
 export default BalanceItem;

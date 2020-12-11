@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withBreakpoints } from 'react-breakpoints';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect'
 // Redux
-import { selectBalance } from 'admin-app/redux/balance/selectors';
 import { togglePersonalize } from 'shared/redux/personalize/actions';
 import { toggleMail } from 'shared/redux/mail/actions';
 import { showSettings } from 'shared/redux/settings/actions';
@@ -12,7 +10,7 @@ import { toggleAdminMenu } from 'admin-app/redux/admin-menu/actions';
 // Components
 import Header from 'shared/components/header/header';
 import HeaderMenu from 'shared/components/header-menu/header-menu';
-import Balance from 'admin-app/components/balance/balance';
+import AdminBalance from 'admin-app/components/admin-balance/admin-balance';
 import Search from 'shared/components/search/search';
 import Select from 'shared/components/select/select';
 import HeaderDropdown from 'shared/components/header-dropdown/header-dropdown';
@@ -85,7 +83,7 @@ const Widgets = () => {
         />
       </div>
       <div className="header-widgets__widget">
-        <Balance />
+        <AdminBalance />
       </div>
     </div>
   )
@@ -101,10 +99,6 @@ AdminHeader.propTypes = {
   balance: PropTypes.object,
 };
 
-const mapStateToProps = createStructuredSelector({
-  balance: selectBalance
-});
-
 const mapDispatchToProps = dispatch => ({
   toggleMail: () => dispatch(toggleMail()),
   showSettings: () => dispatch(showSettings()),
@@ -112,4 +106,4 @@ const mapDispatchToProps = dispatch => ({
   toggleAdminMenu: () => dispatch(toggleAdminMenu()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withBreakpoints(AdminHeader));
+export default connect(null, mapDispatchToProps)(withBreakpoints(AdminHeader));
