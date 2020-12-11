@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useLayoutEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
@@ -145,6 +146,12 @@ const ClientControlGeneral = ({ fetchClientGeneralData, clientGeneral: { loading
       </Form>
     </Fragment>
   );
+};
+
+ClientControlGeneral.propTypes = {
+  clientGeneral: PropTypes.object,
+  fetchClientGeneralData: PropTypes.func,
+  match: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({

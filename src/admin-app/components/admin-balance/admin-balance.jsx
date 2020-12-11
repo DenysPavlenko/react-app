@@ -8,18 +8,18 @@ import { selectAdminBalance } from 'admin-app/redux/admin-balance/selectors';
 // Components
 import BalanceItem from 'shared/components/balance-item/balance-item';
 
-const Balance = ({ fetchAdminBalanceData, adminBalance: { loading, data, error } }) => {
+const AdminBalance = ({ fetchAdminBalanceData, adminBalance: { loading, data, error } }) => {
 
   useLayoutEffect(() => {
     fetchAdminBalanceData();
-  }, [fetchAdminBalanceData]);
+  }, [fetchAdminBalanceData, ]);
 
   return (
     <BalanceItem title="balance" total={data && data.balance} loading={loading} error={error} />
   );
 };
 
-Balance.propTypes = {
+AdminBalance.propTypes = {
   fetchAdminBalanceData: PropTypes.func,
   adminBalance: PropTypes.object,
 };
@@ -32,4 +32,4 @@ const mapDispatchToProps = dispatch => ({
   fetchAdminBalanceData: () => dispatch(fetchAdminBalanceData()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Balance);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminBalance);
