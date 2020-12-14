@@ -32,10 +32,10 @@ const ClientControlTransactions = ({ fetchClientTransactionsData, clientTransact
     fetchClientTransactionsData(clientId)
   }, [clientId, fetchClientTransactionsData]);
 
-  const handleInput = ({ target: { name, value, checked, type } }) => {
+  const handleInput = ({ target: { name, value } }) => {
     setClientData(data => ({
       ...data,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: value,
     }));
   };
 
