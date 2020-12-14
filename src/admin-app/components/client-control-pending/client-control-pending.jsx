@@ -27,6 +27,7 @@ const ClientControlPending = ({ fetchClientPendingData, clientPending: { loading
   const handleSearch = value => {
     setSearchValue(value.toLowerCase());
   };
+
   const handleDelete = id => { console.log('id:', id) };
 
   return (
@@ -35,7 +36,7 @@ const ClientControlPending = ({ fetchClientPendingData, clientPending: { loading
         <Search onChange={handleSearch} />
       </div>
       <div className="client-control-pending__table">
-        <PrimaryTable cols={tableContent(handleDelete)} loading={loading} data={filteredData()} error={error} retry={() => fetchClientPendingData(clientId)} />
+        <PrimaryTable cols={tableContent(handleDelete)} loading={loading} data={filteredData()} error={error} retry={() => fetchClientPendingData(clientId)} variant="primary" />
       </div>
     </div>
   );

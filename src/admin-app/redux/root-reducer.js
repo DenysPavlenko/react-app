@@ -17,6 +17,7 @@ import clientAccountingReducer from './client-accounting/reducer';
 import clientLimitsReducer from './client-limits/reducer';
 import clientWagersReducer from './client-wagers/reducer';
 import clientPendingReducer from './client-pending/reducer';
+import clientTransactionsReducer from './client-transactions/reducer';
 
 const rootReducer = combineReducers({
   colorScheme: colorSchemeReducer,
@@ -35,6 +36,7 @@ const rootReducer = combineReducers({
   clientLimits: clientLimitsReducer,
   clientWagers: clientWagersReducer,
   clientPending: clientPendingReducer,
+  clientTransactions: clientTransactionsReducer,
 });
 
 export default rootReducer;

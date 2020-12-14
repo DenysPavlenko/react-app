@@ -61,8 +61,8 @@ const ClientControlLimits = ({ fetchClientLimitsData, clientLimits: { loading, d
 };
 
 ClientControlLimits.propTypes = {
-  fetchClientAccountingData: PropTypes.func,
-  clientAccounting: PropTypes.object,
+  fetchClientLimitsData: PropTypes.func,
+  clientLimits: PropTypes.object,
   clientId: PropTypes.string,
 };
 

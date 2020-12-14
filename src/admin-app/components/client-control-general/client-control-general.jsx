@@ -15,33 +15,11 @@ import Textarea from 'shared/components/textarea/textarea';
 import Typography from 'shared/components/typography/typography';
 import Button from 'shared/components/button/button';
 import PrimaryTable from 'shared/components/primary-table/primary-table';
+// Initial state
+import initialState from './initial-state';
 // Styles
 import './client-control-general.sass';
 import { statusTable, statusTableData } from './status-table';
-
-const initialState = {
-  name: '',
-  password: '',
-  referedBy: '',
-  home: '',
-  email: '',
-  mobile: '',
-  wagerAlerts: '',
-  rating: '',
-  privateNotes: '',
-  accountStatus: '',
-  viewOnly: false,
-  sportCallAccess: false,
-  sportInternetAccess: false,
-  liveSportCallAccess: false,
-  liveSportInternetAccess: false,
-  horsesCallAccess: false,
-  horsesInternetAccess: false,
-  straightGamesFreePlayAcc: false,
-  straightContestsFreePlayAcc: false,
-  parlayFreePlayAcc: false,
-  teaserFreePlayAcc: false
-};
 
 const ClientControlGeneral = ({ fetchClientGeneralData, clientGeneral: { loading, data, error }, clientId }) => {
   const [clientData, setClientData] = useState(initialState);
