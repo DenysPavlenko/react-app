@@ -1,0 +1,91 @@
+[
+  {
+    "id": "1",
+    "date": "October - 2019",
+    "wonLost": "-1836.00",
+    "ofWagers": "6",
+    "averageBet": "333.33",
+    "hold": "74.70"
+  },
+  {
+    "id": "2",
+    "date": "December - 2019",
+    "wonLost": "-170.50",
+    "ofWagers": "5",
+    "volume": "110.00",
+    "averageBet": "110.00",
+    "hold": "69.89"
+  },
+  {
+    "id": "3",
+    "date": "February - 2020",
+    "wonLost": "1120.00",
+    "ofWagers": "9",
+    "averageBet": "32.00",
+    "hold": "-46.28"
+  },
+  {
+    "id": "4",
+    "date": "March - 2020",
+    "wonLost": "-105.00",
+    "ofWagers": "11",
+    "averageBet": "123.00",
+    "hold": "2.80"
+  },
+  {
+    "id": "5",
+    "date": "April - 2020",
+    "wonLost": "1280.40",
+    "ofWagers": "59",
+    "averageBet": "322.00",
+    "hold": "-8.53"
+  },
+  {
+    "id": "6",
+    "date": "May - 2020",
+    "wonLost": "-1205.50",
+    "ofWagers": "54",
+    "averageBet": "312.00",
+    "hold": "16.40"
+  },
+  {
+    "id": "7",
+    "date": "June - 2020",
+    "wonLost": "-987.50",
+    "ofWagers": "11",
+    "averageBet": "421.00",
+    "hold": "89.97"
+  },
+  {
+    "id": "8",
+    "date": "July - 2020",
+    "wonLost": "107.95",
+    "ofWagers": "2",
+    "averageBet": "432.00",
+    "hold": "-84.32"
+  },
+  {
+    "id": "9",
+    "date": "August - 2020",
+    "wonLost": "-200.00",
+    "ofWagers": "1",
+    "averageBet": "532.00",
+    "hold": "100.00"
+  },
+  {
+    "id": "10",
+    "date": "September - 2020",
+    "wonLost": "1100.00",
+    "ofWagers": "2",
+    "averageBet": "153.00",
+    "hold": "-95.65"
+  },
+  {
+    "id": "11",
+    "date": "October - 2020",
+    "wonLost": "2000.00",
+    "ofWagers": "1",
+    "averageBet": "124.00",
+    "hold": "-90.90"
+  }
+]

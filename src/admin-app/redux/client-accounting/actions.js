@@ -15,9 +15,9 @@ const clientAccountingError = error => ({
   payload: error
 });
 
-export const fetchClientAccountingData = () => dispatch => {
+export const fetchClientAccountingData = clientId => dispatch => {
   dispatch(clientAccountingRequested());
-  clientAccountingService.getClientAccounting()
+  clientAccountingService.getClientAccounting(clientId)
     .then(data => dispatch(clientAccountingLoaded(data)))
     .catch(error => dispatch(clientAccountingError(error)))
 };

@@ -15,9 +15,9 @@ const clientPendingError = error => ({
   payload: error
 });
 
-export const fetchClientPendingData = () => dispatch => {
+export const fetchClientPendingData = clientId => dispatch => {
   dispatch(clientPendingRequested());
-  clientPendingService.getClientPending()
+  clientPendingService.getClientPending(clientId)
     .then(data => dispatch(clientPendingLoaded(data)))
     .catch(error => dispatch(clientPendingError(error)))
 };

@@ -62,10 +62,13 @@ button::-moz-focus-inner
       background: darken($c-alt-gray, 10%)
   &--primary
     background: $c-primary
-    &:hover
-      background: darken($c-primary, 10%)
+    &:hover,
+    &.is-active
+      background: $c-primary-light
 
   // Sizes
+  &--lg
+    padding: 13px 15px
   &--md
     padding: 11px 20px
   &--sm

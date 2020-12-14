@@ -15,9 +15,9 @@ const clientLimitsError = error => ({
   payload: error
 });
 
-export const fetchClientLimitsData = () => dispatch => {
+export const fetchClientLimitsData = clientId => dispatch => {
   dispatch(clientLimitsRequested());
-  clientLimitsService.getClientLimits()
+  clientLimitsService.getClientLimits(clientId)
     .then(data => dispatch(clientLimitsLoaded(data)))
     .catch(error => dispatch(clientLimitsError(error)))
 };

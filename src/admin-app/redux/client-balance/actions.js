@@ -15,9 +15,9 @@ const clientBalanceError = error => ({
   payload: error
 });
 
-export const fetchClientBalanceData = () => (dispatch) => {
+export const fetchClientBalanceData = clientId => dispatch => {
   dispatch(clientBalanceRequested());
-  clientBalanceService.getClientBalance()
+  clientBalanceService.getClientBalance(clientId)
     .then(data => dispatch(clientBalanceLoaded(data)))
     .catch(error => dispatch(clientBalanceError(error)))
 };

@@ -15,9 +15,9 @@ const clientGeneralError = error => ({
   payload: error
 });
 
-export const fetchClientGeneralData = () => dispatch => {
+export const fetchClientGeneralData = clientId => dispatch => {
   dispatch(clientGeneralRequested());
-  clientGeneralService.getClientGeneral()
+  clientGeneralService.getClientGeneral(clientId)
     .then(data => dispatch(clientGeneralLoaded(data)))
     .catch(error => dispatch(clientGeneralError(error)))
 };

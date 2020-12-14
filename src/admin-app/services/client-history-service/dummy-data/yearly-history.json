@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "date": "2019",
+    "wonLost": "-2,006.50",
+    "ofWagers": "11",
+    "averageBet": "231.82",
+    "hold": "73.65"
+  },
+  {
+    "id": "2",
+    "date": "2020",
+    "wonLost": "3,110.35",
+    "ofWagers": "150",
+    "averageBet": "186.98",
+    "hold": "-9.34"
+  }
+]

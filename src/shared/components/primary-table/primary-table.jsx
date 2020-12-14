@@ -9,7 +9,7 @@ import Spinner from 'shared/components/spinner/spinner';
 // Styles
 import './primary-table.sass'
 
-const PrimaryTable = ({ rows, cols, data, loading, error, retry, variant, size, center, aligned }) => {
+const PrimaryTable = ({ rows, cols, data, footer, loading, error, retry, variant, size, center, aligned }) => {
   const classes = classNames({
     'primary-table': true,
     'primary-table--center': center,
@@ -24,13 +24,13 @@ const PrimaryTable = ({ rows, cols, data, loading, error, retry, variant, size, 
         {rows && rows.map((cols, idx) => (
           <TableContent key={idx} idx={idx} cols={cols} data={data[idx]} loading={loading} error={error} retry={retry} />
         ))}
-        {cols && <TableContent cols={cols} data={data} loading={loading} error={error} retry={retry} />}
+        {cols && <TableContent cols={cols} data={data} footer={footer} loading={loading} error={error} retry={retry} />}
       </Table>
     </div>
   );
 };
 
-const TableContent = ({ cols, idx, data, loading, error, retry }) => {
+const TableContent = ({ cols, footer, data, loading, error, retry }) => {
   const colSpan = cols.length;
   return (
     <Fragment>
@@ -67,6 +67,11 @@ const TableContent = ({ cols, idx, data, loading, error, retry }) => {
                 </tr>
               )
             })}
+            {footer &&
+              <tr className="primary-table__row">
+                {footer.map((item, idx) => (<td key={idx}>{item}</td>))}
+              </tr>
+            }
           </Fragment>
         }
         {(!error && !loading && !data) &&
@@ -91,6 +96,7 @@ PrimaryTable.propTypes = {
   rows: PropTypes.array,
   cols: PropTypes.array,
   data: PropTypes.array,
+  footer: PropTypes.array,
   loading: PropTypes.bool,
   error: PropTypes.bool,
   retry: PropTypes.func,
