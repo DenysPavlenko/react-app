@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "description": "Some wagers number 1",
+    "riskWin": "500 / 1"
+  },
+  {
+    "id": "2",
+    "description": "Some wagers number 2",
+    "riskWin": "500 / 2"
+  },
+  {
+    "id": "3",
+    "description": "Some wagers number 3",
+    "riskWin": "500 / 3"
+  },
+  {
+    "id": "4",
+    "description": "Some wagers number 4",
+    "riskWin": "500 / 4"
+  }
+]

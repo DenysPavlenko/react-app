@@ -42,7 +42,7 @@ const ClientControlLimits = ({ fetchClientLimitsData, clientLimits: { loading, d
 
   return (
     <Fragment>
-      <LoadingOverlay loading={loading} error={error} retry={fetchClientLimitsData} />
+      <LoadingOverlay loading={loading} error={error} retry={() => fetchClientLimitsData(clientId)} />
       <Form className="client-control-limits" onSubmit={handleSubmit}>
         <div className="client-control-limits__content">
           <div className="client-control-limits__left">

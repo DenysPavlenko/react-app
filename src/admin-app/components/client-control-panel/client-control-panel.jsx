@@ -7,11 +7,12 @@ import TabPanel from 'shared/components/tab-panel/tab-panel';
 import ClientControlGeneral from 'admin-app/components/client-control-general/client-control-general';
 import ClientControlAccounting from 'admin-app/components/client-control-accounting/client-control-accounting';
 import ClientControlLimits from 'admin-app/components/client-control-limits/client-control-limits';
+import ClientControlWagers from 'admin-app/components/client-control-wagers/client-control-wagers';
 
 const tabs = ['general', 'accounting', 'limits', 'wagers', 'pending', 'transactions', 'history', 'notifications', 'free play', 'detail imits', 'internet log'];
 
 const ClientControlPanel = ({ clientId }) => {
-  const [activeTab, setActiveTab] = useState('general');
+  const [activeTab, setActiveTab] = useState('wagers');
 
   return (
     <div className="client-control-panel">
@@ -23,6 +24,7 @@ const ClientControlPanel = ({ clientId }) => {
       {activeTab === 'general' && <TabPanel><ClientControlGeneral clientId={clientId} /></TabPanel>}
       {activeTab === 'accounting' && <TabPanel><ClientControlAccounting clientId={clientId} /></TabPanel>}
       {activeTab === 'limits' && <TabPanel><ClientControlLimits clientId={clientId} /></TabPanel>}
+      {activeTab === 'wagers' && <TabPanel><ClientControlWagers clientId={clientId} /></TabPanel>}
     </div>
   );
 };

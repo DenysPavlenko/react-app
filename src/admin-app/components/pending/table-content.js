@@ -4,7 +4,7 @@ import Typography from 'shared/components/typography/typography';
 import RowGroup from 'shared/components/row-group/row-group';
 import Button from 'shared/components/button/button';
 
-const tableConstants = handleDelete => {
+const tableContent = handleDelete => {
   return [
     {
       title: 'Name',
@@ -68,4 +68,4 @@ const tableConstants = handleDelete => {
   ];
 };
 
-export default tableConstants
+export default tableContent;

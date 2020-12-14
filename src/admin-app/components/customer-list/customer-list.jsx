@@ -15,8 +15,8 @@ import PrimaryTable from 'shared/components/primary-table/primary-table';
 import Pagination from 'shared/components/pagination/pagination';
 // Utils
 import searchFilter from 'shared/utils/search-filter';
-// Table constants
-import tableConstants from './table-constants';
+// Table content
+import tableContent from './table-content';
 // Styles
 import './customer-list.sass';
 
@@ -73,7 +73,7 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
           />
         </div>
         <div className="customer-list__table">
-          <PrimaryTable cols={tableConstants(history, tableTitles)} loading={loading} data={filteredData()} error={error} retry={fetchCustomerListData} />
+          <PrimaryTable cols={tableContent(history, tableTitles)} loading={loading} data={filteredData()} error={error} retry={fetchCustomerListData} />
         </div>
         <div className="customer-list__footer">
           <Pagination pages={10} page={page} onChange={handlePageChange} />

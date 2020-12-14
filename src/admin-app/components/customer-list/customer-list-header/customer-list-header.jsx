@@ -15,7 +15,7 @@ const CustomerListHeader = ({ handleSettingsClick, handleSearch, pages, page, ha
       left={<Typography component="h2">Customer list</Typography>}
       right={
         <RowGroup>
-          <Search radius style={{ width: 'auto' }} handleSearchInput={handleSearch} />
+          <Search radius style={{ width: 'auto' }} onChange={handleSearch} />
           <Button
             onClick={handleSettingsClick}
             variant="accent-blue"

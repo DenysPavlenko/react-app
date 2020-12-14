@@ -22,7 +22,7 @@ const PendingHeader = ({ currentFilter, setCurrentFilter, handleSearch }) => {
       left={<Typography component="h2">Pending</Typography>}
       right={
         <RowGroup>
-          <Search radius style={{ width: 'auto' }} handleSearchInput={handleSearch} />
+          <Search radius style={{ width: 'auto' }} onChange={handleSearch} />
           <ButtonGroup>
             {tabs.map(({ title, value }, idx) => (
               <Button key={idx} isActive={currentFilter === value} onClick={() => setCurrentFilter(value)} variant="alt-gray" size="sm">{title}</Button>

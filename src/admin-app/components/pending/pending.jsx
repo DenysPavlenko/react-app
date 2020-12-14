@@ -9,8 +9,8 @@ import { selectPending } from 'admin-app/redux/pending/selectors';
 import Pagination from 'shared/components/pagination/pagination';
 import PendingHeader from './pending-header/pending-header';
 import PrimaryTable from 'shared/components/primary-table/primary-table';
-// Table constants
-import tableConstants from './table-constants';
+// Table content
+import tableContent from './table-content';
 // Utils
 import searchFilter from 'shared/utils/search-filter';
 // Styles
@@ -43,7 +43,7 @@ const Pending = ({ fetchPendingData, pending: { loading, data, error } }) => {
         <PendingHeader currentFilter={currentFilter} setCurrentFilter={setCurrentFilter} handleSearch={handleSearch} />
       </div>
       <div className="pending__table">
-        <PrimaryTable cols={tableConstants(handleDelete)} loading={loading} data={filteredData()} error={error} retry={() => fetchPendingData(currentFilter)} />
+        <PrimaryTable cols={tableContent(handleDelete)} loading={loading} data={filteredData()} error={error} retry={() => fetchPendingData(currentFilter)} />
       </div>
       <div className="pending__footer">
         <Pagination pages={10} page={page} onChange={onPageChange} />

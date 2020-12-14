@@ -8,8 +8,8 @@ import { selectClientAccounting } from 'admin-app/redux/client-accounting/select
 // Components
 import PrimaryTable from 'shared/components/primary-table/primary-table';
 import Typography from 'shared/components/typography/typography';
-// Table constants
-import tableConstants from './table-constants';
+// Table content
+import tableContent from './table-content';
 // Styles
 import './client-control-accounting.sass';
 
@@ -24,7 +24,7 @@ const ClientControlAccounting = ({ fetchClientAccountingData, clientAccounting: 
       <Typography className="h3">Accounting Task:</Typography>
       </div>
       <div className="client-control-accounting__table">
-        <PrimaryTable cols={tableConstants()} loading={loading} data={data} error={error} retry={() => fetchClientAccountingData()} variant="primary" />
+        <PrimaryTable cols={tableContent()} loading={loading} data={data} error={error} retry={() => fetchClientAccountingData(clientId)} variant="primary" />
       </div>
     </div>
   );

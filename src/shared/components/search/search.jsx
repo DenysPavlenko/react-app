@@ -11,21 +11,21 @@ import './search.sass';
 // Assets
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const Search = ({ className, radius, handleSearch, handleSearchInput, ...otherProps }) => {
+const Search = ({ className, radius, onSubmit, onChange, ...otherProps }) => {
   const [searchValue, setSearchValue] = useState('');
   const [hideButton, setHideButton] = useState(true);
 
   const handleInput = (e) => {
     const value = e.target.value;
     setSearchValue(value);
-    if (typeof handleSearchInput !== 'function') {
+    if (typeof onChange !== 'function') {
       if (value) {
         setHideButton(false);
       } else {
         setHideButton(true);
       }
     } else {
-      handleSearchInput(value);
+      onChange(value);
     }
   };
 
@@ -33,7 +33,7 @@ const Search = ({ className, radius, handleSearch, handleSearchInput, ...otherPr
     e.preventDefault();
     if (typeof handleSearchInput === 'function') { return; }
     if (!searchValue) { return; }
-    handleSearch(searchValue);
+    onSubmit(searchValue);
   };
 
   const classes = classNames({
@@ -53,8 +53,8 @@ const Search = ({ className, radius, handleSearch, handleSearchInput, ...otherPr
 Search.propTypes = {
   radius: PropTypes.bool,
   className: PropTypes.string,
-  handleSearch: PropTypes.func,
-  handleSearchInput: PropTypes.func,
+  onSubmit: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 export default Search;

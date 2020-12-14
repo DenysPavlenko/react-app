@@ -54,10 +54,12 @@ const Select = ({ options, name, value, placeholder, inline, onChange, fluid, va
     [className]: className
   });
 
+  const getLabel = selectedValue => options.find(({ value }) => (value === selectedValue)).label;
+
   return (
     <div ref={selectRef} className={classes} onClick={handleSelectClick}>
       <Button className="select__label" standard={false}>
-        {selectedValue !== null ? selectedValue : placeholder}
+        {selectedValue !== null ? getLabel(selectedValue) : placeholder}
       </Button>
       <CSSTransition nodeRef={selectDopdownRef} in={isExpanded} timeout={300} onEnter={handleOnEnter} unmountOnExit classNames="select-box-animation">
         <div ref={selectDopdownRef} className="select__dropdown">
@@ -88,7 +90,7 @@ Select.defaultProps = {
 Select.propTypes = {
   options: PropTypes.array.isRequired,
   name: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   inline: PropTypes.bool,
   fluid: PropTypes.bool,

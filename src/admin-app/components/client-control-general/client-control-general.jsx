@@ -69,7 +69,7 @@ const ClientControlGeneral = ({ fetchClientGeneralData, clientGeneral: { loading
 
   return (
     <Fragment>
-      <LoadingOverlay loading={loading} error={error} retry={fetchClientGeneralData} />
+      <LoadingOverlay loading={loading} error={error} retry={() => fetchClientGeneralData(clientId)} />
       <Form className="client-control-general" onSubmit={handleSubmit}>
         <div className="client-control-general__content">
           <div className="client-control-general__left">

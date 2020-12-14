@@ -8,8 +8,8 @@ import { selectRecentLogins } from 'admin-app/redux/recent-logins/selectors';
 // Components
 import PrimaryTable from 'shared/components/primary-table/primary-table';
 import Typography from 'shared/components/typography/typography';
-// Table constants
-import tableConstants from './table-constants';
+// Table content
+import tableContent from './table-content';
 // Styles
 import './recent-logins.sass';
 
@@ -24,7 +24,7 @@ const RecentLogins = ({ fetchRecentLoginsData, recentLogins: { loading, data, er
         <Typography component="h2">Recent logins</Typography>
       </div>
 
-      <PrimaryTable cols={tableConstants()} loading={loading} data={data} error={error} retry={fetchRecentLoginsData} />
+      <PrimaryTable cols={tableContent()} loading={loading} data={data} error={error} retry={fetchRecentLoginsData} />
 
     </div>
   );

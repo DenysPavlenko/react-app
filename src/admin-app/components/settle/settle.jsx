@@ -8,7 +8,7 @@ import { selectSettle } from 'admin-app/redux/settle/selectors';
 // Components
 import SettleHeader from './settle-header/settle-header';
 import PrimaryTable from 'shared/components/primary-table/primary-table';
-// Table constants
+// Table content
 import tableConstants from './table-constants';
 // Styles
 import './settle.sass';

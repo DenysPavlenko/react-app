@@ -2,7 +2,7 @@ import React from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
 
-const tableConstants = () => {
+const tableContent = () => {
   return [
     {
       title: 'Date / Time',
@@ -19,4 +19,4 @@ const tableConstants = () => {
   ];
 };
 
-export default tableConstants;
+export default tableContent;

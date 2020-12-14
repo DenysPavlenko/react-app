@@ -1,0 +1,19 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.client-control-wagers
+  padding-bottom: 40px
+  padding-top: 10px
+  &__header
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    &-item
+      width: 250px
+      margin-bottom: 20px
+      &:not(:last-child)
+        margin-right: 20px
+      +media-max($bp-sm)
+        width: 100%
+        &:not(:last-child)
+          margin-right: 0
