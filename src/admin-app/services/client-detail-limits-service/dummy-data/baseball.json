@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "sport": "International",
+    "period": "Game",
+    "wagerTarget": "PS"
+  },
+  {
+    "id": "2",
+    "sport": "International",
+    "period": "Game",
+    "wagerTarget": "Money Line"
+  },
+  {
+    "id": "3",
+    "sport": "International",
+    "period": "Game",
+    "wagerTarget": "Total"
+  },
+
+  {
+    "id": "4",
+    "sport": "International",
+    "period": "Game",
+    "wagerTarget": "Team Total"
+  },
+  {
+    "id": "5",
+    "sport": "International",
+    "period": "First 5 Innings",
+    "wagerTarget": "PS"
+  },
+  {
+    "id": "6",
+    "sport": "International",
+    "period": "First 5 Innings",
+    "wagerTarget": "Money Line"
+  },
+  {
+    "id": "7",
+    "sport": "International",
+    "period": "First 5 Innings",
+    "wagerTarget": "Total"
+  },
+  {
+    "id": "8",
+    "sport": "International",
+    "period": "First 5 Innings",
+    "wagerTarget": "Team Total"
+  },
+
+  {
+    "id": "9",
+    "sport": "International",
+    "period": "Game",
+    "wagerTarget": "Team Total"
+  },
+  {
+    "id": "10",
+    "sport": "International",
+    "period": "2nd Half",
+    "wagerTarget": "PS"
+  },
+  {
+    "id": "11",
+    "sport": "International",
+    "period": "2nd Half",
+    "wagerTarget": "Money Line"
+  },
+  {
+    "id": "12",
+    "sport": "International",
+    "period": "2nd Half",
+    "wagerTarget": "Total"
+  },
+  {
+    "id": "13",
+    "sport": "International",
+    "period": "2nd Half",
+    "wagerTarget": "Team Total"
+  }
+]

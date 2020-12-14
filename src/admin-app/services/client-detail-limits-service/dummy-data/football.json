@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "sport": "Australia Football",
+    "period": "Game",
+    "wagerTarget": "PS"
+  },
+  {
+    "id": "2",
+    "sport": "Australia Football",
+    "period": "Game",
+    "wagerTarget": "Money Line"
+  },
+  {
+    "id": "3",
+    "sport": "Australia Football",
+    "period": "Game",
+    "wagerTarget": "Total"
+  },
+
+  {
+    "id": "4",
+    "sport": "Australia Football",
+    "period": "Game",
+    "wagerTarget": "Team Total"
+  },
+  {
+    "id": "5",
+    "sport": "Australia Football",
+    "period": "1st Half",
+    "wagerTarget": "PS"
+  },
+  {
+    "id": "6",
+    "sport": "Australia Football",
+    "period": "1st Half",
+    "wagerTarget": "Money Line"
+  },
+  {
+    "id": "7",
+    "sport": "Australia Football",
+    "period": "1st Half",
+    "wagerTarget": "Total"
+  },
+  {
+    "id": "8",
+    "sport": "Australia Football",
+    "period": "1st Half",
+    "wagerTarget": "Team Total"
+  },
+
+  {
+    "id": "9",
+    "sport": "Australia Football",
+    "period": "Game",
+    "wagerTarget": "Team Total"
+  },
+  {
+    "id": "10",
+    "sport": "Australia Football",
+    "period": "1st Half",
+    "wagerTarget": "PS"
+  },
+  {
+    "id": "11",
+    "sport": "Australia Football",
+    "period": "1st Half",
+    "wagerTarget": "Money Line"
+  },
+  {
+    "id": "12",
+    "sport": "Australia Football",
+    "period": "1st Half",
+    "wagerTarget": "Total"
+  },
+  {
+    "id": "13",
+    "sport": "Australia Football",
+    "period": "1st Half",
+    "wagerTarget": "Team Total"
+  }
+]

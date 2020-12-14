@@ -15,9 +15,9 @@ const clientWagersError = error => ({
   payload: error
 });
 
-export const fetchClientWagersData = clientId => dispatch => {
+export const fetchClientWagersData = (clientId, filter) => dispatch => {
   dispatch(clientWagersRequested());
-  clientWagersService.getClientWagers(clientId)
+  clientWagersService.getClientWagers(clientId, filter)
     .then(data => dispatch(clientWagersLoaded(data)))
     .catch(error => dispatch(clientWagersError(error)))
 };

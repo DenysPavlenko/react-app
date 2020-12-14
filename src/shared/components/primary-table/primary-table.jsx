@@ -9,7 +9,7 @@ import Spinner from 'shared/components/spinner/spinner';
 // Styles
 import './primary-table.sass'
 
-const PrimaryTable = ({ rows, cols, data, footer, loading, error, retry, variant, size, center, aligned }) => {
+const PrimaryTable = ({ rows, cols, data, lastRow, firstRow, loading, error, retry, variant, size, center, aligned }) => {
   const classes = classNames({
     'primary-table': true,
     'primary-table--center': center,
@@ -24,13 +24,13 @@ const PrimaryTable = ({ rows, cols, data, footer, loading, error, retry, variant
         {rows && rows.map((cols, idx) => (
           <TableContent key={idx} idx={idx} cols={cols} data={data[idx]} loading={loading} error={error} retry={retry} />
         ))}
-        {cols && <TableContent cols={cols} data={data} footer={footer} loading={loading} error={error} retry={retry} />}
+        {cols && <TableContent cols={cols} data={data} lastRow={lastRow} firstRow={firstRow} loading={loading} error={error} retry={retry} />}
       </Table>
     </div>
   );
 };
 
-const TableContent = ({ cols, footer, data, loading, error, retry }) => {
+const TableContent = ({ cols, lastRow, firstRow, data, loading, error, retry }) => {
   const colSpan = cols.length;
   return (
     <Fragment>
@@ -58,6 +58,11 @@ const TableContent = ({ cols, footer, data, loading, error, retry }) => {
         }
         {(!error && !loading && data) &&
           <Fragment>
+            {firstRow &&
+              <tr className="primary-table__row">
+                {firstRow.map((item, idx) => (<td key={idx}>{item}</td>))}
+              </tr>
+            }
             {data.map((item, idx) => {
               return (
                 <tr key={idx} className="primary-table__row">
@@ -67,14 +72,14 @@ const TableContent = ({ cols, footer, data, loading, error, retry }) => {
                 </tr>
               )
             })}
-            {footer &&
+            {lastRow &&
               <tr className="primary-table__row">
-                {footer.map((item, idx) => (<td key={idx}>{item}</td>))}
+                {lastRow.map((item, idx) => (<td key={idx}>{item}</td>))}
               </tr>
             }
           </Fragment>
         }
-        {(!error && !loading && !data) &&
+        {(!error && !loading && (!data || data.length === 0)) &&
           <tr className="primary-table__empty">
             <td colSpan={colSpan}>
               <Typography component="h3" className="text-center">There is no data</Typography>
@@ -96,7 +101,8 @@ PrimaryTable.propTypes = {
   rows: PropTypes.array,
   cols: PropTypes.array,
   data: PropTypes.array,
-  footer: PropTypes.array,
+  firstRow: PropTypes.array,
+  lastRow: PropTypes.array,
   loading: PropTypes.bool,
   error: PropTypes.bool,
   retry: PropTypes.func,

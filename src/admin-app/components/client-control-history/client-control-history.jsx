@@ -11,7 +11,7 @@ import Button from 'shared/components/button/button';
 import PrimaryTable from 'shared/components/primary-table/primary-table';
 // Table content
 import tableContent from './table-content';
-import tableFooter from './table-footer';
+import tableLastRow from './table-last-row';
 // Styles
 import './client-control-history.sass';
 
@@ -40,7 +40,7 @@ const ClientControlHistory = ({ fetchClientHistoryData, clientHistory: { loading
       <div className="client-control-history__table">
         <PrimaryTable
           cols={tableContent(category)}
-          footer={tableFooter(data, category)}
+          lastRow={tableLastRow(data, category)}
           loading={loading}
           data={data}
           error={error}

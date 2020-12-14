@@ -13,11 +13,12 @@ import ClientControlTransactions from 'admin-app/components/client-control-trans
 import ClientControlHistory from 'admin-app/components/client-control-history/client-control-history';
 import ClientControlNotifications from 'admin-app/components/client-control-notifications/client-control-notifications';
 import ClientControlFreePlay from 'admin-app/components/client-control-free-play/client-control-free-play';
+import ClientControlDetailLimits from 'admin-app/components/client-control-detail-limits/client-control-detail-limits';
 
-const tabs = ['general', 'accounting', 'limits', 'wagers', 'pending', 'transactions', 'history', 'notifications', 'free play', 'detail imits', 'internet log'];
+const tabs = ['general', 'accounting', 'limits', 'wagers', 'pending', 'transactions', 'history', 'notifications', 'free play', 'detail limits', 'internet log'];
 
 const ClientControlPanel = ({ clientId }) => {
-  const [activeTab, setActiveTab] = useState('free play');
+  const [activeTab, setActiveTab] = useState('detail limits');
 
   return (
     <div className="client-control-panel">
@@ -35,6 +36,7 @@ const ClientControlPanel = ({ clientId }) => {
       {activeTab === 'history' && <TabPanel><ClientControlHistory clientId={clientId} /></TabPanel>}
       {activeTab === 'notifications' && <TabPanel><ClientControlNotifications clientId={clientId} /></TabPanel>}
       {activeTab === 'free play' && <TabPanel><ClientControlFreePlay clientId={clientId} /></TabPanel>}
+      {activeTab === 'detail limits' && <TabPanel><ClientControlDetailLimits clientId={clientId} /></TabPanel>}
     </div>
   );
 };

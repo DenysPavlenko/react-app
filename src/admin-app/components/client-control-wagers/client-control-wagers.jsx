@@ -21,8 +21,8 @@ const ClientControlWagers = ({ fetchClientWagersData, clientWagers: { loading, d
   const [searchValue, setSearchValue] = useState('');
 
   useLayoutEffect(() => {
-    fetchClientWagersData(clientId)
-  }, [fetchClientWagersData, clientId]);
+    fetchClientWagersData(clientId, filterDays)
+  }, [fetchClientWagersData, clientId, filterDays]);
 
   const handleSearch = value => {
     setSearchValue(value.toLowerCase());
@@ -44,7 +44,7 @@ const ClientControlWagers = ({ fetchClientWagersData, clientWagers: { loading, d
           />
         </div>
         <div className="client-control-wagers__header-item">
-          <Search onChange={handleSearch}  />
+          <Search onChange={handleSearch} />
         </div>
       </div>
       <div className="client-control-wagers__table">
@@ -65,7 +65,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchClientWagersData: clientId => dispatch(fetchClientWagersData(clientId))
+  fetchClientWagersData: (clientId, filter) => dispatch(fetchClientWagersData(clientId, filter))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClientControlWagers);
