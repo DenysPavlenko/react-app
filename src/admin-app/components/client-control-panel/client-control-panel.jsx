@@ -12,11 +12,12 @@ import ClientControlPending from 'admin-app/components/client-control-pending/cl
 import ClientControlTransactions from 'admin-app/components/client-control-transactions/client-control-transactions';
 import ClientControlHistory from 'admin-app/components/client-control-history/client-control-history';
 import ClientControlNotifications from 'admin-app/components/client-control-notifications/client-control-notifications';
+import ClientControlFreePlay from 'admin-app/components/client-control-free-play/client-control-free-play';
 
 const tabs = ['general', 'accounting', 'limits', 'wagers', 'pending', 'transactions', 'history', 'notifications', 'free play', 'detail imits', 'internet log'];
 
 const ClientControlPanel = ({ clientId }) => {
-  const [activeTab, setActiveTab] = useState('notifications');
+  const [activeTab, setActiveTab] = useState('free play');
 
   return (
     <div className="client-control-panel">
@@ -33,6 +34,7 @@ const ClientControlPanel = ({ clientId }) => {
       {activeTab === 'transactions' && <TabPanel><ClientControlTransactions clientId={clientId} /></TabPanel>}
       {activeTab === 'history' && <TabPanel><ClientControlHistory clientId={clientId} /></TabPanel>}
       {activeTab === 'notifications' && <TabPanel><ClientControlNotifications clientId={clientId} /></TabPanel>}
+      {activeTab === 'free play' && <TabPanel><ClientControlFreePlay clientId={clientId} /></TabPanel>}
     </div>
   );
 };

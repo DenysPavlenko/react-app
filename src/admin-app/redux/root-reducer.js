@@ -19,6 +19,7 @@ import clientWagersReducer from './client-wagers/reducer';
 import clientPendingReducer from './client-pending/reducer';
 import clientTransactionsReducer from './client-transactions/reducer';
 import clientHistoryReducer from './client-history/reducer';
+import clientFreePlayReducer from './client-free-play/reducer';
 
 const rootReducer = combineReducers({
   colorScheme: colorSchemeReducer,
@@ -39,6 +40,7 @@ const rootReducer = combineReducers({
   clientPending: clientPendingReducer,
   clientTransactions: clientTransactionsReducer,
   clientHistory: clientHistoryReducer,
+  clientFreePlay: clientFreePlayReducer,
 });
 
 export default rootReducer;
