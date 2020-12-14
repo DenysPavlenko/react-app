@@ -44,7 +44,7 @@ const ClientControlWagers = ({ fetchClientWagersData, clientWagers: { loading, d
           />
         </div>
         <div className="client-control-wagers__header-item">
-          <Search onChange={handleSearch} radius />
+          <Search onChange={handleSearch}  />
         </div>
       </div>
       <div className="client-control-wagers__table">

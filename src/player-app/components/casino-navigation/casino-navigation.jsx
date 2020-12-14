@@ -38,7 +38,7 @@ const CasinoNavigation = ({ className, activeCategory, handleNavigation, handleS
         ))}
       </div>
       <div className="casino-navigation__search">
-        <Search radius onChange={handleSearch} />
+        <Search onChange={handleSearch} />
       </div>
     </div>
   );

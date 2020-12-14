@@ -11,7 +11,7 @@ import './search.sass';
 // Assets
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const Search = ({ className, radius, onSubmit, onChange, ...otherProps }) => {
+const Search = ({ className, noRadius, onSubmit, onChange, ...otherProps }) => {
   const [searchValue, setSearchValue] = useState('');
   const [hideButton, setHideButton] = useState(true);
 
@@ -31,7 +31,7 @@ const Search = ({ className, radius, onSubmit, onChange, ...otherProps }) => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    if (typeof handleSearchInput === 'function') { return; }
+    if (typeof onChange === 'function') { return; }
     if (!searchValue) { return; }
     onSubmit(searchValue);
   };
@@ -44,14 +44,14 @@ const Search = ({ className, radius, onSubmit, onChange, ...otherProps }) => {
   return (
     <Form onSubmit={handleSearchSubmit} className={classes} {...otherProps}>
       <FontAwesomeIcon icon={faSearch} className="search__icon" />
-      <Input className="search__input" placeholder="Search..." value={searchValue} onChange={handleInput} noRadius={!radius} />
+      <Input className="search__input" placeholder="Search..." value={searchValue} onChange={handleInput} noRadius={noRadius} />
       <Button type="submit" className={`search__button ${hideButton ? 'is-hidden' : ''}`} variant="accent" size="sm">Go</Button>
     </Form>
   );
 };
 
 Search.propTypes = {
-  radius: PropTypes.bool,
+  noRadius: PropTypes.bool,
   className: PropTypes.string,
   onSubmit: PropTypes.func,
   onChange: PropTypes.func,

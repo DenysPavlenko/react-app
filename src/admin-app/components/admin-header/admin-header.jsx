@@ -68,7 +68,7 @@ const Widgets = () => {
   return (
     <div className="header-widgets">
       <div className="header-widgets__widget">
-        <Search onChange={() => { }} radius />
+        <Search onChange={() => { }} />
       </div>
       <div className="header-widgets__widget">
         <Select

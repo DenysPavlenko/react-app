@@ -37,7 +37,7 @@ const HorsesSelect = ({ horsesTracks: { loading, data, error }, fetchHorsesTrack
           </Accordion.Toggle>
           <Accordion.Content className="horses-select__search">
             <Typography component="h4" className="horses-select__search-title">Track</Typography>
-            <Search className="horses-select__search-input" radius onChange={handleSearch} />
+            <Search className="horses-select__search-input" onChange={handleSearch} />
             <Button className="horses-select__search-button" fluid variant="accent">Advanced Search</Button>
           </Accordion.Content>
         </Accordion>
