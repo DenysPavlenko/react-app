@@ -8,62 +8,44 @@ const tableContent = handleDelete => {
   return [
     {
       title: 'Name',
-      render: data => {
-        return <Typography component="p">{data.name}</Typography>
-      },
+      render: data => <Typography component="p">{data.name}</Typography>
     },
     {
       title: 'Title',
-      render: data => {
-        return <Typography component="p">{data.title} {data.teamName}</Typography>
-      },
+      render: data => <Typography component="p">{data.title} {data.teamName}</Typography>
     },
     {
       title: 'Sport',
-      render: data => {
-        return <Typography component="p">{data.sport}</Typography>
-      },
+      render: data => <Typography component="p">{data.sport}</Typography>
     },
     {
       title: 'Selection',
-      render: data => {
-        return <Typography component="p">{data.selection}</Typography>
-      },
+      render: data => <Typography component="p">{data.selection}</Typography>
     },
     {
       title: 'Accepted',
-      render: data => {
-        return <Typography component="p">{data.accepted}</Typography>
-      },
+      render: data => <Typography component="p">{data.accepted}</Typography>
     },
     {
       title: 'Scheduled',
-      render: data => {
-        return <Typography component="p">{data.scheduled}</Typography>
-      },
+      render: data => <Typography component="p">{data.scheduled}</Typography>
     },
     {
       title: 'Ticket number',
-      render: data => {
-        return <Typography component="p">{data.ticketNumber}</Typography>
-      },
+      render: data => <Typography component="p">{data.ticketNumber}</Typography>
     },
     {
       title: 'Outcome',
-      render: data => {
-        return <Typography component="p">{data.outcome}</Typography>
-      },
+      render: data => <Typography component="p">{data.outcome}</Typography>
     },
     {
       title: 'Risk/Win',
-      render: data => {
-        return (
-          <RowGroup noWrap size="sm">
-            <Typography component="p">{data.risk}</Typography>
-            <Button size="xxs" variant="danger" onClick={() => handleDelete(data.id)}>Delete</Button>
-          </RowGroup>
-        )
-      },
+      render: data => (
+        <RowGroup noWrap size="sm">
+          <Typography component="p">{data.risk}</Typography>
+          <Button size="xxs" variant="danger" onClick={() => handleDelete(data.id)}>Delete</Button>
+        </RowGroup>
+      )
     },
   ];
 };

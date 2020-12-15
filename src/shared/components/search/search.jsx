@@ -11,7 +11,7 @@ import './search.sass';
 // Assets
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const Search = ({ className, noRadius, onSubmit, onChange, ...otherProps }) => {
+const Search = ({ className, onSubmit, onChange, variant, placeholder, ...otherProps }) => {
   const [searchValue, setSearchValue] = useState('');
   const [hideButton, setHideButton] = useState(true);
 
@@ -38,23 +38,36 @@ const Search = ({ className, noRadius, onSubmit, onChange, ...otherProps }) => {
 
   const classes = classNames({
     'search': true,
+    [`search--${variant}`]: variant,
     [className]: className
   });
 
   return (
-    <Form onSubmit={handleSearchSubmit} className={classes} {...otherProps}>
+    <Form onSubmit={handleSearchSubmit} className={classes}>
       <FontAwesomeIcon icon={faSearch} className="search__icon" />
-      <Input className="search__input" placeholder="Search..." value={searchValue} onChange={handleInput} noRadius={noRadius} />
+      <Input
+        className="search__input"
+        placeholder={placeholder}
+        value={searchValue}
+        onChange={handleInput}
+        variant={variant}
+        {...otherProps}
+      />
       <Button type="submit" className={`search__button ${hideButton ? 'is-hidden' : ''}`} variant="accent" size="sm">Go</Button>
     </Form>
   );
 };
 
+Search.defaultProps = {
+  placeholder: 'Search...',
+};
+
 Search.propTypes = {
-  noRadius: PropTypes.bool,
   className: PropTypes.string,
   onSubmit: PropTypes.func,
   onChange: PropTypes.func,
+  variant: PropTypes.string,
+  placeholder: PropTypes.string,
 };
 
 export default Search;

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "sessionNumber": "1465423",
+    "dateTime": "12/09/2020",
+    "details": "some details"
+  },
+  {
+    "id": "2",
+    "sessionNumber": "1465423",
+    "dateTime": "12/09/2020",
+    "details": "some details"
+  },
+  {
+    "id": "3",
+    "sessionNumber": "1465423",
+    "dateTime": "12/09/2020",
+    "details": "some details"
+  },
+  {
+    "id": "4",
+    "sessionNumber": "1465423",
+    "dateTime": "12/09/2020",
+    "details": "some details"
+  }
+]

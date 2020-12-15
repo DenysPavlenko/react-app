@@ -37,6 +37,7 @@ const ClientControlWagers = ({ fetchClientWagersData, clientWagers: { loading, d
           <Select
             value={filterDays}
             onChange={({ target: { value } }) => setFilterDays(value)}
+            variant="primary"
             options={[
               { label: 'Last 7 days', value: '7' },
               { label: 'Last 30 days', value: '30' },
@@ -44,7 +45,7 @@ const ClientControlWagers = ({ fetchClientWagersData, clientWagers: { loading, d
           />
         </div>
         <div className="client-control-wagers__header-item">
-          <Search onChange={handleSearch} />
+          <Search onChange={handleSearch} variant="primary" />
         </div>
       </div>
       <div className="client-control-wagers__table">

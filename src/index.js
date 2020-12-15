@@ -6,6 +6,7 @@ import Player from 'player-app/index';
 import './index.sass';
 import 'simplebar/dist/simplebar.min.css';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import "flatpickr/dist/themes/material_green.css";
 
 if (process.env.REACT_APP_BUILD_TARGET.trim() === 'admin') {
   ReactDOM.render(

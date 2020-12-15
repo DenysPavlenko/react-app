@@ -5,39 +5,27 @@ import Typography from 'shared/components/typography/typography';
 const columns = [
   {
     title: 'date',
-    render: data => {
-      return <Typography component="p">{data.date}</Typography>
-    },
+    render: data => <Typography component="p">{data.date}</Typography>
   },
   {
     title: 'Won/Lost',
-    render: data => {
-      return <Typography component="p">{data.wonLost}</Typography>
-    },
+    render: data => <Typography component="p">{data.wonLost}</Typography>
   },
   {
     title: '# of Wagers',
-    render: data => {
-      return <Typography component="p">{data.ofWagers}</Typography>
-    },
+    render: data => <Typography component="p">{data.ofWagers}</Typography>
   },
   {
     title: 'Volume',
-    render: data => {
-      return <Typography component="p">{data.volume}</Typography>
-    },
+    render: data => <Typography component="p">{data.volume}</Typography>
   },
   {
     title: 'Average Bet',
-    render: data => {
-      return <Typography component="p">{data.averageBet}</Typography>
-    },
+    render: data => <Typography component="p">{data.averageBet}</Typography>
   },
   {
     title: 'Hold %',
-    render: data => {
-      return <Typography component="p">{data.hold}</Typography>
-    },
+    render: data => <Typography component="p">{data.hold}</Typography>
   },
 ];
 
