@@ -24,10 +24,10 @@ const ClientControlInternetLog = ({ fetchClientInternetLogData, clientInternetLo
     fetchClientInternetLogData(clientId, '');
   }, [clientId, fetchClientInternetLogData]);
 
-  const handleDateSet = (newDate, name) => {
+  const handleDateSet = ({ target: { name, value } }) => {
     setDate(date => ({
       ...date,
-      [name]: newDate
+      [name]: value
     }));
   };
 
@@ -37,10 +37,10 @@ const ClientControlInternetLog = ({ fetchClientInternetLogData, clientInternetLo
     <div className="client-control-internet-log">
       <div className="client-control-internet-log__header">
         <div className="client-control-internet-log__header-item">
-          <DatePicker date={date.from} setDate={(date) => handleDateSet(date, 'from')} variant="primary" />
+          <DatePicker name="from" value={date.from} onChange={handleDateSet} variant="primary" />
         </div>
         <div className="client-control-internet-log__header-item">
-          <DatePicker date={date.to} setDate={(date) => handleDateSet(date, 'to')} variant="primary" />
+          <DatePicker name="to" value={date.to} onChange={handleDateSet} variant="primary" />
         </div>
         <div className="client-control-internet-log__header-item">
           <Button variant="accent-blue" onClick={handleDataLoad}>Load</Button>

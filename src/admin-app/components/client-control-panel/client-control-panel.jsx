@@ -19,7 +19,7 @@ import ClientControlInternetLog from 'admin-app/components/client-control-intern
 const tabs = ['general', 'accounting', 'limits', 'wagers', 'pending', 'transactions', 'history', 'notifications', 'free play', 'detail limits', 'internet log'];
 
 const ClientControlPanel = ({ clientId }) => {
-  const [activeTab, setActiveTab] = useState('internet log');
+  const [activeTab, setActiveTab] = useState('general');
 
   return (
     <div className="client-control-panel">

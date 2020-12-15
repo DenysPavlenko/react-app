@@ -3,16 +3,13 @@ import React from 'react';
 import Flatpickr from 'react-flatpickr';
 import Input from 'shared/components/input/input';
 
-const DatePicker = ({ date, setDate, ...otherPorps }) => {
+const DatePicker = ({ name, value, onChange, options, ...otherPorps }) => {
   return (
     <Flatpickr
-      value={date}
-      onChange={(date, shortDate) => setDate(date, shortDate)}
-      render={
-        ({ defaultValue }, ref) => {
-          return <Input value={defaultValue} ref={ref} {...otherPorps} />
-        }
-      }
+      options={{ disableMobile: "true", ...options }}
+      value={value}
+      onChange={(fullDate, shortDate) => onChange({ target: { name, value: shortDate } })}
+      render={(data, ref) => <Input ref={ref} {...otherPorps} />}
     />
   );
 };

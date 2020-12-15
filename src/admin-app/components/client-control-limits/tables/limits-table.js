@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
 import Input from 'shared/components/input/input';
+import DatePicker from 'shared/components/date-picker/date-picker';
 
 const limitsTable = (handleInput, clientData) => ([
   {
@@ -10,7 +11,15 @@ const limitsTable = (handleInput, clientData) => ([
   },
   {
     title: '',
-    render: ({ name }) => <Input name={name} value={clientData[name]} onChange={handleInput} size="sm" variant="primary" width="50" />
+    render: ({ name }) => (
+      <Fragment>
+        {name !== 'until' ?
+          <Input name={name} value={clientData[name]} onChange={handleInput} size="sm" variant="primary" width="50" />
+          :
+          <DatePicker name={name} value={clientData[name]} onChange={handleInput} size="sm" variant="primary" width="50" />
+        }
+      </Fragment>
+    )
   },
 ]);
 
