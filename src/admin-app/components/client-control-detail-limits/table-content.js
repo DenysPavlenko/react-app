@@ -3,7 +3,8 @@ import React from 'react';
 import Typography from 'shared/components/typography/typography';
 import Input from 'shared/components/input/input';
 
-const tableContent = () => {
+const tableContent = (clientInputs, handleInput) => {
+  const setValue = name => clientInputs[name] ? clientInputs[name] : '';
   return [
     {
       title: 'Sport',
@@ -19,15 +20,15 @@ const tableContent = () => {
     },
     {
       title: 'Call Center',
-      render: () => <Input type="number" size="xs" variant="primary" style={{ 'maxWidth': '100px' }} onChange={() => { }} />
+      render: ({ callCenter }) => <Input type="number" name={callCenter.name} value={setValue(callCenter.name)} size="xs" variant="primary" style={{ 'maxWidth': '100px' }} onChange={handleInput} />
     },
     {
       title: 'Internet',
-      render: () => <Input type="number" size="xs" variant="primary" style={{ 'maxWidth': '100px' }} onChange={() => { }} />
+      render: ({ internet }) => <Input type="number" name={internet.name} value={setValue(internet.name)} size="xs" variant="primary" style={{ 'maxWidth': '100px' }} onChange={handleInput} />
     },
     {
       title: 'Circled',
-      render: () => <Input type="number" size="xs" variant="primary" style={{ 'maxWidth': '100px' }} onChange={() => { }} />
+      render: ({ circled }) => <Input type="number" name={circled} value={setValue(circled.name)} size="xs" variant="primary" style={{ 'maxWidth': '100px' }} onChange={handleInput} />
     },
   ];
 };

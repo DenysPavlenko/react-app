@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
@@ -20,8 +20,48 @@ import tableFirstRow from './table-first-row';
 // Styles
 import './client-control-detail-limits.sass';
 
-const ClientControlDetailLimits = ({ fetchClientDetailLimitsData, clientDetailLimits, clientDetailLimits: { loading, data, error }, clientId }) => {
+const initialGroupInputs = {
+  callCenter: '',
+  internet: '',
+  circled: '',
+};
+
+const ClientControlDetailLimits = ({ fetchClientDetailLimitsData, clientDetailLimits: { loading, data, error }, clientId }) => {
   const [detailLimits, setDetailLimits] = useState('football');
+  const [clientInputs, setclientInputs] = useState({});
+  const [groupInputs, setGroupInput] = useState(initialGroupInputs);
+
+  useEffect(() => {
+    if (data) {
+      let inputs = {};
+      data.forEach(({ callCenter, internet, circled }) => {
+        inputs[callCenter.name] = callCenter.value;
+        inputs[internet.name] = internet.value;
+        inputs[circled.name] = circled.value;
+      });
+      setclientInputs(inputs);
+    }
+  }, [data]);
+
+  const handleInput = ({ target: { name, value } }) => {
+    setclientInputs(groupInputs => ({ ...groupInputs, [name]: value }));
+  };
+
+  const handleGroupInput = ({ target: { name, value } }) => {
+    setGroupInput(clientInputs => ({ ...clientInputs, [name]: value }));
+    setclientInputs(groupInputs => {
+      let inputs = {};
+      data.forEach(item => inputs[item[name].name] = value);
+      return { ...groupInputs, ...inputs };
+    });
+  };
+
+  const handleRemoveAllValues = () => {
+    setclientInputs({});
+    setGroupInput(initialGroupInputs);
+  };
+
+  const handleSubmit = () => handleRemoveAllValues();
 
   useLayoutEffect(() => {
     fetchClientDetailLimitsData(clientId, detailLimits);
@@ -35,10 +75,9 @@ const ClientControlDetailLimits = ({ fetchClientDetailLimitsData, clientDetailLi
     <div className="client-control-detail-limits">
       <div className="client-control-detail-limits__header">
         <div className="client-control-detail-limits__header-item">
-          <FormGroup label="Detail Limits For:">
+          <FormGroup className="client-control-detail-limits__header-select" label="Detail Limits For:">
             <Select
               variant="primary"
-              className="client-control-detail-limits__header-select"
               value={detailLimits}
               onChange={({ target: { value } }) => setDetailLimits(value)}
               options={options}
@@ -47,17 +86,17 @@ const ClientControlDetailLimits = ({ fetchClientDetailLimitsData, clientDetailLi
         </div>
         <div className="client-control-detail-limits__header-item">
           <ButtonGroup separated>
-            <Button variant="danger">Remove all values</Button>
+            <Button variant="danger" onClick={handleRemoveAllValues}>Remove all values</Button>
             <Button variant="accent" onClick={handleRefresh}>Refresh</Button>
-            <Button variant="accent">Submit</Button>
+            <Button variant="accent" onClick={handleSubmit}>Submit</Button>
           </ButtonGroup>
         </div>
       </div>
       <div className="client-control-detail-limits__table">
         <Typography component="h2" className="client-control-detail-limits__table-title">{title}</Typography>
         <PrimaryTable
-          cols={tableContent()}
-          firstRow={tableFirstRow()}
+          cols={tableContent(clientInputs, handleInput)}
+          firstRow={tableFirstRow(groupInputs, handleGroupInput)}
           loading={loading}
           data={data}
           error={error}
