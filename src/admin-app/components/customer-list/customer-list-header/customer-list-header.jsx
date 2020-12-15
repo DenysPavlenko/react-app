@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { withBreakpoints } from 'react-breakpoints';
 // Components
 import PageHeader from 'admin-app/components/page-header/page-header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,22 +10,35 @@ import Search from 'shared/components/search/search';
 import Button from 'shared/components/button/button';
 import Pagination from 'shared/components/pagination/pagination';
 
-const CustomerListHeader = ({ handleSettingsClick, handleSearch, pages, page, handlePageChange }) => {
+const CustomerListHeader = ({ handleSettingsClick, handleSearch, pages, page, handlePageChange, breakpoints, currentBreakpoint }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (breakpoints[currentBreakpoint] < breakpoints.xl) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  }, [breakpoints, currentBreakpoint]);
+
   return (
     <PageHeader
       left={<Typography component="h2">Customer list</Typography>}
+      className="customer-list-header"
       right={
         <RowGroup>
           <Search style={{ width: 'auto' }} onChange={handleSearch} />
           <Button
             onClick={handleSettingsClick}
             variant="accent-blue"
-            size="sm"
+            size="lg"
             iconStart={<FontAwesomeIcon icon="cog" style={{ 'fontSize': '14px' }} />}
           >
             Settings
           </Button>
-          <Pagination pages={pages} page={page} onChange={handlePageChange} />
+          {!isMobile &&
+            <Pagination pages={pages} page={page} onChange={handlePageChange} className="customer-list-header__pagination" />
+          }
         </RowGroup>
       }
     />
@@ -37,6 +51,8 @@ CustomerListHeader.propTypes = {
   pages: PropTypes.number,
   page: PropTypes.number,
   handlePageChange: PropTypes.func,
+  breakpoints: PropTypes.object,
+  currentBreakpoint: PropTypes.string,
 };
 
-export default CustomerListHeader;
+export default withBreakpoints(CustomerListHeader);

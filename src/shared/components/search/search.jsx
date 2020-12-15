@@ -11,7 +11,7 @@ import './search.sass';
 // Assets
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const Search = ({ className, onSubmit, onChange, variant, placeholder, ...otherProps }) => {
+const Search = ({ className, onSubmit, onChange, variant, placeholder, style, ...otherProps }) => {
   const [searchValue, setSearchValue] = useState('');
   const [hideButton, setHideButton] = useState(true);
 
@@ -43,7 +43,7 @@ const Search = ({ className, onSubmit, onChange, variant, placeholder, ...otherP
   });
 
   return (
-    <Form onSubmit={handleSearchSubmit} className={classes}>
+    <Form onSubmit={handleSearchSubmit} className={classes} style={style}>
       <FontAwesomeIcon icon={faSearch} className="search__icon" />
       <Input
         className="search__input"
@@ -68,6 +68,7 @@ Search.propTypes = {
   onChange: PropTypes.func,
   variant: PropTypes.string,
   placeholder: PropTypes.string,
+  style: PropTypes.object,
 };
 
 export default Search;

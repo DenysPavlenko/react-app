@@ -1,23 +1,29 @@
 @import ~shared/styles/abstract/variables
 @import ~shared/styles/abstract/mixins
 
-.page-header-gap
-  height: $h-header
 .page-header
-  position: fixed
+  width: 100%
   height: $h-header
-  width: calc( 100% - 8px )
-  top: calc( #{$h-header} + 4px )
-  left: 4px
   background-color: $c-primary
   display: flex
   align-items: center
   flex-wrap: wrap
   padding: 0 10px
   z-index: 2
+  +media-max($bp-lg)
+    height: auto
+    padding: 10px 10px 20px
   &__left
     padding-right: 20px
+    +media-max($bp-lg)
+      width: 100%
+      text-align: center
+      margin-bottom: 10px
+      padding-right: 0
   &__right
     flex: 1
     display: flex
     justify-content: flex-end
+    +media-max($bp-lg)
+      justify-content: center
+      flex: auto

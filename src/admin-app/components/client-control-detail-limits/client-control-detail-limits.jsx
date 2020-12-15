@@ -86,9 +86,9 @@ const ClientControlDetailLimits = ({ fetchClientDetailLimitsData, clientDetailLi
         </div>
         <div className="client-control-detail-limits__header-item">
           <ButtonGroup separated>
-            <Button variant="danger" onClick={handleRemoveAllValues}>Remove all values</Button>
-            <Button variant="accent" onClick={handleRefresh}>Refresh</Button>
-            <Button variant="accent" onClick={handleSubmit}>Submit</Button>
+            <Button variant="danger" size="lg" onClick={handleRemoveAllValues}>Remove all values</Button>
+            <Button variant="accent" size="lg" onClick={handleRefresh}>Refresh</Button>
+            <Button variant="accent" size="lg" onClick={handleSubmit}>Submit</Button>
           </ButtonGroup>
         </div>
       </div>

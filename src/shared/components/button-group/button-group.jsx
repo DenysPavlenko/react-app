@@ -4,11 +4,12 @@ import classNames from 'classnames';
 // Styles
 import './button-group.sass';
 
-const ButtonGroup = ({ children, separated, className }) => {
+const ButtonGroup = ({ children, separated, responsive, className }) => {
   const classes = classNames({
     'button-group': true,
     'button-group--joined': !separated,
     'button-group--separated': separated,
+    'button-group--responsive': responsive,
     [className]: className
   });
 

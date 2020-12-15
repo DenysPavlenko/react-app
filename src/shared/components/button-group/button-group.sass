@@ -4,6 +4,13 @@
 .button-group
   display: flex
   flex-wrap: wrap
+  &--responsive
+    justify-content: center
+    +media-max($bp-lg)
+      margin: -2px
+      &>*
+        margin: 2px
+        border-radius: $r-primary !important
   &--joined
     &>*
       border-radius: 0

@@ -11,17 +11,14 @@ const PageHeader = ({ left, right, className }) => {
   });
 
   return (
-    <Fragment>
-      <div className="page-header-gap"></div>
-      <div className={classes}>
-        <div className="page-header__left">
-          {left}
-        </div>
-        <div className="page-header__right">
-          {right}
-        </div>
+    <div className={classes}>
+      <div className="page-header__left">
+        {left}
       </div>
-    </Fragment>
+      <div className="page-header__right">
+        {right}
+      </div>
+    </div>
   );
 };
 
