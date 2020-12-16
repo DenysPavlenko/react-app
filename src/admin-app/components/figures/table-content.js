@@ -2,11 +2,12 @@ import React from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
 
-const tableContent = () => {
+const tableContent = history => {
   return [
     {
       title: 'User ID',
-      render: data => <Typography component="p">{data.id}</Typography>
+      render: data =>
+        <Typography component="p" style={{ cursor: 'pointer' }} onClick={() => history.push(`/client-control-panel/${data.id}`)}>{data.id}</Typography>
     },
     {
       title: 'Password',

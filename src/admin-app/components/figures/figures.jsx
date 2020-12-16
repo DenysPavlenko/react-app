@@ -1,5 +1,6 @@
 import React, { Fragment, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
@@ -17,7 +18,7 @@ import filtersData from './filters-data';
 // Styles
 import './figures.sass';
 
-const Figures = ({ fetchFiguresData, figures: { loading, data, error } }) => {
+const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history }) => {
   const [date, setDate] = useState('12/7/2020');
   const [page, setPage] = useState(1);
   const [status, setStatus] = useState('active');
@@ -50,7 +51,7 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error } }) => {
           <FiguresHeader pages={10} page={page} setPage={setPage} date={date} setDate={setDate} status={status} setStatus={setStatus} showFilters={() => setIsFilterShown(true)} />
         </div>
         <div className="figures__table">
-          <PrimaryTable cols={tableContent()} loading={loading} data={data} error={error} retry={() => fetchFiguresData('', '')} variant="primary" />
+          <PrimaryTable cols={tableContent(history)} loading={loading} data={data} error={error} retry={() => fetchFiguresData('', '')} variant="primary" />
         </div>
         <div className="figures__footer">
           <Pagination pages={10} page={page} onChange={setPage} />
@@ -63,6 +64,7 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error } }) => {
 Figures.propTypes = {
   fetchFiguresData: PropTypes.func,
   figures: PropTypes.object,
+  history: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -73,4 +75,4 @@ const mapDispatchToProps = dispatch => ({
   fetchFiguresData: (date, status) => dispatch(fetchFiguresData(date, status))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Figures);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Figures));
