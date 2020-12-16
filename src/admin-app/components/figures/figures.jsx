@@ -13,6 +13,7 @@ import Pagination from 'shared/components/pagination/pagination';
 import TableFilter from 'admin-app/components/table-filter/table-filter';
 // Table content
 import tableContent from './table-content';
+import tableLastRow from './table-last-row';
 // Filters
 import filtersData from './filters-data';
 // Styles
@@ -51,7 +52,15 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
           <FiguresHeader pages={10} page={page} setPage={setPage} date={date} setDate={setDate} status={status} setStatus={setStatus} showFilters={() => setIsFilterShown(true)} />
         </div>
         <div className="figures__table">
-          <PrimaryTable cols={tableContent(history)} loading={loading} data={data} error={error} retry={() => fetchFiguresData('', '')} variant="primary" />
+          <PrimaryTable
+            cols={tableContent(history)}
+            lastRow={tableLastRow(data)}
+            loading={loading}
+            data={data}
+            error={error}
+            retry={() => fetchFiguresData('', '')}
+            variant="primary"
+          />
         </div>
         <div className="figures__footer">
           <Pagination pages={10} page={page} onChange={setPage} />
