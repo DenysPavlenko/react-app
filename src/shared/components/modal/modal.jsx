@@ -6,10 +6,11 @@ import PropTypes from 'prop-types';
 // Components
 import Spinner from 'shared/components/spinner/spinner';
 import Close from 'shared/components/close/close';
+import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 // Styles
 import './modal.sass';
 
-const Modal = ({ hidden, closeModal, onExited, children, size, className, loading, noClose }) => {
+const Modal = ({ hidden, closeModal, onExited, children, size, className, loading, error, retry, noClose }) => {
   const modalRef = useRef(null);
   return (
     <CSSTransition nodeRef={modalRef} in={!hidden} timeout={300} unmountOnExit onExited={onExited} classNames="modal-animation">
@@ -17,6 +18,8 @@ const Modal = ({ hidden, closeModal, onExited, children, size, className, loadin
         className={className}
         size={size}
         loading={loading}
+        error={error}
+        retry={retry}
         noClose={noClose}
         closeModal={closeModal}
         ref={modalRef}
@@ -27,7 +30,7 @@ const Modal = ({ hidden, closeModal, onExited, children, size, className, loadin
   )
 };
 
-const ModalContent = forwardRef(({ children, closeModal, noClose, size, className, loading }, ref) => {
+const ModalContent = forwardRef(({ children, closeModal, noClose, size, className, loading, error, retry }, ref) => {
   const [container] = useState(document.createElement('div'));
 
   useEffect(() => {
@@ -58,6 +61,7 @@ const ModalContent = forwardRef(({ children, closeModal, noClose, size, classNam
 
   const classes = classNames({
     'modal': true,
+    'modal--loading': loading || error,
     [`modal--${size}`]: size,
     [className]: className
   });
@@ -68,9 +72,10 @@ const ModalContent = forwardRef(({ children, closeModal, noClose, size, classNam
         <div className="modal__wrapper">
           <div className="modal__overlay" onClick={closeModal}></div>
           <div className="modal__block">
-            {!noClose && <Close className="modal__close" onClick={closeModal} dark />}
             {children}
-            {loading && <div className="modal__loading"><Spinner lg accent /></div>}
+            {!noClose && <Close className="modal__close" onClick={closeModal} dark />}
+            {error && <div className="modal__status"><ErrorIndicator retry={retry} /></div>}
+            {(loading && !error) && <div className="modal__status"><Spinner boxed /></div>}
           </div>
         </div>
       </div>

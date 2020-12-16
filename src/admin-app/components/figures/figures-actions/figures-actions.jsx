@@ -9,7 +9,7 @@ import Typography from 'shared/components/typography/typography';
 // Styles
 import './figures-actions.sass';
 
-const FiguresActions = ({ status, setStatus }) => {
+const FiguresActions = ({ status, setStatus, showFilters }) => {
   const [isActive, setIsActive] = useState(false);
 
   const handleDropdown = () => setIsActive(isActive => !isActive);
@@ -31,7 +31,7 @@ const FiguresActions = ({ status, setStatus }) => {
           <Typography className="figures-actions__group-title" component="h5">Actions:</Typography>
           <div className="figures-actions__group-column">
             <Button variant="default" size="sm" iconStart={<FontAwesomeIcon icon="print" style={{ 'fontSize': '14px' }} />} fluid>Print</Button>
-            <Button variant="default" size="sm" iconStart={<FontAwesomeIcon icon="cog" style={{ 'fontSize': '14px' }} />} fluid>Settings</Button>
+            <Button variant="default" size="sm" iconStart={<FontAwesomeIcon icon="cog" style={{ 'fontSize': '14px' }} />} fluid onClick={showFilters}>Settings</Button>
             <Button variant="default" size="sm" iconStart={<FontAwesomeIcon icon="download" style={{ 'fontSize': '14px' }} />} fluid>Export</Button>
           </div>
         </div>
@@ -43,6 +43,7 @@ const FiguresActions = ({ status, setStatus }) => {
 FiguresActions.propTypes = {
   status: PropTypes.string,
   setStatus: PropTypes.func,
+  showFilters: PropTypes.func,
 };
 
 export default FiguresActions;

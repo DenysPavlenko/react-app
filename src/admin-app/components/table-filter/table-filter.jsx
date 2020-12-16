@@ -9,11 +9,6 @@ import Button from 'shared/components/button/button';
 import './table-filter.sass';
 
 const TableFilter = ({ title, isShown, handleHide, filters, handleCheck }) => {
-
-  const handleChange = ({ target: { name, checked } }) => {
-    handleCheck(name, checked)
-  };
-
   return (
     <Modal className="table-filter" hidden={!isShown} closeModal={handleHide} size="sm" noClose>
       <div className="table-filter__header">
@@ -23,7 +18,7 @@ const TableFilter = ({ title, isShown, handleHide, filters, handleCheck }) => {
       <div className="table-filter__filters">
         {filters.map(({ title, name, checked }, idx) => (
           <div key={idx} className="table-filter__filter">
-            <Checkbox label={title} name={name} checked={checked} onChange={handleChange} />
+            <Checkbox label={title} name={name} checked={checked} onChange={handleCheck} />
           </div>
         ))}
       </div>

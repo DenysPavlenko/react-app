@@ -26,6 +26,10 @@
     .modal__block
       max-width: 540px
 
+  &--loading
+    .modal__block
+      min-height: 200px
+
   &__container
     position: absolute
     width: 100%
@@ -63,14 +67,15 @@
     top: 15px
     right: 15px
     cursor: pointer
-  &__loading
+  &__status
     position: absolute
     top: 0
     left: 0
     width: 100%
     height: 100%
     z-index: 200
-    background: rgba($c-light, 0.9 )
+    background: rgba($c-light, 0.9)
+    border-radius: $r-primary
     display: flex
     justify-content: center
     align-items: center

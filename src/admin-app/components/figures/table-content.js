@@ -1,8 +1,6 @@
 import React from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
-import RowGroup from 'shared/components/row-group/row-group';
-import Button from 'shared/components/button/button';
 
 const tableContent = () => {
   return [
@@ -20,11 +18,7 @@ const tableContent = () => {
     },
     {
       title: 'Credit',
-      render: data => <Typography component="p">{data.credit}</Typography>
-    },
-    {
-      title: 'Limit',
-      render: data => <Typography component="p">{data.limit}</Typography>
+      render: data => <Typography component="p">{data.creditLimit}</Typography>
     },
     {
       title: 'Carry',

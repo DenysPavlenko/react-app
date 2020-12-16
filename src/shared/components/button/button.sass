@@ -33,7 +33,8 @@ button::-moz-focus-inner
     &.theme-#{$name}
       &.button--default
         background-color: $color
-      &.button--default.is-active
+      &.button--default.is-active,
+      &.button--default:hover,
         background-color: darken($color, 10%)
       &.button--alt-gray.is-active,
       &.button--accent.is-active,

@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
-// filter
-import filtersData from './filters';
 // Redux
 import { fetchCustomerListData } from 'admin-app/redux/customer-list/actions';
 import { selectCustomerList } from 'admin-app/redux/customer-list/selectors';
@@ -17,25 +15,26 @@ import Pagination from 'shared/components/pagination/pagination';
 import searchFilter from 'shared/utils/search-filter';
 // Table content
 import tableContent from './table-content';
+// Filters
+import filtersData from './filters-data';
 // Styles
 import './customer-list.sass';
 
 const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, error }, history }) => {
   const [isFilterShown, setIsFilterShown] = useState(false);
-  const [filters, setFilters] = useState([]);
+  const [filters, setFilters] = useState(filtersData);
   const [searchValue, setSearchValue] = useState('');
   const [page, setPage] = useState(1);
 
   useLayoutEffect(() => {
     fetchCustomerListData();
-    setFilters(filtersData);
   }, [setFilters, fetchCustomerListData]);
 
   const handleSearch = value => {
     setSearchValue(value.toLowerCase());
   };
 
-  const handleCheck = (name, checked) => {
+  const handleCheck = ({ target: { name, checked } }) => {
     setFilters(filters => {
       const currentFilter = filters.find((filter) => filter.name === name);
       const updatedFilter = { ...currentFilter, checked };
@@ -43,27 +42,21 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
     });
   };
 
-  const handleFilterShow = () => setIsFilterShown(true);
-  const handleFilterHide = () => setIsFilterShown(false);
-
-  const checkedColumns = filters.filter(({ checked }) => checked).map(({ columns }) => columns).flat();
-  const tableTitles = checkedColumns.map(({ title }) => title.toLowerCase());
-
   const filteredData = () => data && data.filter(item => searchFilter(item, searchValue));
 
   return (
     <Fragment>
       <TableFilter
-        filters={filters}
         title="Columns: Turn on/off"
+        filters={filters}
         isShown={isFilterShown}
-        handleHide={handleFilterHide}
+        handleHide={() => setIsFilterShown(false)}
         handleCheck={handleCheck}
       />
       <div className="customer-list">
         <div className="customer-list__header">
           <CustomerListHeader
-            handleSettingsClick={handleFilterShow}
+            handleSettingsClick={() => setIsFilterShown(true)}
             handleSearch={handleSearch}
             pages={10}
             page={page}
@@ -71,7 +64,7 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
           />
         </div>
         <div className="customer-list__table">
-          <PrimaryTable cols={tableContent(history, tableTitles)} loading={loading} data={filteredData()} error={error} retry={fetchCustomerListData} />
+          <PrimaryTable cols={tableContent(history)} loading={loading} data={filteredData()} error={error} retry={fetchCustomerListData} />
         </div>
         <div className="customer-list__footer">
           <Pagination pages={10} page={page} onChange={setPage} />

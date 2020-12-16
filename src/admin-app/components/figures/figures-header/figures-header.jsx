@@ -16,7 +16,7 @@ const tabs = [
   { title: 'last week', value: '11/30/2020' },
 ];
 
-const FiguresHeader = ({ date, setDate, pages, page, setPage, status, setStatus, breakpoints, currentBreakpoint }) => {
+const FiguresHeader = ({ date, setDate, pages, page, setPage, status, setStatus, breakpoints, currentBreakpoint, showFilters }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -27,17 +27,15 @@ const FiguresHeader = ({ date, setDate, pages, page, setPage, status, setStatus,
     }
   }, [breakpoints, currentBreakpoint]);
 
-  const handleSelect = ({ target: { value } }) => setDate(value);
-
   return (
     <PageHeader
       left={<Typography component="h2">Figures</Typography>}
       className="customer-list-header"
       right={
         <RowGroup>
-          <FiguresActions status={status} setStatus={setStatus} />
+          <FiguresActions status={status} setStatus={setStatus} showFilters={showFilters} />
           <Select
-            onChange={handleSelect}
+            onChange={({ target: { value } }) => setDate(value)}
             value={date}
             options={[
               { label: '12/7/2020', value: '12/7/2020' },
@@ -79,6 +77,7 @@ FiguresHeader.propTypes = {
   setStatus: PropTypes.func,
   breakpoints: PropTypes.object,
   currentBreakpoint: PropTypes.string,
+  showFilters: PropTypes.func,
 };
 
 export default withBreakpoints(FiguresHeader);

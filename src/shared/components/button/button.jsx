@@ -25,7 +25,7 @@ const Button = ({ children, href, className, standard, fluid, variant, size, isD
   return (
     <Tag href={href} className={classes} disabled={!href && isDisabled} onClick={onClick}>
       {iconStart && <div className="button__icon">{iconStart}</div>}
-      {children}
+      <span>{children}</span>
       {iconEnd && <div className="button__icon">{iconEnd}</div>}
     </Tag>
   );
