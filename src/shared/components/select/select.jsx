@@ -49,6 +49,7 @@ const Select = ({ options, name, value, placeholder, inline, onChange, fluid, va
   const classes = classNames({
     'select': true,
     'select--inline': inline,
+    'is-expanded': isExpanded,
     [`select--${variant}`]: variant,
     'select--fluid': fluid,
     [className]: className

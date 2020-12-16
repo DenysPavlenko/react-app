@@ -1,5 +1,4 @@
 import ClientBalanceActionTypes from './types';
-// Balance service
 import ClientBalanceService from 'admin-app/services/client-balance-service';
 const clientBalanceService = new ClientBalanceService();
 

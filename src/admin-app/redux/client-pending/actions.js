@@ -1,5 +1,4 @@
 import ClientPendingActionTypes from './types';
-// Recent logins service
 import ClientPendingService from 'admin-app/services/client-pending-service';
 const clientPendingService = new ClientPendingService();
 

@@ -1,5 +1,4 @@
 import PendingActionTypes from './types';
-// Recent logins service
 import PendingService from 'admin-app/services/pending-service';
 const pendingService = new PendingService();
 
@@ -16,16 +15,8 @@ const pendingError = error => ({
 });
 
 export const fetchPendingData = category => dispatch => {
-  let service;
-  if (category === 'games') { service = pendingService.getPendingGames; }
-  else if (category === 'contest') { service = pendingService.getPendingContests; }
-  else if (category === 'horses') { service = pendingService.getPendingHorses; }
-  else if (category === 'open') { service = pendingService.getPendingOpen; }
-  else if (category === 'free') { service = pendingService.getPendingFree; }
-  else if (category === 'live') { service = pendingService.getPendingLive; }
-  else { return; }
   dispatch(pendingRequested());
-  service()
+  pendingService.getPending(category)
     .then(data => dispatch(pendingLoaded(data)))
     .catch(error => dispatch(pendingError(error)))
 };

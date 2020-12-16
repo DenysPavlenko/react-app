@@ -1,5 +1,4 @@
 import SettleActionTypes from './types';
-// Settle service
 import SettleService from 'admin-app/services/settle-service';
 const settleService = new SettleService();
 
@@ -15,9 +14,9 @@ const sellteError = error => ({
   payload: error
 });
 
-export const fetchSettleData = () => dispatch => {
+export const fetchSettleData = date => dispatch => {
   dispatch(settleRequested());
-  settleService.getSettle()
+  settleService.getSettle(date)
     .then(data => dispatch(settleLoaded(data)))
     .catch(error => dispatch(sellteError(error)))
 };

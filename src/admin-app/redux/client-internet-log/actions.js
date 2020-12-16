@@ -1,5 +1,4 @@
 import ClientInternetLogActionTypes from './types';
-// Balance service
 import ClientInternetLogService from 'admin-app/services/client-internet-log-service';
 const clientInternetLogService = new ClientInternetLogService();
 

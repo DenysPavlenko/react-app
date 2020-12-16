@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 // Components
 import Dropdown from 'shared/components/dropdown/dropdown';
@@ -8,14 +8,18 @@ import { faChevronDown, faUser } from '@fortawesome/free-solid-svg-icons';
 import './header-dropdown.sass';
 
 const HeaderDropdown = ({ name, children, closeOnClick }) => {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleDropdown = () => setIsActive(isActive => !isActive);
+
   return (
-    <Dropdown className="header-dropdown" closeOnClick={closeOnClick}>
-      <Dropdown.Toggle className="header-dropdown__toggle">
+    <Dropdown className="header-dropdown" isActive={isActive} onClickOutside={handleDropdown}>
+      <Dropdown.Header className="header-dropdown__toggle" onClick={handleDropdown}>
         <FontAwesomeIcon icon={faUser} className="header-dropdown__toggle-icon" />
         <div className="header-dropdown__toggle-name">{name}</div>
         <FontAwesomeIcon icon={faChevronDown} className="header-dropdown__toggle-chevron" />
-      </Dropdown.Toggle>
-      <Dropdown.Box className="header-dropdown__box">
+      </Dropdown.Header>
+      <Dropdown.Box className="header-dropdown__box" onClick={() => closeOnClick && handleDropdown()}>
         {children}
       </Dropdown.Box>
     </Dropdown>

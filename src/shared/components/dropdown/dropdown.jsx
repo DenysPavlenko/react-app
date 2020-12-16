@@ -2,7 +2,7 @@ import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 // Components
-import DropdownToggle from './dropdown-toggle/dropdown-toggle';
+import DropdownHeader from './dropdown-header/dropdown-header';
 import DropdownBox from './dropdown-box/dropdown-box';
 // Styles
 import './dropdown.sass';
@@ -10,13 +10,14 @@ import './dropdown.sass';
 class Dropdown extends Component {
   dropdownRef = createRef(null);
 
-  static Toggle = DropdownToggle;
+  static Header = DropdownHeader;
   static Box = DropdownBox;
 
   static propTypes = {
     children: PropTypes.node.isRequired,
+    isActive: PropTypes.bool,
     className: PropTypes.string,
-    closeOnClick: PropTypes.bool,
+    onClickOutside: PropTypes.func,
   };
 
   componentDidMount() {
@@ -27,34 +28,26 @@ class Dropdown extends Component {
   };
 
   clickOutside = e => {
-    const { isExpanded } = this.state;
-    if (isExpanded) {
+    const { isActive, onClickOutside } = this.props;
+    if (isActive) {
       if (!this.dropdownRef.current || this.dropdownRef.current.contains(e.target)) {
-        return; }
-      this.toggleDropdown();
+        return;
+      }
+      onClickOutside();
     }
   };
 
-  state = {
-    isExpanded: false
-  };
-
-  toggleDropdown = () => {
-    this.setState(({ isExpanded }) => ({ isExpanded: !isExpanded }));
-  };
-
   render() {
-    const { children, className, closeOnClick } = this.props;
-    const { isExpanded } = this.state;
+    const { children, className, isActive } = this.props;
     const classnames = classNames({
       'dropdown': true,
       [className]: className,
     });
 
     return (
-      <div className={classnames} ref={this.dropdownRef}>
+      <div className={classnames} ref={this.dropdownRef} >
         {React.Children.map(children, child => (
-          React.cloneElement(child, { closeOnClick, isExpanded, toggleDropdown: this.toggleDropdown })
+          React.cloneElement(child, { isActive })
         ))}
       </div>
     );

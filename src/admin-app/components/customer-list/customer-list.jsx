@@ -35,8 +35,6 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
     setSearchValue(value.toLowerCase());
   };
 
-  const handlePageChange = page => setPage(page);
-
   const handleCheck = (name, checked) => {
     setFilters(filters => {
       const currentFilter = filters.find((filter) => filter.name === name);
@@ -69,14 +67,14 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
             handleSearch={handleSearch}
             pages={10}
             page={page}
-            handlePageChange={handlePageChange}
+            setPage={setPage}
           />
         </div>
         <div className="customer-list__table">
           <PrimaryTable cols={tableContent(history, tableTitles)} loading={loading} data={filteredData()} error={error} retry={fetchCustomerListData} />
         </div>
         <div className="customer-list__footer">
-          <Pagination pages={10} page={page} onChange={handlePageChange} />
+          <Pagination pages={10} page={page} onChange={setPage} />
         </div>
       </div>
     </Fragment>

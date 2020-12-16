@@ -1,5 +1,4 @@
 import CustomerListActionTypes from './types';
-// Recent logins service
 import CustomerListService from 'admin-app/services/customer-list-service';
 const customerListService = new CustomerListService();
 

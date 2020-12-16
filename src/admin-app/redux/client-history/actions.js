@@ -1,5 +1,4 @@
 import ClientHistoryActionTypes from './types';
-// Recent logins service
 import ClientHistoryService from 'admin-app/services/client-history-service';
 const clientHistoryService = new ClientHistoryService();
 

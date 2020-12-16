@@ -1,26 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { withBreakpoints } from 'react-breakpoints';
 // Components
 import PageHeader from 'admin-app/components/page-header/page-header';
+import FiguresActions from '../figures-actions/figures-actions';
 import Typography from 'shared/components/typography/typography';
-import RowGroup from 'shared/components/row-group/row-group';
-import Select from 'shared/components/select/select';
 import ButtonGroup from 'shared/components/button-group/button-group';
+import RowGroup from 'shared/components/row-group/row-group';
 import Button from 'shared/components/button/button';
+import Pagination from 'shared/components/pagination/pagination';
+import Select from 'shared/components/select/select';
 
 const tabs = [
   { title: 'current week', value: '12/7/2020' },
   { title: 'last week', value: '11/30/2020' },
 ];
 
-const SettleHeader = ({ date, setDate }) => {
+const FiguresHeader = ({ date, setDate, pages, page, setPage, status, setStatus, breakpoints, currentBreakpoint }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (breakpoints[currentBreakpoint] < breakpoints.xl) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  }, [breakpoints, currentBreakpoint]);
 
   const handleSelect = ({ target: { value } }) => setDate(value);
 
   return (
     <PageHeader
-      left={<Typography component="h2">Settle</Typography>}
+      left={<Typography component="h2">Figures</Typography>}
+      className="customer-list-header"
       right={
         <RowGroup>
+          <FiguresActions status={status} setStatus={setStatus} />
           <Select
             onChange={handleSelect}
             value={date}
@@ -45,10 +60,25 @@ const SettleHeader = ({ date, setDate }) => {
               <Button key={idx} isActive={date === value} onClick={() => setDate(value)} variant="alt-gray" size="lg">{title}</Button>
             ))}
           </ButtonGroup>
+          {!isMobile &&
+            <Pagination pages={pages} page={page} onChange={setPage} className="customer-list-header__pagination" />
+          }
         </RowGroup>
       }
     />
   );
 };
 
-export default SettleHeader;
+FiguresHeader.propTypes = {
+  date: PropTypes.string,
+  setDate: PropTypes.func,
+  pages: PropTypes.number,
+  page: PropTypes.number,
+  setPage: PropTypes.func,
+  status: PropTypes.string,
+  setStatus: PropTypes.func,
+  breakpoints: PropTypes.object,
+  currentBreakpoint: PropTypes.string,
+};
+
+export default withBreakpoints(FiguresHeader);

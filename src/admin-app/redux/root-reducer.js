@@ -22,6 +22,7 @@ import clientHistoryReducer from './client-history/reducer';
 import clientFreePlayReducer from './client-free-play/reducer';
 import clientDetailLimitsReducer from './client-detail-limits/reducer';
 import clientInternetLogReducer from './client-internet-log/reducer';
+import figuresReducer from './figures/reducer';
 
 const rootReducer = combineReducers({
   colorScheme: colorSchemeReducer,
@@ -45,6 +46,7 @@ const rootReducer = combineReducers({
   clientFreePlay: clientFreePlayReducer,
   clientDetailLimits: clientDetailLimitsReducer,
   clientInternetLog: clientInternetLogReducer,
+  figures: figuresReducer,
 });
 
 export default rootReducer;

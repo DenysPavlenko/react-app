@@ -14,19 +14,19 @@ import tableConstants from './table-constants';
 import './settle.sass';
 
 const Settle = ({ fetchSettleData, settle: { loading, data, error } }) => {
-  const [currentFilter, setCurrentFilter] = useState('12/7/2020');
+  const [date, setDate] = useState('12/7/2020');
 
   useLayoutEffect(() => {
-    fetchSettleData(currentFilter);
-  }, [currentFilter, fetchSettleData]);
+    fetchSettleData(date);
+  }, [date, fetchSettleData]);
 
   return (
     <div className="settle">
       <div className="settle__header">
-        <SettleHeader currentFilter={currentFilter} setCurrentFilter={setCurrentFilter} />
+        <SettleHeader date={date} setDate={setDate} />
       </div>
       <div className="pending__table">
-        <PrimaryTable cols={tableConstants()} loading={loading} data={data} error={error} retry={() => fetchSettleData(currentFilter)} />
+        <PrimaryTable cols={tableConstants()} loading={loading} data={data} error={error} retry={() => fetchSettleData(date)} />
       </div>
     </div>
   );
@@ -41,7 +41,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchSettleData: category => dispatch(fetchSettleData(category))
+  fetchSettleData: date => dispatch(fetchSettleData(date))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settle);

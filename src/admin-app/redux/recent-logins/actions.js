@@ -1,5 +1,4 @@
 import RecentLoginsActionTypes from './types';
-// Recent logins service
 import RecentLoginsService from 'admin-app/services/recent-logins-service';
 const recentLoginsService = new RecentLoginsService();
 

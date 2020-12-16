@@ -1,5 +1,4 @@
 import ClientDetailLimitsActionTypes from './types';
-// Recent logins service
 import ClientDetailLimitsService from 'admin-app/services/client-detail-limits-service';
 const clientDetailLimitsService = new ClientDetailLimitsService();
 

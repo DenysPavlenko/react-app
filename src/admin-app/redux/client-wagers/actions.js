@@ -1,5 +1,4 @@
 import ClientWagersActionTypes from './types';
-// Recent logins service
 import ClientWagersService from 'admin-app/services/client-wagers-service';
 const clientWagersService = new ClientWagersService();
 

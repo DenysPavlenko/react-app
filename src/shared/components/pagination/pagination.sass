@@ -3,6 +3,17 @@
 
 .pagination
   // Color schemes
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      .pagination__button
+        background-color: $color
+        &:hover,
+        &.is-active
+          background-color: rgba($color, 0.6)
+        &.disabled
+          &:hover
+            background-color: $color
+
   &__list
     display: flex
     flex-wrap: wrap
@@ -15,19 +26,13 @@
     height: 25px
     color: $c-light
     border-radius: $r-primary
-    background-color: $c-accent-blue
     font-size: rem(13px)
     display: block
     line-height: 25px
     user-select: none
     transition: 0.2s
-    &:hover,
-    &.is-active
-      background-color: rgba($c-accent-blue, 0.6)
     &.disabled
       pointer-events: none
       color: rgba($c-light, 0.7)
-      &:hover
-        background-color: $c-accent-blue
   &__chevron
     font-size: rem(10px)

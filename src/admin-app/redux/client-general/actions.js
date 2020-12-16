@@ -1,5 +1,4 @@
 import ClientGeneralActionTypes from './types';
-// Recent logins service
 import ClientGeneralService from 'admin-app/services/client-general-service';
 const clientGeneralService = new ClientGeneralService();
 

@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 // Styles
 import './dropdown-box.sass';
 
-const DropdownBox = ({ children, className, isExpanded, toggleDropdown, closeOnClick }) => {
+const DropdownBox = ({ children, className, isActive, onClick }) => {
   const boxRef = useRef(null);
 
   const classnames = classNames({
@@ -14,8 +14,8 @@ const DropdownBox = ({ children, className, isExpanded, toggleDropdown, closeOnC
   });
 
   return (
-    <CSSTransition nodeRef={boxRef} in={isExpanded} timeout={300} unmountOnExit classNames="dropdown-box-animation">
-      <div ref={boxRef} className={classnames} onClick={() => closeOnClick && toggleDropdown()}>
+    <CSSTransition nodeRef={boxRef} in={isActive} timeout={300} unmountOnExit classNames="dropdown-box-animation">
+      <div ref={boxRef} className={classnames} onClick={onClick}>
         {children}
       </div>
     </CSSTransition>
@@ -25,9 +25,7 @@ const DropdownBox = ({ children, className, isExpanded, toggleDropdown, closeOnC
 DropdownBox.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  isExpanded: PropTypes.bool,
-  toggleDropdown: PropTypes.func,
-  closeOnClick: PropTypes.bool,
+  isActive: PropTypes.bool,
 };
 
 export default DropdownBox;

@@ -1,5 +1,4 @@
 import ClientAccountingActionTypes from './types';
-// Recent logins service
 import ClientAccountingService from 'admin-app/services/client-accounting-service';
 const clientAccountingService = new ClientAccountingService();
 

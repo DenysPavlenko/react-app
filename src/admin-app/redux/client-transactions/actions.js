@@ -1,5 +1,4 @@
 import ClientTransactionsActionTypes from './types';
-// Recent logins service
 import ClientTransactionsService from 'admin-app/services/client-transactions-service';
 const clientTransactionsService = new ClientTransactionsService();
 

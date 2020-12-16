@@ -10,7 +10,7 @@ import Search from 'shared/components/search/search';
 import Button from 'shared/components/button/button';
 import Pagination from 'shared/components/pagination/pagination';
 
-const CustomerListHeader = ({ handleSettingsClick, handleSearch, pages, page, handlePageChange, breakpoints, currentBreakpoint }) => {
+const CustomerListHeader = ({ handleSettingsClick, handleSearch, pages, page, setPage, breakpoints, currentBreakpoint }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -30,14 +30,14 @@ const CustomerListHeader = ({ handleSettingsClick, handleSearch, pages, page, ha
           <Search style={{ width: 'auto' }} onChange={handleSearch} />
           <Button
             onClick={handleSettingsClick}
-            variant="accent-blue"
+            variant="default"
             size="lg"
             iconStart={<FontAwesomeIcon icon="cog" style={{ 'fontSize': '14px' }} />}
           >
             Settings
           </Button>
           {!isMobile &&
-            <Pagination pages={pages} page={page} onChange={handlePageChange} className="customer-list-header__pagination" />
+            <Pagination pages={pages} page={page} onChange={setPage} className="customer-list-header__pagination" />
           }
         </RowGroup>
       }

@@ -1,5 +1,4 @@
 import ClientFreePlayActionTypes from './types';
-// Recent logins service
 import ClientFreePlayService from 'admin-app/services/client-free-play-service';
 const clientFreePlayService = new ClientFreePlayService();
 

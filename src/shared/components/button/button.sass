@@ -31,7 +31,13 @@ button::-moz-focus-inner
   // Color schemes
   @each $name, $color in $sch-colors
     &.theme-#{$name}
-      &.button--alt-gray.is-active
+      &.button--default
+        background-color: $color
+      &.button--default.is-active
+        background-color: darken($color, 10%)
+      &.button--alt-gray.is-active,
+      &.button--accent.is-active,
+      &.button--accent-blue.is-active
         background-color: $color
   &:focus
     box-shadow: $s-focus

@@ -6,28 +6,14 @@ import getDummyData from 'shared/services/_utils/get-dummy-data';
 
 export default class ScoresService {
 
-  getPendingGames = async () => {
-    return getDummyData({ data: pendingGames });
+  getPending = async category => {
+    switch (category) {
+      case 'games':
+        return getDummyData({ data: pendingGames });
+      case 'contest':
+        return getDummyData({ data: pendingContests });
+      default:
+        return [];
+    }
   }
-
-  getPendingContests = async () => {
-    return getDummyData({ data: pendingContests });
-  }
-
-  getPendingHorses = async () => {
-    return getDummyData({ data: [] });
-  }
-
-  getPendingOpen = async () => {
-    return getDummyData({ data: [] });
-  }
-
-  getPendingFree = async () => {
-    return getDummyData({ data: [] });
-  }
-
-  getPendingLive = async () => {
-    return getDummyData({ data: [] });
-  }
-
-}
+};
