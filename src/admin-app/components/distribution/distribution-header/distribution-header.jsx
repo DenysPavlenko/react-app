@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 import { withBreakpoints } from 'react-breakpoints';
 // Components
 import PageHeader from 'admin-app/components/page-header/page-header';
-import FiguresActions from '../figures-actions/figures-actions';
 import Typography from 'shared/components/typography/typography';
 import ButtonGroup from 'shared/components/button-group/button-group';
 import RowGroup from 'shared/components/row-group/row-group';
 import Button from 'shared/components/button/button';
 import Pagination from 'shared/components/pagination/pagination';
 import Select from 'shared/components/select/select';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const tabs = [
   { title: 'current week', value: '12/7/2020' },
   { title: 'last week', value: '11/30/2020' },
 ];
 
-const FiguresHeader = ({ date, setDate, pages, page, setPage, status, setStatus, breakpoints, currentBreakpoint, showFilters }) => {
+const DistributionHeader = ({ date, setDate, pages, page, setPage, breakpoints, currentBreakpoint }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -29,10 +29,10 @@ const FiguresHeader = ({ date, setDate, pages, page, setPage, status, setStatus,
 
   return (
     <PageHeader
-      left={<Typography component="h2">Figures</Typography>}
+      left={<Typography component="h2">Distribution</Typography>}
       right={
         <RowGroup>
-          <FiguresActions status={status} setStatus={setStatus} showFilters={showFilters} />
+          <Button variant="default" iconStart={<FontAwesomeIcon icon="cog" style={{ 'fontSize': '14px' }} />}>Settings</Button>
           <Select
             onChange={({ target: { value } }) => setDate(value)}
             value={date}
@@ -66,7 +66,7 @@ const FiguresHeader = ({ date, setDate, pages, page, setPage, status, setStatus,
   );
 };
 
-FiguresHeader.propTypes = {
+DistributionHeader.propTypes = {
   date: PropTypes.string,
   setDate: PropTypes.func,
   pages: PropTypes.number,
@@ -79,4 +79,4 @@ FiguresHeader.propTypes = {
   showFilters: PropTypes.func,
 };
 
-export default withBreakpoints(FiguresHeader);
+export default withBreakpoints(DistributionHeader);

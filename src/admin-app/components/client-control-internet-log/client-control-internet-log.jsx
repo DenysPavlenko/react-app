@@ -43,7 +43,7 @@ const ClientControlInternetLog = ({ fetchClientInternetLogData, clientInternetLo
           <DatePicker name="to" value={date.to} onChange={handleDateSet} variant="primary" />
         </div>
         <div className="client-control-internet-log__header-item">
-          <Button variant="default" size="lg" onClick={handleDataLoad}>Load</Button>
+          <Button variant="default" onClick={handleDataLoad}>Load</Button>
         </div>
       </div>
       <div className="client-control-internet-log__table">

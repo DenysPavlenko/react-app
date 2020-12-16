@@ -24,14 +24,12 @@ const CustomerListHeader = ({ handleSettingsClick, handleSearch, pages, page, se
   return (
     <PageHeader
       left={<Typography component="h2">Customer list</Typography>}
-      className="customer-list-header"
       right={
         <RowGroup>
           <Search style={{ width: 'auto' }} onChange={handleSearch} />
           <Button
             onClick={handleSettingsClick}
             variant="default"
-            size="lg"
             iconStart={<FontAwesomeIcon icon="cog" style={{ 'fontSize': '14px' }} />}
           >
             Settings

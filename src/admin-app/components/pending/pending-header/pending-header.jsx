@@ -25,7 +25,7 @@ const PendingHeader = ({ currentFilter, setCurrentFilter, handleSearch }) => {
           <Search style={{ width: 'auto' }} onChange={handleSearch} />
           <ButtonGroup responsive>
             {tabs.map(({ title, value }, idx) => (
-              <Button key={idx} isActive={currentFilter === value} onClick={() => setCurrentFilter(value)} variant="alt-gray" size="lg">{title}</Button>
+              <Button key={idx} isActive={currentFilter === value} onClick={() => setCurrentFilter(value)} variant="alt-gray">{title}</Button>
             ))}
           </ButtonGroup>
         </RowGroup>

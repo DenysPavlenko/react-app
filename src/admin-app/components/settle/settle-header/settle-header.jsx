@@ -42,7 +42,7 @@ const SettleHeader = ({ date, setDate }) => {
           />
           <ButtonGroup>
             {tabs.map(({ title, value }, idx) => (
-              <Button key={idx} isActive={date === value} onClick={() => setDate(value)} variant="alt-gray" size="lg">{title}</Button>
+              <Button key={idx} isActive={date === value} onClick={() => setDate(value)} variant="alt-gray">{title}</Button>
             ))}
           </ButtonGroup>
         </RowGroup>

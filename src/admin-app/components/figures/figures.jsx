@@ -58,7 +58,7 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
             loading={loading}
             data={data}
             error={error}
-            retry={() => fetchFiguresData('', '')}
+            retry={() => fetchFiguresData(date, status)}
             variant="primary"
           />
         </div>

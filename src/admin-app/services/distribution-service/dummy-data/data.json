@@ -1,0 +1,57 @@
+[
+  {
+    "id": "ZTMA1",
+    "split": "100%",
+    "active": [
+      {
+        "id": "sports",
+        "title": "Sports",
+        "value": "105.00"
+      },
+      {
+        "id": "casino",
+        "title": "Casino",
+        "value": "0.00"
+      },
+      {
+        "id": "liveCasino",
+        "title": "Live Casino",
+        "value": "0.00"
+      }
+    ],
+    "net": "0.00",
+    "agentCommission": "0.00",
+    "masterCommission": "0.00",
+    "previousBalance": "1.000.00",
+    "payments": "0.00",
+    "newBalance": "1.000.00",
+    "pc": "0.00",
+    "transactions": "0.00"
+  },
+  {
+    "id": "ZTMA2",
+    "split": "100%",
+    "active": [],
+    "net": "0.00",
+    "agentCommission": "0.00",
+    "masterCommission": "0.00",
+    "previousBalance": "-1.962.92",
+    "payments": "0.00",
+    "newBalance": "-1.962.92",
+    "pc": "0.00",
+    "transactions": "0.00"
+  },
+  {
+    "id": "ZTMA3",
+    "split": "100%",
+    "active": [],
+    "net": "0.00",
+    "agentCommission": "0.00",
+    "masterCommission": "0.00",
+    "previousBalance": "500.00",
+    "payments": "0.00",
+    "newBalance": "500.00",
+    "pc": "0.00",
+    "transactions": "0.00"
+  }
+]

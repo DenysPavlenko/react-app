@@ -17,14 +17,14 @@ const FiguresActions = ({ status, setStatus, showFilters }) => {
   return (
     <Dropdown className="figures-actions" isActive={isActive} onClickOutside={handleDropdown}>
       <Dropdown.Header className="figures-actions__toggle" onClick={handleDropdown} >
-        <Button variant="default" size="lg" iconEnd={<FontAwesomeIcon icon="caret-down" />}>Actions</Button>
+        <Button variant="default" iconEnd={<FontAwesomeIcon icon="caret-down" />}>Actions</Button>
       </Dropdown.Header>
       <Dropdown.Box className="figures-actions__box">
         <div className="figures-actions__group">
           <Typography className="figures-actions__group-title" component="h5">Players:</Typography>
           <ButtonGroup separated onClick={handleDropdown}>
-            <Button variant="alt-gray" isActive={status === 'active'} onClick={() => setStatus('active')} size="lg">Active</Button>
-            <Button variant="alt-gray" isActive={status === 'all'} onClick={() => setStatus('all')} size="lg">All</Button>
+            <Button variant="alt-gray" isActive={status === 'active'} onClick={() => setStatus('active')}>Active</Button>
+            <Button variant="alt-gray" isActive={status === 'all'} onClick={() => setStatus('all')}>All</Button>
           </ButtonGroup>
         </div>
         <div className="figures-actions__group">

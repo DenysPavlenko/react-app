@@ -33,7 +33,7 @@ const ClientControlHistory = ({ fetchClientHistoryData, clientHistory: { loading
       <div className="client-control-history__header">
         <ButtonGroup>
           {tabs.map(({ title, value }, idx) => (
-            <Button key={idx} isActive={category === value} onClick={() => setCategory(value)} variant="alt-gray" size="lg">{title}</Button>
+            <Button key={idx} isActive={category === value} onClick={() => setCategory(value)} variant="alt-gray">{title}</Button>
           ))}
         </ButtonGroup>
       </div>

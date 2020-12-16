@@ -31,7 +31,7 @@ const AdminHeader = ({ breakpoints, currentBreakpoint, toggleMail, showSettings,
   const menu = [
     { name: 'menu', handler: toggleAdminMenu, icon: menuIcon, alt: "menu" },
     { name: 'home', rootName: '/', icon: homeIcon, alt: "home" },
-    { name: 'figures', rootName: '/figures-page', icon: dollarIcn, alt: "figures" },
+    { name: 'figures', rootName: '/figures', icon: dollarIcn, alt: "figures" },
     { name: 'distribution', rootName: '/distribution', icon: distributionIcn, alt: "distribution" },
     { name: 'position', rootName: '/position', icon: positionIcn, alt: "position" },
   ];
