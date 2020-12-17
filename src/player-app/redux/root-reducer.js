@@ -24,6 +24,7 @@ import weeklyFiguresReducer from './weekly-figures/reducer';
 import pendingWagersReducer from './pending-wagers/reducer';
 import transactionsReducer from './transactions/reducer';
 import balanceReducer from './balance/reducer';
+import sportsPageWagersReducer from './sports-page-wagers/reducer';
 
 const rootReducer = combineReducers({
   colorScheme: colorSchemeReducer,
@@ -49,6 +50,7 @@ const rootReducer = combineReducers({
   pendingWagers: pendingWagersReducer,
   transactions: transactionsReducer,
   balance: balanceReducer,
+  sportsPageWagers: sportsPageWagersReducer,
 });
 
 export default rootReducer;

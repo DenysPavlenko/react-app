@@ -4,5 +4,5 @@ const sportsPageScheduleSelector = state => state.sportsPageSchedule;
 
 export const selectSportsPageSchedule = createSelector(
   [sportsPageScheduleSelector],
-  sportsPageSchedule => sportsPageSchedule.isScheduleShown
+  sportsPageSchedule => sportsPageSchedule.showSportsSchedule
 );

@@ -19,11 +19,11 @@
       overflow: auto
       background-color: $c-gray
       transition: transform 0.2s
-      transform: translateX(-100%)
+      transform: translateY(100%)
       padding: 4px
-      z-index: 150
+      z-index: 160
       &.is-active
-        transform: translateX(0)
+        transform: translateY(0)
   &__center
     width: 50%
     padding: 0 2px
@@ -33,7 +33,18 @@
     padding: 0 2px
     width: 25%
     +media-max($bp-xl)
+      position: fixed
+      left: 0
+      top: $h-header
       width: 100%
-      margin-top: 4px
+      height: calc( 100vh - #{$h-header} )
+      overflow: auto
+      background-color: $c-gray
+      transition: transform 0.2s
+      transform: translateY(100%)
+      padding: 4px
+      z-index: 150
+      &.is-active
+        transform: translateY(0)
   &__search
     margin-bottom: 4px

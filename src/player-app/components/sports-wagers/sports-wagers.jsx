@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { selectSportsWages, selectTotalWagered, selectTotalPossibleWin } from 'player-app/redux/sports-wagers/selectors';
+import { selectSportsWagers, selectTotalWagered, selectTotalPossibleWin } from 'player-app/redux/sports-wagers/selectors';
 import { clearSportsWagers } from 'player-app/redux/sports-wagers/actions';
 // Components
 import Simplebar from 'simplebar-react';
@@ -14,16 +14,16 @@ import SportsWager from 'player-app/components/sports-wager/sports-wager';
 // Styles
 import './sports-wagers.sass';
 
-const SportsBettings = ({ sportsWages, clearSportsWagers, totalWagered, totalPossibleWin }) => {
+const SportsWagers = ({ sportsWagers, clearSportsWagers, totalWagered, totalPossibleWin }) => {
   const [wagerType, setWagerType] = useState('straight');
 
   return (
     <div className="sports-wagers">
       <div className="sports-wagers__header">
         <Typography component="h4">Review and confirm</Typography>
-        <Typography component="h4">{sportsWages.length} Selection(s)</Typography>
+        <Typography component="h4">{sportsWagers.length} Selection(s)</Typography>
       </div>
-      {sportsWages.length === 0 ?
+      {sportsWagers.length === 0 ?
         <div className="sports-wagers__empty">
           <Typography component="h4">There are no active wagers</Typography>
         </div>
@@ -32,7 +32,7 @@ const SportsBettings = ({ sportsWages, clearSportsWagers, totalWagered, totalPos
           <WagerTypes currentType={wagerType} handleWagerType={setWagerType} />
           <div className="sports-wagers__list">
             <Simplebar className="custom-scroll">
-              {sportsWages.map(({ id, icon, title, value, scheduled, selection, notes }) => (
+              {sportsWagers.map(({ id, icon, title, value, scheduled, selection, notes }) => (
                 <SportsWager key={id} id={id} icon={icon} title={title} value={value} scheduled={scheduled} selection={selection} notes={notes} />
               ))}
             </Simplebar>
@@ -55,14 +55,14 @@ const SportsBettings = ({ sportsWages, clearSportsWagers, totalWagered, totalPos
   );
 };
 
-SportsBettings.propTypes = {
-  sportsWages: PropTypes.array,
+SportsWagers.propTypes = {
+  sportsWagers: PropTypes.array,
   clearSportsWagers: PropTypes.func,
   totalWagered: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
-  sportsWages: selectSportsWages,
+  sportsWagers: selectSportsWagers,
   totalWagered: selectTotalWagered,
   totalPossibleWin: selectTotalPossibleWin,
 });
@@ -71,4 +71,4 @@ const mapDispatchToProps = dispatch => ({
   clearSportsWagers: () => dispatch(clearSportsWagers())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SportsBettings);
+export default connect(mapStateToProps, mapDispatchToProps)(SportsWagers);

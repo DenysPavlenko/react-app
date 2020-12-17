@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 
 const sportsWagersSelector = state => state.sportsWagers;
 
-export const selectSportsWages = createSelector(
+export const selectSportsWagers = createSelector(
   [sportsWagersSelector],
   sportsWagers => sportsWagers.wagers
 );
