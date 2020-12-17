@@ -6,6 +6,7 @@ import settingsReducer from 'shared/redux/settings/reducer';
 import personalizeReducer from 'shared/redux/personalize/reducer';
 // Reducers
 import sportsScheduleReducer from './sports-schedule/reducer';
+import sportsReducer from './sports/reducer';
 import sportsScheduleEventsReducer from './sports-schedule-events/reducer';
 import sportsPageScheduleReducer from './sports-page-schedule/reducer';
 import liveProgramReducer from './live-program/reducer';
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   personalize: personalizeReducer,
   mail: mailReducer,
   sportsSchedule: sportsScheduleReducer,
+  sports: sportsReducer,
   sportsScheduleEvents: sportsScheduleEventsReducer,
   sportsPageSchedule: sportsPageScheduleReducer,
   liveProgram: liveProgramReducer,

@@ -1,0 +1,43 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.sports-header-a
+  width: 100%
+  height: 50px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  overflow: hidden
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      background-color: $color
+
+  &__title
+    padding-left: 10px
+  &__icon
+    position: relative
+    height: 100%
+    width: 50px
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: 2
+    font-size: rem(30px)
+    color: $c-primary
+    &:before,
+    &:after
+      position: absolute
+      top: 0
+      right: -15px
+      content: ''
+      height: 100%
+      transform: skew(-25deg, 0)
+    &:after
+      background-color: $c-light
+      width: 80px
+      z-index: -1
+    &:before
+      background-color: $c-gray
+      width: 85px
+      z-index: -1

@@ -1,0 +1,44 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.sports
+  background-color: $c-light
+  color: $c-light
+  text-align: center
+  &__group-1, &__group-2, &__group-3, &__group-4, &__group-5
+    position: relative
+    padding: 1px 2px
+  &__group-1
+    width: 30%
+    padding: 1px 2px 1px 4px
+    +media-max($bp-lg)
+      width: 50%
+  &__group-2
+    width: 15%
+    +media-max($bp-lg)
+      width: auto
+      flex: 1
+  &__group-3
+    width: 10%
+    +media-max($bp-lg)
+      width: auto
+      flex: 1
+  &__group-4
+    width: 15%
+    +media-max($bp-lg)
+      width: auto
+      flex: 1
+  &__group-5
+    width: 30%
+    padding: 1px 4px 1px 2px
+    +media-max($bp-lg)
+      width: auto
+      flex: 1
+
+  &__line
+    &:first-child
+      background-color: $c-light-gray
+    &:last-child
+      background-color: $c-light
+      border-bottom: 1px solid $c-light-gray
+

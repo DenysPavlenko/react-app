@@ -4,11 +4,11 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core';
 // Components
 import ScrollToTop from 'shared/components/scroll-to-top/scroll-to-top';
-import UserHeader from 'player-app/components/user-header/user-header';
+import PlayerHeader from 'player-app/components/player-header/player-header';
 import Personalize from 'shared/components/personalize/personalize';
 import Mail from 'shared/components/mail/mail';
-import UserSettings from 'player-app/components/user-settings/user-settings';
-import UserScores from 'player-app/components/user-scores/user-scores';
+import PlayerSettings from 'player-app/components/player-settings/player-settings';
+import Scores from 'player-app/components/scores/scores';
 // Pages
 import SignInPage from 'shared/pages/sign-in-page/sign-in-page';
 import SportsPage from 'player-app/pages/sports-page/sports-page';
@@ -28,11 +28,11 @@ const UserAppContainer = ({ location }) => {
     <div className="app-root">
       {(location.pathname !== '/sign-in') &&
         <>
-          <UserHeader />
+          <PlayerHeader />
           <Personalize />
           <Mail />
-          <UserSettings />
-          <UserScores />
+          <PlayerSettings />
+          <Scores />
         </>
       }
       <div className={`${location.pathname !== '/sign-in' ? 'app-root__content' : ''}`}>

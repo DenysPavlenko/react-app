@@ -9,7 +9,6 @@ import { selectClientWagers } from 'admin-app/redux/client-wagers/selectors';
 import PrimaryTable from 'shared/components/primary-table/primary-table';
 import Select from 'shared/components/select/select';
 import Search from 'shared/components/search/search';
-import RowGroup from 'shared/components/row-group/row-group';
 // Utils
 import searchFilter from 'shared/utils/search-filter';
 // Table content
