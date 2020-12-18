@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 // Data
 import data from './data';
 // Components
-import RulesNavigation from 'player-app/components/rules-navigation/rules-navigation';
 import RuleContent from 'player-app/components/rule-content/rule-content';
+import Tabs from 'shared/components/tabs/tabs';
+import TabPanel from 'shared/components/tab-panel/tab-panel';
+import Tab from 'shared/components/tab/tab';
 // Styles
 import './rules-page.sass';
 
@@ -16,8 +18,14 @@ const RulesPage = () => {
 
   return (
     <div className="rules-page">
-      <RulesNavigation categories={categories} currentCategory={currentCategory} handleCategorySwitch={handleCategorySwitch} />
-      <RuleContent rules={rules} />
+      <Tabs>
+        {categories.map((category, idx) => (
+          <Tab key={idx} onClick={() => handleCategorySwitch(category)} isActive={currentCategory === category}>{category}</Tab>
+        ))}
+      </Tabs>
+      <TabPanel>
+        <RuleContent rules={rules} />
+      </TabPanel>
     </div>
   );
 };
