@@ -1,12 +1,17 @@
 [
   {
     "id": "ZTMA1",
-    "split": "100%",
-    "active": [
+    "name": "ZTMA1",
+    "col1": [
       {
         "id": "sports",
         "title": "Sports",
         "value": "105.00"
+      },
+      {
+        "id": "liveSports",
+        "title": "Live Sports",
+        "value": "115.00"
       },
       {
         "id": "casino",
@@ -19,39 +24,119 @@
         "value": "0.00"
       }
     ],
-    "net": "0.00",
-    "agentCommission": "0.00",
-    "masterCommission": "0.00",
-    "previousBalance": "1.000.00",
-    "payments": "0.00",
-    "newBalance": "1.000.00",
-    "pc": "0.00",
-    "transactions": "0.00"
+    "col2": [
+      {
+        "id": "1",
+        "title": "Splite",
+        "value": "100%"
+      },
+      {
+        "id": "2",
+        "title": "Net",
+        "value": "0"
+      },
+      {
+        "id": "3",
+        "title": "Agent Commission",
+        "value": "0"
+      },
+      {
+        "id": "4",
+        "title": "Master Commission",
+        "value": "0"
+      }
+    ],
+    "col3": [
+      {
+        "id": "1",
+        "title": "Previous Balance",
+        "value": "-1963"
+      },
+      {
+        "id": "2",
+        "title": "Payments",
+        "value": "0"
+      },
+      {
+        "id": "3",
+        "title": "Master Commission",
+        "value": "0"
+      },
+      {
+        "id": "4",
+        "title": "New Balance",
+        "value": "-1963"
+      }
+    ]
   },
   {
     "id": "ZTMA2",
-    "split": "100%",
-    "active": [],
-    "net": "0.00",
-    "agentCommission": "0.00",
-    "masterCommission": "0.00",
-    "previousBalance": "-1.962.92",
-    "payments": "0.00",
-    "newBalance": "-1.962.92",
-    "pc": "0.00",
-    "transactions": "0.00"
-  },
-  {
-    "id": "ZTMA3",
-    "split": "100%",
-    "active": [],
-    "net": "0.00",
-    "agentCommission": "0.00",
-    "masterCommission": "0.00",
-    "previousBalance": "500.00",
-    "payments": "0.00",
-    "newBalance": "500.00",
-    "pc": "0.00",
-    "transactions": "0.00"
+    "name": "ZTMA2",
+    "col1": [
+      {
+        "id": "sports",
+        "title": "Sports",
+        "value": "105.00"
+      },
+      {
+        "id": "liveSports",
+        "title": "Live Sports",
+        "value": "115.00"
+      },
+      {
+        "id": "casino",
+        "title": "Casino",
+        "value": "0.00"
+      },
+      {
+        "id": "liveCasino",
+        "title": "Live Casino",
+        "value": "0.00"
+      }
+    ],
+    "col2": [
+      {
+        "id": "1",
+        "title": "Splite",
+        "value": "100%"
+      },
+      {
+        "id": "2",
+        "title": "Net",
+        "value": "0"
+      },
+      {
+        "id": "3",
+        "title": "Agent Commission",
+        "value": "0"
+      },
+      {
+        "id": "4",
+        "title": "Master Commission",
+        "value": "0"
+      }
+    ],
+    "col3": [
+      {
+        "id": "1",
+        "title": "Previous Balance",
+        "value": "-1963"
+      },
+      {
+        "id": "2",
+        "title": "Payments",
+        "value": "0"
+      },
+      {
+        "id": "3",
+        "title": "Master Commission",
+        "value": "0"
+      },
+      {
+        "id": "4",
+        "title": "New Balance",
+        "value": "-1963"
+      }
+    ]
   }
 ]
