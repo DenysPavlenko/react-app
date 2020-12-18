@@ -41,7 +41,7 @@ const tableContent = handleDelete => {
     {
       title: 'Risk/Win',
       render: data => (
-        <RowGroup noWrap size="sm">
+        <RowGroup nowrap size="sm">
           <Typography component="p">{data.risk}</Typography>
           <Button size="xxs" variant="danger" onClick={() => handleDelete(data.id)}>Delete</Button>
         </RowGroup>

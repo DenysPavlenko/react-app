@@ -9,6 +9,8 @@ import { selectPositionToday } from 'admin-app/redux/position-today/selectors';
 import PrimaryTable from 'shared/components/primary-table/primary-table';
 // Table content
 import tableContent from './table-content';
+// Styles
+import './position-today.sass';
 
 const PositionToday = ({ fetchPositionTodayData, positionToday: { loading, data, error } }) => {
 

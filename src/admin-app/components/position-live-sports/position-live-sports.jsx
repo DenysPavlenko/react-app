@@ -9,6 +9,8 @@ import { selectPositionLiveSports } from 'admin-app/redux/position-live-sports/s
 import PrimaryTable from 'shared/components/primary-table/primary-table';
 // Table content
 import tableContent from './table-content';
+// Styles
+import './position-live-sports.sass';
 
 const PositionLiveSports = ({ fetchPositionLiveSportsData, positionLiveSports: { loading, data, error } }) => {
 

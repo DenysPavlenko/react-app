@@ -4,10 +4,10 @@ import classNames from 'classnames';
 // Styles
 import './tabs.sass';
 
-const Tabs = ({ children, responsive, className }) => {
+const Tabs = ({ children, nowrap, className }) => {
   const classes = classNames({
     'tabs': true,
-    'tabs--responsive': responsive,
+    'tabs--nowrap': nowrap,
     [className]: className
   });
 

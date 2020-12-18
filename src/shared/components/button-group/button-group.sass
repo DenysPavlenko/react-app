@@ -4,6 +4,10 @@
 .button-group
   display: flex
   flex-wrap: wrap
+  &--nowrap
+    flex-wrap: nowrap
+    overflow: auto
+    white-space: nowrap
   &--responsive
     justify-content: center
     +media-max($bp-lg)

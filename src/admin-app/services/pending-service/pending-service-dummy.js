@@ -13,7 +13,7 @@ export default class ScoresService {
       case 'contest':
         return getDummyData({ data: pendingContests });
       default:
-        return [];
+        return getDummyData({ data: [] });
     }
   }
 };

@@ -13,7 +13,7 @@ export default class ScoresService {
       case 'active':
         return getDummyData({ data: active });
       default:
-        return []
+        return getDummyData({ data: [] });
     }
   }
 

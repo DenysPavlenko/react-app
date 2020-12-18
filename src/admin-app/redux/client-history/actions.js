@@ -1,5 +1,6 @@
 import ClientHistoryActionTypes from './types';
 import ClientHistoryService from 'admin-app/services/client-history-service';
+
 const clientHistoryService = new ClientHistoryService();
 
 const clientHistoryRequested = () => ({
@@ -15,13 +16,8 @@ const clientHistoryError = error => ({
 });
 
 export const fetchClientHistoryData = (clientId, category) => dispatch => {
-  let service;
-  if (category === 'football') { service = clientHistoryService.getClientFootballHistory; }
-  else if (category === 'monthly') { service = clientHistoryService.getClientMonthlyHistory; }
-  else if (category === 'yearly') { service = clientHistoryService.getClientYarlyHistory; }
-  else { return; }
   dispatch(clientHistoryRequested());
-  service(clientId)
+  clientHistoryService.getClientHistory(clientId, category)
     .then(data => dispatch(clientHistoryLoaded(data)))
     .catch(error => dispatch(clientHistoryError(error)))
 };

@@ -37,7 +37,7 @@ const ClientControlPanel = ({ clientId }) => {
 
   return (
     <div className="client-control-panel">
-      <Tabs responsive>
+      <Tabs nowrap>
         {tabs.map(({ tab }, idx) => (
           <Tab key={idx} isActive={tab === activeTab} onClick={() => setActiveTab(tab)}>{tab}</Tab>
         ))}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "date": "25/11/20",
+    "rotation": "52",
+    "game": "Some game 1",
+    "straight": "235",
+    "parlay": "574",
+    "teaser": "869"
+  },
+  {
+    "id": "2",
+    "date": "26/11/20",
+    "rotation": "12",
+    "game": "Some game 2",
+    "straight": "135",
+    "parlay": "274",
+    "teaser": "569"
+  },
+  {
+    "id": "3",
+    "date": "27/11/20",
+    "rotation": "122",
+    "game": "Some game 3",
+    "straight": "1325",
+    "parlay": "2274",
+    "teaser": "3569"
+  }
+]
