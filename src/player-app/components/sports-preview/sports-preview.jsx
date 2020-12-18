@@ -7,8 +7,6 @@ import { selectSportsScheduleEvents } from 'player-app/redux/sports-schedule-eve
 import { fetchSportsData } from 'player-app/redux/sports/actions';
 import { selectSports } from 'player-app/redux/sports/selectors';
 // Components
-// import SportsPreviewHeader from 'player-app/components/sports-preview-header/sports-preview-header';
-// import SportsTable from 'player-app/components/sports-table/sports-table';
 import Sports from 'player-app/components/sports/sports';
 import Spinner from 'shared/components/spinner/spinner';
 import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
@@ -29,10 +27,6 @@ const SportsPreview = ({ sportsScheduleEvents, fetchSportsData, sports: { loadin
         <Fragment>
           {data.map(data => (
             <Sports key={data.id} data={data} />
-            // <div key={id} className="sports-preview__item">
-            //   <SportsPreviewHeader title={title} icon={icon} />
-            //   <SportsTable schedule={schedule} />
-            // </div>
           ))}
         </Fragment>
       }
