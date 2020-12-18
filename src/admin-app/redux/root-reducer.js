@@ -27,6 +27,7 @@ import distributionReducer from './distribution/reducer';
 import positionTodayReducer from './position-today/reducer';
 import positionLiveSportsReducer from './position-live-sports/reducer';
 import positionGamesReducer from './position-games/reducer';
+import positionContestsReducer from './position-contests/reducer';
 
 const rootReducer = combineReducers({
   colorScheme: colorSchemeReducer,
@@ -55,6 +56,7 @@ const rootReducer = combineReducers({
   positionToday: positionTodayReducer,
   positionLiveSports: positionLiveSportsReducer,
   positionGames: positionGamesReducer,
+  positionContests: positionContestsReducer
 });
 
 export default rootReducer;

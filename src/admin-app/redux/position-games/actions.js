@@ -17,7 +17,7 @@ const positionGamesError = error => ({
 
 export const fetchPositionGamesData = (game, filter) => dispatch => {
   dispatch(positionGamesRequested());
-  positionGamesService.getPositionGame(game, filter)
+  positionGamesService.getPositionGames(game, filter)
     .then(data => dispatch(positionGamesLoaded(data)))
     .catch(error => dispatch(positionGamesError(error)))
 };

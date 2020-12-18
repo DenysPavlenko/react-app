@@ -7,8 +7,8 @@ import getDummyData from 'shared/services/_utils/get-dummy-data';
 
 export default class ScoresService {
 
-  getPositionGames = async (game, filter) => {
-    switch (game) {
+  getPositionContests = async contest => {
+    switch (contest) {
       case 'football':
         return getDummyData({ data: football });
       case 'baseball':

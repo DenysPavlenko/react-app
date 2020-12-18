@@ -8,13 +8,14 @@ import TabPanel from 'shared/components/tab-panel/tab-panel';
 import PositionToday from 'admin-app/components/position-today/position-today';
 import PositionLiveSports from 'admin-app/components/position-live-sports/position-live-sports';
 import PositionGames from 'admin-app/components/position-games/position-games';
+import PositionContests from 'admin-app/components/position-contests/position-contests';
 // Styles
 import './position-report.sass';
 
 const tabs = [
   { tab: 'today', component: PositionToday },
   { tab: 'games', component: PositionGames },
-  { tab: 'contest', component: '' },
+  { tab: 'contests', component: PositionContests },
   { tab: 'live sports', component: PositionLiveSports },
 ];
 
