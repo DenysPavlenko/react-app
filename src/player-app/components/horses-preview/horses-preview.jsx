@@ -9,6 +9,7 @@ import HorsesSelect from 'player-app/components/horses-select/horses-select';
 import HorsesHeader from 'player-app/components/horses-header/horses-header';
 import HorseBettings from 'player-app/components/horses-bettings/horses-bettings';
 import HorsesBetSlip from 'player-app/components/horses-bet-slip/horses-bet-slip';
+import HandleMobile from 'shared/components/handle-mobile/handle-mobile';
 // Styles
 import './horses-preview.sass';
 
@@ -16,8 +17,10 @@ const HorsesPreview = ({ isHorsesSelectShown }) => {
   return (
     <div className="horses-preview">
       <div className="horses-preview__row">
-        <div className={`horses-preview__left ${isHorsesSelectShown ? 'is-active' : ''}`}>
-          <HorsesSelect />
+        <div className="horses-preview__left">
+          <HandleMobile showOnMobile={isHorsesSelectShown}>
+            <HorsesSelect />
+          </HandleMobile>
         </div>
         <div className="horses-preview__center">
           <HorsesHeader />

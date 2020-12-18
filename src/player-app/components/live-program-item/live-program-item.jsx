@@ -9,20 +9,18 @@ import './live-program-item.sass';
 
 const LiveProgramItem = ({ icon, title, program }) => {
   return (
-    <>
-      <Accordion className="live-program-item">
-        <Accordion.Toggle>
-          <AccordionTab icon={icon} title={title} counter={program.length} data={program} />
-        </Accordion.Toggle>
-        <Accordion.Content>
-          {program.map(({ data, league }) => {
-            return (
-              <LiveProgramList key={league} league={league} data={data} />
-            )
-          })}
-        </Accordion.Content>
-      </Accordion >
-    </>
+    <Accordion className="live-program-item">
+      <Accordion.Toggle>
+        <AccordionTab icon={icon} title={title} counter={program.length} data={program} />
+      </Accordion.Toggle>
+      <Accordion.Content>
+        {program.map(({ data, league }) => {
+          return (
+            <LiveProgramList key={league} league={league} data={data} />
+          )
+        })}
+      </Accordion.Content>
+    </Accordion >
   );
 };
 

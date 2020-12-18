@@ -8,14 +8,17 @@ import { selectLivePlayProgram } from 'player-app/redux/live-play-program/select
 import LiveProgram from 'player-app/components/live-program/live-program';
 import LiveMarkets from 'player-app/components/live-markets/live-markets';
 import LivePreview from 'player-app/components/live-preview/live-preview';
+import HandleMobile from 'shared/components/handle-mobile/handle-mobile';
 // Styles
 import './live-play.sass';
 
 const LivePlay = ({ isProgramShown }) => {
   return (
     <div className="live-play">
-      <div className={`live-play__left ${isProgramShown ? 'is-active' : ''}`}>
-        <LiveProgram />
+      <div className="live-play__left">
+        <HandleMobile showOnMobile={isProgramShown}>
+          <LiveProgram />
+        </HandleMobile>
       </div>
       <div className="live-play__center">
         <LiveMarkets />
@@ -26,7 +29,6 @@ const LivePlay = ({ isProgramShown }) => {
     </div>
   );
 };
-
 
 LivePlay.propTypes = {
   isProgramShown: PropTypes.bool
