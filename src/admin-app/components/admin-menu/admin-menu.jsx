@@ -20,11 +20,8 @@ const items = [
   { title: 'Customer List', rootName: '/customer-list', icon: 'address-book' },
   { title: 'Pending', rootName: '/pending', icon: 'hourglass-half' },
   { title: 'Settle', rootName: '/settle', icon: 'check' },
-  { title: 'Performance', rootName: '/performance', icon: 'user' },
-  { title: 'Cash Flow', rootName: '/cash-flow', icon: 'user' },
-  { title: 'Agents', rootName: '/Agents', icon: 'user' },
+  { title: 'Agents', rootName: '/Agents', icon: 'user-friends' },
   { title: 'Cashier', rootName: '/cashier', icon: 'user' },
-  { title: 'Action By Player', rootName: '/player-actions', icon: 'user' },
   { title: 'New Accounts', rootName: 'new-accounts', icon: 'user' },
 ];
 

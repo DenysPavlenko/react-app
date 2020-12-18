@@ -20,7 +20,7 @@ const tabs = [
 ];
 
 const PositionReport = () => {
-  const [activeTab, setActiveTab] = useState('games');
+  const [activeTab, setActiveTab] = useState('today');
 
   const ActiveComponent = tabs.filter(({ tab }) => tab === activeTab)[0].component;
 

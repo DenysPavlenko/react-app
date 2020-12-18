@@ -19,6 +19,7 @@ import ClientControlPanelPage from 'admin-app/pages/client-control-panel-page/cl
 import FiguresPage from 'admin-app/pages/figures-page/figures-page';
 import DistributionPage from 'admin-app/pages/distribution-page/distribution-page';
 import PositionPage from 'admin-app/pages/position-page/position-page';
+import AgentsPage from 'admin-app/pages/agents-page/agents-page';
 // Styles
 import './app-root.sass';
 
@@ -49,6 +50,7 @@ const AdminAppContainer = ({ location }) => {
             <Route path="/figures" exact component={FiguresPage} />
             <Route path="/distribution" exact component={DistributionPage} />
             <Route path="/position" exact component={PositionPage} />
+            <Route path="/agents" exact component={AgentsPage} />
             <Redirect to="/" />
           </Switch>
         </ScrollToTop>

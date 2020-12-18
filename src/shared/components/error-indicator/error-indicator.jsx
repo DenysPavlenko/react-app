@@ -20,7 +20,7 @@ const ErrorIndicator = ({ className, light, retry }) => {
       <FontAwesomeIcon className="error-indicator__icon" icon="exclamation-triangle" />
       <Typography component="h4" className={`${light ? 'text-light' : 'text-dark'}`}>BOOM!</Typography>
       <Typography component="p" className={`${light ? 'text-light' : 'text-dark'}`}> Something has gone terribly wrong</Typography>
-      {retry && <Button className="error-indicator__button" variant="accent-blue" size="md" onClick={retry}>Retry</Button>}
+      {retry && <Button className="error-indicator__button" variant="accent-blue" size="sm" onClick={retry}>Retry</Button>}
     </div>
   );
 };

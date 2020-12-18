@@ -1,0 +1,7 @@
+const AgentsActionTypes = {
+  FETCH_AGENTS_REQUEST  : 'FETCH_AGENTS_REQUEST',
+  FETCH_AGENTS_SUCCESS  : 'FETCH_AGENTS_SUCCESS',
+  FETCH_AGENTS_FAILURE  : 'FETCH_AGENTS_FAILURE',
+};
+
+export default AgentsActionTypes;

@@ -36,8 +36,8 @@ const TableContent = ({ cols, lastRow, firstRow, data, loading, error, retry }) 
     <Fragment>
       <thead className="primary-table__header">
         <tr>
-          {cols.map((headerItem, index) => (
-            <th key={index}>{headerItem.title}</th>
+          {cols.map(({ title, style }, index) => (
+            <th style={style} key={index}>{title}</th>
           ))}
         </tr>
       </thead>
