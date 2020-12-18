@@ -11,6 +11,8 @@ import Spinner from 'shared/components/spinner/spinner';
 import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 import List from 'shared/components/list/list';
 import Typography from 'shared/components/typography/typography';
+// Utils
+import setDangerClass from 'shared/utils/set-danger-class';
 // Styles
 import './distribution.sass';
 
@@ -42,7 +44,7 @@ const Distribution = ({ fetchDistributionData, distribution: { loading, data, er
                     {col1.map(({ id, title, value }) => (
                       <List.Item key={id} className="distribution__list-item">
                         <Typography component="p">{title}</Typography>
-                        <Typography component="p">{value}</Typography>
+                        <Typography component="p" className={setDangerClass(value)}>{value}</Typography>
                       </List.Item>
                     ))}
                   </List>
@@ -50,7 +52,7 @@ const Distribution = ({ fetchDistributionData, distribution: { loading, data, er
                     {col2.map(({ id, title, value }) => (
                       <List.Item key={id} className="distribution__list-item">
                         <Typography component="p">{title}</Typography>
-                        <Typography component="p">{value}</Typography>
+                        <Typography component="p" className={setDangerClass(value)}>{value}</Typography>
                       </List.Item>
                     ))}
                   </List>
@@ -58,7 +60,7 @@ const Distribution = ({ fetchDistributionData, distribution: { loading, data, er
                     {col3.map(({ id, title, value }) => (
                       <List.Item key={id} className="distribution__list-item">
                         <Typography component="p">{title}</Typography>
-                        <Typography component="p">{value}</Typography>
+                        <Typography component="p" className={setDangerClass(value)}>{value}</Typography>
                       </List.Item>
                     ))}
                   </List>

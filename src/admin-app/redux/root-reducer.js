@@ -24,6 +24,8 @@ import clientDetailLimitsReducer from './client-detail-limits/reducer';
 import clientInternetLogReducer from './client-internet-log/reducer';
 import figuresReducer from './figures/reducer';
 import distributionReducer from './distribution/reducer';
+import positionTodayReducer from './position-today/reducer';
+import positionLiveSportsReducer from './position-live-sports/reducer';
 
 const rootReducer = combineReducers({
   colorScheme: colorSchemeReducer,
@@ -49,6 +51,8 @@ const rootReducer = combineReducers({
   clientInternetLog: clientInternetLogReducer,
   figures: figuresReducer,
   distribution: distributionReducer,
+  positionToday: positionTodayReducer,
+  positionLiveSports: positionLiveSportsReducer,
 });
 
 export default rootReducer;

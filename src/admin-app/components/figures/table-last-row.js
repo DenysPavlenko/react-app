@@ -3,7 +3,7 @@ import React from 'react';
 import Typography from 'shared/components/typography/typography';
 // Utils
 import getTableTotal from 'shared/utils/get-table-total';
-import tableDangerClass from 'shared/utils/table-danger-class';
+import setDangerClass from 'shared/utils/set-danger-class';
 
 const tableFooter = data => {
   return [
@@ -30,7 +30,7 @@ const tableFooter = data => {
 
 const renderItem = (data, name) => {
   const total = getTableTotal(data, name);
-  return <Typography component="p" className={tableDangerClass(total)}>{total}</Typography>
+  return <Typography component="p" className={setDangerClass(total)}>{total}</Typography>
 };
 
 export default tableFooter;

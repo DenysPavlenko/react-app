@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "date": "25/11/20",
+    "rotation": "52",
+    "game": "football",
+    "straight": "235"
+  },
+  {
+    "id": "2",
+    "date": "26/11/20",
+    "rotation": "12",
+    "game": "baseball",
+    "straight": "135"
+  },
+  {
+    "id": "3",
+    "date": "27/11/20",
+    "rotation": "122",
+    "game": "baseball",
+    "straight": "1325"
+  }
+]

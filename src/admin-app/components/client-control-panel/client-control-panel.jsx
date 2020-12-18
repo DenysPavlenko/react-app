@@ -16,29 +16,35 @@ import ClientControlFreePlay from 'admin-app/components/client-control-free-play
 import ClientControlDetailLimits from 'admin-app/components/client-control-detail-limits/client-control-detail-limits';
 import ClientControlInternetLog from 'admin-app/components/client-control-internet-log/client-control-internet-log';
 
-const tabs = ['general', 'accounting', 'limits', 'wagers', 'pending', 'transactions', 'history', 'notifications', 'free play', 'detail limits', 'internet log'];
+const tabs = [
+  { tab: 'general', component: ClientControlGeneral },
+  { tab: 'accounting', component: ClientControlAccounting },
+  { tab: 'limits', component: ClientControlLimits },
+  { tab: 'wagers', component: ClientControlWagers },
+  { tab: 'pending', component: ClientControlPending },
+  { tab: 'transactions', component: ClientControlTransactions },
+  { tab: 'history', component: ClientControlHistory },
+  { tab: 'notifications', component: ClientControlNotifications },
+  { tab: 'free play', component: ClientControlFreePlay },
+  { tab: 'detail limits', component: ClientControlDetailLimits },
+  { tab: 'internet log', component: ClientControlInternetLog },
+];
 
 const ClientControlPanel = ({ clientId }) => {
   const [activeTab, setActiveTab] = useState('general');
 
+  const ActiveComponent = tabs.filter(({ tab }) => tab === activeTab)[0].component;
+
   return (
     <div className="client-control-panel">
       <Tabs responsive>
-        {tabs.map((tab, idx) => (
+        {tabs.map(({ tab }, idx) => (
           <Tab key={idx} isActive={tab === activeTab} onClick={() => setActiveTab(tab)}>{tab}</Tab>
         ))}
       </Tabs>
-      {activeTab === 'general' && <TabPanel><ClientControlGeneral clientId={clientId} /></TabPanel>}
-      {activeTab === 'accounting' && <TabPanel><ClientControlAccounting clientId={clientId} /></TabPanel>}
-      {activeTab === 'limits' && <TabPanel><ClientControlLimits clientId={clientId} /></TabPanel>}
-      {activeTab === 'wagers' && <TabPanel><ClientControlWagers clientId={clientId} /></TabPanel>}
-      {activeTab === 'pending' && <TabPanel><ClientControlPending clientId={clientId} /></TabPanel>}
-      {activeTab === 'transactions' && <TabPanel><ClientControlTransactions clientId={clientId} /></TabPanel>}
-      {activeTab === 'history' && <TabPanel><ClientControlHistory clientId={clientId} /></TabPanel>}
-      {activeTab === 'notifications' && <TabPanel><ClientControlNotifications clientId={clientId} /></TabPanel>}
-      {activeTab === 'free play' && <TabPanel><ClientControlFreePlay clientId={clientId} /></TabPanel>}
-      {activeTab === 'detail limits' && <TabPanel><ClientControlDetailLimits clientId={clientId} /></TabPanel>}
-      {activeTab === 'internet log' && <TabPanel><ClientControlInternetLog clientId={clientId} /></TabPanel>}
+      <TabPanel>
+        <ActiveComponent clientId={clientId} />
+      </TabPanel>
     </div>
   );
 };
