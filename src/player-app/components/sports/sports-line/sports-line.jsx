@@ -38,13 +38,9 @@ const SportsLine = ({ id, isFirst, title, icon, spread, moneyline, total, teamTo
     { value: spread, info: {}, center: '', name: 'spread', filter: 'spread' },
     { value: moneyline, info: {}, center: '', name: 'moneyline', filter: 'moneyline' },
     { value: total, info: { title: infoTotalTitle, position: getInfoPosition('right') }, center: '53', name: 'total', filter: 'total' },
-    [
-      { value: teamTotalOver, info: { title: getInfoTitle('Over'), position: getInfoPosition('left') }, center: '26½', name: 'teamTotalOver', filter: 'team total' },
-      { value: teamTotalUnder, info: { title: getInfoTitle('Under'), position: getInfoPosition('right') }, center: '27½', name: 'teamTotalUnder', filter: 'team total' },
-    ]
+    { value: [teamTotalOver, teamTotalUnder], info: {}, center: ['26½', '27½'], name: '', filter: 'team total' },
   ];
-
-  const filteredItems = filters ? items.filter(({ name }) => filters.includes(name)) : items;
+  const filteredItems = filters ? items.filter(({ filter }) => filters.includes(filter)) : items;
 
   return (
     <div className={classes}>
@@ -52,38 +48,44 @@ const SportsLine = ({ id, isFirst, title, icon, spread, moneyline, total, teamTo
         <Image src={icon} alt="icon" className="sports-line__team-icon" icon />
         <Typography component="p" variant="p-sm" className="sports-line__team-title">{title}</Typography>
       </div>
-      {filteredItems.map((item, idx) => (
+      {filteredItems.map(({ value, name, info, center }, idx) => (
         <div key={idx} className={`sports__group-${idx + 2}`}>
-          {item.length ?
+          {typeof value === 'object' ?
             <div className="sports-line__items">
-              {item.map(({ value, name, info, center }, idx) => (
-                <Fragment key={idx}>
-                  {center && <Typography component="p" variant="p-sm" className="sports-line__center">{center}</Typography>}
-                  <SportsItem key={idx}
-                    info={info.title}
-                    colorScheme={colorScheme}
-                    isActive={checkActive(name)}
-                    position={info.position}
-                    onClick={() => handleItemClick(value, name)}
-                  >
-                    {value}
-                  </SportsItem>
-                </Fragment>
-              ))}
+              {(isFirst && center[0]) && <Typography component="p" variant="p-sm" className="sports-line__center">{center[0]}</Typography>}
+              {(!isFirst && center[1]) && <Typography component="p" variant="p-sm" className="sports-line__center">{center[1]}</Typography>}
+              <SportsItem
+                info={getInfoTitle('Over')}
+                colorScheme={colorScheme}
+                isActive={checkActive('teamTotalOver')}
+                position={getInfoPosition('left')}
+                onClick={() => handleItemClick(value[0], 'teamTotalOver')}
+              >
+                {value[0]}
+              </SportsItem>
+              <SportsItem
+                info={getInfoTitle('Under')}
+                colorScheme={colorScheme}
+                isActive={checkActive('teamTotalUnde')}
+                position={getInfoPosition('right')}
+                onClick={() => handleItemClick(value[1], 'teamTotalUnde')}
+              >
+                {value[1]}
+              </SportsItem>
             </div>
             :
             <Fragment>
-              {(isFirst && item.center) && <Typography component="p" variant="p-sm" className="sports-line__center">{item.center}</Typography>}
+              {(isFirst && center) && <Typography component="p" variant="p-sm" className="sports-line__center">{center}</Typography>}
               <SportsItem
-                info={item.info.title}
-                position={item.info.position}
-                pushTop={isFirst && item.center.length > 0}
-                pushBottom={!isFirst && item.center.length > 0}
+                info={info.title}
+                position={info.position}
+                pushTop={isFirst && center.length > 0}
+                pushBottom={!isFirst && center.length > 0}
                 colorScheme={colorScheme}
-                isActive={checkActive(item.name)}
-                onClick={() => handleItemClick(item.value, item.name)}
+                isActive={checkActive(name)}
+                onClick={() => handleItemClick(value, name)}
               >
-                {item.value}
+                {value}
               </SportsItem>
             </Fragment>
           }
