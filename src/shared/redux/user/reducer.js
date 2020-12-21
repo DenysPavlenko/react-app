@@ -1,5 +1,5 @@
 import { requestData, setData, setError } from 'shared/redux/_utils/fetch-utils';
-import AdminBalanceActionTypes from './types';
+import UserActionTypes from './types';
 
 const INITIAL_STATE = {
   loading: true,
@@ -8,17 +8,17 @@ const INITIAL_STATE = {
   errorDetails: null,
 };
 
-const adminBalanceReducer = (state = INITIAL_STATE, action) => {
+const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case AdminBalanceActionTypes.FETCH_ADMIN_BALANCE_REQUEST:
+    case UserActionTypes.FETCH_USER_REQUEST:
       return requestData();
-    case AdminBalanceActionTypes.FETCH_ADMIN_BALANCE_SUCCESS:
+    case UserActionTypes.FETCH_USER_SUCCESS:
       return setData(action.payload);
-    case AdminBalanceActionTypes.FETCH_ADMIN_BALANCE_FAILURE:
+    case UserActionTypes.FETCH_USER_FAILURE:
       return setError(action.payload);
     default:
       return state;
   }
 };
 
-export default adminBalanceReducer;
+export default userReducer;

@@ -10,7 +10,7 @@ import { toggleAdminMenu } from 'admin-app/redux/admin-menu/actions';
 // Components
 import Header from 'shared/components/header/header';
 import HeaderMenu from 'shared/components/header-menu/header-menu';
-import AdminBalance from 'admin-app/components/admin-balance/admin-balance';
+import Balance from 'admin-app/components/balance/balance';
 import Search from 'shared/components/search/search';
 import Select from 'shared/components/select/select';
 import HeaderDropdown from 'shared/components/header-dropdown/header-dropdown';
@@ -23,7 +23,6 @@ import distributionIcn from 'shared/assets/images/icons/distribution.png';
 import positionIcn from 'shared/assets/images/icons/pin.png';
 // Styles
 import './admin-header.sass';
-
 
 const AdminHeader = ({ breakpoints, currentBreakpoint, toggleMail, showSettings, togglePersonalize, toggleAdminMenu }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -56,7 +55,7 @@ const AdminHeader = ({ breakpoints, currentBreakpoint, toggleMail, showSettings,
       menu={<HeaderMenu menu={menu} />}
       content={!isMobile && <Widgets />}
       dropdown={
-        <HeaderDropdown name="PA47" closeOnClick={!isMobile}>
+        <HeaderDropdown closeOnClick={!isMobile}>
           <HeaderDropdownMenu menu={dropdownMenu} footer={<Widgets />} />
         </HeaderDropdown>
       }
@@ -83,7 +82,7 @@ const Widgets = () => {
         />
       </div>
       <div className="header-widgets__widget">
-        <AdminBalance />
+        <Balance />
       </div>
     </div>
   )

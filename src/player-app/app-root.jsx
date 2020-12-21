@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { Fragment, useLayoutEffect } from 'react';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { connect } from 'react-redux';
+// Redux
+import { fetchUserData } from 'shared/redux/user/actions';
 // Components
 import ScrollToTop from 'shared/components/scroll-to-top/scroll-to-top';
 import PlayerHeader from 'player-app/components/player-header/player-header';
@@ -23,17 +26,22 @@ import './app-root.sass';
 // Font awesome icons
 library.add(fas);
 
-const UserAppContainer = ({ location }) => {
+const AppRoot = ({ fetchUserData, location }) => {
+
+  useLayoutEffect(() => {
+    fetchUserData();
+  }, [fetchUserData]);
+
   return (
     <div className="app-root">
       {(location.pathname !== '/sign-in') &&
-        <>
+        <Fragment>
           <PlayerHeader />
           <Personalize />
           <Mail />
           <PlayerSettings />
           <Scores />
-        </>
+        </Fragment>
       }
       <div className={`${location.pathname !== '/sign-in' ? 'app-root__content' : ''}`}>
         <ScrollToTop>
@@ -53,4 +61,8 @@ const UserAppContainer = ({ location }) => {
   );
 };
 
-export default withRouter(UserAppContainer);
+const mapDispatchToProps = dispatch => ({
+  fetchUserData: () => dispatch(fetchUserData())
+});
+
+export default connect(null, mapDispatchToProps)(withRouter(AppRoot));

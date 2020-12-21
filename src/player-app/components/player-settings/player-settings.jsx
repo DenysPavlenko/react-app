@@ -1,11 +1,9 @@
-import React, { Fragment, useLayoutEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
-import { fetchBalanceData } from 'player-app/redux/balance/actions';
-import { selectBalance } from 'player-app/redux/balance/selectors';
-import { selectSettings } from 'shared/redux/settings/selectors';
+import { selectUserBalance } from 'shared/redux/user/selectors';
 import { hideSettings } from 'shared/redux/settings/actions';
 // Components
 import Settings from 'shared/components/settings/settings';
@@ -13,39 +11,29 @@ import { SettingsBox, SettingsItem, SettingsInput, SettingsFooter } from 'shared
 import Typography from 'shared/components/typography/typography';
 import Select from 'shared/components/select/select';
 import Button from 'shared/components/button/button';
-import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
-import Spinner from 'shared/components/spinner/spinner'
+// Utils
+import setDangerClass from 'shared/utils/set-danger-class';
 
-const PlayerSettings = ({ isSettingsShown, fetchBalanceData, balance: { loading, data, error } }) => {
-  useLayoutEffect(() => {
-    isSettingsShown && fetchBalanceData();
-  }, [isSettingsShown, fetchBalanceData]);
-
+const PlayerSettings = ({ hideSettings, balance: { total, pending, available, freePlay } }) => {
   return (
     <Settings title="My account">
       <SettingsBox>
-        {error && <ErrorIndicator retry={fetchBalanceData} />}
-        {(!error && loading) && <Spinner boxed />}
-        {(!error && !loading) &&
-          <Fragment>
-            <SettingsItem>
-              <Typography component="h5" className="settings__item-title">balance</Typography>
-              <Typography component="h5" className={data.balance < 0 ? 'text-danger' : ''}>${data.balance}</Typography>
-            </SettingsItem>
-            <SettingsItem>
-              <Typography component="h5" className="settings__item-title">pending</Typography>
-              <Typography component="h5" className={data.pending < 0 ? 'text-danger' : ''}>${data.pending}</Typography>
-            </SettingsItem>
-            <SettingsItem>
-              <Typography component="h5" className="settings__item-title">available</Typography>
-              <Typography component="h5" className={data.available < 0 ? 'text-danger' : ''}>${data.available}</Typography>
-            </SettingsItem>
-            <SettingsItem>
-              <Typography component="h5" className="settings__item-title">free play</Typography>
-              <Typography component="h5" className={data.freePlay < 0 ? 'text-danger' : ''}>${data.freePlay}</Typography>
-            </SettingsItem>
-          </Fragment>
-        }
+        <SettingsItem>
+          <Typography component="h5" className="settings__item-title">balance</Typography>
+          <Typography component="h5" className={setDangerClass(total)}>${total}</Typography>
+        </SettingsItem>
+        <SettingsItem>
+          <Typography component="h5" className="settings__item-title">pending</Typography>
+          <Typography component="h5" className={setDangerClass(pending)}>${pending}</Typography>
+        </SettingsItem>
+        <SettingsItem>
+          <Typography component="h5" className="settings__item-title">available</Typography>
+          <Typography component="h5" className={setDangerClass(available)}>${available}</Typography>
+        </SettingsItem>
+        <SettingsItem>
+          <Typography component="h5" className="settings__item-title">free play</Typography>
+          <Typography component="h5" className={setDangerClass(freePlay)}>${freePlay}</Typography>
+        </SettingsItem>
       </SettingsBox>
       <SettingsBox>
         <SettingsItem>
@@ -54,6 +42,7 @@ const PlayerSettings = ({ isSettingsShown, fetchBalanceData, balance: { loading,
             <Select
               onChange={() => { }}
               fluid
+              value="By time"
               options={[
                 { label: 'By time', value: 'By time' },
                 { label: 'By rotation', value: 'By rotation' },
@@ -69,6 +58,7 @@ const PlayerSettings = ({ isSettingsShown, fetchBalanceData, balance: { loading,
             <Select
               onChange={() => { }}
               fluid
+              value="pacific"
               options={[
                 { label: 'Pacific', value: 'pacific' },
                 { label: 'Eastern', value: 'eastern' },
@@ -86,6 +76,7 @@ const PlayerSettings = ({ isSettingsShown, fetchBalanceData, balance: { loading,
             <Select
               onChange={() => { }}
               fluid
+              value="action"
               options={[
                 { label: 'Action', value: 'action' },
                 { label: 'Listed', value: 'listed' },
@@ -108,19 +99,17 @@ const PlayerSettings = ({ isSettingsShown, fetchBalanceData, balance: { loading,
 };
 
 Settings.propTypes = {
-  isSettingsShown: PropTypes.bool,
   close: PropTypes.func,
   balance: PropTypes.object,
-  fetchBalanceData: PropTypes.func,
+  hideSettings: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
-  balance: selectBalance,
-  isSettingsShown: selectSettings,
+  balance: selectUserBalance,
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchBalanceData: () => dispatch(fetchBalanceData()),
+  hideSettings: () => dispatch(hideSettings()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlayerSettings);

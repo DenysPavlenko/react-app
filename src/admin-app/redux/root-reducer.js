@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 // Shared reducers
+import userReducer from 'shared/redux/user/reducer';
 import colorSchemeReducer from 'shared/redux/color-scheme/reducer';
 import mailReducer from 'shared/redux/mail/reducer';
 import settingsReducer from 'shared/redux/settings/reducer';
 import personalizeReducer from 'shared/redux/personalize/reducer';
 // Reducers
 import adminMenuReducer from './admin-menu/reducer';
-import adminBalanceReducer from './admin-balance/reducer';
 import recentLoginsReducer from './recent-logins/reducer';
 import customerListReducer from './customer-list/reducer';
 import pendingReducer from './pending/reducer';
@@ -31,12 +31,12 @@ import positionContestsReducer from './position-contests/reducer';
 import agentsReducer from './agents/reducer';
 
 const rootReducer = combineReducers({
+  user: userReducer,
   colorScheme: colorSchemeReducer,
   settings: settingsReducer,
   personalize: personalizeReducer,
   mail: mailReducer,
   adminMenu: adminMenuReducer,
-  adminBalance: adminBalanceReducer,
   recentLogins: recentLoginsReducer,
   customerList: customerListReducer,
   pending: pendingReducer,

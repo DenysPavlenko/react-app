@@ -4,6 +4,7 @@ import colorSchemeReducer from 'shared/redux/color-scheme/reducer';
 import mailReducer from 'shared/redux/mail/reducer';
 import settingsReducer from 'shared/redux/settings/reducer';
 import personalizeReducer from 'shared/redux/personalize/reducer';
+import userReducer from 'shared/redux/user/reducer';
 // Reducers
 import sportsScheduleReducer from './sports-schedule/reducer';
 import sportsReducer from './sports/reducer';
@@ -23,10 +24,10 @@ import scoresReducer from './scores/reducer';
 import weeklyFiguresReducer from './weekly-figures/reducer';
 import pendingWagersReducer from './pending-wagers/reducer';
 import transactionsReducer from './transactions/reducer';
-import balanceReducer from './balance/reducer';
 import sportsPageWagersReducer from './sports-page-wagers/reducer';
 
 const rootReducer = combineReducers({
+  user: userReducer,
   colorScheme: colorSchemeReducer,
   settings: settingsReducer,
   personalize: personalizeReducer,
@@ -49,7 +50,6 @@ const rootReducer = combineReducers({
   weeklyFigures: weeklyFiguresReducer,
   pendingWagers: pendingWagersReducer,
   transactions: transactionsReducer,
-  balance: balanceReducer,
   sportsPageWagers: sportsPageWagersReducer,
 });
 

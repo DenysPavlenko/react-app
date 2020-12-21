@@ -20,7 +20,7 @@ import { toggleSportsPageWagers, hideSportsPageWagers } from 'player-app/redux/s
 // Components
 import Header from 'shared/components/header/header';
 import HeaderMenu from 'shared/components/header-menu/header-menu';
-import Balance from 'shared/components/balance/balance';
+import Balance from 'player-app/components/balance/balance';
 import HeaderDropdown from 'shared/components/header-dropdown/header-dropdown';
 import HeaderDropdownMenu from 'shared/components/header-dropdown-menu/header-dropdown-menu';
 import Button from 'shared/components/button/button';
@@ -71,7 +71,7 @@ const PlayerHeader = ({ toggleScores, toggleMail, showSettings, togglePersonaliz
           <Balance shrinkOnMobile />
       }
       dropdown={
-        <HeaderDropdown name="PA47">
+        <HeaderDropdown>
           <HeaderDropdownMenu
             menu={[
               { icon: 'calendar', title: 'Scores', handler: toggleScores },
