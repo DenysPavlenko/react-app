@@ -13,7 +13,7 @@ import { SettingsContainer, SettingsHeader } from './settings.styles';
 
 const Settings = ({ isSettingsShown, hideSettings, children, title }) => {
   return (
-    <SettingsContainer hidden={!isSettingsShown} closeModal={hideSettings} size="sm" noClose>
+    <SettingsContainer open={isSettingsShown} onClose={hideSettings} size="sm" noClose>
       <SettingsHeader>
         <Typography component="h4" className="settings__item-title">{title}</Typography>
         <Close onClick={hideSettings} dark />

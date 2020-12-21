@@ -16,10 +16,20 @@
     .primary-table__header
       border-color: $c-primary
       background: $c-primary
+      color: $c-light
     .primary-table__row
       background-color: transparent !important
       &:not(:last-child)
         border-bottom: 1px solid $c-primary
+  &--light
+    border-color: $c-light-gray
+    .primary-table__header
+      border-bottom: 1px solid $c-light-gray
+      border-top: 1px solid $c-light-gray
+    .primary-table__row
+      &:nth-child(even)
+        background-color: $c-light-gray
+
   // Sizes
   &--sm
     .primary-table__header th,

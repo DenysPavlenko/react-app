@@ -10,7 +10,7 @@ import './table-filter.sass';
 
 const TableFilter = ({ title, isShown, handleHide, filters, handleCheck }) => {
   return (
-    <Modal className="table-filter" hidden={!isShown} closeModal={handleHide} size="sm" noClose>
+    <Modal className="table-filter" open={isShown} onClose={handleHide} size="sm" noClose>
       <div className="table-filter__header">
         <Typography component="h3" className="settings__item-title">{title}</Typography>
         <Close onClick={handleHide} dark />

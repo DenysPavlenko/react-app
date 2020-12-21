@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Styles
 import './input.sass';
 
-const Input = forwardRef(({ className, standard, size, noRadius, isInvalid, variant, width, ...otherProps }, ref) => {
+const Input = forwardRef(({ className, standard, size, noRadius, isInvalid, variant, width, disabled, ...otherProps }, ref) => {
   const classes = classNames({
     'input': standard !== false,
     'input--no-radius': noRadius,
@@ -16,7 +16,7 @@ const Input = forwardRef(({ className, standard, size, noRadius, isInvalid, vari
   });
 
   return (
-    <input className={classes} {...otherProps} ref={ref} />
+    <input className={classes} {...otherProps} ref={ref} disabled={disabled} />
   );
 });
 

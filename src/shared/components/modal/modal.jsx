@@ -11,10 +11,10 @@ import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 // Styles
 import './modal.sass';
 
-const Modal = ({ hidden, closeModal, onExited, children, size, className, loading, error, retry, noClose }) => {
+const Modal = ({ open, onClose, onExited, children, size, className, loading, error, retry, noClose }) => {
   const modalRef = useRef(null);
   return (
-    <CSSTransition nodeRef={modalRef} in={!hidden} timeout={300} unmountOnExit onExited={onExited} classNames="modal-animation">
+    <CSSTransition nodeRef={modalRef} in={open} timeout={300} unmountOnExit onExited={onExited} classNames="modal-animation">
       <ModalContent
         className={className}
         size={size}
@@ -22,7 +22,7 @@ const Modal = ({ hidden, closeModal, onExited, children, size, className, loadin
         error={error}
         retry={retry}
         noClose={noClose}
-        closeModal={closeModal}
+        onClose={onClose}
         ref={modalRef}
       >
         {children}
@@ -31,7 +31,7 @@ const Modal = ({ hidden, closeModal, onExited, children, size, className, loadin
   )
 };
 
-const ModalContent = forwardRef(({ children, closeModal, noClose, size, className, loading, error, retry }, ref) => {
+const ModalContent = forwardRef(({ children, onClose, noClose, size, className, loading, error, retry }, ref) => {
   const [container] = useState(document.createElement('div'));
 
   useToggleScroll();
@@ -54,10 +54,10 @@ const ModalContent = forwardRef(({ children, closeModal, noClose, size, classNam
     <div className={classes} ref={ref}>
       <div className="modal__container">
         <div className="modal__wrapper">
-          <div className="modal__overlay" onClick={closeModal}></div>
+          <div className="modal__overlay" onClick={onClose}></div>
           <div className="modal__block">
             {children}
-            {!noClose && <Close className="modal__close" onClick={closeModal} dark />}
+            {!noClose && <Close className="modal__close" onClick={onClose} dark />}
             {error && <div className="modal__status"><ErrorIndicator retry={retry} /></div>}
             {(loading && !error) && <div className="modal__status"><Spinner boxed /></div>}
           </div>
@@ -69,8 +69,8 @@ const ModalContent = forwardRef(({ children, closeModal, noClose, size, classNam
 });
 
 Modal.propTypes = {
-  hidden: PropTypes.bool.isRequired,
-  closeModal: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
   size: PropTypes.string,
   loading: PropTypes.bool,

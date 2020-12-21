@@ -8,7 +8,7 @@ import RowGroup from 'shared/components/row-group/row-group';
 import Search from 'shared/components/search/search';
 import Button from 'shared/components/button/button';
 
-const AgentsHeader = ({ handleSearch }) => {
+const AgentsHeader = ({ handleSearch, handleModalOpen }) => {
   return (
     <PageHeader
       left={<Typography component="h2">Agents</Typography>}
@@ -17,6 +17,7 @@ const AgentsHeader = ({ handleSearch }) => {
           <Search style={{ width: 'auto' }} onChange={handleSearch} />
           <Button
             variant="default"
+            onClick={handleModalOpen}
             iconStart={<FontAwesomeIcon icon="user-plus" style={{ 'fontSize': '14px' }} />}
           >
             New agent
@@ -28,7 +29,8 @@ const AgentsHeader = ({ handleSearch }) => {
 };
 
 AgentsHeader.propTypes = {
-  handleSearch: PropTypes.func
+  handleSearch: PropTypes.func,
+  handleModalOpen: PropTypes.func,
 };
 
 export default AgentsHeader;

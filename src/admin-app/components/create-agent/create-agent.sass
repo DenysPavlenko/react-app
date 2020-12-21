@@ -1,0 +1,45 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.create-agent
+  color: $c-dark
+  // Default modal
+  .modal__block
+    padding: 0
+    overflow: hidden
+    max-width: 1140px
+
+  &__header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background-color: $c-light-gray
+    padding: 20px
+  &__content
+    padding: 20px
+  &__block
+    &:last-child
+      margin-bottom: -10px
+    &-header
+      margin-bottom: 5px
+      width: 100%
+    &-items
+      display: flex
+      flex-wrap: wrap
+      margin: 0 -5px
+    &-item
+      padding: 0 5px
+      width: 33.3333%
+      margin-bottom: 20px
+  &__new-accounts
+    padding: 0 20px 20px
+    &-check
+      margin-bottom: 10px
+  &__footer
+    padding: 20px
+    display: flex
+    border-top: 1px solid $c-light-gray
+    justify-content: flex-end
+    &-item
+      &:not(:last-child)
+        margin-right: 10px
