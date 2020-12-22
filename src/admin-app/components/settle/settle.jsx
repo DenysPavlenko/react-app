@@ -26,7 +26,15 @@ const Settle = ({ fetchSettleData, settle: { loading, data, error } }) => {
         <SettleHeader date={date} setDate={setDate} />
       </div>
       <div className="pending__table">
-        <PrimaryTable cols={tableConstants()} loading={loading} data={data} error={error} retry={() => fetchSettleData(date)} />
+        <PrimaryTable
+          cols={tableConstants()}
+          loading={loading}
+          data={data}
+          error={error}
+          retry={() => fetchSettleData(date)}
+          variant="primary"
+          size="sm"
+        />
       </div>
     </div>
   );

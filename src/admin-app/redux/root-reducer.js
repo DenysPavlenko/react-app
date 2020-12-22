@@ -30,6 +30,7 @@ import positionGamesReducer from './position-games/reducer';
 import positionContestsReducer from './position-contests/reducer';
 import agentsReducer from './agents/reducer';
 import newAccountsReducer from './new-accounts/reducer';
+import cashierReducer from './cashier/reducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -61,6 +62,7 @@ const rootReducer = combineReducers({
   positionContests: positionContestsReducer,
   agents: agentsReducer,
   newAccounts: newAccountsReducer,
+  cashier: cashierReducer,
 });
 
 export default rootReducer;

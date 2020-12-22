@@ -43,7 +43,15 @@ const Pending = ({ fetchPendingData, pending: { loading, data, error } }) => {
         <PendingHeader currentFilter={currentFilter} setCurrentFilter={setCurrentFilter} handleSearch={handleSearch} />
       </div>
       <div className="pending__table">
-        <PrimaryTable cols={tableContent(handleDelete)} loading={loading} data={filteredData()} error={error} retry={() => fetchPendingData(currentFilter)} />
+        <PrimaryTable
+          cols={tableContent(handleDelete)}
+          loading={loading}
+          data={filteredData()}
+          error={error}
+          retry={() => fetchPendingData(currentFilter)}
+          variant="primary"
+          size="sm"
+        />
       </div>
       <div className="pending__footer">
         <Pagination pages={10} page={page} onChange={onPageChange} />

@@ -10,7 +10,7 @@ import Simplebar from 'simplebar-react';
 // Styles
 import './select.sass';
 
-const Select = ({ options, name, value, placeholder, inline, onChange, fluid, variant, className }) => {
+const Select = ({ options, name, value, placeholder, inline, onChange, fluid, variant, size, className }) => {
   const selectDopdownRef = useRef(null);
   const selectRef = useRef(null);
   const selectOptionsRef = useRef(null);
@@ -51,6 +51,7 @@ const Select = ({ options, name, value, placeholder, inline, onChange, fluid, va
     'select--inline': inline,
     'is-expanded': isExpanded,
     [`select--${variant}`]: variant,
+    [`select--${size}`]: size,
     'select--fluid': fluid,
     [className]: className
   });

@@ -33,9 +33,7 @@ const NewAccounts = ({ fetchPendingData, newAccounts: { loading, data, error } }
       <div className="new-accounts__header">
         <PageHeader
           left={<Typography component="h2">New Accounts</Typography>}
-          right={
-            <Button variant="default" onClick={() => { }} >Submit</Button>
-          }
+          right={<Button variant="default" onClick={() => { }} >Submit</Button>}
         />
       </div>
       <div className="new-accounts__content">

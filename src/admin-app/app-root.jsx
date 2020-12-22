@@ -23,6 +23,7 @@ import FiguresPage from 'admin-app/pages/figures-page/figures-page';
 import DistributionPage from 'admin-app/pages/distribution-page/distribution-page';
 import PositionPage from 'admin-app/pages/position-page/position-page';
 import AgentsPage from 'admin-app/pages/agents-page/agents-page';
+import CashierPage from 'admin-app/pages/cashier-page/cashier-page';
 import NewAccountsPage from 'admin-app/pages/new-accounts-page/new-accounts-page';
 // Styles
 import './app-root.sass';
@@ -60,6 +61,7 @@ const AppRoot = ({ fetchUserData, location }) => {
             <Route path="/distribution" exact component={DistributionPage} />
             <Route path="/position" exact component={PositionPage} />
             <Route path="/agents" exact component={AgentsPage} />
+            <Route path="/cashier" exact component={CashierPage} />
             <Route path="/new-accounts" exact component={NewAccountsPage} />
             <Redirect to="/" />
           </Switch>

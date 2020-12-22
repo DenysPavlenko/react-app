@@ -1,7 +1,6 @@
 import React from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
-import RowGroup from 'shared/components/row-group/row-group';
 import Button from 'shared/components/button/button';
 
 const tableContent = handleDelete => {
@@ -40,12 +39,11 @@ const tableContent = handleDelete => {
     },
     {
       title: 'Risk/Win',
-      render: data => (
-        <RowGroup nowrap size="sm">
-          <Typography component="p">{data.risk}</Typography>
-          <Button size="xxs" variant="danger" onClick={() => handleDelete(data.id)}>Delete</Button>
-        </RowGroup>
-      )
+      render: data => <Typography component="p">{data.risk}</Typography>
+    },
+    {
+      title: 'Delete',
+      render: data => <Button size="xxs" variant="danger" onClick={() => handleDelete(data.id)}>Delete</Button>
     },
   ];
 };

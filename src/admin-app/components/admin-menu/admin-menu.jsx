@@ -20,8 +20,8 @@ const items = [
   { title: 'Customer List', rootName: '/customer-list', icon: 'address-book' },
   { title: 'Pending', rootName: '/pending', icon: 'hourglass-half' },
   { title: 'Settle', rootName: '/settle', icon: 'check' },
-  { title: 'Agents', rootName: '/Agents', icon: 'user-friends' },
-  { title: 'Cashier', rootName: '/cashier', icon: 'user' },
+  { title: 'Agents', rootName: '/agents', icon: 'user-friends' },
+  { title: 'Cashier', rootName: '/cashier', icon: 'money-bill-wave' },
   { title: 'New Accounts', rootName: '/new-accounts', icon: 'user-plus' },
 ];
 
@@ -36,8 +36,8 @@ const AdminMenu = ({ isActive, toggleAdminMenu }) => {
           <Simplebar className="custom-scroll">
             {items.map(({ title, rootName, icon }, idx) => (
               <NavLink key={idx} to={rootName} exact={true} className="admin-menu__item" onClick={toggleAdminMenu}>
-                <div className="admin-menu__item-icon">
-                  <FontAwesomeIcon icon={icon} />
+                <div className="admin-menu__item-icon-wrap">
+                  <FontAwesomeIcon className="admin-menu__item-icon" icon={icon} />
                 </div>
                 <Typography component="h5" className="admin-menu__item-title">{title}</Typography>
               </NavLink>
