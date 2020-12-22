@@ -10,7 +10,9 @@ class Accordion extends Component {
   static Content = AccordionContent;
   static propTypes = {
     children: PropTypes.node.isRequired,
-    className: PropTypes.string
+    className: PropTypes.string,
+    expanded: PropTypes.bool,
+    onChange: PropTypes.func,
   };
 
   state = {
@@ -20,16 +22,23 @@ class Accordion extends Component {
   componentDidMount() {
     const { expanded } = this.props;
     if (expanded) {
-      this.setState({ isExpanded: true })
+      this.setState({ isExpanded: expanded })
     }
-  }
+  };
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.expanded !== this.props.expanded) {
+      this.setState({ isExpanded: this.props.expanded })
+    }
+  };
 
   toggleAccordion = () => {
     this.setState(({ isExpanded }) => ({ isExpanded: !isExpanded }));
+    this.props.onChange();
   };
 
   render() {
-    const { children, className, expanded, ...otherProps } = this.props;
+    const { children, className } = this.props;
     const { isExpanded } = this.state;
 
     const classes = classNames({
@@ -38,7 +47,7 @@ class Accordion extends Component {
     });
 
     return (
-      <div className={classes} {...otherProps}>
+      <div className={classes}>
         {React.Children.map(children, child => (
           React.cloneElement(child, { toggleAccordion: this.toggleAccordion, isExpanded })
         ))}

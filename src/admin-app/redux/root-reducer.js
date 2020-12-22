@@ -29,6 +29,7 @@ import positionLiveSportsReducer from './position-live-sports/reducer';
 import positionGamesReducer from './position-games/reducer';
 import positionContestsReducer from './position-contests/reducer';
 import agentsReducer from './agents/reducer';
+import newAccountsReducer from './new-accounts/reducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -59,6 +60,7 @@ const rootReducer = combineReducers({
   positionGames: positionGamesReducer,
   positionContests: positionContestsReducer,
   agents: agentsReducer,
+  newAccounts: newAccountsReducer,
 });
 
 export default rootReducer;

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 // Components
 import PrimaryTable from 'shared/components/primary-table/primary-table';
 import FormGroup from 'shared/components/form-group/form-group';
@@ -13,11 +13,15 @@ import isInputValid from 'shared/utils/is-input-valid';
 // Styles
 import './create-new-accounts.sass';
 
-const CreateNewAccounts = () => {
+const CreateNewAccounts = ({ prefix, number }) => {
   const createNewAccountsRef = useRef(null);
   const [topInputs, setTopInputs] = useState(inputsTop);
   const [totalInputs, setTotalInputs] = useState(inputsTotal);
   const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setTopInputs(inputs => ({ ...inputs, prefix, number }));
+  }, [number, prefix]);
 
   const handleInputValidation = (func, { name, type, value }) => {
     func(inputs => ({

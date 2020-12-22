@@ -18,7 +18,7 @@ import './create-agent.sass';
 
 const CreateAgent = ({ open, onClose }) => {
   const [inputs, setInputs] = useState(initialInputs);
-  const [newAccounts, setNewAccoutns] = useState(true);
+  const [newAccounts, setNewAccoutns] = useState(false);
 
   const handleCheckbox = ({ target: { checked } }) => setNewAccoutns(checked);
   const handleSubmit = e => e.preventDefault();

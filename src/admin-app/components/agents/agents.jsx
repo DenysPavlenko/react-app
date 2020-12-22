@@ -19,7 +19,7 @@ import './agents.sass';
 
 const Agents = ({ fetchAgentsData, agents: { loading, data, error }, history }) => {
   const [searchValue, setSearchValue] = useState('');
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useLayoutEffect(() => {
     fetchAgentsData();

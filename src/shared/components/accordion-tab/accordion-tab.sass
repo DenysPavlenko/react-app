@@ -19,6 +19,12 @@
     color: $c-light
   &--bordered
     border-bottom: 1px solid $c-alt-gray
+  &--primary
+    background-color: $c-primary
+    color: $c-light
+    &:hover,
+    &.is-active
+      background-color: $c-primary-light
   // Color schemes
   @each $name, $color in $sch-colors
     &.theme-#{$name}
