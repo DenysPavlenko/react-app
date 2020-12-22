@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-// Helpers
-import isInputValid from 'shared/utils/is-input-valid';
+import React from 'react';
+import * as Yup from 'yup';
 // Components
+import { Formik } from 'formik';
 import Form from 'shared/components/form/form';
 import FormGroup from 'shared/components/form-group/form-group';
 import Input from 'shared/components/input/input';
@@ -14,55 +14,55 @@ import './sign-in.sass';
 // Assets
 import image from 'shared/assets/images/sign-in-slides/slide-1.png';
 
-const initialForm = {
-  user: '',
-  userInvalid: false,
-  password: '',
-  passwordInvalid: false,
-  formErrors: false
-};
+const validationSchema = Yup.object().shape({
+  user: Yup.string().min(2, 'Must have a character').required(),
+  password: Yup.string().min(1, 'Must have a character').required(),
+});
 
 const SignIn = ({ onSignIn }) => {
-  const [data, setData] = useState(initialForm);
-
-  const handleInput = ({ target: { name, type, value } }) => {
-    setData(data => ({
-      ...data,
-      [name]: value,
-      [`${name}Invalid`]: data.formErrors && !isInputValid(type, value),
-    }));
+  const handleFormikSubmit = (values, { setSubmitting, resetForm }) => {
+    setSubmitting(true);
+    setTimeout(() => {
+      setSubmitting(false);
+      resetForm();
+      onSignIn(values);
+    }, 1000);
   };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const userInvalid = !isInputValid('text', user);
-    const passwordInvalid = !isInputValid('password', password);
-    setData(data => ({
-      ...data,
-      userInvalid,
-      passwordInvalid,
-      formErrors: userInvalid || passwordInvalid
-    }));
-    if (!userInvalid && !passwordInvalid) {
-      setData(() => (initialForm))
-      onSignIn();
-    }
-  };
-
-  const { user, userInvalid, password, passwordInvalid } = data;
 
   return (
     <div className="sign-in">
-      <Form className="sign-in__form" onSubmit={handleSubmit}>
-        <FormGroup>
-          <Input type="text" value={user} name="user" isInvalid={userInvalid} placeholder="User id" onChange={handleInput} />
-        </FormGroup>
-        <FormGroup>
-          <Input type="password" value={password} name="password" isInvalid={passwordInvalid} placeholder="Password" onChange={handleInput} />
-        </FormGroup>
-        <Button type="submit" fluid variant="accent">Login</Button>
-      </Form>
-
+      <Formik initialValues={{ user: '', password: '' }} validationSchema={validationSchema} onSubmit={handleFormikSubmit}>
+        {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => {
+          console.log('errors:', errors.user)
+          return (
+            <Form className="sign-in__form" onSubmit={handleSubmit}>
+              <FormGroup errorMsg={touched.user && errors.user}>
+                <Input
+                  type="text"
+                  value={values.user}
+                  name="user"
+                  invalid={touched.user && errors.user}
+                  placeholder="User id"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </FormGroup>
+              <FormGroup errorMsg={touched.password && errors.password}>
+                <Input
+                  type="password"
+                  value={values.password}
+                  name="password"
+                  invalid={touched.password && errors.password}
+                  placeholder="Password"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </FormGroup>
+              <Button type="submit" fluid variant="accent" disabled={isSubmitting}>Login</Button>
+            </Form>
+          )
+        }}
+      </Formik>
       <div className="sign-in__slider">
         <CarouselProvider
           naturalSlideWidth={1065}

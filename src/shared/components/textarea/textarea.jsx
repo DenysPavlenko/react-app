@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 // Styles
 import './textarea.sass';
 
-const Textarea = forwardRef(({ className, isInvalid, variant, noPadding, ...otherProps }, ref) => {
+const Textarea = forwardRef(({ className, invalid, variant, noPadding, ...otherProps }, ref) => {
   const classes = classNames({
     'textarea': true,
-    'textarea--invalid': isInvalid,
+    'textarea--invalid': invalid,
     [`textarea--${variant}`]: variant,
     'textarea--p-0': noPadding,
     [className]: className
@@ -20,7 +20,7 @@ const Textarea = forwardRef(({ className, isInvalid, variant, noPadding, ...othe
 
 Textarea.propTypes = {
   className: PropTypes.string,
-  isInvalid: PropTypes.bool,
+  invalid: PropTypes.bool,
 };
 
 export default Textarea;

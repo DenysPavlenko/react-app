@@ -12,7 +12,7 @@ import Button from 'shared/components/button/button';
 import CheckBox from 'shared/components/checkbox/checkbox';
 import CreateNewAccounts from 'admin-app/components/create-new-accounts/create-new-accounts';
 // Initial Inputs
-import initialInputs from './initialInputs';
+import initialInputs from './initial-inputs';
 // Styles
 import './create-agent.sass';
 

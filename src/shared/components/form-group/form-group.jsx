@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Styles
 import './form-group.sass';
 
-const FormGroup = ({ children, label, vertical, className }) => {
+const FormGroup = ({ children, label, vertical, errorMsg, className }) => {
   const classes = classNames({
     'form-group': true,
     'form-group--vertical': vertical,
@@ -15,6 +15,7 @@ const FormGroup = ({ children, label, vertical, className }) => {
     <div className={classes}>
       {label && <label className="form-group__label">{label}</label>}
       {children}
+      {errorMsg && <span className="form-group__error">{errorMsg}</span>}
     </div>
   );
 };

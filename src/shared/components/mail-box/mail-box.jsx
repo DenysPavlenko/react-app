@@ -78,7 +78,7 @@ const MailBox = ({ messages, messages: { loading, data, error }, retry, deleteMe
           {data.length > 0 &&
             <div className="mail-box__control">
               <Checkbox label="Messages" onChange={handleCheckAll} checked={checkedAll} variant="light" />
-              <Button variant="danger" size="xs" isDisabled={!checkedItems.length} onClick={handleDelete}>Delete</Button>
+              <Button variant="danger" size="xs" disabled={!checkedItems.length} onClick={handleDelete}>Delete</Button>
             </div>
           }
           {data.map(({ id, ...otherProps }) => (

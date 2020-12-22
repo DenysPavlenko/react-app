@@ -59,15 +59,15 @@ const MessageNew = () => {
         <div className="mail-new-message__header">
           <div className="mail-new-message__header-line">
             <Typography component="p" className="mail-new-message__header-title">To:</Typography>
-            <Input className="mail-new-message__header-input" value={to} isInvalid={toInvalid} name="to" type="text" onChange={handleInput} size="sm" fluid variant="primary-light" />
+            <Input className="mail-new-message__header-input" value={to} invalid={toInvalid} name="to" type="text" onChange={handleInput} size="sm" fluid variant="primary-light" />
           </div>
           <div className="mail-new-message__header-line">
             <Typography component="p" className="mail-new-message__header-title">Subject:</Typography>
-            <Input className="mail-new-message__header-input" value={subject} isInvalid={subjectInvalid} name="subject" type="text" onChange={handleInput} size="sm" fluid variant="primary-light" />
+            <Input className="mail-new-message__header-input" value={subject} invalid={subjectInvalid} name="subject" type="text" onChange={handleInput} size="sm" fluid variant="primary-light" />
           </div>
         </div>
         <div className="mail-new-message__body">
-          <Textarea rows={10} variant="primary-light" name="message" value={message} isInvalid={messageInvalid} onChange={handleInput} />
+          <Textarea rows={10} variant="primary-light" name="message" value={message} invalid={messageInvalid} onChange={handleInput} />
         </div>
         <div className="mail-new-message__footer">
           <Button variant="accent-blue" size="sm" type="submit">Send</Button>

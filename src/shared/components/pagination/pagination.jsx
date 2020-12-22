@@ -60,7 +60,7 @@ const Pagination = ({ className, pages, page, onChange, colorScheme }) => {
             className={`pagination__button ${page === 1 ? 'disabled' : ''}`}
             standard={false}
             onClick={() => handleArrowClick(-1, 1)}
-            isDisabled={page === 1}
+            disabled={page === 1}
           >
             <FontAwesomeIcon className="pagination__chevron" icon="chevron-left" />
           </Button>
@@ -69,7 +69,7 @@ const Pagination = ({ className, pages, page, onChange, colorScheme }) => {
           return (
             <li key={idx} className="pagination__item">
               {typeof p === 'string' ?
-                <Button className="pagination__button disabled" standard={false} isDisabled={true}>{p}</Button>
+                <Button className="pagination__button disabled" standard={false} disabled={true}>{p}</Button>
                 :
                 <Button
                   className={`pagination__button ${page === p ? 'is-active' : ''}`}
@@ -87,7 +87,7 @@ const Pagination = ({ className, pages, page, onChange, colorScheme }) => {
             className={`pagination__button ${page === pages ? 'disabled' : ''}`}
             standard={false}
             onClick={() => handleArrowClick(1, pages)}
-            isDisabled={page === pages}
+            disabled={page === pages}
           >
             <FontAwesomeIcon className="pagination__chevron" icon="chevron-right" />
           </Button>

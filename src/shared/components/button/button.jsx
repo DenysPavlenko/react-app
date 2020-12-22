@@ -8,10 +8,10 @@ import { selectColorScheme } from 'shared/redux/color-scheme/selectors';
 // Styles
 import './button.sass';
 
-const Button = ({ children, href, className, standard, fluid, variant, size, isDisabled, iconStart, iconEnd, isActive, colorScheme, onClick }) => {
+const Button = ({ children, href, className, standard, fluid, variant, size, disabled, iconStart, iconEnd, isActive, colorScheme, onClick }) => {
   const classes = classNames({
     'button': standard,
-    'button--disabled': standard && isDisabled,
+    'button--disabled': standard && disabled,
     'button--fluid': fluid,
     'is-active': isActive,
     [`button--${variant}`]: variant,
@@ -23,7 +23,7 @@ const Button = ({ children, href, className, standard, fluid, variant, size, isD
   const Tag = href ? 'a' : 'button';
 
   return (
-    <Tag href={href} className={classes} disabled={!href && isDisabled} onClick={onClick}>
+    <Tag href={href} className={classes} disabled={!href && disabled} onClick={onClick}>
       {iconStart && <div className="button__icon">{iconStart}</div>}
       <span>{children}</span>
       {iconEnd && <div className="button__icon">{iconEnd}</div>}
@@ -33,13 +33,13 @@ const Button = ({ children, href, className, standard, fluid, variant, size, isD
 
 Button.defaultProps = {
   standard: true,
-  isDisabled: false,
+  disabled: false,
   fluid: false,
 };
 
 Button.propTypes = {
   children: PropTypes.node,
-  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
   fluid: PropTypes.bool,
   standard: PropTypes.bool,
   variant: PropTypes.string,
