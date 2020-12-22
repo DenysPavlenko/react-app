@@ -37,6 +37,7 @@ const AdminSettings = ({ hideSettings }) => {
             <Select
               fluid
               onChange={() => { }}
+              value={'decimal'}
               options={[
                 { label: 'Two decimal places', value: 'decimal' },
                 { label: 'Round to nearest dollar', value: 'dollar' },
@@ -52,6 +53,7 @@ const AdminSettings = ({ hideSettings }) => {
             <Select
               fluid
               onChange={() => { }}
+              value={'rotation'}
               options={[
                 { label: 'Rotation', value: 'rotation' },
                 { label: 'Time', value: 'time' },
@@ -67,6 +69,7 @@ const AdminSettings = ({ hideSettings }) => {
             <Select
               fluid
               onChange={() => { }}
+              value={'rotation'}
               options={[
                 { label: 'Rotation', value: 'rotation' },
                 { label: 'Time', value: 'time' },
@@ -85,6 +88,7 @@ const AdminSettings = ({ hideSettings }) => {
             <Select
               fluid
               onChange={() => { }}
+              value={'none'}
               options={[
                 { label: 'None', value: 'none' },
                 { label: 'Catapush', value: 'catapush' },

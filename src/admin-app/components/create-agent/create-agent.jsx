@@ -10,7 +10,7 @@ import Input from 'shared/components/input/input';
 import Select from 'shared/components/select/select';
 import Button from 'shared/components/button/button';
 import CheckBox from 'shared/components/checkbox/checkbox';
-import CreateNewAccounts from 'admin-app/components/create-new-accounts/create-new-accounts';
+import CreateAccounts from 'admin-app/components/create-accounts/create-accounts';
 // Initial Inputs
 import initialInputs from './initial-inputs';
 // Styles
@@ -92,7 +92,7 @@ const CreateAgent = ({ open, onClose }) => {
             <CheckBox checked={newAccounts} onChange={handleCheckbox} label="Create New Accounts" />
           </div>
           {newAccounts &&
-            <CreateNewAccounts />
+            <CreateAccounts />
           }
         </div>
         <div className="create-agent__footer">

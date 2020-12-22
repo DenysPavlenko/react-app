@@ -13,7 +13,7 @@ import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 import Spinner from 'shared/components/spinner/spinner';
 import Accordion from 'shared/components/accordion/accordion';
 import AccordionTab from 'shared/components/accordion-tab/accordion-tab';
-import CreateNewAccounts from 'admin-app/components/create-new-accounts/create-new-accounts';
+import CreateAccounts from 'admin-app/components/create-accounts/create-accounts';
 // Styles
 import './new-accounts.sass';
 
@@ -49,7 +49,7 @@ const NewAccounts = ({ fetchPendingData, newAccounts: { loading, data, error } }
                   <AccordionTab title={id} isActive={false} variant="primary" />
                 </Accordion.Toggle>
                 <Accordion.Content className="new-accounts__item-content">
-                  <CreateNewAccounts prefix={prefix} number={number} />
+                  <CreateAccounts prefix={prefix} number={number} />
                 </Accordion.Content>
               </Accordion>
             ))}

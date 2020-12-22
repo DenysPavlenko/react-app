@@ -11,10 +11,10 @@ import { inputsTop, inputsTotal } from './initial-inputs';
 // Helpers
 import isInputValid from 'shared/utils/is-input-valid';
 // Styles
-import './create-new-accounts.sass';
+import './create-accounts.sass';
 
-const CreateNewAccounts = ({ prefix, number }) => {
-  const createNewAccountsRef = useRef(null);
+const CreateAccounts = ({ prefix, number }) => {
+  const createAccountsRef = useRef(null);
   const [topInputs, setTopInputs] = useState(inputsTop);
   const [totalInputs, setTotalInputs] = useState(inputsTotal);
   const [data, setData] = useState([]);
@@ -52,8 +52,8 @@ const CreateNewAccounts = ({ prefix, number }) => {
   };
 
   const handleSublmit = () => {
-    let x = handleSubmitValidation(createNewAccountsRef, setTopInputs, 'prefix', 'number');
-    let z = handleSubmitValidation(createNewAccountsRef, setTotalInputs, 'accounts', 'password', 'creditLimit', 'wagerLimit', 'deposit');
+    let x = handleSubmitValidation(createAccountsRef, setTopInputs, 'prefix', 'number');
+    let z = handleSubmitValidation(createAccountsRef, setTotalInputs, 'accounts', 'password', 'creditLimit', 'wagerLimit', 'deposit');
     if (!x && !z) {
       setData(createData());
     };
@@ -81,27 +81,27 @@ const CreateNewAccounts = ({ prefix, number }) => {
   ];
 
   return (
-    <div className="create-new-accounts" ref={createNewAccountsRef}>
-      <div className="create-new-accounts__top">
-        <FormGroup className="create-new-accounts__top-item" label="Prefix:">
+    <div className="create-accounts" ref={createAccountsRef}>
+      <div className="create-accounts__top">
+        <FormGroup className="create-accounts__top-item" label="Prefix:">
           <Input value={topInputs.prefix} name="prefix" type="text" invalid={topInputs.prefixInvalid} onChange={handleTopInput} />
         </FormGroup>
-        <FormGroup className="create-new-accounts__top-item" label="Number:">
+        <FormGroup className="create-accounts__top-item" label="Number:">
           <Input value={topInputs.number} name="number" type="number" invalid={topInputs.numberInvalid} onChange={handleTopInput} />
         </FormGroup>
       </div>
-      <div className="create-new-accounts__content">
-        <div className="create-new-accounts__inputs">
+      <div className="create-accounts__content">
+        <div className="create-accounts__inputs">
           {inputs.map(({ value, name, type, placeholder }, idx) => (
-            <div key={idx} className="create-new-accounts__input">
+            <div key={idx} className="create-accounts__input">
               <Input value={value} name={name} type={type} placeholder={placeholder} invalid={totalInputs[`${name}Invalid`]} onChange={handleTotalInput} />
             </div>
           ))}
         </div>
-        <div className="create-new-accounts__table">
+        <div className="create-accounts__table">
           <PrimaryTable cols={tableContent(handleInput)} variant="light" data={data} />
         </div>
-        <div className="create-new-accounts__footer">
+        <div className="create-accounts__footer">
           <Button variant="default" onClick={handleSublmit}>Create</Button>
         </div>
       </div>
@@ -109,4 +109,4 @@ const CreateNewAccounts = ({ prefix, number }) => {
   );
 };
 
-export default CreateNewAccounts;
+export default CreateAccounts;
