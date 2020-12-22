@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Yup from 'yup';
 // Components
-import { Formik } from 'formik';
+import { useFormik } from 'formik';
 import Form from 'shared/components/form/form';
 import FormGroup from 'shared/components/form-group/form-group';
 import Input from 'shared/components/input/input';
@@ -20,49 +20,51 @@ const validationSchema = Yup.object().shape({
 });
 
 const SignIn = ({ onSignIn }) => {
-  const handleFormikSubmit = (values, { setSubmitting, resetForm }) => {
-    setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      resetForm();
-      onSignIn(values);
-    }, 1000);
-  };
+  const formik = useFormik({
+    initialValues: {
+      user: '',
+      password: '',
+    },
+    validationSchema,
+    onSubmit: (values, { setSubmitting, resetForm }) => {
+      setSubmitting(true);
+      setTimeout(() => {
+        setSubmitting(false);
+        resetForm();
+        onSignIn(values);
+      }, 1000);
+    },
+  });
+
+  const { handleSubmit, touched, errors, handleChange, handleBlur, values, isSubmitting } = formik;
 
   return (
     <div className="sign-in">
-      <Formik initialValues={{ user: '', password: '' }} validationSchema={validationSchema} onSubmit={handleFormikSubmit}>
-        {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => {
-          console.log('errors:', errors.user)
-          return (
-            <Form className="sign-in__form" onSubmit={handleSubmit}>
-              <FormGroup errorMsg={touched.user && errors.user}>
-                <Input
-                  type="text"
-                  value={values.user}
-                  name="user"
-                  invalid={touched.user && errors.user}
-                  placeholder="User id"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-              </FormGroup>
-              <FormGroup errorMsg={touched.password && errors.password}>
-                <Input
-                  type="password"
-                  value={values.password}
-                  name="password"
-                  invalid={touched.password && errors.password}
-                  placeholder="Password"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-              </FormGroup>
-              <Button type="submit" fluid variant="accent" disabled={isSubmitting}>Login</Button>
-            </Form>
-          )
-        }}
-      </Formik>
+      <Form className="sign-in__form" onSubmit={handleSubmit}>
+        <FormGroup errorMsg={touched.user && errors.user}>
+          <Input
+            type="text"
+            value={values.user}
+            name="user"
+            placeholder="User id"
+            invalid={touched.user && errors.user}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+        </FormGroup>
+        <FormGroup errorMsg={touched.password && errors.password}>
+          <Input
+            type="password"
+            value={values.password}
+            name="password"
+            placeholder="Password"
+            invalid={touched.password && errors.password}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+        </FormGroup>
+        <Button type="submit" fluid variant="accent" disabled={isSubmitting}>Login</Button>
+      </Form>
       <div className="sign-in__slider">
         <CarouselProvider
           naturalSlideWidth={1065}
