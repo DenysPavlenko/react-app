@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const AccordionToggle = ({ children, toggleAccordion, className }) => {
+const AccordionToggle = ({ children, handleAccordion, className }) => {
 
   const classes = classNames({
     'accordion-toggle': true,
@@ -10,7 +10,7 @@ const AccordionToggle = ({ children, toggleAccordion, className }) => {
   });
 
   return (
-    <div className={classes} onClick={toggleAccordion}>
+    <div className={classes} onClick={handleAccordion}>
       {children}
     </div>
   );
@@ -18,7 +18,7 @@ const AccordionToggle = ({ children, toggleAccordion, className }) => {
 
 AccordionToggle.propTypes = {
   children: PropTypes.node,
-  toggleAccordion: PropTypes.func,
+  handleAccordion: PropTypes.func,
   className: PropTypes.string,
 };
 

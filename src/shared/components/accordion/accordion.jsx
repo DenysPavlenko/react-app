@@ -32,9 +32,13 @@ class Accordion extends Component {
     }
   };
 
-  toggleAccordion = () => {
-    this.setState(({ isExpanded }) => ({ isExpanded: !isExpanded }));
-    this.props.onChange();
+  handleAccordion = () => {
+    const { onChange } = this.props;
+    if (onChange) {
+      onChange();
+    } else {
+      this.setState(({ isExpanded }) => ({ isExpanded: !isExpanded }));
+    }
   };
 
   render() {
@@ -49,7 +53,7 @@ class Accordion extends Component {
     return (
       <div className={classes}>
         {React.Children.map(children, child => (
-          React.cloneElement(child, { toggleAccordion: this.toggleAccordion, isExpanded })
+          React.cloneElement(child, { handleAccordion: this.handleAccordion, isExpanded })
         ))}
       </div>
     );
