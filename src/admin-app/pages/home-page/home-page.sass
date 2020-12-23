@@ -11,8 +11,10 @@
     flex-wrap: wrap
     +row()
   &__widget
-    +col(3)
+    +col()
     margin-bottom: 20px
+    +media-max($bp-xl)
+      +col(4)
     +media-max($bp-lg)
       +col(6)
     +media-max($bp-sm)
