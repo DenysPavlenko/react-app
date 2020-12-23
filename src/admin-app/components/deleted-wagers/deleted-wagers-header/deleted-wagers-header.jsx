@@ -13,13 +13,13 @@ const tabs = [
   { title: 'last week', value: '11/30/2020' },
 ];
 
-const SettleHeader = ({ date, setDate }) => {
+const DeletedWagersHeader = ({ date, setDate }) => {
 
   const handleSelect = ({ target: { value } }) => setDate(value);
 
   return (
     <PageHeader
-      left={<Typography component="h2">Settle</Typography>}
+      left={<Typography component="h2">Deleted Wagers</Typography>}
       right={
         <RowGroup>
           <Select
@@ -52,9 +52,9 @@ const SettleHeader = ({ date, setDate }) => {
   );
 };
 
-SettleHeader.propTypes = {
+DeletedWagersHeader.propTypes = {
   date: PropTypes.string,
   setDate: PropTypes.func,
 };
 
-export default SettleHeader;
+export default DeletedWagersHeader;

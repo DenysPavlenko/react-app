@@ -23,6 +23,7 @@ const items = [
   { title: 'Agents', rootName: '/agents', icon: 'user-friends' },
   { title: 'Cashier', rootName: '/cashier', icon: 'money-bill-wave' },
   { title: 'New Accounts', rootName: '/new-accounts', icon: 'user-plus' },
+  { title: 'Deleted Wagers', rootName: '/deleted-wagers', icon: 'trash' },
 ];
 
 const AdminMenu = ({ isActive, toggleAdminMenu }) => {

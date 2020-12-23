@@ -3,7 +3,7 @@ import React from 'react';
 import Typography from 'shared/components/typography/typography';
 import StatusIcon from 'shared/components/status-icon/status-icon';
 
-const tableConstants = history => {
+const tableContent = history => {
   return [
     {
       title: 'User Id',
@@ -97,4 +97,4 @@ const tableConstants = history => {
   ]
 };
 
-export default tableConstants;
+export default tableContent;

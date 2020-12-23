@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "game": "football",
+    "riskWin": "40/60"
+  },
+  {
+    "id": "2",
+    "game": "baseball",
+    "riskWin": "60/40"
+  },
+  {
+    "id": "3",
+    "game": "basketball",
+    "riskWin": "80/20"
+  },
+  {
+    "id": "4",
+    "game": "tennis",
+    "riskWin": "30/70"
+  }
+]

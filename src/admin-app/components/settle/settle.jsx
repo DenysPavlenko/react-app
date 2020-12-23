@@ -9,7 +9,7 @@ import { selectSettle } from 'admin-app/redux/settle/selectors';
 import SettleHeader from './settle-header/settle-header';
 import PrimaryTable from 'shared/components/primary-table/primary-table';
 // Table content
-import tableConstants from './table-constants';
+import tableContent from './table-content';
 // Styles
 import './settle.sass';
 
@@ -27,7 +27,7 @@ const Settle = ({ fetchSettleData, settle: { loading, data, error } }) => {
       </div>
       <div className="pending__table">
         <PrimaryTable
-          cols={tableConstants()}
+          cols={tableContent()}
           loading={loading}
           data={data}
           error={error}
@@ -42,6 +42,7 @@ const Settle = ({ fetchSettleData, settle: { loading, data, error } }) => {
 
 Settle.propTypes = {
   fetchSettleData: PropTypes.func,
+  settle: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({

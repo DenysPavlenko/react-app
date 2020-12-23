@@ -3,21 +3,21 @@ import CashierService from 'admin-app/services/cashier-service';
 
 const cashierService = new CashierService();
 
-const settleRequested = () => ({
+const cashierRequested = () => ({
   type: CashierActionTypes.FETCH_CASHIER_REQUEST
 });
-const settleLoaded = data => ({
+const cashierLoaded = data => ({
   type: CashierActionTypes.FETCH_CASHIER_SUCCESS,
   payload: data
 });
-const sellteError = error => ({
+const cashierError = error => ({
   type: CashierActionTypes.FETCH_CASHIER_FAILURE,
   payload: error
 });
 
 export const fetchCashierData = () => dispatch => {
-  dispatch(settleRequested());
+  dispatch(cashierRequested());
   cashierService.getCashier()
-    .then(data => dispatch(settleLoaded(data)))
-    .catch(error => dispatch(sellteError(error)))
+    .then(data => dispatch(cashierLoaded(data)))
+    .catch(error => dispatch(cashierError(error)))
 };

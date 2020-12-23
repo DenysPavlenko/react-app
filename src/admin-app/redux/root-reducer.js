@@ -32,6 +32,7 @@ import agentsReducer from './agents/reducer';
 import newAccountsReducer from './new-accounts/reducer';
 import cashierReducer from './cashier/reducer';
 import activePlayersReducer from './active-players/reducer';
+import deletedWagersReducer from './deleted-wagers/reducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -65,6 +66,7 @@ const rootReducer = combineReducers({
   newAccounts: newAccountsReducer,
   cashier: cashierReducer,
   activePlayers: activePlayersReducer,
+  deletedWagers: deletedWagersReducer,
 });
 
 export default rootReducer;
