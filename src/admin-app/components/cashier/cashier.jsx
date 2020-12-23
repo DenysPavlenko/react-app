@@ -1,4 +1,4 @@
-import React, { Fragment, useLayoutEffect, useState } from 'react';
+import React, { Fragment, useEffect, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
@@ -20,12 +20,31 @@ import './cashier.sass';
 const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
   const [expanded, setExpanded] = useState(0);
   const [status, setStatus] = useState('active');
+  const [inputs, setInputs] = useState(null);
 
   const handleChange = idx => setExpanded(idx);
+
+  const handleInput = (id, { target: { name, value } }) => {
+    setInputs(inputs => {
+      const newObj = { ...inputs[id], [name]: value };
+      return { ...inputs, [id]: newObj };
+    });
+  };
 
   useLayoutEffect(() => {
     fetchCashierData(status);
   }, [fetchCashierData, status]);
+
+  useEffect(() => {
+    if (!data) { return; }
+    const res = {};
+    data.forEach(({ accounts }) => {
+      accounts.forEach(({ id, transType, description, notes }) => {
+        res[id] = { transType, description, notes };
+      });
+    });
+    setInputs(res);
+  }, [data]);
 
   return (
     <div className="cashier">
@@ -37,7 +56,7 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
         {(!error && loading) && <Spinner boxed light />}
         {(!error && !loading) &&
           <Fragment>
-            {data.map(({ id, name, accounts }, idx) => (
+            {inputs && data.map(({ id, name, accounts }, idx) => (
               <Accordion key={id} className="new-accounts__item" expanded={expanded === idx} onChange={() => handleChange(idx)}>
                 <Accordion.Toggle>
                   <AccordionTab title={name} isActive={false} variant="primary" />
@@ -47,7 +66,7 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
                     size="sm"
                     variant="primary"
                     key={id}
-                    cols={tableContent()}
+                    cols={tableContent(inputs, handleInput)}
                     data={accounts}
                   />
                 </Accordion.Content>

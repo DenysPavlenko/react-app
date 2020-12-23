@@ -6,7 +6,7 @@ import Select from 'shared/components/select/select';
 import Close from 'shared/components/close/close';
 import Button from 'shared/components/button/button';
 
-const tableContent = () => {
+const tableContent = (inputs, handleInput) => {
   const colWidth = 100 / 11 + '%';
 
   return [
@@ -43,11 +43,12 @@ const tableContent = () => {
     {
       style: { width: colWidth },
       title: 'trans type',
-      render: ({ transType }) =>
+      render: ({ id }) =>
         <Select
-          value={transType}
-          onChange={() => { }}
+          value={inputs[id].transType}
+          onChange={(e) => { handleInput(id, e) }}
           variant="primary"
+          name="transType"
           size="sm"
           options={[
             { label: 'Deposit', value: 'deposit' },
@@ -58,7 +59,7 @@ const tableContent = () => {
     {
       style: { width: colWidth },
       title: 'description',
-      render: ({ description }) => <Input value={description} onChange={() => { }} variant="primary" size="sm" width="auto" />
+      render: ({ id }) => <Input value={inputs[id].description} name="description" onChange={(e) => handleInput(id, e)} variant="primary" size="sm" width="auto" />
     },
     {
       style: { width: colWidth },
@@ -68,7 +69,7 @@ const tableContent = () => {
     {
       style: { width: colWidth },
       title: 'notes',
-      render: ({ notes }) => <Input value={notes} onChange={() => { }} variant="primary" size="sm" width="auto" />
+      render: ({ id }) => <Input value={inputs[id].notes} name="notes" onChange={(e) => handleInput(id, e)} variant="primary" size="sm" width="auto" />
     },
     {
       style: { width: colWidth },
