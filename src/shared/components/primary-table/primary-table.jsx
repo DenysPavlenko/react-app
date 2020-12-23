@@ -67,7 +67,7 @@ const TableContent = ({ cols, lastRow, firstRow, data, loading, error, retry }) 
               return (
                 <tr key={idx} className="primary-table__row">
                   {cols.map((col, key) => (
-                    <td key={key}>{col.render(item)}</td>
+                    <td key={key}>{col.render(item, idx)}</td>
                   ))}
                 </tr>
               )
