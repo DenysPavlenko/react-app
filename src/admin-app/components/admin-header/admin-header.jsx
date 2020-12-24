@@ -12,7 +12,7 @@ import Header from 'shared/components/header/header';
 import HeaderMenu from 'shared/components/header-menu/header-menu';
 import Balance from 'admin-app/components/balance/balance';
 import Search from 'shared/components/search/search';
-import Select from 'shared/components/select/select';
+import SelectAgent from 'admin-app/components/select-agent/select-agent';
 import HeaderDropdown from 'shared/components/header-dropdown/header-dropdown';
 import HeaderDropdownMenu from 'shared/components/header-dropdown-menu/header-dropdown-menu';
 // Assets
@@ -70,16 +70,7 @@ const Widgets = () => {
         <Search onSubmit={() => { }} />
       </div>
       <div className="header-widgets__widget">
-        <Select
-          onChange={() => { }}
-          value="ztma"
-          name="test"
-          options={[
-            { label: 'ztma', value: 'ztma' },
-            { label: 'ztma1', value: 'ztma1' },
-            { label: 'ztma2', value: 'ztma2' },
-          ]}
-        />
+        <SelectAgent />
       </div>
       <div className="header-widgets__widget">
         <Balance />

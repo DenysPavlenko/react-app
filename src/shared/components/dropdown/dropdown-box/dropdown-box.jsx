@@ -15,16 +15,22 @@ const DropdownBox = ({ children, className, isActive, onClick }) => {
 
   return (
     <CSSTransition nodeRef={boxRef} in={isActive} timeout={300} unmountOnExit classNames="dropdown-box-animation">
-      <div ref={boxRef} className={classnames} onClick={onClick}>
+      <div ref={boxRef} className={classnames} onClick={e => { e.stopPropagation(); onClick() }}>
         {children}
       </div>
-    </CSSTransition>
+    </CSSTransition >
   );
+};
+
+
+DropdownBox.defaultProps = {
+  onClick: () => { },
 };
 
 DropdownBox.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  onClick: PropTypes.func,
   isActive: PropTypes.bool,
 };
 

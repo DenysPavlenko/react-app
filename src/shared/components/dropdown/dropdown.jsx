@@ -27,10 +27,10 @@ class Dropdown extends Component {
     document.removeEventListener('click', this.clickOutside);
   };
 
-  clickOutside = e => {
+  clickOutside = ({ target }) => {
     const { isActive, onClickOutside } = this.props;
     if (isActive) {
-      if (!this.dropdownRef.current || this.dropdownRef.current.contains(e.target)) {
+      if (!this.dropdownRef.current || this.dropdownRef.current.contains(target)) {
         return;
       }
       onClickOutside();

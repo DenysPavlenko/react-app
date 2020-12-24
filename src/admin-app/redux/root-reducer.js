@@ -34,6 +34,7 @@ import cashierReducer from './cashier/reducer';
 import activePlayersReducer from './active-players/reducer';
 import deletedWagersReducer from './deleted-wagers/reducer';
 import accountsClosedReducer from './accounts-closed/reducer';
+import agentsListReducer from './agents-list/reducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -69,6 +70,7 @@ const rootReducer = combineReducers({
   activePlayers: activePlayersReducer,
   deletedWagers: deletedWagersReducer,
   accountsClosed: accountsClosedReducer,
+  agentsList: agentsListReducer,
 });
 
 export default rootReducer;
