@@ -72,7 +72,7 @@ const ClientControlFreePlay = ({ fetchClientFreePlayData, clientFreePlay: { load
         </FormGroup>
       </Form>
       <div className="client-control-free-play__right">
-        <PrimaryTable cols={tableContent()} loading={loading} data={data} error={error} retry={() => fetchClientFreePlayData(clientId)} variant="primary" size="sm" />
+        <PrimaryTable cols={tableContent()} loading={loading} data={data} error={error} retry={() => fetchClientFreePlayData(clientId)} variant="primary" />
       </div>
     </div>
   );

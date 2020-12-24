@@ -6,7 +6,6 @@ import { createStructuredSelector } from 'reselect';
 import { selectHorsesPreviewSelect } from 'player-app/redux/horses-preview-select/selectors';
 // Components
 import HorsesSelect from 'player-app/components/horses-select/horses-select';
-import HorsesHeader from 'player-app/components/horses-header/horses-header';
 import HorseBettings from 'player-app/components/horses-bettings/horses-bettings';
 import HorsesBetSlip from 'player-app/components/horses-bet-slip/horses-bet-slip';
 import HandleMobile from 'shared/components/handle-mobile/handle-mobile';
@@ -23,7 +22,6 @@ const HorsesPreview = ({ isHorsesSelectShown }) => {
           </HandleMobile>
         </div>
         <div className="horses-preview__center">
-          <HorsesHeader />
           <HorseBettings />
         </div>
         <div className="horses-preview__right">

@@ -75,7 +75,7 @@ const ClientControlTransactions = ({ fetchClientTransactionsData, clientTransact
         </FormGroup>
       </Form>
       <div className="client-control-transactions__right">
-        <PrimaryTable cols={tableContent()} loading={loading} data={data} error={error} retry={() => fetchClientTransactionsData(clientId)} variant="primary" size="sm" />
+        <PrimaryTable cols={tableContent()} loading={loading} data={data} error={error} retry={() => fetchClientTransactionsData(clientId)} variant="primary" />
       </div>
     </div>
   );

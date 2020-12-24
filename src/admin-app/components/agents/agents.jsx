@@ -48,7 +48,6 @@ const Agents = ({ fetchAgentsData, agents: { loading, data, error }, history }) 
             data={filteredData()}
             error={error}
             retry={fetchAgentsData}
-            size="sm"
             variant="primary"
           />
         </div>

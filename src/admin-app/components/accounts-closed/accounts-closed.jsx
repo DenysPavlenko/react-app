@@ -34,7 +34,6 @@ const AccountsClosed = ({ toggleAccountsClosed, fetchAccountsClosedData, Account
           loading={loading}
           retry={fetchAccountsClosedData}
           data={data}
-          size="sm"
           error={error}
         />
         {data &&

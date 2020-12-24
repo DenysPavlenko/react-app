@@ -67,7 +67,7 @@ const Widgets = () => {
   return (
     <div className="header-widgets">
       <div className="header-widgets__widget">
-        <Search onChange={() => { }} />
+        <Search onSubmit={() => { }} />
       </div>
       <div className="header-widgets__widget">
         <Select

@@ -25,6 +25,7 @@ import weeklyFiguresReducer from './weekly-figures/reducer';
 import pendingWagersReducer from './pending-wagers/reducer';
 import transactionsReducer from './transactions/reducer';
 import sportsPageWagersReducer from './sports-page-wagers/reducer';
+import horsesBettingsReducer from './horses-bettings/reducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -51,6 +52,7 @@ const rootReducer = combineReducers({
   pendingWagers: pendingWagersReducer,
   transactions: transactionsReducer,
   sportsPageWagers: sportsPageWagersReducer,
+  horsesBettings: horsesBettingsReducer,
 });
 
 export default rootReducer;

@@ -1,7 +1,6 @@
 import React from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
-import StatusIcon from 'shared/components/status-icon/status-icon';
 
 const tableContent = () => {
   return [

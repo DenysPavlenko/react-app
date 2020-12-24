@@ -34,7 +34,6 @@ const ActivePlayers = ({ toggleActivePlayers, fetchActivePlayersData, activePlay
           loading={loading}
           retry={fetchActivePlayersData}
           data={data}
-          size="sm"
           error={error}
         />
         {data &&

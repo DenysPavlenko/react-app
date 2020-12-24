@@ -50,7 +50,6 @@ const Pending = ({ fetchPendingData, pending: { loading, data, error } }) => {
           error={error}
           retry={() => fetchPendingData(currentFilter)}
           variant="primary"
-          size="sm"
         />
       </div>
       <div className="pending__footer">

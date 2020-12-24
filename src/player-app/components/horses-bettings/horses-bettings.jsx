@@ -1,37 +1,36 @@
-import React, { useState } from 'react';
+import React, { Fragment, useLayoutEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect'
 // Redux
+import { fetchHorsesBettingsData } from 'player-app/redux/horses-bettings/actions';
+import { selectHorsesBettings } from 'player-app/redux/horses-bettings/selectors';
 import { addHorsesBet } from 'player-app/redux/horses-bets/actions'
-// data
-import descriptions from './betting-descriptions';
-import bettings from './bettings';
-import limits from './betting-limits';
 // Components
-import HorsesTable from 'player-app/components/horses-table/horses-table';
-import HorsesBetAmount from 'player-app/components/horses-bet-amount/horses-bet-amount';
+import HorsesBettingsHeader from 'player-app/components/horses-bettings-header/horses-bettings-header';
 import HorsesBetLimits from 'player-app/components/horses-bet-limits/horses-bet-limits';
-import Typography from 'shared/components/typography/typography';
+import HorsesBettingsFilters from 'player-app/components/horses-bettings-filters/horses-bettings-filters';
+import HorsesBettingsTable from 'player-app/components/horses-bettings-table/horses-bettings-table';
+import Spinner from 'shared/components/spinner/spinner';
+import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 import Button from 'shared/components/button/button';
-import ButtonGroup from 'shared/components/button-group/button-group';
+// data
+import limits from './limits';
 // Styles
 import './horses-bettings.sass';
 
 const horsesBet = { id: '1', amount: '1.00', bets: '2', details: '1st[1, 2] - 2nd[1, 2]', info: 'Charles Town, Nov 25, Race #1', total: '2', type: 'exacta' };
 
-const HorseBettings = ({ addHorsesBet }) => {
-  const [currentFilter, setCurrentFilter] = useState('straight');
+const HorseBettings = ({ fetchHorsesBettingsData, horsesBettings: { loading, data, error }, addHorsesBet }) => {
+  const [currentFilter, setCurrentFilter] = useState('superfecta');
   const [amountOption, setAmountOption] = useState('keyBox');
+  const [betAmount, setBetAmount] = useState('1.00');
 
-  const horseFilters = descriptions.map(({ id, title }) => ({ id, title }));
+  useLayoutEffect(() => {
+    fetchHorsesBettingsData();
+  }, [fetchHorsesBettingsData]);
 
-  const handleFilter = (filter) => {
-    setCurrentFilter(filter);
-    setAmountOption('keyBox');
-  };
-
-  const handleAmountOption = value => setAmountOption(value);
-
-  const handleButtonsShow = () => (currentFilter === 'exacta' || currentFilter === 'trifecta' || currentFilter === 'superfecta');
+  const handleFilter = (filter) => setCurrentFilter(filter);
 
   const checkboxColumns = () => {
     if (amountOption === 'box') return 1;
@@ -43,51 +42,60 @@ const HorseBettings = ({ addHorsesBet }) => {
 
   return (
     <div className="horses-bettings">
-      <div className="horses-bettings__wrap">
-        <ButtonGroup>
-          {horseFilters.map(({ id, title }) => (
-            <Button key={id} isActive={id === currentFilter} onClick={() => handleFilter(id)} variant="alt-gray" size="sm">
-              {title}
-            </Button>
-          ))}
-        </ButtonGroup>
-        <div className="horses-bettings__description">
-          {descriptions
-            .filter(({ id }) => id === currentFilter)
-            .map(({ id, text }) => (
-              <Typography key={id} component="p">{text}</Typography>
-            ))}
-        </div>
-        {currentFilter !== 'straight' &&
-          <HorsesBetAmount
-            amountOption={amountOption}
-            options={[
-              { title: 'Box', option: 'box' },
-              { title: 'Box with key', option: 'keyBox' },
-            ]}
-            handleAmountOption={handleAmountOption}
-            showButtons={handleButtonsShow()}
-          />}
+      <div className="horses-bettings__header">
+        <HorsesBettingsHeader />
       </div>
-      <div className="horses-bettings__table">
-        <HorsesTable withCheckbox={currentFilter !== 'straight'} data={bettings} checkboxColumns={checkboxColumns()} />
-      </div>
-      <div className="horses-bettings__add-bet">
-        <Button variant="accent" onClick={() => addHorsesBet({ ...horsesBet, id: Math.random() * 10 })}>Add bet slip</Button>
-      </div>
-      <div className="horses-bettings__limits">
-        {limits
-          .filter(({ id }) => id === currentFilter)
-          .map(({ id, title, min, max }) => (
-            <HorsesBetLimits showDetails={id === 'straight'} key={id} title={title} min={min} max={max} />
-          ))}
+      <div className="horses-bettings__content">
+        {error && <ErrorIndicator retry={fetchHorsesBettingsData} light />}
+        {(!error && loading) && <Spinner boxed light />}
+        {(!error && !loading) &&
+          <Fragment>
+            <div className="horses-bettings__filters">
+              <HorsesBettingsFilters
+                currentFilter={currentFilter}
+                setFilter={handleFilter}
+                amountOption={amountOption}
+                setAmountOption={setAmountOption}
+                betAmount={betAmount}
+                setBetAmount={setBetAmount}
+              />
+            </div>
+            <div className="horses-bettings__table">
+              <HorsesBettingsTable
+                data={data}
+                withCheckbox={currentFilter !== 'straight'}
+                checkboxColumns={checkboxColumns()}
+              />
+            </div>
+            <div className="horses-bettings__add-bet">
+              <Button variant="accent" onClick={() => addHorsesBet({ ...horsesBet, id: Math.random() * 10 })}>Add bet slip</Button>
+            </div>
+            <div className="horses-bettings__limits">
+              {limits
+                .filter(({ id }) => id === currentFilter)
+                .map(({ id, title, min, max }) => (
+                  <HorsesBetLimits showDetails={id === 'straight'} key={id} title={title} min={min} max={max} />
+                ))}
+            </div>
+          </Fragment>
+        }
       </div>
     </div>
-  );
+  )
 };
 
+HorseBettings.propTypes = {
+  horsesBettings: PropTypes.object,
+  fetchHorsesBettingsData: PropTypes.func,
+};
+
+const mapStateToProps = createStructuredSelector({
+  horsesBettings: selectHorsesBettings,
+});
+
 const mapDispatchToProps = dispatch => ({
+  fetchHorsesBettingsData: () => dispatch(fetchHorsesBettingsData()),
   addHorsesBet: (bet) => dispatch(addHorsesBet(bet))
 });
 
-export default connect(null, mapDispatchToProps)(HorseBettings);
+export default connect(mapStateToProps, mapDispatchToProps)(HorseBettings);
