@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "clientCode": "zt3",
+    "name": "John",
+    "callCenter": true,
+    "internet": true,
+    "liveSports": true,
+    "casino": true,
+    "liveCasino": false
+  },
+  {
+    "id": "2",
+    "clientCode": "zt4",
+    "name": "Sara",
+    "callCenter": true,
+    "internet": true,
+    "liveSports": false,
+    "casino": true,
+    "liveCasino": true
+  },
+  {
+    "id": "3",
+    "clientCode": "zt4",
+    "name": "Bill",
+    "callCenter": true,
+    "internet": false,
+    "liveSports": true,
+    "casino": true,
+    "liveCasino": true
+  }
+]
