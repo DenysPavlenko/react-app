@@ -19,8 +19,8 @@ import './active-players.sass';
 const ActivePlayers = ({ toggleActivePlayers, fetchActivePlayersData, activePlayers: { loading, data, error }, showActivePlayers }) => {
 
   useLayoutEffect(() => {
-    fetchActivePlayersData();
-  }, [fetchActivePlayersData]);
+    showActivePlayers && fetchActivePlayersData();
+  }, [fetchActivePlayersData, showActivePlayers]);
 
   return (
     <Modal open={showActivePlayers} className="active-players" onClose={toggleActivePlayers} noClose size="lg">

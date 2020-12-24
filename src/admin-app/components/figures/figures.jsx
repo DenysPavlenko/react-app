@@ -11,6 +11,9 @@ import FiguresHeader from "./figures-header/figures-header";
 import PrimaryTable from 'shared/components/primary-table/primary-table';
 import Pagination from 'shared/components/pagination/pagination';
 import TableFilter from 'admin-app/components/table-filter/table-filter';
+import Typography from 'shared/components/typography/typography';
+import Spinner from 'shared/components/spinner/spinner';
+import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 // Table content
 import tableContent from './table-content';
 import tableLastRow from './table-last-row';
@@ -40,8 +43,7 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
 
   return (
     <Fragment>
-      <TableFilter
-        title="Columns: Turn on/off"
+      <TableFilter title="Columns: Turn on/off"
         filters={filters}
         isShown={isFilterShown}
         handleHide={() => setIsFilterShown(false)}
@@ -49,18 +51,36 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
       />
       <div className="figures">
         <div className="figures__header">
-          <FiguresHeader pages={10} page={page} setPage={setPage} date={date} setDate={setDate} status={status} setStatus={setStatus} showFilters={() => setIsFilterShown(true)} />
-        </div>
-        <div className="figures__table">
-          <PrimaryTable
-            cols={tableContent(history)}
-            lastRow={tableLastRow(data)}
-            loading={loading}
-            data={data}
-            error={error}
-            retry={() => fetchFiguresData(date, status)}
-            variant="primary"
+          <FiguresHeader
+            pages={10}
+            page={page}
+            setPage={setPage}
+            date={date}
+            setDate={setDate}
+            status={status}
+            setStatus={setStatus}
+            showFilters={() => setIsFilterShown(true)}
           />
+        </div>
+        <div className="figures__tables">
+          {error && <ErrorIndicator light retry={() => fetchFiguresData(date, status)} />}
+          {(!error && loading) && <Spinner boxed light />}
+          {(!error && !loading) &&
+            <Fragment>
+              {data.map(({ id, agent, customers, accounts }) => (
+                <div key={id} className="figures__table">
+                  <Typography component="h3" className="figures__table-title">{agent}</Typography>
+                  <PrimaryTable
+                    cols={tableContent(history)}
+                    lastRow={tableLastRow(data, customers)}
+                    data={accounts}
+                    retry={() => fetchFiguresData(date, status)}
+                    variant="primary"
+                  />
+                </div>
+              ))}
+            </Fragment>
+          }
         </div>
         <div className="figures__footer">
           <Pagination pages={10} page={page} onChange={setPage} />

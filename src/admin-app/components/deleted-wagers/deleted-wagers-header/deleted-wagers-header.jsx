@@ -21,7 +21,7 @@ const DeletedWagersHeader = ({ date, setDate }) => {
     <PageHeader
       left={<Typography component="h2">Deleted Wagers</Typography>}
       right={
-        <RowGroup>
+        <RowGroup center>
           <Select
             onChange={handleSelect}
             value={date}

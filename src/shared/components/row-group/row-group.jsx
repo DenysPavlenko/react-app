@@ -4,10 +4,11 @@ import classNames from 'classnames';
 // Styles
 import './row-group.sass';
 
-const RowGroup = ({ children, nowrap, size }) => {
+const RowGroup = ({ children, nowrap, center, size }) => {
   const classes = classNames({
     'row-group': true,
     'row-group--nowrap': nowrap,
+    'row-group--center': center,
     [`row-group--${size}`]: size
   });
 
@@ -21,6 +22,7 @@ const RowGroup = ({ children, nowrap, size }) => {
 RowGroup.propTypes = {
   children: PropTypes.node,
   nowrap: PropTypes.bool,
+  center: PropTypes.bool,
   size: PropTypes.string,
 };
 

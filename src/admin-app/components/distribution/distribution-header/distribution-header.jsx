@@ -31,7 +31,7 @@ const DistributionHeader = ({ date, setDate, pages, page, setPage, breakpoints, 
     <PageHeader
       left={<Typography component="h2">Distribution</Typography>}
       right={
-        <RowGroup>
+        <RowGroup center>
           <Button variant="default" iconStart={<FontAwesomeIcon icon="cog" style={{ 'fontSize': '14px' }} />}>Settings</Button>
           <Select
             onChange={({ target: { value } }) => setDate(value)}

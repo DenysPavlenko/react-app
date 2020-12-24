@@ -21,7 +21,7 @@ const PendingHeader = ({ currentFilter, setCurrentFilter, handleSearch }) => {
     <PageHeader
       left={<Typography component="h2">Pending</Typography>}
       right={
-        <RowGroup>
+        <RowGroup center>
           <Search style={{ width: 'auto' }} onChange={handleSearch} />
           <ButtonGroup responsive>
             {tabs.map(({ title, value }, idx) => (

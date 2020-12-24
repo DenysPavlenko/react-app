@@ -21,7 +21,7 @@ const SettleHeader = ({ date, setDate }) => {
     <PageHeader
       left={<Typography component="h2">Settle</Typography>}
       right={
-        <RowGroup>
+        <RowGroup center>
           <Select
             onChange={handleSelect}
             value={date}

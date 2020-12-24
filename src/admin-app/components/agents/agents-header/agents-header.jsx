@@ -13,7 +13,7 @@ const AgentsHeader = ({ handleSearch, handleModalOpen }) => {
     <PageHeader
       left={<Typography component="h2">Agents</Typography>}
       right={
-        <RowGroup>
+        <RowGroup center>
           <Search style={{ width: 'auto' }} onChange={handleSearch} />
           <Button
             variant="default"

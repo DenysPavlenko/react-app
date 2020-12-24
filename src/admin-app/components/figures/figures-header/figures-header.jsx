@@ -31,7 +31,7 @@ const FiguresHeader = ({ date, setDate, pages, page, setPage, status, setStatus,
     <PageHeader
       left={<Typography component="h2">Figures</Typography>}
       right={
-        <RowGroup>
+        <RowGroup center>
           <FiguresActions status={status} setStatus={setStatus} showFilters={showFilters} />
           <Select
             onChange={({ target: { value } }) => setDate(value)}

@@ -5,7 +5,19 @@
   &__header
     margin-bottom: 4px
   &__table
-    margin-bottom: 20px
+    &-title
+      width: 100%
+      background-color: $c-primary-light
+      padding: 8px 10px
+    .primary-table
+      border-radius: 0
+    &:first-child
+      .figures__table-title
+        border-radius: $r-primary $r-primary 0 0
+    &:last-child
+      .primary-table
+        border-radius: 0 0  $r-primary  $r-primary
   &__footer
+    margin-top: 20px
     display: flex
     justify-content: flex-end

@@ -11,7 +11,7 @@ const CashierHeader = ({ status, setStatus, showFilters }) => {
     <PageHeader
       left={<Typography component="h2">Cashier</Typography>}
       right={
-        <RowGroup>
+        <RowGroup center>
           <Button variant="default">Submit</Button>
           <Button variant="danger">Reset</Button>
           <CashierActions status={status} setStatus={setStatus} showFilters={showFilters} />

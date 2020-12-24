@@ -19,8 +19,8 @@ import './accounts-closed.sass';
 const AccountsClosed = ({ toggleAccountsClosed, fetchAccountsClosedData, AccountsClosed: { loading, data, error }, showAccountsClosed }) => {
 
   useLayoutEffect(() => {
-    fetchAccountsClosedData();
-  }, [fetchAccountsClosedData]);
+    showAccountsClosed && fetchAccountsClosedData();
+  }, [fetchAccountsClosedData, showAccountsClosed]);
 
   return (
     <Modal open={showAccountsClosed} className="accounts-closed" onClose={toggleAccountsClosed} noClose size="lg">

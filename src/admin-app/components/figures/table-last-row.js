@@ -1,13 +1,19 @@
 import React from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
+import RowGroup from 'shared/components/row-group/row-group';
+import Button from 'shared/components/button/button';
 // Utils
 import getTableTotal from 'shared/utils/get-table-total';
 import setDangerClass from 'shared/utils/set-danger-class';
 
-const tableFooter = data => {
+const tableFooter = (data, customers) => {
   return [
-    <Typography component="h4" className="text-bold">Total:</Typography>,
+    <RowGroup>
+      <Typography component="h4" className="text-bold">Total:</Typography>
+      <Button variant="accent-blue" size="xs" disabled={parseInt(customers) === 0}>{customers}</Button>
+    </RowGroup>
+    ,
     '',
     '',
     renderItem(data, 'credit'),

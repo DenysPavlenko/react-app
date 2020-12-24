@@ -25,7 +25,7 @@ const CustomerListHeader = ({ handleSettingsClick, handleSearch, pages, page, se
     <PageHeader
       left={<Typography component="h2">Customer list</Typography>}
       right={
-        <RowGroup>
+        <RowGroup center>
           <Search style={{ width: 'auto' }} onChange={handleSearch} />
           <Button
             onClick={handleSettingsClick}
