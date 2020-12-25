@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { Fragment, useEffect, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
@@ -9,7 +9,8 @@ import { selectPositionGames } from 'admin-app/redux/position-games/selectors';
 import Typography from 'shared/components/typography/typography';
 import ButtonGroup from 'shared/components/button-group/button-group';
 import Button from 'shared/components/button/button';
-import PrimaryTable from 'shared/components/primary-table/primary-table';
+import PositionTable from 'admin-app/components/position-table/position-table';
+import PendingBets from 'admin-app/components/pending-bets/pending-bets';
 // Table content
 import tableContent from './table-content';
 // Styles
@@ -28,6 +29,8 @@ const games = [
 const PositionGames = ({ fetchPositionGamesData, positionGames: { loading, data, error } }) => {
   const [activeGame, setActiveGame] = useState('football');
   const [activeSubFilter, setActiveSubFilter] = useState(games[0].subFilters[0]);
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedAgent, setSelectedAgent] = useState('');
 
   const activeSubfilters = games.filter(({ name }) => name === activeGame)[0].subFilters;
 
@@ -40,41 +43,55 @@ const PositionGames = ({ fetchPositionGamesData, positionGames: { loading, data,
     setActiveSubFilter(games[idx].subFilters[0]);
   }, [activeGame]);
 
+  const handleAgentSelect = agent => {
+    setOpenModal(true);
+    setSelectedAgent(agent);
+  };
+
   return (
-    <div className="position-games">
-      <div className="position-games__filters">
-        <div className="position-games__filter">
-          <div className="position-games__filter-title">
-            <Typography component="h3">Available Sports:</Typography>
+    <Fragment>
+      <PendingBets
+        open={openModal}
+        agent={selectedAgent}
+        onClose={() => setOpenModal(false)}
+        onExited={() => setSelectedAgent('')}
+      />
+      <div className="position-games">
+        <div className="position-games__filters">
+          <div className="position-games__filter">
+            <div className="position-games__filter-title">
+              <Typography component="h3">Available Sports:</Typography>
+            </div>
+            <ButtonGroup separated nowrap>
+              {games.map(({ name }, idx) => (
+                <Button key={idx} variant="default" size="sm" isActive={activeGame === name} onClick={() => setActiveGame(name)}>{name}</Button>
+              ))}
+            </ButtonGroup>
           </div>
-          <ButtonGroup separated nowrap>
-            {games.map(({ name }, idx) => (
-              <Button key={idx} variant="default" size="sm" isActive={activeGame === name} onClick={() => setActiveGame(name)}>{name}</Button>
-            ))}
-          </ButtonGroup>
+          <div className="position-games__filter">
+            <div className="position-games__filter-title">
+              <Typography component="h3">Available Filters:</Typography>
+            </div>
+            <ButtonGroup separated nowrap>
+              {activeSubfilters.map((name, idx) => (
+                <Button key={idx} variant="default" size="sm" isActive={activeSubFilter === name} onClick={() => setActiveSubFilter(name)}>{name}</Button>
+              ))}
+            </ButtonGroup>
+          </div>
         </div>
-        <div className="position-games__filter">
-          <div className="position-games__filter-title">
-            <Typography component="h3">Available Filters:</Typography>
+        <div className="position-games__table">
+          <div className="position-today">
+            <PositionTable
+              cols={tableContent(handleAgentSelect)}
+              loading={loading}
+              data={data}
+              error={error}
+              retry={() => fetchPositionGamesData(activeGame, activeSubFilter)}
+            />
           </div>
-          <ButtonGroup separated nowrap>
-            {activeSubfilters.map((name, idx) => (
-              <Button key={idx} variant="default" size="sm" isActive={activeSubFilter === name} onClick={() => setActiveSubFilter(name)}>{name}</Button>
-            ))}
-          </ButtonGroup>
         </div>
       </div>
-      <div className="position-games__table">
-        <PrimaryTable
-          cols={tableContent()}
-          loading={loading}
-          data={data}
-          error={error}
-          retry={fetchPositionGamesData}
-          variant="primary"
-        />
-      </div>
-    </div>
+    </Fragment>
   );
 };
 

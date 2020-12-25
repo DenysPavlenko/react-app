@@ -32,6 +32,8 @@ const subHeaderItems = [
 ];
 
 const PositionTable = ({ loading, data, error, cols, retry }) => {
+  const totalCols = cols.length;
+
   return (
     <div className="position-table">
       <Table className="position-table__table">
@@ -42,15 +44,15 @@ const PositionTable = ({ loading, data, error, cols, retry }) => {
             ))}
           </tr>
         </thead>
-        {error && <tbody><tr><td colSpan="19"><ErrorIndicator retry={retry} light /></td></tr></tbody>}
-        {(!error && loading) && <tbody><tr><td colSpan="19"><Spinner boxed light /></td></tr></tbody>}
-        {(!error && !loading) &&
+        {error && <tbody><tr><td colSpan={totalCols}> <ErrorIndicator retry={retry} light /></td></tr></tbody>}
+        {(!error && loading) && <tbody><tr><td colSpan={totalCols}> <Spinner boxed light /></td></tr></tbody>}
+        {(!error && !loading && data) &&
           <Fragment>
             {data.map(({ id, event, games }) => (
               <Fragment key={id}>
                 <thead className="position-table__title">
                   <tr>
-                    <th colSpan="19"><Typography component="h5">{event}</Typography></th>
+                    <th colSpan={totalCols}> <Typography component="h5">{event}</Typography></th>
                   </tr>
                 </thead>
                 <thead className="position-table__target">
@@ -73,6 +75,13 @@ const PositionTable = ({ loading, data, error, cols, retry }) => {
             ))}
           </Fragment>
         }
+        {(!error && !loading && (!data || data.length === 0)) &&
+          <tr className="position-table__empty">
+            <td colSpan={totalCols}>
+              <Typography component="h3" className="text-center">There is no data</Typography>
+            </td>
+          </tr>
+        }
       </Table>
     </div>
   );
@@ -80,7 +89,7 @@ const PositionTable = ({ loading, data, error, cols, retry }) => {
 
 PositionTable.propTypes = {
   loading: PropTypes.bool,
-  data: PropTypes.object,
+  data: PropTypes.array,
   error: PropTypes.bool,
   cols: PropTypes.array,
   retry: PropTypes.func,
