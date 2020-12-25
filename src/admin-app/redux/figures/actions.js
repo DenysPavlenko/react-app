@@ -1,5 +1,6 @@
 import FiguresActionTypes from './types';
 import FiguresService from 'admin-app/services/figures-service';
+
 const figuresService = new FiguresService();
 
 const figuresRequested = () => ({

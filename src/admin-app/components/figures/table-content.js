@@ -22,7 +22,7 @@ const tableContent = history => {
     },
     {
       title: 'Credit',
-      render: data => <Typography component="p">{data.creditLimit}</Typography>
+      render: data => <Typography component="p">{data.credit}</Typography>
     },
     {
       title: 'Carry',

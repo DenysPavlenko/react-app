@@ -7,7 +7,7 @@ import Button from 'shared/components/button/button';
 import getTableTotal from 'shared/utils/get-table-total';
 import setDangerClass from 'shared/utils/set-danger-class';
 
-const tableFooter = (data, agent, customers, handleAgentSelect) => {
+const tableFooter = (accounts, agent, customers, handleAgentSelect) => {
   return [
     <RowGroup>
       <Typography component="h4" className="text-bold">Total:</Typography>
@@ -23,26 +23,26 @@ const tableFooter = (data, agent, customers, handleAgentSelect) => {
     ,
     '',
     '',
-    renderItem(data, 'credit'),
-    renderItem(data, 'carry'),
-    renderItem(data, 'mon'),
-    renderItem(data, 'tue'),
-    renderItem(data, 'wed'),
-    renderItem(data, 'thu'),
-    renderItem(data, 'fri'),
-    renderItem(data, 'sat'),
-    renderItem(data, 'sun'),
-    renderItem(data, 'weekly'),
-    renderItem(data, 'payments'),
-    renderItem(data, 'pending'),
-    renderItem(data, 'settle'),
-    renderItem(data, 'balance'),
-    renderItem(data, 'lcOnly'),
+    renderItem(accounts, 'credit'),
+    renderItem(accounts, 'carry'),
+    renderItem(accounts, 'mon'),
+    renderItem(accounts, 'tue'),
+    renderItem(accounts, 'wed'),
+    renderItem(accounts, 'thu'),
+    renderItem(accounts, 'fri'),
+    renderItem(accounts, 'sat'),
+    renderItem(accounts, 'sun'),
+    renderItem(accounts, 'weekly'),
+    renderItem(accounts, 'payments'),
+    renderItem(accounts, 'pending'),
+    renderItem(accounts, 'settle'),
+    renderItem(accounts, 'balance'),
+    renderItem(accounts, 'lcOnly'),
   ];
 };
 
-const renderItem = (data, name) => {
-  const total = getTableTotal(data, name);
+const renderItem = (accounts, name) => {
+  const total = getTableTotal(accounts, name);
   return <Typography component="p" className={setDangerClass(total)}>{total}</Typography>
 };
 

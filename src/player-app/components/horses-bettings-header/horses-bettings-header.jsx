@@ -10,7 +10,7 @@ const raseDetails = [
   { id: '1', title: 'type', info: 'thoroughbred' },
   { id: '2', title: 'distance', info: '1 1/16 Miles' },
   { id: '3', title: 'surface', info: 'dirt' },
-  { id: '4', title: 'purse', info: '12000.00' },
+  { id: '4', title: 'purse', info: '1000.00' },
   { id: '5', title: 'Location', info: 'Vinson , US' },
   { id: '6', title: 'Time zone', info: 'Central Standard Time' },
 ];

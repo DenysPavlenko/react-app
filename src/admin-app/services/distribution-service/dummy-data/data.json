@@ -1,8 +1,9 @@
 [
   {
     "id": "ZTMA1",
-    "name": "ZTMA1",
-    "col1": [
+    "agent": "ZTMA1",
+    "customers": "3",
+    "details": [
       {
         "id": "sports",
         "title": "Sports",
@@ -22,48 +23,44 @@
         "id": "liveCasino",
         "title": "Live Casino",
         "value": "0.00"
-      }
-    ],
-    "col2": [
+      },
       {
-        "id": "1",
+        "id": "splite",
         "title": "Splite",
         "value": "100%"
       },
       {
-        "id": "2",
+        "id": "net",
         "title": "Net",
         "value": "0"
       },
       {
-        "id": "3",
+        "id": "agentCommission",
         "title": "Agent Commission",
         "value": "0"
       },
       {
-        "id": "4",
+        "id": "masterCommission",
         "title": "Master Commission",
         "value": "0"
-      }
-    ],
-    "col3": [
+      },
       {
-        "id": "1",
+        "id": "previousBalance",
         "title": "Previous Balance",
         "value": "-1963"
       },
       {
-        "id": "2",
+        "id": "payments",
         "title": "Payments",
         "value": "0"
       },
       {
-        "id": "3",
+        "id": "masterCommission",
         "title": "Master Commission",
         "value": "0"
       },
       {
-        "id": "4",
+        "id": "newBalance",
         "title": "New Balance",
         "value": "-1963"
       }
@@ -71,8 +68,9 @@
   },
   {
     "id": "ZTMA2",
-    "name": "ZTMA2",
-    "col1": [
+    "agent": "ZTMA2",
+    "customers": "0",
+    "details": [
       {
         "id": "sports",
         "title": "Sports",
@@ -92,48 +90,44 @@
         "id": "liveCasino",
         "title": "Live Casino",
         "value": "0.00"
-      }
-    ],
-    "col2": [
+      },
       {
-        "id": "1",
+        "id": "splite",
         "title": "Splite",
         "value": "100%"
       },
       {
-        "id": "2",
+        "id": "net",
         "title": "Net",
         "value": "0"
       },
       {
-        "id": "3",
+        "id": "agentCommission",
         "title": "Agent Commission",
         "value": "0"
       },
       {
-        "id": "4",
+        "id": "masterCommission",
         "title": "Master Commission",
         "value": "0"
-      }
-    ],
-    "col3": [
+      },
       {
-        "id": "1",
+        "id": "previousBalance",
         "title": "Previous Balance",
         "value": "-1963"
       },
       {
-        "id": "2",
+        "id": "payments",
         "title": "Payments",
         "value": "0"
       },
       {
-        "id": "3",
+        "id": "masterCommission",
         "title": "Master Commission",
         "value": "0"
       },
       {
-        "id": "4",
+        "id": "newBalance",
         "title": "New Balance",
         "value": "-1963"
       }

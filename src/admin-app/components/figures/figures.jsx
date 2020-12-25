@@ -26,7 +26,7 @@ import './figures.sass';
 const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history }) => {
   const [date, setDate] = useState('12/7/2020');
   const [page, setPage] = useState(1);
-  const [status, setStatus] = useState('active');
+  const [status, setStatus] = useState('all');
   const [filters, setFilters] = useState(filtersData);
   const [isFilterShown, setIsFilterShown] = useState(false);
   const [openModal, setOpenModal] = useState(false);
@@ -86,7 +86,7 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
                   <Typography component="h3" className="figures__table-title">{agent}</Typography>
                   <PrimaryTable
                     cols={tableContent(history)}
-                    lastRow={tableLastRow(data, agent, customers, handleAgentSelect)}
+                    lastRow={tableLastRow(accounts, agent, customers, handleAgentSelect)}
                     data={accounts}
                     retry={() => fetchFiguresData(date, status)}
                     variant="primary"

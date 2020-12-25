@@ -7,26 +7,33 @@
   &__content
     margin-bottom: 20px
     overflow: hidden
+  &__line
+    &:not(:last-child)
+      margin-bottom: 20px
     &-header
       background-color: $c-primary
       padding: 5px 10px
       border-radius: $r-primary
-  &__lists
-    display: flex
-    flex-wrap: wrap
-    margin: 0 -2px
-    margin-top: 2px
-    &:not(:last-child)
-      margin-bottom: 20px
-  &__list
-    flex: 1
-    padding: 2px 2px
-    +media-max($bp-lg)
-      width: 100%
-      flex: auto
-    &-item
+    &-lists
       display: flex
-      justify-content: space-between
+      flex-wrap: wrap
+      margin: 0 -2px
+      margin-top: 2px
+      margin-bottom: 4px
+    &-list
+      flex: 1
+      padding: 2px 2px
+      +media-max($bp-lg)
+        width: 100%
+        flex: auto
+      &-item
+        display: flex
+        justify-content: space-between
+    &-footer
+      display: flex
+      align-items: center
+      &-title
+        margin-right: 10px
   &__footer
     display: flex
     justify-content: flex-end

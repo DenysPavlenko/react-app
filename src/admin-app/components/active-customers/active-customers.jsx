@@ -32,7 +32,7 @@ const ActiveCustomers = ({ agent, open, onClose, onExited, fetchActiveCustomersD
         <PrimaryTable
           cols={tableContent()}
           loading={loading}
-          retry={fetchActiveCustomersData}
+          retry={() => fetchActiveCustomersData(agent)}
           data={data}
           error={error}
         />

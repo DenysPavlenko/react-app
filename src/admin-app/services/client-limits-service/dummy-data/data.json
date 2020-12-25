@@ -6,7 +6,7 @@
   "straightEarlyLimit": "20",
   "overnightLimit": "50",
   "maxContestPayout": "3000",
-  "maxContestOdds": "5000",
+  "maxContestOdds": "5000.00",
   "minContestOdds": "7000",
   "allGenlLimMin": "1",
   "allGenlLimMax": "100",
