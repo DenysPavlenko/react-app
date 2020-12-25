@@ -7,7 +7,7 @@ import Button from 'shared/components/button/button';
 import getTableTotal from 'shared/utils/get-table-total';
 import setDangerClass from 'shared/utils/set-danger-class';
 
-const tableFooter = (accounts, agent, customers, handleAgentSelect) => {
+const tableFooter = (accounts, agent, customers, handleModalOpen) => {
   return [
     <RowGroup>
       <Typography component="h4" className="text-bold">Total:</Typography>
@@ -15,7 +15,7 @@ const tableFooter = (accounts, agent, customers, handleAgentSelect) => {
         variant="accent-blue"
         size="xs"
         disabled={parseInt(customers) === 0}
-        onClick={() => parseInt(customers) !== 0 && handleAgentSelect(agent)}
+        onClick={() => parseInt(customers) !== 0 && handleModalOpen('acModal', { agent })}
       >
         {customers}
       </Button>

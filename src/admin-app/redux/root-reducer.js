@@ -37,6 +37,7 @@ import accountsClosedReducer from './accounts-closed/reducer';
 import agentsListReducer from './agents-list/reducer';
 import activeCustomersReducer from './active-customers/reducer';
 import pendingBetsReducer from './pending-bets/reducer';
+import accountActivityReducer from './account-activity/reducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -75,6 +76,7 @@ const rootReducer = combineReducers({
   agentsList: agentsListReducer,
   activeCustomers: activeCustomersReducer,
   pendingBets: pendingBetsReducer,
+  accountActivity: accountActivityReducer,
 });
 
 export default rootReducer;

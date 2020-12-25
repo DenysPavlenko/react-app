@@ -4,7 +4,7 @@ import Typography from 'shared/components/typography/typography';
 // Utils
 import setDangerClass from 'shared/utils/set-danger-class';
 
-const tableContent = history => {
+const tableContent = (history, agent, handleModalOpen) => {
 
   return [
     {
@@ -30,7 +30,7 @@ const tableContent = history => {
     },
     {
       title: 'Mon',
-      render: data => <Typography component="p" className={setDangerClass(data.mon)}>{data.mon}</Typography>
+      render: ({ mon }) => <Typography component="p" className={setDangerClass(mon)} onClick={() => handleModalOpen('aaModal', { agent })}>{mon}</Typography>
     },
     {
       title: 'Tue',

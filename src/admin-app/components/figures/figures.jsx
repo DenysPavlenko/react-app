@@ -15,6 +15,7 @@ import Typography from 'shared/components/typography/typography';
 import Spinner from 'shared/components/spinner/spinner';
 import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 import ActiveCustomers from 'admin-app/components/active-customers/active-customers';
+import AccountActivity from 'admin-app/components/account-activity/account-activity';
 // Table content
 import tableContent from './table-content';
 import tableLastRow from './table-last-row';
@@ -29,8 +30,10 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
   const [status, setStatus] = useState('all');
   const [filters, setFilters] = useState(filtersData);
   const [isFilterShown, setIsFilterShown] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
-  const [selectedAgent, setSelectedAgent] = useState('');
+  const [modals, setModals] = useState({
+    acModal: { open: false, agent: '' },
+    aaModal: { open: false, agent: '', date: '' },
+  });
 
   useLayoutEffect(() => {
     fetchFiguresData(date, status);
@@ -44,18 +47,42 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
     });
   };
 
-  const handleAgentSelect = agent => {
-    setOpenModal(true);
-    setSelectedAgent(agent);
+  const handleModalOpen = (modal, { agent, date }) => {
+    setModals(modals => {
+      const newModal = { ...modals[modal], agent, date, open: true }
+      return { ...modals, [modal]: newModal }
+    });
   };
+
+  const handleModalClose = (modal) => {
+    setModals(modals => {
+      const newModal = { ...modals[modal], open: false }
+      return { ...modals, [modal]: newModal }
+    });
+  };
+
+  const handleModalClear = (modal) => {
+    setModals(modals => {
+      const newModal = { ...modals[modal], agent: '', date: '' }
+      return { ...modals, [modal]: newModal }
+    });
+  };
+
+  const { acModal, aaModal } = modals;
 
   return (
     <Fragment>
       <ActiveCustomers
-        open={openModal}
-        agent={selectedAgent}
-        onClose={() => setOpenModal(false)}
-        onExited={() => setSelectedAgent('')}
+        open={acModal.open}
+        agent={acModal.agent}
+        onClose={() => handleModalClose('acModal')}
+        onExited={() => handleModalClear('acModal')}
+      />
+      <AccountActivity
+        open={aaModal.open}
+        agent={aaModal.agent}
+        onClose={() => handleModalClose('aaModal')}
+        onExited={() => handleModalClear('aaModal')}
       />
       <TableFilter title="Columns: Turn on/off"
         filters={filters}
@@ -85,8 +112,8 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
                 <div key={id} className="figures__table">
                   <Typography component="h3" className="figures__table-title">{agent}</Typography>
                   <PrimaryTable
-                    cols={tableContent(history)}
-                    lastRow={tableLastRow(accounts, agent, customers, handleAgentSelect)}
+                    cols={tableContent(history, agent, handleModalOpen)}
+                    lastRow={tableLastRow(accounts, agent, customers, handleModalOpen)}
                     data={accounts}
                     retry={() => fetchFiguresData(date, status)}
                     variant="primary"
