@@ -6,6 +6,7 @@
       {
         "id": "1",
         "date": "25/11/20",
+        "time": "03:30 PM",
         "game": "MIN Vikings",
         "rotation": "451",
         "strPs1": "(+6½ -105)",
@@ -27,6 +28,7 @@
       {
         "id": "2",
         "date": "26/11/20",
+        "time": "03:30 PM",
         "game": "NO Saints",
         "rotation": "451",
         "strPs1": "(+6½ -105)",
@@ -48,6 +50,7 @@
       {
         "id": "3",
         "date": "27/11/20",
+        "time": "03:30 PM",
         "game": "MIN Vikings",
         "rotation": "451",
         "strPs1": "(+6½ -105)",
@@ -69,6 +72,7 @@
       {
         "id": "4",
         "date": "28/11/20",
+        "time": "03:30 PM",
         "game": "NO Saints",
         "rotation": "451",
         "strPs1": "(+6½ -105)",
@@ -90,6 +94,7 @@
       {
         "id": "5",
         "date": "29/11/20",
+        "time": "03:30 PM",
         "game": "MIN Vikings",
         "rotation": "451",
         "strPs1": "(+6½ -105)",
@@ -111,6 +116,7 @@
       {
         "id": "6",
         "date": "29/11/20",
+        "time": "03:30 PM",
         "game": "NO Saints",
         "rotation": "451",
         "strPs1": "(+6½ -105)",
@@ -138,6 +144,7 @@
       {
         "id": "1",
         "date": "25/11/20",
+        "time": "03:30 PM",
         "game": "MIN Vikings",
         "rotation": "451",
         "strPs1": "(+6½ -105)",
@@ -159,6 +166,7 @@
       {
         "id": "2",
         "date": "26/11/20",
+        "time": "03:30 PM",
         "game": "NO Saints",
         "rotation": "451",
         "strPs1": "(+6½ -105)",
@@ -180,6 +188,7 @@
       {
         "id": "3",
         "date": "27/11/20",
+        "time": "03:30 PM",
         "game": "MIN Vikings",
         "rotation": "451",
         "strPs1": "(+6½ -105)",
@@ -201,6 +210,7 @@
       {
         "id": "4",
         "date": "28/11/20",
+        "time": "03:30 PM",
         "game": "NO Saints",
         "rotation": "451",
         "strPs1": "(+6½ -105)",
@@ -222,6 +232,7 @@
       {
         "id": "5",
         "date": "29/11/20",
+        "time": "03:30 PM",
         "game": "MIN Vikings",
         "rotation": "451",
         "strPs1": "(+6½ -105)",
@@ -243,6 +254,7 @@
       {
         "id": "6",
         "date": "29/11/20",
+        "time": "03:30 PM",
         "game": "NO Saints",
         "rotation": "451",
         "strPs1": "(+6½ -105)",

@@ -1,14 +1,16 @@
 import React from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
+import ActionIcon from 'shared/components/action-icon/action-icon';
 
-const tableContent = () => {
+const tableContent = handleAgentSelect => {
+  const isOdd = idx => idx % 2 === 0;
   return [
     {
-      render: () => <Typography component="p">1</Typography>
+      render: ({ id }, idx) => isOdd(idx) ? <ActionIcon icon="search" onClick={() => handleAgentSelect(id)} /> : null
     },
     {
-      render: ({ date }) => <Typography component="p">{date}</Typography>
+      render: ({ date, time }, idx) => <Typography component="p">{isOdd(idx) ? date : time}</Typography>
     },
     {
       render: ({ rotation }) => <Typography component="p">{rotation}</Typography>

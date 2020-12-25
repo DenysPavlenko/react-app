@@ -1,5 +1,5 @@
 import { requestData, setData, setError } from 'shared/redux/_utils/fetch-utils';
-import PendingActionTypes from './types';
+import PendingBetsActionTypes from './types';
 
 const INITIAL_STATE = {
   loading: true,
@@ -10,11 +10,11 @@ const INITIAL_STATE = {
 
 const pendingReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case PendingActionTypes.FETCH_PENDING_REQUEST:
+    case PendingBetsActionTypes.FETCH_PENDING_BETS_REQUEST:
       return requestData();
-    case PendingActionTypes.FETCH_PENDING_SUCCESS:
+    case PendingBetsActionTypes.FETCH_PENDING_BETS_SUCCESS:
       return setData(action.payload);
-    case PendingActionTypes.FETCH_PENDING_FAILURE:
+    case PendingBetsActionTypes.FETCH_PENDING_BETS_FAILURE:
       return setError(action.payload);
     default:
       return state;

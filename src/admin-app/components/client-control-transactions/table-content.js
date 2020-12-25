@@ -1,13 +1,13 @@
 import React from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
-import TrashBin from 'shared/components/trash-bin/trash-bin';
+import ActionIcon from 'shared/components/action-icon/action-icon';
 
 const tableContent = () => {
   return [
     {
       title: 'Actions',
-      render: () => <TrashBin />
+      render: () => <ActionIcon icon="trash" color="danger" />
     },
     {
       title: 'Date',
