@@ -6,7 +6,7 @@ import { createStructuredSelector } from 'reselect'
 import { fetchPositionTodayData } from 'admin-app/redux/position-today/actions';
 import { selectPositionToday } from 'admin-app/redux/position-today/selectors';
 // Components
-import PrimaryTable from 'shared/components/primary-table/primary-table';
+import PositionTable from 'admin-app/components/position-table/position-table';
 // Table content
 import tableContent from './table-content';
 // Styles
@@ -20,13 +20,12 @@ const PositionToday = ({ fetchPositionTodayData, positionToday: { loading, data,
 
   return (
     <div className="position-today">
-      <PrimaryTable
+      <PositionTable
         cols={tableContent()}
         loading={loading}
         data={data}
         error={error}
         retry={fetchPositionTodayData}
-        variant="primary"
       />
     </div>
   );

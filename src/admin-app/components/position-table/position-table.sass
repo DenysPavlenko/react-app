@@ -1,0 +1,25 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.position-table
+  text-align: center
+  width: 100%
+  overflow: auto
+  +media-max($bp-xl)
+    white-space: nowrap
+  &__table
+    th, td
+      padding: 7px 5px
+      border: 1px solid $c-primary
+  &__header
+    background-color: $c-primary
+    th
+      border-color: $c-primary-light
+  &__title
+    background-color: $c-gray
+  &__target
+    background-color: $c-alt-gray
+  &__row
+    border-bottom: 1px solid $c-primary
+    &:nth-child(2n)
+      border-bottom: 4px solid $c-primary

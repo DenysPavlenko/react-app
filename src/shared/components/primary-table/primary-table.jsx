@@ -63,15 +63,13 @@ const TableContent = ({ cols, lastRow, firstRow, data, loading, error, retry }) 
                 {firstRow.map((item, idx) => (<td key={idx}>{item}</td>))}
               </tr>
             }
-            {data.map((item, idx) => {
-              return (
-                <tr key={idx} className="primary-table__row">
-                  {cols.map((col, key) => (
-                    <td key={key}>{col.render(item, idx)}</td>
-                  ))}
-                </tr>
-              )
-            })}
+            {data.map((item, idx) => (
+              <tr key={idx} className="primary-table__row">
+                {cols.map((col, key) => (
+                  <td key={key}>{col.render(item, idx)}</td>
+                ))}
+              </tr>
+            ))}
             {lastRow &&
               <tr className="primary-table__row">
                 {lastRow.map((item, idx) => (<td key={idx}>{item}</td>))}
