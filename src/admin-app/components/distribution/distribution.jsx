@@ -8,6 +8,7 @@ import { selectDistribution } from 'admin-app/redux/distribution/selectors';
 // Components
 import ActiveCustomers from 'admin-app/components/active-customers/active-customers';
 import DistributionHeader from './distribution-header/distribution-header';
+import TableFilter from 'admin-app/components/table-filter/table-filter';
 import Spinner from 'shared/components/spinner/spinner';
 import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 import List from 'shared/components/list/list';
@@ -15,6 +16,8 @@ import Typography from 'shared/components/typography/typography';
 import Button from 'shared/components/button/button';
 // Utils
 import setDangerClass from 'shared/utils/set-danger-class';
+// Filters
+import filtersData from './filters-data';
 // Styles
 import './distribution.sass';
 
@@ -23,6 +26,8 @@ const Distribution = ({ fetchDistributionData, distribution: { loading, data, er
   const [page, setPage] = useState(1);
   const [openModal, setOpenModal] = useState(false);
   const [selectedAgent, setSelectedAgent] = useState('');
+  const [filters, setFilters] = useState(filtersData);
+  const [isFilterShown, setIsFilterShown] = useState(false);
 
   useLayoutEffect(() => {
     fetchDistributionData(date);
@@ -33,6 +38,14 @@ const Distribution = ({ fetchDistributionData, distribution: { loading, data, er
     setSelectedAgent(agent);
   };
 
+  const handleCheck = ({ target: { name, checked } }) => {
+    setFilters(filters => {
+      const currentFilter = filters.find((filter) => filter.name === name);
+      const updatedFilter = { ...currentFilter, checked };
+      return filters.map((filter) => filter.name === name ? updatedFilter : filter);
+    });
+  };
+
   return (
     <Fragment>
       <ActiveCustomers
@@ -41,9 +54,23 @@ const Distribution = ({ fetchDistributionData, distribution: { loading, data, er
         onClose={() => setOpenModal(false)}
         onExited={() => setSelectedAgent('')}
       />
+      <TableFilter
+        title="Available Agents:"
+        filters={filters}
+        isShown={isFilterShown}
+        handleHide={() => setIsFilterShown(false)}
+        handleCheck={handleCheck}
+      />
       <div className="distribution">
         <div className="distribution__header">
-          <DistributionHeader date={date} setDate={setDate} pages={10} page={page} setPage={setPage} />
+          <DistributionHeader
+            date={date}
+            setDate={setDate}
+            pages={10}
+            page={page}
+            setPage={setPage}
+            showFilters={() => setIsFilterShown(true)}
+          />
         </div>
         <div className="distribution__content">
           {error && <ErrorIndicator retry={() => fetchDistributionData(date)} light />}

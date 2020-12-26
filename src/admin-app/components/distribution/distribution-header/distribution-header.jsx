@@ -16,7 +16,7 @@ const tabs = [
   { title: 'last week', value: '11/30/2020' },
 ];
 
-const DistributionHeader = ({ date, setDate, pages, page, setPage, breakpoints, currentBreakpoint }) => {
+const DistributionHeader = ({ date, setDate, pages, page, setPage, breakpoints, currentBreakpoint, showFilters }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const DistributionHeader = ({ date, setDate, pages, page, setPage, breakpoints, 
       left={<Typography component="h2">Distribution</Typography>}
       right={
         <RowGroup center>
-          <Button variant="default" iconStart={<FontAwesomeIcon icon="cog" style={{ 'fontSize': '14px' }} />}>Settings</Button>
+          <Button variant="default" iconStart={<FontAwesomeIcon icon="cog" style={{ 'fontSize': '14px' }} />} onClick={showFilters}>Settings</Button>
           <Select
             onChange={({ target: { value } }) => setDate(value)}
             value={date}
