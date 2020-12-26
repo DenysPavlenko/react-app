@@ -1,16 +1,16 @@
-import PendingActionTypes from './types';
+import PendingTypes from './types';
 import PendingService from 'admin-app/services/pending-service';
 const pendingService = new PendingService();
 
 const pendingRequested = () => ({
-  type: PendingActionTypes.FETCH_PENDING_REQUEST
+  type: PendingTypes.FETCH_PENDING_REQUEST
 });
 const pendingLoaded = data => ({
-  type: PendingActionTypes.FETCH_PENDING_SUCCESS,
+  type: PendingTypes.FETCH_PENDING_SUCCESS,
   payload: data
 });
 const pendingError = error => ({
-  type: PendingActionTypes.FETCH_PENDING_FAILURE,
+  type: PendingTypes.FETCH_PENDING_FAILURE,
   payload: error
 });
 

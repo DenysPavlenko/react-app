@@ -1,7 +1,7 @@
-const DistributionActionTypes = {
+const DistributionTypes = {
   FETCH_DISTRIBUTION_REQUEST  : 'FETCH_DISTRIBUTION_REQUEST',
   FETCH_DISTRIBUTION_SUCCESS  : 'FETCH_DISTRIBUTION_SUCCESS',
   FETCH_DISTRIBUTION_FAILURE  : 'FETCH_DISTRIBUTION_FAILURE',
 };
 
-export default DistributionActionTypes;
+export default DistributionTypes;

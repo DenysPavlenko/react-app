@@ -1,7 +1,7 @@
-const PositionLiveSportsActionTypes = {
+const PositionLiveSportsTypes = {
   FETCH_POSITION_LIVE_SPORTS_REQUEST  : 'FETCH_POSITION_LIVE_SPORTS_REQUEST',
   FETCH_POSITION_LIVE_SPORTS_SUCCESS  : 'FETCH_POSITION_LIVE_SPORTS_SUCCESS',
   FETCH_POSITION_LIVE_SPORTS_FAILURE  : 'FETCH_POSITION_LIVE_SPORTS_FAILURE',
 };
 
-export default PositionLiveSportsActionTypes;
+export default PositionLiveSportsTypes;

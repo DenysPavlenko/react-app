@@ -1,17 +1,17 @@
-import UserActionTypes from './types';
+import UserTypes from './types';
 // Casino games service
 import UserService from 'shared/services/user-service';
 const userService = new UserService();
 
 const userRequested = () => ({
-  type: UserActionTypes.FETCH_USER_REQUEST
+  type: UserTypes.FETCH_USER_REQUEST
 });
 const userLoaded = data => ({
-  type: UserActionTypes.FETCH_USER_SUCCESS,
+  type: UserTypes.FETCH_USER_SUCCESS,
   payload: data
 });
 const userError = error => ({
-  type: UserActionTypes.FETCH_USER_FAILURE,
+  type: UserTypes.FETCH_USER_FAILURE,
   payload: error
 });
 

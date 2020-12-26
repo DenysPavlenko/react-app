@@ -1,4 +1,4 @@
-import ColorSchemeActionTypes from './types';
+import ColorSchemeTypes from './types';
 
 const INITIAL_STATE = {
   default: 'blue',
@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 
 const colorSchemeReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ColorSchemeActionTypes.SET_COLOR_SCHEME:
+    case ColorSchemeTypes.SET_COLOR_SCHEME:
       return {
         ...state,
         default: action.payload

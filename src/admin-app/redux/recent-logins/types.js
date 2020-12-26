@@ -1,7 +1,7 @@
-const RecentLoginsActionTypes = {
+const RecentLoginsTypes = {
   FETCH_RECENT_LOGINS_REQUEST  : 'FETCH_RECENT_LOGINS_REQUEST',
   FETCH_RECENT_LOGINS_SUCCESS  : 'FETCH_RECENT_LOGINS_SUCCESS',
   FETCH_RECENT_LOGINS_FAILURE  : 'FETCH_RECENT_LOGINS_FAILURE',
 };
 
-export default RecentLoginsActionTypes;
+export default RecentLoginsTypes;

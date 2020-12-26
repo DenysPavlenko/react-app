@@ -1,8 +1,8 @@
-const ScoresActionTypes = {
+const ScoresTypes = {
   TOGGLE_SCORES: 'TOGGLE_SCORES',
   FETCH_SCORES_REQUEST: 'FETCH_SCORES_REQUEST',
   FETCH_SCORES_SUCCESS: 'FETCH_SCORES_SUCCESS',
   FETCH_SCORES_FAILURE: 'FETCH_SCORES_FAILURE',
 };
 
-export default ScoresActionTypes;
+export default ScoresTypes;

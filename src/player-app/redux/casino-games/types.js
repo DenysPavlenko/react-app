@@ -1,7 +1,7 @@
-const CasinoGamesActionTypes = {
+const CasinoGamesTypes = {
   FETCH_CASINO_GAMES_REQUEST  : 'FETCH_CASINO_GAMES_REQUEST',
   FETCH_CASINO_GAMES_SUCCESS  : 'FETCH_CASINO_GAMES_SUCCESS',
   FETCH_CASINO_GAMES_FAILURE  : 'FETCH_CASINO_GAMES_FAILURE',
 };
 
-export default CasinoGamesActionTypes;
+export default CasinoGamesTypes;

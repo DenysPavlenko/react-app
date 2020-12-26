@@ -6,15 +6,11 @@ import { createStructuredSelector } from 'reselect'
 import { fetchAccountsClosedData, toggleAccountsClosed } from 'admin-app/redux/accounts-closed/actions';
 import { selectAccountsClosed, selectShowAccountsClosed } from 'admin-app/redux/accounts-closed/selectors';
 // Components
-import Modal from 'shared/components/modal/modal';
+import DataPreviewModal from 'admin-app/components/data-preview-modal/data-preview-modal';
 import Typography from 'shared/components/typography/typography';
-import Close from 'shared/components/close/close';
 import PrimaryTable from 'shared/components/primary-table/primary-table';
-import Button from 'shared/components/button/button';
 // Table content
 import tableContent from './table-content';
-// Styles
-import './accounts-closed.sass';
 
 const AccountsClosed = ({ toggleAccountsClosed, fetchAccountsClosedData, AccountsClosed: { loading, data, error }, showAccountsClosed }) => {
 
@@ -23,12 +19,13 @@ const AccountsClosed = ({ toggleAccountsClosed, fetchAccountsClosedData, Account
   }, [fetchAccountsClosedData, showAccountsClosed]);
 
   return (
-    <Modal open={showAccountsClosed} className="accounts-closed" onClose={toggleAccountsClosed} noClose size="lg">
-      <div className="accounts-closed__header">
+    <DataPreviewModal
+      open={showAccountsClosed}
+      onClose={toggleAccountsClosed}
+      title={
         <Typography component="h3">ZTMA - Accounts Closed</Typography>
-        <Close dark onClick={toggleAccountsClosed} />
-      </div>
-      <div className="accounts-closed__content">
+      }
+      content={
         <PrimaryTable
           cols={tableContent()}
           loading={loading}
@@ -36,16 +33,11 @@ const AccountsClosed = ({ toggleAccountsClosed, fetchAccountsClosedData, Account
           data={data}
           error={error}
         />
-        {data &&
-          <div className="accounts-closed__content-footer">
-            <Typography component="h4" className="text-bold">Total accounts closed: {data.length}</Typography>
-          </div>
-        }
-      </div>
-      <div className="accounts-closed__footer">
-        <Button variant="danger" size="sm" onClick={toggleAccountsClosed}>Close</Button>
-      </div>
-    </Modal>
+      }
+      total={
+        <Typography component="h4" className="text-bold">Total accounts closed: {data && data.length}</Typography>
+      }
+    />
   );
 };
 

@@ -1,4 +1,4 @@
-import LivePlayProgramActionTypes from './types';
+import LivePlayProgramTypes from './types';
 
 const INITIAL_STATE = {
   isProgramShown: false
@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 const livePlayProgramReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case LivePlayProgramActionTypes.TOGGLE_LIVE_PLAY_PROGRAM:
+    case LivePlayProgramTypes.TOGGLE_LIVE_PLAY_PROGRAM:
       const { isProgramShown } = state;
       return {
         isProgramShown: !isProgramShown

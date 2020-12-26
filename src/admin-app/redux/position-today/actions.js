@@ -1,16 +1,16 @@
-import PositionTodayActionTypes from './types';
+import PositionTodayTypes from './types';
 import PositionTodayService from 'admin-app/services/position-today-service';
 const positionTodayService = new PositionTodayService();
 
 const positionTodayRequested = () => ({
-  type: PositionTodayActionTypes.FETCH_POSITION_TODAY_REQUEST
+  type: PositionTodayTypes.FETCH_POSITION_TODAY_REQUEST
 });
 const positionTodayLoaded = data => ({
-  type: PositionTodayActionTypes.FETCH_POSITION_TODAY_SUCCESS,
+  type: PositionTodayTypes.FETCH_POSITION_TODAY_SUCCESS,
   payload: data
 });
 const positionTodayError = error => ({
-  type: PositionTodayActionTypes.FETCH_POSITION_TODAY_FAILURE,
+  type: PositionTodayTypes.FETCH_POSITION_TODAY_FAILURE,
   payload: error
 });
 

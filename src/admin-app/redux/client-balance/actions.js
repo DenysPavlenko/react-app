@@ -1,16 +1,16 @@
-import ClientBalanceActionTypes from './types';
+import ClientBalanceTypes from './types';
 import ClientBalanceService from 'admin-app/services/client-balance-service';
 const clientBalanceService = new ClientBalanceService();
 
 const clientBalanceRequested = () => ({
-  type: ClientBalanceActionTypes.FETCH_CLIENT_BALANCE_REQUEST
+  type: ClientBalanceTypes.FETCH_CLIENT_BALANCE_REQUEST
 });
 const clientBalanceLoaded = data => ({
-  type: ClientBalanceActionTypes.FETCH_CLIENT_BALANCE_SUCCESS,
+  type: ClientBalanceTypes.FETCH_CLIENT_BALANCE_SUCCESS,
   payload: data
 });
 const clientBalanceError = error => ({
-  type: ClientBalanceActionTypes.FETCH_CLIENT_BALANCE_FAILURE,
+  type: ClientBalanceTypes.FETCH_CLIENT_BALANCE_FAILURE,
   payload: error
 });
 

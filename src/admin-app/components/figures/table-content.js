@@ -5,84 +5,92 @@ import Typography from 'shared/components/typography/typography';
 import setDangerClass from 'shared/utils/set-danger-class';
 
 const tableContent = (history, agent, handleModalOpen) => {
+  const renerItem = (value, onClick) => (
+    <Typography
+      component="p"
+      style={{ cursor: `${onClick && 'pointer'}` }}
+      onClick={onClick}
+      className={setDangerClass(value)}
+    >{value}
+    </Typography>
+  );
 
   return [
     {
       title: 'User ID',
-      render: data =>
-        <Typography component="p" style={{ cursor: 'pointer' }} onClick={() => history.push(`/client-control-panel/${data.id}`)}>{data.id}</Typography>
+      render: ({ id }) => renerItem(id, () => history.push(`/client-control-panel/${id}`))
     },
     {
       title: 'Password',
-      render: data => <Typography component="p">{data.password}</Typography>
+      render: ({ password }) => renerItem(password)
     },
     {
       title: 'Name',
-      render: data => <Typography component="p">{data.name}</Typography>
+      render: ({ name }) => renerItem(name)
     },
     {
       title: 'Credit',
-      render: data => <Typography component="p">{data.credit}</Typography>
+      render: ({ credit }) => renerItem(credit)
     },
     {
       title: 'Carry',
-      render: data => <Typography component="p" className={setDangerClass(data.carry)}>{data.carry}</Typography>
+      render: ({ carry }) => renerItem(carry)
     },
     {
       title: 'Mon',
-      render: ({ mon }) => <Typography component="p" className={setDangerClass(mon)} onClick={() => handleModalOpen('aaModal', { agent })}>{mon}</Typography>
+      render: ({ mon }) => renerItem(mon, () => handleModalOpen('aaModal', { agent }))
     },
     {
       title: 'Tue',
-      render: data => <Typography component="p" className={setDangerClass(data.tue)}>{data.tue}</Typography>
+      render: ({ tue }) => renerItem(tue, () => handleModalOpen('aaModal', { agent }))
     },
     {
       title: 'Wed',
-      render: data => <Typography component="p" className={setDangerClass(data.wed)}>{data.wed}</Typography>
+      render: ({ wed }) => renerItem(wed, () => handleModalOpen('aaModal', { agent }))
     },
     {
       title: 'Thu',
-      render: data => <Typography component="p" className={setDangerClass(data.thu)}>{data.thu}</Typography>
+      render: ({ thu }) => renerItem(thu, () => handleModalOpen('aaModal', { agent }))
     },
     {
       title: 'Fri',
-      render: data => <Typography component="p" className={setDangerClass(data.fri)}>{data.fri}</Typography>
+      render: ({ fri }) => renerItem(fri, () => handleModalOpen('aaModal', { agent }))
     },
     {
       title: 'Sat',
-      render: data => <Typography component="p" className={setDangerClass(data.sat)}>{data.sat}</Typography>
+      render: ({ sat }) => renerItem(sat, () => handleModalOpen('aaModal', { agent }))
     },
     {
       title: 'Sun',
-      render: data => <Typography component="p" className={setDangerClass(data.sun)}>{data.sun}</Typography>
+      render: ({ sun }) => renerItem(sun, () => handleModalOpen('aaModal', { agent }))
     },
     {
       title: 'Weekly',
-      render: data => <Typography component="p" className={setDangerClass(data.weekly)}>{data.weekly}</Typography>
+      render: ({ weekly }) => renerItem(weekly)
     },
     {
       title: 'Payments',
-      render: data => <Typography component="p" className={setDangerClass(data.payments)}>{data.payments}</Typography>
+      render: ({ payments }) => renerItem(payments, () => handleModalOpen('trModal', { agent }))
     },
     {
       title: 'Pending',
-      render: data => <Typography component="p" className={setDangerClass(data.pending)}>{data.pending}</Typography>
+      render: ({ pending }) => renerItem(pending)
     },
     {
       title: 'Settle',
-      render: data => <Typography component="p" className={setDangerClass(data.settle)}>{data.settle}</Typography>
+      render: ({ settle }) => renerItem(settle)
     },
     {
       title: 'Balance',
-      render: data => <Typography component="p" className={setDangerClass(data.balance)}>{data.balance}</Typography>
+      render: ({ balance }) => renerItem(balance)
     },
     {
       title: 'LC Only',
-      render: data => <Typography component="p" className={setDangerClass(data.lcOnly)}>{data.lcOnly}</Typography>
+      render: ({ lcOnly }) => renerItem(lcOnly)
     },
     {
       title: 'Rating',
-      render: data => <Typography component="p">{data.rating}</Typography>
+      render: ({ rating }) => renerItem(rating)
     },
   ];
 };

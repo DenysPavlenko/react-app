@@ -1,16 +1,16 @@
-import PendingBetsActionTypes from './types';
+import PendingBetsTypes from './types';
 import PendingBetsService from 'admin-app/services/pending-bets-service';
 const pendingBetsService = new PendingBetsService();
 
 const pendingBetsRequested = () => ({
-  type: PendingBetsActionTypes.FETCH_PENDING_BETS_REQUEST
+  type: PendingBetsTypes.FETCH_PENDING_BETS_REQUEST
 });
 const pendingBetsLoaded = data => ({
-  type: PendingBetsActionTypes.FETCH_PENDING_BETS_SUCCESS,
+  type: PendingBetsTypes.FETCH_PENDING_BETS_SUCCESS,
   payload: data
 });
 const pendingBetsError = error => ({
-  type: PendingBetsActionTypes.FETCH_PENDING_BETS_FAILURE,
+  type: PendingBetsTypes.FETCH_PENDING_BETS_FAILURE,
   payload: error
 });
 

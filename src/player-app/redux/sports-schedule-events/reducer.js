@@ -1,4 +1,4 @@
-import SportsScheduleEventsActionTypes from './types';
+import SportsScheduleEventsTypes from './types';
 
 const INITIAL_STATE = {
   events: ['Up next']
@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 const sportsScheduleEventsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case SportsScheduleEventsActionTypes.SET_SPORTS_SCHEDULE_EVENTS:
+    case SportsScheduleEventsTypes.SET_SPORTS_SCHEDULE_EVENTS:
       const { events } = state;
       const hasItem = events.includes(action.payload);
       let newEvents;
@@ -18,7 +18,7 @@ const sportsScheduleEventsReducer = (state = INITIAL_STATE, action) => {
       return {
         events: newEvents
       }
-    case SportsScheduleEventsActionTypes.SET_SPORTS_SCHEDULE_EVENT:
+    case SportsScheduleEventsTypes.SET_SPORTS_SCHEDULE_EVENT:
       return {
         events: [action.payload]
       }

@@ -1,16 +1,16 @@
-import ClientAccountingActionTypes from './types';
+import ClientAccountingTypes from './types';
 import ClientAccountingService from 'admin-app/services/client-accounting-service';
 const clientAccountingService = new ClientAccountingService();
 
 const clientAccountingRequested = () => ({
-  type: ClientAccountingActionTypes.FETCH_CLIENT_ACCOUNTING_REQUEST
+  type: ClientAccountingTypes.FETCH_CLIENT_ACCOUNTING_REQUEST
 });
 const clientAccountingLoaded = data => ({
-  type: ClientAccountingActionTypes.FETCH_CLIENT_ACCOUNTING_SUCCESS,
+  type: ClientAccountingTypes.FETCH_CLIENT_ACCOUNTING_SUCCESS,
   payload: data
 });
 const clientAccountingError = error => ({
-  type: ClientAccountingActionTypes.FETCH_CLIENT_ACCOUNTING_FAILURE,
+  type: ClientAccountingTypes.FETCH_CLIENT_ACCOUNTING_FAILURE,
   payload: error
 });
 

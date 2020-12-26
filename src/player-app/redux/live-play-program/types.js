@@ -1,5 +1,5 @@
-const LivePlayProgramActionTypes = {
+const LivePlayProgramTypes = {
   TOGGLE_LIVE_PLAY_PROGRAM: 'TOGGLE_LIVE_PLAY_PROGRAM',
 };
 
-export default LivePlayProgramActionTypes;
+export default LivePlayProgramTypes;

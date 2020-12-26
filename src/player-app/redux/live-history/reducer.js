@@ -1,5 +1,5 @@
 import { requestData, setData, setError } from 'shared/redux/_utils/fetch-utils';
-import LiveHistoryActionTypes from './types';
+import LiveHistoryTypes from './types';
 
 const INITIAL_STATE = {
   loading: true,
@@ -10,11 +10,11 @@ const INITIAL_STATE = {
 
 const liveHistoryReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case LiveHistoryActionTypes.FETCH_LIVE_HISTORY_REQUEST:
+    case LiveHistoryTypes.FETCH_LIVE_HISTORY_REQUEST:
       return requestData();
-    case LiveHistoryActionTypes.FETCH_LIVE_HISTORY_SUCCESS:
+    case LiveHistoryTypes.FETCH_LIVE_HISTORY_SUCCESS:
       return setData(action.payload);
-    case LiveHistoryActionTypes.FETCH_LIVE_HISTORY_FAILURE:
+    case LiveHistoryTypes.FETCH_LIVE_HISTORY_FAILURE:
       return setError(action.payload);
     default:
       return state;

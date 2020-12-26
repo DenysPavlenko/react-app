@@ -1,5 +1,5 @@
 import { requestData, setData, setError } from 'shared/redux/_utils/fetch-utils';
-import ClientBalanceActionTypes from './types';
+import ClientBalanceTypes from './types';
 
 const INITIAL_STATE = {
   loading: true,
@@ -10,11 +10,11 @@ const INITIAL_STATE = {
 
 const clientBalanceReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ClientBalanceActionTypes.FETCH_CLIENT_BALANCE_REQUEST:
+    case ClientBalanceTypes.FETCH_CLIENT_BALANCE_REQUEST:
       return requestData();
-    case ClientBalanceActionTypes.FETCH_CLIENT_BALANCE_SUCCESS:
+    case ClientBalanceTypes.FETCH_CLIENT_BALANCE_SUCCESS:
       return setData(action.payload);
-    case ClientBalanceActionTypes.FETCH_CLIENT_BALANCE_FAILURE:
+    case ClientBalanceTypes.FETCH_CLIENT_BALANCE_FAILURE:
       return setError(action.payload);
     default:
       return state;

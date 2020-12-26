@@ -1,5 +1,5 @@
-import LivePlayProgramActionTypes from './types';
+import LivePlayProgramTypes from './types';
 
 export const toggleLivePlayProgram = () => ({
-  type: LivePlayProgramActionTypes.TOGGLE_LIVE_PLAY_PROGRAM
+  type: LivePlayProgramTypes.TOGGLE_LIVE_PLAY_PROGRAM
 });

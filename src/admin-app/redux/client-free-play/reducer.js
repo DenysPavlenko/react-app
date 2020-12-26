@@ -1,5 +1,5 @@
 import { requestData, setData, setError } from 'shared/redux/_utils/fetch-utils';
-import ClientFreePlayActionTypes from './types';
+import ClientFreePlayTypes from './types';
 
 const INITIAL_STATE = {
   loading: true,
@@ -10,11 +10,11 @@ const INITIAL_STATE = {
 
 const clientTransactionsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ClientFreePlayActionTypes.FETCH_CLIENT_FREE_PLAY_REQUEST:
+    case ClientFreePlayTypes.FETCH_CLIENT_FREE_PLAY_REQUEST:
       return requestData();
-    case ClientFreePlayActionTypes.FETCH_CLIENT_FREE_PLAY_SUCCESS:
+    case ClientFreePlayTypes.FETCH_CLIENT_FREE_PLAY_SUCCESS:
       return setData(action.payload);
-    case ClientFreePlayActionTypes.FETCH_CLIENT_FREE_PLAY_FAILURE:
+    case ClientFreePlayTypes.FETCH_CLIENT_FREE_PLAY_FAILURE:
       return setError(action.payload);
     default:
       return state;

@@ -1,7 +1,7 @@
-const ClientAccountingActionTypes = {
+const ClientAccountingTypes = {
   FETCH_CLIENT_ACCOUNTING_REQUEST  : 'FETCH_CLIENT_ACCOUNTING_REQUEST',
   FETCH_CLIENT_ACCOUNTING_SUCCESS  : 'FETCH_CLIENT_ACCOUNTING_SUCCESS',
   FETCH_CLIENT_ACCOUNTING_FAILURE  : 'FETCH_CLIENT_ACCOUNTING_FAILURE',
 };
 
-export default ClientAccountingActionTypes;
+export default ClientAccountingTypes;

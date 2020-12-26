@@ -1,17 +1,17 @@
-import TransactionsActionTypes from './types';
+import TransactionsTypes from './types';
 // Transactions service
 import TransactionsService from 'player-app/services/transactions-service';
 const transactionsService = new TransactionsService();
 
 const transactionsRequested = () => ({
-  type: TransactionsActionTypes.FETCH_TRANSACTIONS_REQUEST
+  type: TransactionsTypes.FETCH_TRANSACTIONS_REQUEST
 });
 const transactionsLoaded = data => ({
-  type: TransactionsActionTypes.FETCH_TRANSACTIONS_SUCCESS,
+  type: TransactionsTypes.FETCH_TRANSACTIONS_SUCCESS,
   payload: data
 });
 const transactionsError = error => ({
-  type: TransactionsActionTypes.FETCH_TRANSACTIONS_FAILURE,
+  type: TransactionsTypes.FETCH_TRANSACTIONS_FAILURE,
   payload: error
 });
 

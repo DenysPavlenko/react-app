@@ -1,4 +1,4 @@
-import HorsesPreviewActionTypes from './types';
+import HorsesPreviewTypes from './types';
 
 const INITIAL_STATE = {
   isHorsesSelectShown: false
@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 const horsesPageSelectReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case HorsesPreviewActionTypes.TOGGLE_HORSES_PREVIEW_SELECT:
+    case HorsesPreviewTypes.TOGGLE_HORSES_PREVIEW_SELECT:
       const { isHorsesSelectShown } = state;
       return {
         isHorsesSelectShown: !isHorsesSelectShown

@@ -1,6 +1,6 @@
-import ColorSchemeActionTypes from './types';
+import ColorSchemeTypes from './types';
 
 export const setColorScheme = color => ({
-  type: ColorSchemeActionTypes.SET_COLOR_SCHEME,
+  type: ColorSchemeTypes.SET_COLOR_SCHEME,
   payload: color
 });

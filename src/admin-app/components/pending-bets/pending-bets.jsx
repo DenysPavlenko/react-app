@@ -6,15 +6,11 @@ import { createStructuredSelector } from 'reselect'
 import { fetchPendingBetsData } from 'admin-app/redux/pending-bets/actions';
 import { selectPendingBets } from 'admin-app/redux/pending-bets/selectors';
 // Components
-import Modal from 'shared/components/modal/modal';
+import DataPreviewModal from 'admin-app/components/data-preview-modal/data-preview-modal';
 import Typography from 'shared/components/typography/typography';
-import Close from 'shared/components/close/close';
 import PrimaryTable from 'shared/components/primary-table/primary-table';
-import Button from 'shared/components/button/button';
 // Table content
 import tableContent from './table-content';
-// Styles
-import './pending-bets.sass';
 
 const PendingBets = ({ agent, open, onClose, onExited, fetchPendingBetsData, pendingBets: { loading, data, error } }) => {
 
@@ -23,12 +19,15 @@ const PendingBets = ({ agent, open, onClose, onExited, fetchPendingBetsData, pen
   }, [fetchPendingBetsData, agent]);
 
   return (
-    <Modal open={open} className="pending-bets" onClose={onClose} noClose onExited={onExited} size="xl">
-      <div className="pending-bets__header">
+    <DataPreviewModal
+      open={open}
+      onClose={onClose}
+      onExited={onExited}
+      size="xl"
+      title={
         <Typography component="h3">Pending bets</Typography>
-        <Close dark onClick={onClose} />
-      </div>
-      <div className="pending-bets__content">
+      }
+      content={
         <PrimaryTable
           cols={tableContent()}
           loading={loading}
@@ -36,16 +35,11 @@ const PendingBets = ({ agent, open, onClose, onExited, fetchPendingBetsData, pen
           data={data}
           error={error}
         />
-        {data &&
-          <div className="pending-bets__content-footer">
-            <Typography component="h4" className="text-bold">Total pending bets: {data.length}</Typography>
-          </div>
-        }
-      </div>
-      <div className="pending-bets__footer">
-        <Button variant="danger" size="sm" onClick={onClose}>Close</Button>
-      </div>
-    </Modal>
+      }
+      total={
+        <Typography component="h4" className="text-bold">Total pending bets: {data && data.length}</Typography>
+      }
+    />
   );
 };
 
@@ -64,7 +58,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPendingBetsData: (agent) => dispatch(fetchPendingBetsData(agent)),
+  fetchPendingBetsData: agent => dispatch(fetchPendingBetsData(agent)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PendingBets);

@@ -1,7 +1,7 @@
-const PositionTodayActionTypes = {
+const PositionTodayTypes = {
   FETCH_POSITION_TODAY_REQUEST  : 'FETCH_POSITION_TODAY_REQUEST',
   FETCH_POSITION_TODAY_SUCCESS  : 'FETCH_POSITION_TODAY_SUCCESS',
   FETCH_POSITION_TODAY_FAILURE  : 'FETCH_POSITION_TODAY_FAILURE',
 };
 
-export default PositionTodayActionTypes;
+export default PositionTodayTypes;

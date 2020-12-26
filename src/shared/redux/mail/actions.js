@@ -1,21 +1,21 @@
-import MailActionTypes from './types';
+import MailTypes from './types';
 // Live program service
 import MailService from 'shared/services/mail-service';
 const mailService = new MailService();
 
 export const toggleMail = () => ({
-  type: MailActionTypes.TOGGLE_MAIL
+  type: MailTypes.TOGGLE_MAIL
 });
 
 const messagesRequested = () => ({
-  type: MailActionTypes.FETCH_MESSAGES_REQUEST
+  type: MailTypes.FETCH_MESSAGES_REQUEST
 });
 const messagesLoaded = messages => ({
-  type: MailActionTypes.FETCH_MESSAGES_SUCCESS,
+  type: MailTypes.FETCH_MESSAGES_SUCCESS,
   payload: messages
 });
 const messagesError = error => ({
-  type: MailActionTypes.FETCH_MESSAGES_FAILURE,
+  type: MailTypes.FETCH_MESSAGES_FAILURE,
   payload: error
 });
 export const fetchMessages = (category) => dispatch => {
@@ -30,11 +30,11 @@ export const fetchMessages = (category) => dispatch => {
 };
 
 export const deleteMessage = id => ({
-  type: MailActionTypes.DELETE_MESSAGE,
+  type: MailTypes.DELETE_MESSAGE,
   payload: id
 });
 
 export const deleteMessages = ids => ({
-  type: MailActionTypes.DELETE_MESSAGES,
+  type: MailTypes.DELETE_MESSAGES,
   payload: ids
 });

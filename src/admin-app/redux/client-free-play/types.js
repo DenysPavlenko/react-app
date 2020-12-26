@@ -1,7 +1,7 @@
-const ClientFreePlayActionTypes = {
+const ClientFreePlayTypes = {
   FETCH_CLIENT_FREE_PLAY_REQUEST  : 'FETCH_CLIENT_FREE_PLAY_REQUEST',
   FETCH_CLIENT_FREE_PLAY_SUCCESS  : 'FETCH_CLIENT_FREE_PLAY_SUCCESS',
   FETCH_CLIENT_FREE_PLAY_FAILURE  : 'FETCH_CLIENT_FREE_PLAY_FAILURE',
 };
 
-export default ClientFreePlayActionTypes;
+export default ClientFreePlayTypes;

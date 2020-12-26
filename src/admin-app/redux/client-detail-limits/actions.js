@@ -1,16 +1,16 @@
-import ClientDetailLimitsActionTypes from './types';
+import ClientDetailLimitsTypes from './types';
 import ClientDetailLimitsService from 'admin-app/services/client-detail-limits-service';
 const clientDetailLimitsService = new ClientDetailLimitsService();
 
 const clientDetailLimitsRequested = () => ({
-  type: ClientDetailLimitsActionTypes.FETCH_CLIENT_DETAIL_LIMITS_REQUEST
+  type: ClientDetailLimitsTypes.FETCH_CLIENT_DETAIL_LIMITS_REQUEST
 });
 const clientDetailLimitsLoaded = data => ({
-  type: ClientDetailLimitsActionTypes.FETCH_CLIENT_DETAIL_LIMITS_SUCCESS,
+  type: ClientDetailLimitsTypes.FETCH_CLIENT_DETAIL_LIMITS_SUCCESS,
   payload: data
 });
 const clientDetailLimitsError = error => ({
-  type: ClientDetailLimitsActionTypes.FETCH_CLIENT_DETAIL_LIMITS_FAILURE,
+  type: ClientDetailLimitsTypes.FETCH_CLIENT_DETAIL_LIMITS_FAILURE,
   payload: error
 });
 

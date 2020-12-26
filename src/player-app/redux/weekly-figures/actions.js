@@ -1,17 +1,17 @@
-import WeeklyFiguresActionTypes from './types';
+import WeeklyFiguresTypes from './types';
 // Weekly figures service
 import WeeklyFiguresService from 'player-app/services/weekly-figures-service';
 const weeklyFiguresService = new WeeklyFiguresService();
 
 const weeklyFiguresRequested = () => ({
-  type: WeeklyFiguresActionTypes.FETCH_WEEKLY_FIGURES_REQUEST
+  type: WeeklyFiguresTypes.FETCH_WEEKLY_FIGURES_REQUEST
 });
 const weeklyFiguresLoaded = data => ({
-  type: WeeklyFiguresActionTypes.FETCH_WEEKLY_FIGURES_SUCCESS,
+  type: WeeklyFiguresTypes.FETCH_WEEKLY_FIGURES_SUCCESS,
   payload: data
 });
 const weeklyFiguresError = error => ({
-  type: WeeklyFiguresActionTypes.FETCH_WEEKLY_FIGURES_FAILURE,
+  type: WeeklyFiguresTypes.FETCH_WEEKLY_FIGURES_FAILURE,
   payload: error
 });
 

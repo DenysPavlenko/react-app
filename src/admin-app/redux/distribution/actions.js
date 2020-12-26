@@ -1,17 +1,17 @@
-import DistributionActionTypes from './types';
+import DistributionTypes from './types';
 import DistributionService from 'admin-app/services/distribution-service';
 
 const distributionService = new DistributionService();
 
 const distributionRequested = () => ({
-  type: DistributionActionTypes.FETCH_DISTRIBUTION_REQUEST
+  type: DistributionTypes.FETCH_DISTRIBUTION_REQUEST
 });
 const distributionLoaded = data => ({
-  type: DistributionActionTypes.FETCH_DISTRIBUTION_SUCCESS,
+  type: DistributionTypes.FETCH_DISTRIBUTION_SUCCESS,
   payload: data
 });
 const distributionError = error => ({
-  type: DistributionActionTypes.FETCH_DISTRIBUTION_FAILURE,
+  type: DistributionTypes.FETCH_DISTRIBUTION_FAILURE,
   payload: error
 });
 

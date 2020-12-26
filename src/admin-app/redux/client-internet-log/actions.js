@@ -1,16 +1,16 @@
-import ClientInternetLogActionTypes from './types';
+import ClientInternetLogTypes from './types';
 import ClientInternetLogService from 'admin-app/services/client-internet-log-service';
 const clientInternetLogService = new ClientInternetLogService();
 
 const clientInternetLogRequested = () => ({
-  type: ClientInternetLogActionTypes.FETCH_CLIENT_INTERNET_LOG_REQUEST
+  type: ClientInternetLogTypes.FETCH_CLIENT_INTERNET_LOG_REQUEST
 });
 const clientInternetLogLoaded = data => ({
-  type: ClientInternetLogActionTypes.FETCH_CLIENT_INTERNET_LOG_SUCCESS,
+  type: ClientInternetLogTypes.FETCH_CLIENT_INTERNET_LOG_SUCCESS,
   payload: data
 });
 const clientInternetLogError = error => ({
-  type: ClientInternetLogActionTypes.FETCH_CLIENT_INTERNET_LOG_FAILURE,
+  type: ClientInternetLogTypes.FETCH_CLIENT_INTERNET_LOG_FAILURE,
   payload: error
 });
 

@@ -1,16 +1,16 @@
-import ClientGeneralActionTypes from './types';
+import ClientGeneralTypes from './types';
 import ClientGeneralService from 'admin-app/services/client-general-service';
 const clientGeneralService = new ClientGeneralService();
 
 const clientGeneralRequested = () => ({
-  type: ClientGeneralActionTypes.FETCH_CLIENT_GENERAL_REQUEST
+  type: ClientGeneralTypes.FETCH_CLIENT_GENERAL_REQUEST
 });
 const clientGeneralLoaded = data => ({
-  type: ClientGeneralActionTypes.FETCH_CLIENT_GENERAL_SUCCESS,
+  type: ClientGeneralTypes.FETCH_CLIENT_GENERAL_SUCCESS,
   payload: data
 });
 const clientGeneralError = error => ({
-  type: ClientGeneralActionTypes.FETCH_CLIENT_GENERAL_FAILURE,
+  type: ClientGeneralTypes.FETCH_CLIENT_GENERAL_FAILURE,
   payload: error
 });
 

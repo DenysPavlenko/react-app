@@ -1,5 +1,5 @@
 import { requestData, setData, setError } from 'shared/redux/_utils/fetch-utils';
-import RecentLoginsActionTypes from './types';
+import RecentLoginsTypes from './types';
 
 const INITIAL_STATE = {
   loading: true,
@@ -10,11 +10,11 @@ const INITIAL_STATE = {
 
 const recentLoginsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case RecentLoginsActionTypes.FETCH_RECENT_LOGINS_REQUEST:
+    case RecentLoginsTypes.FETCH_RECENT_LOGINS_REQUEST:
       return requestData();
-    case RecentLoginsActionTypes.FETCH_RECENT_LOGINS_SUCCESS:
+    case RecentLoginsTypes.FETCH_RECENT_LOGINS_SUCCESS:
       return setData(action.payload);
-    case RecentLoginsActionTypes.FETCH_RECENT_LOGINS_FAILURE:
+    case RecentLoginsTypes.FETCH_RECENT_LOGINS_FAILURE:
       return setError(action.payload);
     default:
       return state;

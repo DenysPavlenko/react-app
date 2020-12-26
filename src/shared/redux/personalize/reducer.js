@@ -1,4 +1,4 @@
-import PersonalizeActionTypes from './types';
+import PersonalizeTypes from './types';
 
 const INITIAL_STATE = {
   isActive: false
@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 const personalizeReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case PersonalizeActionTypes.TOGGLE_PERSONALIZE:
+    case PersonalizeTypes.TOGGLE_PERSONALIZE:
       const { isActive } = state;
       return {
         ...state,

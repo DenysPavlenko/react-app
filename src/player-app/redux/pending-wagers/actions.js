@@ -1,17 +1,17 @@
-import PendingWagersActionTypes from './types';
+import PendingWagersTypes from './types';
 // Pending wagers service
 import PendingWagersService from 'player-app/services/pending-wagers-service';
 const pendingWagersService = new PendingWagersService();
 
 const pendingWagersRequested = () => ({
-  type: PendingWagersActionTypes.FETCH_PENDING_WAGERS_REQUEST
+  type: PendingWagersTypes.FETCH_PENDING_WAGERS_REQUEST
 });
 const pendingWagersLoaded = data => ({
-  type: PendingWagersActionTypes.FETCH_PENDING_WAGERS_SUCCESS,
+  type: PendingWagersTypes.FETCH_PENDING_WAGERS_SUCCESS,
   payload: data
 });
 const pendingWagersError = error => ({
-  type: PendingWagersActionTypes.FETCH_PENDING_WAGERS_FAILURE,
+  type: PendingWagersTypes.FETCH_PENDING_WAGERS_FAILURE,
   payload: error
 });
 

@@ -1,5 +1,5 @@
-const ColorSchemeActionTypes = {
+const ColorSchemeTypes = {
   SET_COLOR_SCHEME: 'SET_COLOR_SCHEME',
 };
 
-export default ColorSchemeActionTypes;
+export default ColorSchemeTypes;

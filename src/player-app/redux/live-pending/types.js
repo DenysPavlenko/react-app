@@ -1,7 +1,7 @@
-const LivePendingActionTypes = {
+const LivePendingTypes = {
   FETCH_LIVE_PENDING_REQUEST  : 'FETCH_LIVE_PENDING_REQUEST',
   FETCH_LIVE_PENDING_SUCCESS  : 'FETCH_LIVE_PENDING_SUCCESS',
   FETCH_LIVE_PENDING_FAILURE  : 'FETCH_LIVE_PENDING_FAILURE',
 };
 
-export default LivePendingActionTypes;
+export default LivePendingTypes;

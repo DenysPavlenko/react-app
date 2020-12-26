@@ -1,7 +1,7 @@
-const SettleActionTypes = {
+const SettleTypes = {
   FETCH_SETTLE_REQUEST  : 'FETCH_SETTLE_REQUEST',
   FETCH_SETTLE_SUCCESS  : 'FETCH_SETTLE_SUCCESS',
   FETCH_SETTLE_FAILURE  : 'FETCH_SETTLE_FAILURE',
 };
 
-export default SettleActionTypes;
+export default SettleTypes;

@@ -6,11 +6,9 @@ import { createStructuredSelector } from 'reselect'
 import { fetchActivePlayersData, toggleActivePlayers } from 'admin-app/redux/active-players/actions';
 import { selectActivePlayers, selectShowActivePlayers } from 'admin-app/redux/active-players/selectors';
 // Components
-import Modal from 'shared/components/modal/modal';
+import DataPreviewModal from 'admin-app/components/data-preview-modal/data-preview-modal';
 import Typography from 'shared/components/typography/typography';
-import Close from 'shared/components/close/close';
 import PrimaryTable from 'shared/components/primary-table/primary-table';
-import Button from 'shared/components/button/button';
 // Table content
 import tableContent from './table-content';
 // Styles
@@ -23,12 +21,13 @@ const ActivePlayers = ({ toggleActivePlayers, fetchActivePlayersData, activePlay
   }, [fetchActivePlayersData, showActivePlayers]);
 
   return (
-    <Modal open={showActivePlayers} className="active-players" onClose={toggleActivePlayers} noClose size="lg">
-      <div className="active-players__header">
+    <DataPreviewModal
+      open={showActivePlayers}
+      onClose={toggleActivePlayers}
+      title={
         <Typography component="h3">ZTMA - Active Customers</Typography>
-        <Close dark onClick={toggleActivePlayers} />
-      </div>
-      <div className="active-players__content">
+      }
+      content={
         <PrimaryTable
           cols={tableContent()}
           loading={loading}
@@ -36,16 +35,11 @@ const ActivePlayers = ({ toggleActivePlayers, fetchActivePlayersData, activePlay
           data={data}
           error={error}
         />
-        {data &&
-          <div className="active-players__content-footer">
-            <Typography component="h4" className="text-bold">Total players: {data.length}</Typography>
-          </div>
-        }
-      </div>
-      <div className="active-players__footer">
-        <Button variant="danger" size="sm" onClick={toggleActivePlayers}>Close</Button>
-      </div>
-    </Modal>
+      }
+      total={
+        <Typography component="h4" className="text-bold">Total players: {data && data.length}</Typography>
+      }
+    />
   );
 };
 

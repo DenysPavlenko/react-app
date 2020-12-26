@@ -1,17 +1,17 @@
-import ClientHistoryActionTypes from './types';
+import ClientHistoryTypes from './types';
 import ClientHistoryService from 'admin-app/services/client-history-service';
 
 const clientHistoryService = new ClientHistoryService();
 
 const clientHistoryRequested = () => ({
-  type: ClientHistoryActionTypes.FETCH_CLIENT_HISTORY_REQUEST
+  type: ClientHistoryTypes.FETCH_CLIENT_HISTORY_REQUEST
 });
 const clientHistoryLoaded = data => ({
-  type: ClientHistoryActionTypes.FETCH_CLIENT_HISTORY_SUCCESS,
+  type: ClientHistoryTypes.FETCH_CLIENT_HISTORY_SUCCESS,
   payload: data
 });
 const clientHistoryError = error => ({
-  type: ClientHistoryActionTypes.FETCH_CLIENT_HISTORY_FAILURE,
+  type: ClientHistoryTypes.FETCH_CLIENT_HISTORY_FAILURE,
   payload: error
 });
 

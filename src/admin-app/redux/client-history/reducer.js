@@ -1,5 +1,5 @@
 import { requestData, setData, setError } from 'shared/redux/_utils/fetch-utils';
-import ClientHistoryActionTypes from './types';
+import ClientHistoryTypes from './types';
 
 const INITIAL_STATE = {
   loading: true,
@@ -10,11 +10,11 @@ const INITIAL_STATE = {
 
 const clientHistoryReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ClientHistoryActionTypes.FETCH_CLIENT_HISTORY_REQUEST:
+    case ClientHistoryTypes.FETCH_CLIENT_HISTORY_REQUEST:
       return requestData();
-    case ClientHistoryActionTypes.FETCH_CLIENT_HISTORY_SUCCESS:
+    case ClientHistoryTypes.FETCH_CLIENT_HISTORY_SUCCESS:
       return setData(action.payload);
-    case ClientHistoryActionTypes.FETCH_CLIENT_HISTORY_FAILURE:
+    case ClientHistoryTypes.FETCH_CLIENT_HISTORY_FAILURE:
       return setError(action.payload);
     default:
       return state;

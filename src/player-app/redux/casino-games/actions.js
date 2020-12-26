@@ -1,17 +1,17 @@
-import CasinoGamesActionTypes from './types';
+import CasinoGamesTypes from './types';
 // Casino games service
 import CasinoGamesService from 'player-app/services/casino-games-service';
 const casinoGamesService = new CasinoGamesService();
 
 const casinoGamesRequested = () => ({
-  type: CasinoGamesActionTypes.FETCH_CASINO_GAMES_REQUEST
+  type: CasinoGamesTypes.FETCH_CASINO_GAMES_REQUEST
 });
 const casinoGamesLoaded = data => ({
-  type: CasinoGamesActionTypes.FETCH_CASINO_GAMES_SUCCESS,
+  type: CasinoGamesTypes.FETCH_CASINO_GAMES_SUCCESS,
   payload: data
 });
 const casinoGamesError = error => ({
-  type: CasinoGamesActionTypes.FETCH_CASINO_GAMES_FAILURE,
+  type: CasinoGamesTypes.FETCH_CASINO_GAMES_FAILURE,
   payload: error
 });
 

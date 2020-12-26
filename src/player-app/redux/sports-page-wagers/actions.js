@@ -1,9 +1,9 @@
-import SportsPageWagersActionTypes from './types';
+import SportsPageWagersTypes from './types';
 
 export const toggleSportsPageWagers = () => ({
-  type: SportsPageWagersActionTypes.TOGGLE_SPORTS_PAGE_WAGERS
+  type: SportsPageWagersTypes.TOGGLE_SPORTS_PAGE_WAGERS
 });
 
 export const hideSportsPageWagers= () => ({
-  type: SportsPageWagersActionTypes.HIDE_SPORTS_PAGE_WAGERS
+  type: SportsPageWagersTypes.HIDE_SPORTS_PAGE_WAGERS
 });

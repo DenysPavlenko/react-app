@@ -1,4 +1,4 @@
-import AdminMenuActionTypes from './types';
+import AdminMenuTypes from './types';
 
 const INITIAL_STATE = {
   isActive: false
@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 const adminMenuReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case AdminMenuActionTypes.TOGGLE_ADMIN_MENU:
+    case AdminMenuTypes.TOGGLE_ADMIN_MENU:
       const { isActive } = state;
       return {
         ...state,

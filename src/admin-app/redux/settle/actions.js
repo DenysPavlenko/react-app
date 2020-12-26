@@ -1,17 +1,17 @@
-import SettleActionTypes from './types';
+import SettleTypes from './types';
 import SettleService from 'admin-app/services/settle-service';
 
 const settleService = new SettleService();
 
 const settleRequested = () => ({
-  type: SettleActionTypes.FETCH_SETTLE_REQUEST
+  type: SettleTypes.FETCH_SETTLE_REQUEST
 });
 const settleLoaded = data => ({
-  type: SettleActionTypes.FETCH_SETTLE_SUCCESS,
+  type: SettleTypes.FETCH_SETTLE_SUCCESS,
   payload: data
 });
 const settleError = error => ({
-  type: SettleActionTypes.FETCH_SETTLE_FAILURE,
+  type: SettleTypes.FETCH_SETTLE_FAILURE,
   payload: error
 });
 

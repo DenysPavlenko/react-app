@@ -1,7 +1,7 @@
-const ClientInternetLogActionTypes = {
+const ClientInternetLogTypes = {
   FETCH_CLIENT_INTERNET_LOG_REQUEST  : 'FETCH_CLIENT_INTERNET_LOG_REQUEST',
   FETCH_CLIENT_INTERNET_LOG_SUCCESS  : 'FETCH_CLIENT_INTERNET_LOG_SUCCESS',
   FETCH_CLIENT_INTERNET_LOG_FAILURE  : 'FETCH_CLIENT_INTERNET_LOG_FAILURE',
 };
 
-export default ClientInternetLogActionTypes;
+export default ClientInternetLogTypes;

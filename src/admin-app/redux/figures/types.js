@@ -1,7 +1,7 @@
-const FiguresActionTypes = {
+const FiguresTypes = {
   FETCH_FIGURES_REQUEST  : 'FETCH_FIGURES_REQUEST',
   FETCH_FIGURES_SUCCESS  : 'FETCH_FIGURES_SUCCESS',
   FETCH_FIGURES_FAILURE  : 'FETCH_FIGURES_FAILURE',
 };
 
-export default FiguresActionTypes;
+export default FiguresTypes;

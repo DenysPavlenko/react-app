@@ -1,5 +1,5 @@
-import HorsesPreviewActionTypes from './types';
+import HorsesPreviewTypes from './types';
 
 export const toggleHorsesPreviewSelect = () => ({
-  type: HorsesPreviewActionTypes.TOGGLE_HORSES_PREVIEW_SELECT
+  type: HorsesPreviewTypes.TOGGLE_HORSES_PREVIEW_SELECT
 });

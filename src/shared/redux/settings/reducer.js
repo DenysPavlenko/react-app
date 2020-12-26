@@ -1,4 +1,4 @@
-import SettingsActionTypes from './types';
+import SettingsTypes from './types';
 
 const INITIAL_STATE = {
   isSettingsShown: false
@@ -6,11 +6,11 @@ const INITIAL_STATE = {
 
 const settingsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case SettingsActionTypes.SHOW_SETTINGS:
+    case SettingsTypes.SHOW_SETTINGS:
       return {
         isSettingsShown: true
       }
-    case SettingsActionTypes.HIDE_SETTINGS:
+    case SettingsTypes.HIDE_SETTINGS:
       return {
         isSettingsShown: false
       }

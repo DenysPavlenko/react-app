@@ -1,4 +1,4 @@
-const MailActionTypes = {
+const MailTypes = {
   TOGGLE_MAIL: 'TOGGLE_MAIL',
 
   FETCH_MESSAGES_REQUEST: 'FETCH_MESSAGES_REQUEST',
@@ -13,4 +13,4 @@ const MailActionTypes = {
   DELETE_MESSAGES: 'DELETE_MESSAGES',
 };
 
-export default MailActionTypes;
+export default MailTypes;

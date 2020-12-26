@@ -16,6 +16,7 @@ import Spinner from 'shared/components/spinner/spinner';
 import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 import ActiveCustomers from 'admin-app/components/active-customers/active-customers';
 import AccountActivity from 'admin-app/components/account-activity/account-activity';
+import Transactions from 'admin-app/components/transactions/transactions';
 // Table content
 import tableContent from './table-content';
 import tableLastRow from './table-last-row';
@@ -33,6 +34,7 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
   const [modals, setModals] = useState({
     acModal: { open: false, agent: '' },
     aaModal: { open: false, agent: '', date: '' },
+    trModal: { open: false, agent: '' },
   });
 
   useLayoutEffect(() => {
@@ -68,7 +70,7 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
     });
   };
 
-  const { acModal, aaModal } = modals;
+  const { acModal, aaModal, trModal } = modals;
 
   return (
     <Fragment>
@@ -83,6 +85,12 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
         agent={aaModal.agent}
         onClose={() => handleModalClose('aaModal')}
         onExited={() => handleModalClear('aaModal')}
+      />
+      <Transactions
+        open={trModal.open}
+        agent={trModal.agent}
+        onClose={() => handleModalClose('trModal')}
+        onExited={() => handleModalClear('trModal')}
       />
       <TableFilter title="Columns: Turn on/off"
         filters={filters}

@@ -1,7 +1,7 @@
-const AgentsListActionTypes = {
+const AgentsListTypes = {
   FETCH_AGENTS_LIST_REQUEST  : 'FETCH_AGENTS_LIST_REQUEST',
   FETCH_AGENTS_LIST_SUCCESS  : 'FETCH_AGENTS_LIST_SUCCESS',
   FETCH_AGENTS_LIST_FAILURE  : 'FETCH_AGENTS_LIST_FAILURE',
 };
 
-export default AgentsListActionTypes;
+export default AgentsListTypes;

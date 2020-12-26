@@ -1,7 +1,7 @@
-const ClientPendingActionTypes = {
+const ClientPendingTypes = {
   FETCH_CLIENT_PENDING_REQUEST  : 'FETCH_CLIENT_PENDING_REQUEST',
   FETCH_CLIENT_PENDING_SUCCESS  : 'FETCH_CLIENT_PENDING_SUCCESS',
   FETCH_CLIENT_PENDING_FAILURE  : 'FETCH_CLIENT_PENDING_FAILURE',
 };
 
-export default ClientPendingActionTypes;
+export default ClientPendingTypes;

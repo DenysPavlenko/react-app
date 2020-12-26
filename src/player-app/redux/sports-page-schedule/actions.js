@@ -1,5 +1,5 @@
-import SportsPageScheduleActionTypes from './types';
+import SportsPageScheduleTypes from './types';
 
 export const toggleSportsPageSchedule = () => ({
-  type: SportsPageScheduleActionTypes.TOGGLE_SPORTS_PAGE_SCHEDULE
+  type: SportsPageScheduleTypes.TOGGLE_SPORTS_PAGE_SCHEDULE
 });

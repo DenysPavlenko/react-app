@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "date": "12/21",
+    "type": "Deposit",
+    "amount": "2.00",
+    "description": "Initial Deposit - (By ZTMA)"
+  },
+  {
+    "id": "2",
+    "date": "13/21",
+    "type": "Deposit",
+    "amount": "4.00",
+    "description": "Initial Deposit - (By ZTMA)"
+  },
+  {
+    "id": "3",
+    "date": "14/21",
+    "type": "Deposit",
+    "amount": "6.00",
+    "description": "Initial Deposit - (By ZTMA)"
+  }
+]

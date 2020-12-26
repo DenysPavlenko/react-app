@@ -1,17 +1,17 @@
-import CashierActionTypes from './types';
+import CashierTypes from './types';
 import CashierService from 'admin-app/services/cashier-service';
 
 const cashierService = new CashierService();
 
 const cashierRequested = () => ({
-  type: CashierActionTypes.FETCH_CASHIER_REQUEST
+  type: CashierTypes.FETCH_CASHIER_REQUEST
 });
 const cashierLoaded = data => ({
-  type: CashierActionTypes.FETCH_CASHIER_SUCCESS,
+  type: CashierTypes.FETCH_CASHIER_SUCCESS,
   payload: data
 });
 const cashierError = error => ({
-  type: CashierActionTypes.FETCH_CASHIER_FAILURE,
+  type: CashierTypes.FETCH_CASHIER_FAILURE,
   payload: error
 });
 

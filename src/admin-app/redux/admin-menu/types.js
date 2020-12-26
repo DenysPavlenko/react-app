@@ -1,5 +1,5 @@
-const AdminMenuActionTypes = {
+const AdminMenuTypes = {
   TOGGLE_ADMIN_MENU: 'TOGGLE_ADMIN_MENU',
 };
 
-export default AdminMenuActionTypes;
+export default AdminMenuTypes;

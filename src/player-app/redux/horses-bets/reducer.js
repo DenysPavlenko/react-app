@@ -1,4 +1,4 @@
-import HorsesBetsActionTypes from './types';
+import HorsesBetsTypes from './types';
 
 const INITIAL_STATE = {
   bets: []
@@ -7,15 +7,15 @@ const INITIAL_STATE = {
 const horsesBetsReducer = (state = INITIAL_STATE, action) => {
   const { bets } = state;
   switch (action.type) {
-    case HorsesBetsActionTypes.ADD_HORSES_BET:
+    case HorsesBetsTypes.ADD_HORSES_BET:
       return {
         bets: [...bets, action.payload]
       }
-    case HorsesBetsActionTypes.REMOVE_HORSES_BET:
+    case HorsesBetsTypes.REMOVE_HORSES_BET:
       return {
         bets: bets.filter(({ id }) => id !== action.payload)
       }
-    case HorsesBetsActionTypes.CLEAR_HORSES_BETS:
+    case HorsesBetsTypes.CLEAR_HORSES_BETS:
       return {
         bets: []
       }

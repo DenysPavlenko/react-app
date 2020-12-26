@@ -1,17 +1,17 @@
-import AgentsListActionTypes from './types';
+import AgentsListTypes from './types';
 import AgentsListService from 'admin-app/services/agents-list-service';
 
 const agentsListService = new AgentsListService();
 
 const agentsListRequested = () => ({
-  type: AgentsListActionTypes.FETCH_AGENTS_LIST_REQUEST
+  type: AgentsListTypes.FETCH_AGENTS_LIST_REQUEST
 });
 const agentsListLoaded = data => ({
-  type: AgentsListActionTypes.FETCH_AGENTS_LIST_SUCCESS,
+  type: AgentsListTypes.FETCH_AGENTS_LIST_SUCCESS,
   payload: data
 });
 const agentsListError = error => ({
-  type: AgentsListActionTypes.FETCH_AGENTS_LIST_FAILURE,
+  type: AgentsListTypes.FETCH_AGENTS_LIST_FAILURE,
   payload: error
 });
 

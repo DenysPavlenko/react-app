@@ -1,7 +1,7 @@
-const ClientGeneralActionTypes = {
+const ClientGeneralTypes = {
   FETCH_CLIENT_GENERAL_REQUEST  : 'FETCH_CLIENT_GENERAL_REQUEST',
   FETCH_CLIENT_GENERAL_SUCCESS  : 'FETCH_CLIENT_GENERAL_SUCCESS',
   FETCH_CLIENT_GENERAL_FAILURE  : 'FETCH_CLIENT_GENERAL_FAILURE',
 };
 
-export default ClientGeneralActionTypes;
+export default ClientGeneralTypes;

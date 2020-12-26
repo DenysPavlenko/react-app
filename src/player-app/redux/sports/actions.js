@@ -1,17 +1,17 @@
-import SportsActionTypes from './types';
+import SportsTypes from './types';
 // Sports  service
 import SportsService from 'player-app/services/sports-service';
 const sportsService = new SportsService();
 
 const sportsRequested = () => ({
-  type: SportsActionTypes.FETCH_SPORTS_REQUEST
+  type: SportsTypes.FETCH_SPORTS_REQUEST
 });
 const sportsLoaded = data => ({
-  type: SportsActionTypes.FETCH_SPORTS_SUCCESS,
+  type: SportsTypes.FETCH_SPORTS_SUCCESS,
   payload: data
 });
 const sportsError = error => ({
-  type: SportsActionTypes.FETCH_SPORTS_FAILURE,
+  type: SportsTypes.FETCH_SPORTS_FAILURE,
   payload: error
 });
 

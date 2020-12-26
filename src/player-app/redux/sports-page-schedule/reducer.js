@@ -1,4 +1,4 @@
-import SportsPageScheduleActionTypes from './types';
+import SportsPageScheduleTypes from './types';
 
 const INITIAL_STATE = {
   showSportsSchedule: false
@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 const sportsPageScheduleReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case SportsPageScheduleActionTypes.TOGGLE_SPORTS_PAGE_SCHEDULE:
+    case SportsPageScheduleTypes.TOGGLE_SPORTS_PAGE_SCHEDULE:
       return {
         showSportsSchedule: !state.showSportsSchedule
       }

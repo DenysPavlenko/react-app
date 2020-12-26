@@ -1,5 +1,5 @@
-import AdminMenuActionTypes from './types';
+import AdminMenuTypes from './types';
 
 export const toggleAdminMenu = () => ({
-  type: AdminMenuActionTypes.TOGGLE_ADMIN_MENU
+  type: AdminMenuTypes.TOGGLE_ADMIN_MENU
 });

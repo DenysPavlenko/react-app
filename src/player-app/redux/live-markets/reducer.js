@@ -1,5 +1,5 @@
 import { requestData, setData, setError } from 'shared/redux/_utils/fetch-utils';
-import LiveMarketsActionTypes from './types';
+import LiveMarketsTypes from './types';
 
 const INITIAL_STATE = {
   loading: true,
@@ -10,11 +10,11 @@ const INITIAL_STATE = {
 
 const liveMarketsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case LiveMarketsActionTypes.FETCH_LIVE_MARKETS_REQUEST:
+    case LiveMarketsTypes.FETCH_LIVE_MARKETS_REQUEST:
       return requestData();
-    case LiveMarketsActionTypes.FETCH_LIVE_MARKETS_SUCCESS:
+    case LiveMarketsTypes.FETCH_LIVE_MARKETS_SUCCESS:
       return setData(action.payload);
-    case LiveMarketsActionTypes.FETCH_LIVE_MARKETS_FAILURE:
+    case LiveMarketsTypes.FETCH_LIVE_MARKETS_FAILURE:
       return setError(action.payload);
     default:
       return state;

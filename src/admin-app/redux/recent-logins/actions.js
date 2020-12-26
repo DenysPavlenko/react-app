@@ -1,16 +1,16 @@
-import RecentLoginsActionTypes from './types';
+import RecentLoginsTypes from './types';
 import RecentLoginsService from 'admin-app/services/recent-logins-service';
 const recentLoginsService = new RecentLoginsService();
 
 const recentLoginsRequested = () => ({
-  type: RecentLoginsActionTypes.FETCH_RECENT_LOGINS_REQUEST
+  type: RecentLoginsTypes.FETCH_RECENT_LOGINS_REQUEST
 });
 const recentLoginsLoaded = data => ({
-  type: RecentLoginsActionTypes.FETCH_RECENT_LOGINS_SUCCESS,
+  type: RecentLoginsTypes.FETCH_RECENT_LOGINS_SUCCESS,
   payload: data
 });
 const recentLoginsError = error => ({
-  type: RecentLoginsActionTypes.FETCH_RECENT_LOGINS_FAILURE,
+  type: RecentLoginsTypes.FETCH_RECENT_LOGINS_FAILURE,
   payload: error
 });
 

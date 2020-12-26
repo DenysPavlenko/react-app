@@ -1,16 +1,16 @@
-import ClientTransactionsActionTypes from './types';
+import ClientTransactionsTypes from './types';
 import ClientTransactionsService from 'admin-app/services/client-transactions-service';
 const clientTransactionsService = new ClientTransactionsService();
 
 const clientTransactionsRequested = () => ({
-  type: ClientTransactionsActionTypes.FETCH_CLIENT_TRANSACTIONS_REQUEST
+  type: ClientTransactionsTypes.FETCH_CLIENT_TRANSACTIONS_REQUEST
 });
 const clientTransactionsLoaded = data => ({
-  type: ClientTransactionsActionTypes.FETCH_CLIENT_TRANSACTIONS_SUCCESS,
+  type: ClientTransactionsTypes.FETCH_CLIENT_TRANSACTIONS_SUCCESS,
   payload: data
 });
 const clientTransactionsError = error => ({
-  type: ClientTransactionsActionTypes.FETCH_CLIENT_TRANSACTIONS_FAILURE,
+  type: ClientTransactionsTypes.FETCH_CLIENT_TRANSACTIONS_FAILURE,
   payload: error
 });
 

@@ -1,7 +1,7 @@
-const PendingBetsActionTypes = {
+const PendingBetsTypes = {
   FETCH_PENDING_BETS_REQUEST  : 'FETCH_PENDING_BETS_REQUEST',
   FETCH_PENDING_BETS_SUCCESS  : 'FETCH_PENDING_BETS_SUCCESS',
   FETCH_PENDING_BETS_FAILURE  : 'FETCH_PENDING_BETS_FAILURE',
 };
 
-export default PendingBetsActionTypes;
+export default PendingBetsTypes;

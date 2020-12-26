@@ -1,22 +1,22 @@
 
-import ScoresActionTypes from './types';
+import ScoresTypes from './types';
 // Live program service
 import ScoresService from 'player-app/services/scores-service';
 const scoresService = new ScoresService();
 
 export const toggleScores = () => ({
-  type: ScoresActionTypes.TOGGLE_SCORES
+  type: ScoresTypes.TOGGLE_SCORES
 });
 
 const scoresRequested = () => ({
-  type: ScoresActionTypes.FETCH_SCORES_REQUEST
+  type: ScoresTypes.FETCH_SCORES_REQUEST
 });
 const scoresLoaded = data => ({
-  type: ScoresActionTypes.FETCH_SCORES_SUCCESS,
+  type: ScoresTypes.FETCH_SCORES_SUCCESS,
   payload: data
 });
 const scoresError = error => ({
-  type: ScoresActionTypes.FETCH_SCORES_FAILURE,
+  type: ScoresTypes.FETCH_SCORES_FAILURE,
   payload: error
 });
 

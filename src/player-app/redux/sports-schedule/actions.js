@@ -1,17 +1,17 @@
-import SportsScheduleActionTypes from './types';
+import SportsScheduleTypes from './types';
 // Sports schedule service
 import SportsScheduleService from 'player-app/services/sports-schedule-service';
 const sportsScheduleService = new SportsScheduleService();
 
 const sportsScheduleRequested = () => ({
-  type: SportsScheduleActionTypes.FETCH_SPORTS_SCHEDULE_REQUEST
+  type: SportsScheduleTypes.FETCH_SPORTS_SCHEDULE_REQUEST
 });
 const sportsScheduleLoaded = data => ({
-  type: SportsScheduleActionTypes.FETCH_SPORTS_SCHEDULE_SUCCESS,
+  type: SportsScheduleTypes.FETCH_SPORTS_SCHEDULE_SUCCESS,
   payload: data
 });
 const sportsScheduleError = error => ({
-  type: SportsScheduleActionTypes.FETCH_SPORTS_SCHEDULE_FAILURE,
+  type: SportsScheduleTypes.FETCH_SPORTS_SCHEDULE_FAILURE,
   payload: error
 });
 

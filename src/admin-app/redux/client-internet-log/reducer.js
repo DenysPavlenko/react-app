@@ -1,5 +1,5 @@
 import { requestData, setData, setError } from 'shared/redux/_utils/fetch-utils';
-import ClientInternetLogActionTypes from './types';
+import ClientInternetLogTypes from './types';
 
 const INITIAL_STATE = {
   loading: true,
@@ -10,11 +10,11 @@ const INITIAL_STATE = {
 
 const clientInternetLogReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ClientInternetLogActionTypes.FETCH_CLIENT_INTERNET_LOG_REQUEST:
+    case ClientInternetLogTypes.FETCH_CLIENT_INTERNET_LOG_REQUEST:
       return requestData();
-    case ClientInternetLogActionTypes.FETCH_CLIENT_INTERNET_LOG_SUCCESS:
+    case ClientInternetLogTypes.FETCH_CLIENT_INTERNET_LOG_SUCCESS:
       return setData(action.payload);
-    case ClientInternetLogActionTypes.FETCH_CLIENT_INTERNET_LOG_FAILURE:
+    case ClientInternetLogTypes.FETCH_CLIENT_INTERNET_LOG_FAILURE:
       return setError(action.payload);
     default:
       return state;

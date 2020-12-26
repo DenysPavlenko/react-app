@@ -1,7 +1,7 @@
-const RecentLoginsActionTypes = {
+const RecentLoginsTypes = {
   FETCH_CUSTOMER_LIST_REQUEST  : 'FETCH_CUSTOMER_LIST_REQUEST',
   FETCH_CUSTOMER_LIST_SUCCESS  : 'FETCH_CUSTOMER_LIST_SUCCESS',
   FETCH_CUSTOMER_LIST_FAILURE  : 'FETCH_CUSTOMER_LIST_FAILURE',
 };
 
-export default RecentLoginsActionTypes;
+export default RecentLoginsTypes;

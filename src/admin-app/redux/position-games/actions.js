@@ -1,17 +1,17 @@
-import PositionGamesActionTypes from './types';
+import PositionGamesTypes from './types';
 import PositionGamesService from 'admin-app/services/position-games-service';
 
 const positionGamesService = new PositionGamesService();
 
 const positionGamesRequested = () => ({
-  type: PositionGamesActionTypes.FETCH_POSITION_GAMES_REQUEST
+  type: PositionGamesTypes.FETCH_POSITION_GAMES_REQUEST
 });
 const positionGamesLoaded = data => ({
-  type: PositionGamesActionTypes.FETCH_POSITION_GAMES_SUCCESS,
+  type: PositionGamesTypes.FETCH_POSITION_GAMES_SUCCESS,
   payload: data
 });
 const positionGamesError = error => ({
-  type: PositionGamesActionTypes.FETCH_POSITION_GAMES_FAILURE,
+  type: PositionGamesTypes.FETCH_POSITION_GAMES_FAILURE,
   payload: error
 });
 

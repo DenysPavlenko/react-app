@@ -1,7 +1,7 @@
-const NewAccountsActionTypes = {
+const NewAccountsTypes = {
   FETCH_NEW_ACCOUNTS_REQUEST: 'FETCH_NEW_ACCOUNTS_REQUEST',
   FETCH_NEW_ACCOUNTS_SUCCESS: 'FETCH_NEW_ACCOUNTS_SUCCESS',
   FETCH_NEW_ACCOUNTS_FAILURE: 'FETCH_NEW_ACCOUNTS_FAILURE',
 };
 
-export default NewAccountsActionTypes;
+export default NewAccountsTypes;

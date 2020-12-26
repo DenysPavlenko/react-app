@@ -1,17 +1,17 @@
-import LivePendingActionTypes from './types';
+import LivePendingTypes from './types';
 // Live pending service
 import LivePendingService from 'player-app/services/live-pending-service';
 const livePendingService = new LivePendingService();
 
 const livePendingRequested = () => ({
-  type: LivePendingActionTypes.FETCH_LIVE_PENDING_REQUEST
+  type: LivePendingTypes.FETCH_LIVE_PENDING_REQUEST
 });
 const livePendingLoaded = data => ({
-  type: LivePendingActionTypes.FETCH_LIVE_PENDING_SUCCESS,
+  type: LivePendingTypes.FETCH_LIVE_PENDING_SUCCESS,
   payload: data
 });
 const livePendingError = error => ({
-  type: LivePendingActionTypes.FETCH_LIVE_PENDING_FAILURE,
+  type: LivePendingTypes.FETCH_LIVE_PENDING_FAILURE,
   payload: error
 });
 

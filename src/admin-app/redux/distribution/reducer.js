@@ -1,5 +1,5 @@
 import { requestData, setData, setError } from 'shared/redux/_utils/fetch-utils';
-import DistributionActionTypes from './types';
+import DistributionTypes from './types';
 
 const INITIAL_STATE = {
   loading: true,
@@ -10,11 +10,11 @@ const INITIAL_STATE = {
 
 const distributionReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case DistributionActionTypes.FETCH_DISTRIBUTION_REQUEST:
+    case DistributionTypes.FETCH_DISTRIBUTION_REQUEST:
       return requestData();
-    case DistributionActionTypes.FETCH_DISTRIBUTION_SUCCESS:
+    case DistributionTypes.FETCH_DISTRIBUTION_SUCCESS:
       return setData(action.payload);
-    case DistributionActionTypes.FETCH_DISTRIBUTION_FAILURE:
+    case DistributionTypes.FETCH_DISTRIBUTION_FAILURE:
       return setError(action.payload);
     default:
       return state;

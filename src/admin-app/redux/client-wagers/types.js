@@ -1,7 +1,7 @@
-const ClientWagersActionTypes = {
+const ClientWagersTypes = {
   FETCH_CLIENT_WAGERS_REQUEST  : 'FETCH_CLIENT_WAGERS_REQUEST',
   FETCH_CLIENT_WAGERS_SUCCESS  : 'FETCH_CLIENT_WAGERS_SUCCESS',
   FETCH_CLIENT_WAGERS_FAILURE  : 'FETCH_CLIENT_WAGERS_FAILURE',
 };
 
-export default ClientWagersActionTypes;
+export default ClientWagersTypes;

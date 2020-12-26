@@ -11,10 +11,8 @@ const INITIAL_STATE = {
 const accountActivitiesReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case AccountActivityTypes.FETCH_ACOUNT_ACTIVITY_REQUEST:
-      console.log(1);
       return requestData();
       case AccountActivityTypes.FETCH_ACOUNT_ACTIVITY_SUCCESS:
-      console.log(2);
       return setData(action.payload)
     case AccountActivityTypes.FETCH_ACOUNT_ACTIVITY_FAILURE:
       return setError(action.payload)

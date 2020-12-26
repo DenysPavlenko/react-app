@@ -1,16 +1,16 @@
-import ClientPendingActionTypes from './types';
+import ClientPendingTypes from './types';
 import ClientPendingService from 'admin-app/services/client-pending-service';
 const clientPendingService = new ClientPendingService();
 
 const clientPendingRequested = () => ({
-  type: ClientPendingActionTypes.FETCH_CLIENT_PENDING_REQUEST
+  type: ClientPendingTypes.FETCH_CLIENT_PENDING_REQUEST
 });
 const clientPendingLoaded = data => ({
-  type: ClientPendingActionTypes.FETCH_CLIENT_PENDING_SUCCESS,
+  type: ClientPendingTypes.FETCH_CLIENT_PENDING_SUCCESS,
   payload: data
 });
 const clientPendingError = error => ({
-  type: ClientPendingActionTypes.FETCH_CLIENT_PENDING_FAILURE,
+  type: ClientPendingTypes.FETCH_CLIENT_PENDING_FAILURE,
   payload: error
 });
 

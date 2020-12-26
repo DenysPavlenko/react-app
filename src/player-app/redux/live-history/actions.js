@@ -1,17 +1,17 @@
-import LiveHistoryActionTypes from './types';
+import LiveHistoryTypes from './types';
 // Live history service
 import LiveHistoryService from 'player-app/services/live-history-service';
 const liveHistoryService = new LiveHistoryService();
 
 const liveHistoryRequested = () => ({
-  type: LiveHistoryActionTypes.FETCH_LIVE_HISTORY_REQUEST
+  type: LiveHistoryTypes.FETCH_LIVE_HISTORY_REQUEST
 });
 const liveHistoryLoaded = data => ({
-  type: LiveHistoryActionTypes.FETCH_LIVE_HISTORY_SUCCESS,
+  type: LiveHistoryTypes.FETCH_LIVE_HISTORY_SUCCESS,
   payload: data
 });
 const liveHistoryError = error => ({
-  type: LiveHistoryActionTypes.FETCH_LIVE_HISTORY_FAILURE,
+  type: LiveHistoryTypes.FETCH_LIVE_HISTORY_FAILURE,
   payload: error
 });
 

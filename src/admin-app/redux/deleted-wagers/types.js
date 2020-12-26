@@ -1,7 +1,7 @@
-const DeletedWagersActionTypes = {
+const DeletedWagersTypes = {
   FETCH_DELETED_WAGERS_REQUEST  : 'FETCH_DELETED_WAGERS_REQUEST',
   FETCH_DELETED_WAGERS_SUCCESS  : 'FETCH_DELETED_WAGERS_SUCCESS',
   FETCH_DELETED_WAGERS_FAILURE  : 'FETCH_DELETED_WAGERS_FAILURE',
 };
 
-export default DeletedWagersActionTypes;
+export default DeletedWagersTypes;

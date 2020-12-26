@@ -1,17 +1,17 @@
-import FiguresActionTypes from './types';
+import FiguresTypes from './types';
 import FiguresService from 'admin-app/services/figures-service';
 
 const figuresService = new FiguresService();
 
 const figuresRequested = () => ({
-  type: FiguresActionTypes.FETCH_FIGURES_REQUEST
+  type: FiguresTypes.FETCH_FIGURES_REQUEST
 });
 const figuresLoaded = data => ({
-  type: FiguresActionTypes.FETCH_FIGURES_SUCCESS,
+  type: FiguresTypes.FETCH_FIGURES_SUCCESS,
   payload: data
 });
 const figuresError = error => ({
-  type: FiguresActionTypes.FETCH_FIGURES_FAILURE,
+  type: FiguresTypes.FETCH_FIGURES_FAILURE,
   payload: error
 });
 

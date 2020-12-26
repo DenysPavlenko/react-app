@@ -1,5 +1,5 @@
 import { requestData, setData, setError } from 'shared/redux/_utils/fetch-utils';
-import LiveProgramActionTypes from './types';
+import LiveProgramTypes from './types';
 
 const INITIAL_STATE = {
   loading: true,
@@ -10,11 +10,11 @@ const INITIAL_STATE = {
 
 const liveProgramReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case LiveProgramActionTypes.FETCH_LIVE_PROGRAM_REQUEST:
+    case LiveProgramTypes.FETCH_LIVE_PROGRAM_REQUEST:
       return requestData();
-    case LiveProgramActionTypes.FETCH_LIVE_PROGRAM_SUCCESS:
+    case LiveProgramTypes.FETCH_LIVE_PROGRAM_SUCCESS:
       return setData(action.payload);
-    case LiveProgramActionTypes.FETCH_LIVE_PROGRAM_FAILURE:
+    case LiveProgramTypes.FETCH_LIVE_PROGRAM_FAILURE:
       return setError(action.payload);
     default:
       return state;

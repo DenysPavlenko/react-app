@@ -1,8 +1,8 @@
-import SettingsActionTypes from './types';
+import SettingsTypes from './types';
 
 export const showSettings = () => ({
-  type: SettingsActionTypes.SHOW_SETTINGS
+  type: SettingsTypes.SHOW_SETTINGS
 });
 export const hideSettings = () => ({
-  type: SettingsActionTypes.HIDE_SETTINGS
+  type: SettingsTypes.HIDE_SETTINGS
 });

@@ -1,7 +1,7 @@
-const PendingActionTypes = {
+const PendingTypes = {
   FETCH_PENDING_REQUEST  : 'FETCH_PENDING_REQUEST',
   FETCH_PENDING_SUCCESS  : 'FETCH_PENDING_SUCCESS',
   FETCH_PENDING_FAILURE  : 'FETCH_PENDING_FAILURE',
 };
 
-export default PendingActionTypes;
+export default PendingTypes;

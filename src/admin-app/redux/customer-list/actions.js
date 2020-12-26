@@ -1,16 +1,16 @@
-import CustomerListActionTypes from './types';
+import CustomerListTypes from './types';
 import CustomerListService from 'admin-app/services/customer-list-service';
 const customerListService = new CustomerListService();
 
 const customerListRequested = () => ({
-  type: CustomerListActionTypes.FETCH_CUSTOMER_LIST_REQUEST
+  type: CustomerListTypes.FETCH_CUSTOMER_LIST_REQUEST
 });
 const customerListLoaded = data => ({
-  type: CustomerListActionTypes.FETCH_CUSTOMER_LIST_SUCCESS,
+  type: CustomerListTypes.FETCH_CUSTOMER_LIST_SUCCESS,
   payload: data
 });
 const customerListError = error => ({
-  type: CustomerListActionTypes.FETCH_CUSTOMER_LIST_FAILURE,
+  type: CustomerListTypes.FETCH_CUSTOMER_LIST_FAILURE,
   payload: error
 });
 

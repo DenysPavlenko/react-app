@@ -6,15 +6,11 @@ import { createStructuredSelector } from 'reselect'
 import { fetchActiveCustomersData } from 'admin-app/redux/active-customers/actions';
 import { selectActiveCustomers } from 'admin-app/redux/active-customers/selectors';
 // Components
-import Modal from 'shared/components/modal/modal';
+import DataPreviewModal from 'admin-app/components/data-preview-modal/data-preview-modal';
 import Typography from 'shared/components/typography/typography';
-import Close from 'shared/components/close/close';
 import PrimaryTable from 'shared/components/primary-table/primary-table';
-import Button from 'shared/components/button/button';
 // Table content
 import tableContent from './table-content';
-// Styles
-import './active-customers.sass';
 
 const ActiveCustomers = ({ agent, open, onClose, onExited, fetchActiveCustomersData, activeCustomers: { loading, data, error } }) => {
 
@@ -23,12 +19,14 @@ const ActiveCustomers = ({ agent, open, onClose, onExited, fetchActiveCustomersD
   }, [fetchActiveCustomersData, agent]);
 
   return (
-    <Modal open={open} className="active-customers" onClose={onClose} noClose onExited={onExited} size="lg">
-      <div className="active-customers__header">
-        <Typography component="h3">{agent} - Active Customers</Typography>
-        <Close dark onClick={onClose} />
-      </div>
-      <div className="active-customers__content">
+    <DataPreviewModal
+      open={open}
+      onClose={onClose}
+      onExited={onExited}
+      title={
+        <Typography component="h3">Activity For December 22, 2020</Typography>
+      }
+      content={
         <PrimaryTable
           cols={tableContent()}
           loading={loading}
@@ -36,16 +34,11 @@ const ActiveCustomers = ({ agent, open, onClose, onExited, fetchActiveCustomersD
           data={data}
           error={error}
         />
-        {data &&
-          <div className="active-customers__content-footer">
-            <Typography component="h4" className="text-bold">Total customers: {data.length}</Typography>
-          </div>
-        }
-      </div>
-      <div className="active-customers__footer">
-        <Button variant="danger" size="sm" onClick={onClose}>Close</Button>
-      </div>
-    </Modal>
+      }
+      total={
+        <Typography component="h4" className="text-bold">Total active customers: {data && data.length}</Typography>
+      }
+    />
   );
 };
 
@@ -64,7 +57,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchActiveCustomersData: (agent) => dispatch(fetchActiveCustomersData(agent)),
+  fetchActiveCustomersData: agent => dispatch(fetchActiveCustomersData(agent)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActiveCustomers);

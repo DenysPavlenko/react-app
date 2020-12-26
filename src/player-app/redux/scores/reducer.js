@@ -1,5 +1,5 @@
 import { requestData, setData, setError } from 'shared/redux/_utils/fetch-utils';
-import ScoresActionTypes from './types';
+import ScoresTypes from './types';
 
 const INITIAL_STATE = {
   isActive: false,
@@ -13,23 +13,23 @@ const INITIAL_STATE = {
 
 const scoresReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ScoresActionTypes.TOGGLE_SCORES:
+    case ScoresTypes.TOGGLE_SCORES:
       const { isActive } = state;
       return {
         ...state,
         isActive: !isActive
       }
-    case ScoresActionTypes.FETCH_SCORES_REQUEST:
+    case ScoresTypes.FETCH_SCORES_REQUEST:
       return {
         ...state,
         scores: requestData()
       }
-    case ScoresActionTypes.FETCH_SCORES_SUCCESS:
+    case ScoresTypes.FETCH_SCORES_SUCCESS:
       return {
         ...state,
         scores: setData(action.payload)
       }
-    case ScoresActionTypes.FETCH_SCORES_FAILURE:
+    case ScoresTypes.FETCH_SCORES_FAILURE:
       return {
         ...state,
         scores: setError(action.payload)

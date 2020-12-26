@@ -1,17 +1,17 @@
-import PositionLiveSportsActionTypes from './types';
+import PositionLiveSportsTypes from './types';
 import PositionLiveSportsService from 'admin-app/services/position-live-sports-service';
 
 const positionLiveSportsService = new PositionLiveSportsService();
 
 const positionLiveSportsRequested = () => ({
-  type: PositionLiveSportsActionTypes.FETCH_POSITION_LIVE_SPORTS_REQUEST
+  type: PositionLiveSportsTypes.FETCH_POSITION_LIVE_SPORTS_REQUEST
 });
 const positionLiveSportsLoaded = data => ({
-  type: PositionLiveSportsActionTypes.FETCH_POSITION_LIVE_SPORTS_SUCCESS,
+  type: PositionLiveSportsTypes.FETCH_POSITION_LIVE_SPORTS_SUCCESS,
   payload: data
 });
 const positionLiveSportsError = error => ({
-  type: PositionLiveSportsActionTypes.FETCH_POSITION_LIVE_SPORTS_FAILURE,
+  type: PositionLiveSportsTypes.FETCH_POSITION_LIVE_SPORTS_FAILURE,
   payload: error
 });
 

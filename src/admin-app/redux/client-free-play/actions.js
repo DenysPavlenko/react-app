@@ -1,16 +1,16 @@
-import ClientFreePlayActionTypes from './types';
+import ClientFreePlayTypes from './types';
 import ClientFreePlayService from 'admin-app/services/client-free-play-service';
 const clientFreePlayService = new ClientFreePlayService();
 
 const clientFreePlayRequested = () => ({
-  type: ClientFreePlayActionTypes.FETCH_CLIENT_FREE_PLAY_REQUEST
+  type: ClientFreePlayTypes.FETCH_CLIENT_FREE_PLAY_REQUEST
 });
 const clientFreePlayLoaded = data => ({
-  type: ClientFreePlayActionTypes.FETCH_CLIENT_FREE_PLAY_SUCCESS,
+  type: ClientFreePlayTypes.FETCH_CLIENT_FREE_PLAY_SUCCESS,
   payload: data
 });
 const clientFreePlayError = error => ({
-  type: ClientFreePlayActionTypes.FETCH_CLIENT_FREE_PLAY_FAILURE,
+  type: ClientFreePlayTypes.FETCH_CLIENT_FREE_PLAY_FAILURE,
   payload: error
 });
 

@@ -1,5 +1,5 @@
-const SportsPageScheduleActionTypes = {
+const SportsPageScheduleTypes = {
   TOGGLE_SPORTS_PAGE_SCHEDULE: 'TOGGLE_SPORTS_PAGE_SCHEDULE',
 };
 
-export default SportsPageScheduleActionTypes;
+export default SportsPageScheduleTypes;

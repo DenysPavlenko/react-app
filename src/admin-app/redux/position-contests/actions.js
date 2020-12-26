@@ -1,17 +1,17 @@
-import PositionContestsActionTypes from './types';
+import PositionContestsTypes from './types';
 import PositionContestsService from 'admin-app/services/position-contests-service';
 
 const positionContestsService = new PositionContestsService();
 
 const positionContestsRequested = () => ({
-  type: PositionContestsActionTypes.FETCH_POSITION_CONTESTS_REQUEST
+  type: PositionContestsTypes.FETCH_POSITION_CONTESTS_REQUEST
 });
 const positionContestsLoaded = data => ({
-  type: PositionContestsActionTypes.FETCH_POSITION_CONTESTS_SUCCESS,
+  type: PositionContestsTypes.FETCH_POSITION_CONTESTS_SUCCESS,
   payload: data
 });
 const positionContestsError = error => ({
-  type: PositionContestsActionTypes.FETCH_POSITION_CONTESTS_FAILURE,
+  type: PositionContestsTypes.FETCH_POSITION_CONTESTS_FAILURE,
   payload: error
 });
 

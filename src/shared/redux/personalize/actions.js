@@ -1,5 +1,5 @@
-import PersonalizeActionTypes from './types';
+import PersonalizeTypes from './types';
 
 export const togglePersonalize = () => ({
-  type: PersonalizeActionTypes.TOGGLE_PERSONALIZE
+  type: PersonalizeTypes.TOGGLE_PERSONALIZE
 });

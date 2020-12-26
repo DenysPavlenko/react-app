@@ -1,5 +1,5 @@
-const PersonalizeActionTypes = {
+const PersonalizeTypes = {
   TOGGLE_PERSONALIZE: 'TOGGLE_PERSONALIZE',
 };
 
-export default PersonalizeActionTypes;
+export default PersonalizeTypes;

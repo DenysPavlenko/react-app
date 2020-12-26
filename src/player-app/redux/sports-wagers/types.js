@@ -1,8 +1,8 @@
-const SportsWagersActionTypes = {
+const SportsWagersTypes = {
   TOGGLE_SPORTS_WAGER: 'TOGGLE_SPORTS_WAGER',
   REMOVE_SPORTS_WAGER: 'REMOVE_SPORTS_WAGER',
   CLEAR_SPORTS_WAGERS: 'CLEAR_SPORTS_WAGERS',
   ADD_RISK_AND_WIN: 'ADD_RISK_AND_WIN',
 };
 
-export default SportsWagersActionTypes;
+export default SportsWagersTypes;
