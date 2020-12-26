@@ -3,17 +3,17 @@ import React from 'react';
 import Typography from 'shared/components/typography/typography';
 import Input from 'shared/components/input/input';
 import Select from 'shared/components/select/select';
-import Close from 'shared/components/close/close';
 import Button from 'shared/components/button/button';
+import ActionIcon from 'shared/components/action-icon/action-icon';
 
-const tableContent = (inputs, handleInput) => {
+const tableContent = (inputs, handleInput, handleDeleteClick) => {
   const colWidth = 100 / 11 + '%';
 
   return [
     {
       style: { width: colWidth },
       title: 'Delete',
-      render: () => <Close size="sm" />
+      render: ({ id }) => <ActionIcon icon="trash" color="danger" onClick={() => handleDeleteClick(id)} />
     },
     {
       style: { width: colWidth },
