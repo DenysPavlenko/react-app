@@ -28,9 +28,8 @@ const initialState = {
 
 const ClientControlTransactions = ({ fetchClientTransactionsData, clientTransactions: { loading, data, error }, clientId }) => {
   const [clientData, setClientData] = useState(initialState);
-  const [deleteOpen, setDeleteOpen] = useState(false);
-  const [deleteId, setDeleteId] = useState(null);
   const [transactions, setTransactions] = useState(null);
+  const [idToDelete, setIdToDelete] = useState(null);
 
   useLayoutEffect(() => {
     fetchClientTransactionsData(clientId);
@@ -51,21 +50,18 @@ const ClientControlTransactions = ({ fetchClientTransactionsData, clientTransact
     e.preventDefault();
   };
 
-  const handleDeleteClick = id => {
-    setDeleteId(id);
-    setDeleteOpen(true);
-  };
+  const handleDeleteClick = id => setIdToDelete(id);
 
   const handleDelete = () => {
-    setTransactions(transactions => transactions.filter(({ id }) => id !== deleteId));
-    setDeleteId(null);
+    setTransactions(transactions => transactions.filter(({ id }) => id !== idToDelete));
+    setIdToDelete(null);
   };
 
   return (
     <Fragment>
       <DeleteConfirmation
-        open={deleteOpen}
-        onClose={() => setDeleteOpen(false)}
+        open={idToDelete}
+        onClose={() => setIdToDelete(false)}
         onConfirm={handleDelete}
         text="Are you sure do you want to delete this transaction?"
       />

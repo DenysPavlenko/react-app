@@ -1,7 +1,6 @@
 import React from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
-import Button from 'shared/components/button/button';
 
 const tableContent = handleDelete => {
   return [

@@ -22,7 +22,7 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
   const [expanded, setExpanded] = useState(0);
   const [status, setStatus] = useState('active');
   const [inputs, setInputs] = useState(null);
-  const [deleteOpen, setDeleteOpen] = useState(false);
+  const [idToDelete, setIdToDelete] = useState(null);
 
   const handleChange = idx => setExpanded(idx);
 
@@ -48,14 +48,14 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
     setInputs(res);
   }, [data]);
 
-  const handleDeleteClick = id => { setDeleteOpen(true) }
+  const handleDeleteClick = id => { setIdToDelete(id) }
   const handleDelete = () => { };
 
   return (
     <Fragment>
       <DeleteConfirmation
-        open={deleteOpen}
-        onClose={() => setDeleteOpen(false)}
+        open={idToDelete}
+        onClose={() => setIdToDelete(null)}
         onConfirm={handleDelete}
         text="Are you sure do you want to delete this transaction?"
       />
