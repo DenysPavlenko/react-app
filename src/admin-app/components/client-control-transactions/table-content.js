@@ -3,27 +3,27 @@ import React from 'react';
 import Typography from 'shared/components/typography/typography';
 import ActionIcon from 'shared/components/action-icon/action-icon';
 
-const tableContent = () => {
+const tableContent = handleDeleteClick => {
   return [
     {
       title: 'Actions',
-      render: () => <ActionIcon icon="trash" color="danger" />
+      render: ({ id }) => <ActionIcon icon="trash" color="danger" onClick={() => handleDeleteClick(id)} />
     },
     {
       title: 'Date',
-      render: data => <Typography component="p">{data.date}</Typography>
+      render: ({ date }) => <Typography component="p">{date}</Typography>
     },
     {
       title: 'Description',
-      render: data => <Typography component="p">{data.description}</Typography>
+      render: ({ description }) => <Typography component="p">{description}</Typography>
     },
     {
       title: 'Source',
-      render: data => <Typography component="p">{data.source}</Typography>
+      render: ({ source }) => <Typography component="p">{source}</Typography>
     },
     {
       title: 'Amount',
-      render: data => <Typography component="p">{data.amount}</Typography>
+      render: ({ amount }) => <Typography component="p">{amount}</Typography>
     },
   ];
 };
