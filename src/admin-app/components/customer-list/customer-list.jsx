@@ -64,7 +64,14 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
           />
         </div>
         <div className="customer-list__table">
-          <PrimaryTable cols={tableContent(history)} loading={loading} data={filteredData()} error={error} retry={fetchCustomerListData} />
+          <PrimaryTable
+            cols={tableContent(history)}
+            loading={loading}
+            data={filteredData()}
+            error={error}
+            retry={fetchCustomerListData}
+            variant="primary"
+          />
         </div>
         <div className="customer-list__footer">
           <Pagination pages={10} page={page} onChange={setPage} />
