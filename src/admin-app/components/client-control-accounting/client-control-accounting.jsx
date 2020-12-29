@@ -21,10 +21,16 @@ const ClientControlAccounting = ({ fetchClientAccountingData, clientAccounting: 
   return (
     <div className="client-control-accounting">
       <div className="client-control-accounting__title">
-      <Typography className="h3">Accounting Task:</Typography>
+        <Typography className="h3">Accounting Task:</Typography>
       </div>
       <div className="client-control-accounting__table">
-        <PrimaryTable cols={tableContent()} loading={loading} data={data} error={error} retry={() => fetchClientAccountingData(clientId)} variant="primary" />
+        <PrimaryTable
+          cols={tableContent()}
+          loading={loading}
+          data={data}
+          error={error}
+          retry={() => fetchClientAccountingData(clientId)}
+        />
       </div>
     </div>
   );

@@ -70,7 +70,6 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
             data={filteredData()}
             error={error}
             retry={fetchCustomerListData}
-            variant="primary"
             bordered
           />
         </div>

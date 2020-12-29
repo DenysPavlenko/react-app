@@ -32,7 +32,6 @@ const Settle = ({ fetchSettleData, settle: { loading, data, error } }) => {
           data={data}
           error={error}
           retry={() => fetchSettleData(date)}
-          variant="primary"
         />
       </div>
     </div>

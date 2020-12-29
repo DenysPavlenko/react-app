@@ -99,7 +99,11 @@ const CreateAccounts = ({ prefix, number }) => {
           ))}
         </div>
         <div className="create-accounts__table">
-          <PrimaryTable cols={tableContent(handleInput)} variant="light" data={data} />
+          <PrimaryTable
+            cols={tableContent(handleInput)}
+            variant="light"
+            data={data}
+          />
         </div>
         <div className="create-accounts__footer">
           <Button variant="default" onClick={handleSublmit}>Create</Button>

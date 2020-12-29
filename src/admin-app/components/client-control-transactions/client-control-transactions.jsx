@@ -102,7 +102,6 @@ const ClientControlTransactions = ({ fetchClientTransactionsData, clientTransact
             data={transactions}
             error={error}
             retry={() => fetchClientTransactionsData(clientId)}
-            variant="primary"
           />
         </div>
       </div>

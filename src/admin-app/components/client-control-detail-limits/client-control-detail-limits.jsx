@@ -101,7 +101,6 @@ const ClientControlDetailLimits = ({ fetchClientDetailLimitsData, clientDetailLi
           data={data}
           error={error}
           retry={() => fetchClientDetailLimitsData(clientId, detailLimits)}
-          variant="primary"
         />
       </div>
     </div>

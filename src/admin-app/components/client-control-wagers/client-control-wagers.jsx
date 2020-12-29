@@ -49,7 +49,13 @@ const ClientControlWagers = ({ fetchClientWagersData, clientWagers: { loading, d
         </div>
       </div>
       <div className="client-control-wagers__table">
-        <PrimaryTable cols={tableContent()} loading={loading} data={filteredData()} error={error} retry={() => fetchClientWagersData(clientId)} variant="primary" />
+        <PrimaryTable
+          cols={tableContent()}
+          loading={loading}
+          data={filteredData()}
+          error={error}
+          retry={() => fetchClientWagersData(clientId)}
+        />
       </div>
     </div>
   );

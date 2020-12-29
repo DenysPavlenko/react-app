@@ -49,7 +49,6 @@ const Pending = ({ fetchPendingData, pending: { loading, data, error } }) => {
           data={filteredData()}
           error={error}
           retry={() => fetchPendingData(currentFilter)}
-          variant="primary"
         />
       </div>
       <div className="pending__footer">

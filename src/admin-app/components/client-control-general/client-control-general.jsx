@@ -104,7 +104,11 @@ const ClientControlGeneral = ({ fetchClientGeneralData, clientGeneral: { loading
           </div>
           <div className="client-control-general__right">
             <Typography component="h2" className="client-control-general__title">Account Status / Access</Typography>
-            <PrimaryTable rows={statusTable(handleInput, clientData)} data={statusTableData} variant="primary" center />
+            <PrimaryTable
+              rows={statusTable(handleInput, clientData)}
+              data={statusTableData}
+              center
+            />
           </div>
         </div>
         <div className="client-control-general__footer">

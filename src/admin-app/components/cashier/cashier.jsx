@@ -75,7 +75,6 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
                   </Accordion.Toggle>
                   <Accordion.Content className="new-accounts__item-content">
                     <PrimaryTable
-                      variant="primary"
                       key={id}
                       cols={tableContent(inputs, handleInput, handleDeleteClick)}
                       data={accounts}

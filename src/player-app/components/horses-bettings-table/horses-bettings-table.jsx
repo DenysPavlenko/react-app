@@ -12,7 +12,6 @@ const HorsesBettingsTable = ({ data, withCheckbox, checkboxColumns }) => {
       <PrimaryTable
         cols={tableContent(withCheckbox, checkboxColumns)}
         data={data}
-        variant="primary"
       />
     </div>
   );

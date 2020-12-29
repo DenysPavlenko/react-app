@@ -32,7 +32,6 @@ const DeletedWagers = ({ fetchDeletedWagersData, deletedWagers: { loading, data,
           data={data}
           error={error}
           retry={() => fetchDeletedWagersData(date)}
-          variant="primary"
         />
       </div>
     </div>

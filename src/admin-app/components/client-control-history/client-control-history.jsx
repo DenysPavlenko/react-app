@@ -45,7 +45,6 @@ const ClientControlHistory = ({ fetchClientHistoryData, clientHistory: { loading
           data={data}
           error={error}
           retry={() => fetchClientHistoryData(clientId, category)}
-          variant="primary"
         />
       </div>
     </div>

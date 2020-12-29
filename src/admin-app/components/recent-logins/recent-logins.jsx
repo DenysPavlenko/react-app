@@ -23,7 +23,13 @@ const RecentLogins = ({ fetchRecentLoginsData, recentLogins: { loading, data, er
       <div className="recent-logins__heading">
         <Typography component="h2">Recent logins</Typography>
       </div>
-      <PrimaryTable cols={tableContent()} loading={loading} data={data} error={error} retry={fetchRecentLoginsData} variant="primary" />
+      <PrimaryTable
+        cols={tableContent()}
+        loading={loading}
+        data={data}
+        error={error}
+        retry={fetchRecentLoginsData}
+      />
     </div>
   );
 };

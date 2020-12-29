@@ -124,7 +124,6 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
                     lastRow={tableLastRow(accounts, agent, customers, handleModalOpen)}
                     data={accounts}
                     retry={() => fetchFiguresData(date, status)}
-                    variant="primary"
                   />
                 </div>
               ))}

@@ -36,7 +36,13 @@ const ClientControlPending = ({ fetchClientPendingData, clientPending: { loading
         <Search onChange={handleSearch} variant="primary" />
       </div>
       <div className="client-control-pending__table">
-        <PrimaryTable cols={tableContent(handleDelete)} loading={loading} data={filteredData()} error={error} retry={() => fetchClientPendingData(clientId)} variant="primary" />
+        <PrimaryTable
+          cols={tableContent(handleDelete)}
+          loading={loading}
+          data={filteredData()}
+          error={error}
+          retry={() => fetchClientPendingData(clientId)}
+        />
       </div>
     </div>
   );

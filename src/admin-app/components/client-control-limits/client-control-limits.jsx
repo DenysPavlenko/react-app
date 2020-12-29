@@ -46,10 +46,19 @@ const ClientControlLimits = ({ fetchClientLimitsData, clientLimits: { loading, d
       <Form className="client-control-limits" onSubmit={handleSubmit}>
         <div className="client-control-limits__content">
           <div className="client-control-limits__left">
-            <PrimaryTable rows={leftTableRows(handleInput, clientData)} data={leftTableData} variant="primary" aligned center />
+            <PrimaryTable
+              rows={leftTableRows(handleInput, clientData)}
+              data={leftTableData}
+              aligned
+              center
+            />
           </div>
           <div className="client-control-limits__right">
-            <PrimaryTable cols={rightTableCols(handleInput, clientData)} data={rightTableData} variant="primary" center />
+            <PrimaryTable
+              cols={rightTableCols(handleInput, clientData)}
+              data={rightTableData}
+              center
+            />
           </div>
         </div>
         <div className="client-control-general__footer">

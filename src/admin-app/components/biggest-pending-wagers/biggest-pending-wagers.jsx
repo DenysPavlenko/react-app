@@ -23,7 +23,13 @@ const BiggestPendingWagers = ({ fetchBiggestPendingWagersData, biggestPendingWag
       <div className="biggest-pending-wagers__heading">
         <Typography component="h2">Biggest Pending Wagers</Typography>
       </div>
-      <PrimaryTable cols={tableContent()} loading={loading} data={data} error={error} retry={fetchBiggestPendingWagersData} variant="primary" />
+      <PrimaryTable
+        cols={tableContent()}
+        loading={loading}
+        data={data}
+        error={error}
+        retry={fetchBiggestPendingWagersData}
+      />
     </div>
   );
 };

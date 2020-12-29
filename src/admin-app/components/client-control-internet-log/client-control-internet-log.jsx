@@ -53,7 +53,6 @@ const ClientControlInternetLog = ({ fetchClientInternetLogData, clientInternetLo
           data={data}
           error={error}
           retry={() => fetchClientInternetLogData(clientId, date)}
-          variant="primary"
         />
       </div>
     </div>
