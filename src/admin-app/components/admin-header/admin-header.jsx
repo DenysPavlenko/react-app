@@ -16,7 +16,6 @@ import SelectAgent from 'admin-app/components/select-agent/select-agent';
 import HeaderDropdown from 'shared/components/header-dropdown/header-dropdown';
 import HeaderDropdownMenu from 'shared/components/header-dropdown-menu/header-dropdown-menu';
 // Assets
-import menuIcon from 'shared/assets/images/icons/list.png';
 import homeIcon from 'shared/assets/images/icons/home.png';
 import dollarIcn from 'shared/assets/images/icons/dollar.png';
 import distributionIcn from 'shared/assets/images/icons/distribution.png';
@@ -28,7 +27,6 @@ const AdminHeader = ({ breakpoints, currentBreakpoint, toggleMail, showSettings,
   const [isMobile, setIsMobile] = useState(false);
 
   const menu = [
-    { name: 'menu', handler: toggleAdminMenu, icon: menuIcon, alt: "menu" },
     { name: 'home', rootName: '/', icon: homeIcon, alt: "home" },
     { name: 'figures', rootName: '/figures', icon: dollarIcn, alt: "figures" },
     { name: 'distribution', rootName: '/distribution', icon: distributionIcn, alt: "distribution" },
@@ -52,7 +50,7 @@ const AdminHeader = ({ breakpoints, currentBreakpoint, toggleMail, showSettings,
 
   return (
     <Header
-      menu={<HeaderMenu menu={menu} />}
+      menu={<HeaderMenu burger={toggleAdminMenu} menu={menu} />}
       content={!isMobile && <Widgets />}
       dropdown={
         <HeaderDropdown closeOnClick={!isMobile}>
