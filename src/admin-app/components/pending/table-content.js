@@ -10,8 +10,9 @@ const tableContent = handleDelete => {
       render: data => <Typography component="p">{data.name}</Typography>
     },
     {
+      style: { width: '20%', minWidth: '280px', whiteSpace: 'normal' },
       title: 'Title',
-      render: data => <Typography component="p">{data.title} {data.teamName}</Typography>
+      render: data => <Typography component="p"> {data.title} {data.teamName}</Typography >
     },
     {
       title: 'Sport',
