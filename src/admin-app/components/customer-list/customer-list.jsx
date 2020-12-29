@@ -71,6 +71,7 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
             error={error}
             retry={fetchCustomerListData}
             variant="primary"
+            bordered
           />
         </div>
         <div className="customer-list__footer">

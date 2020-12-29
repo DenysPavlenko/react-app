@@ -7,92 +7,92 @@ const tableContent = history => {
   return [
     {
       title: 'User Id',
-      render: user =>
-        <Typography component="p" style={{ cursor: 'pointer' }} onClick={() => history.push(`/client-control-panel/${user.id}`)}>{user.id}</Typography>
+      render: ({ id }) =>
+        <Typography component="p" style={{ cursor: 'pointer' }} onClick={() => history.push(`/client-control-panel/${id}`)}>{id}</Typography>
     },
     {
       title: 'Name',
-      render: user => <Typography component="p">{user.name}</Typography>
+      render: ({ name }) => <Typography component="p">{name}</Typography>
     },
     {
       title: 'Password',
-      render: user => <Typography component="p">{user.password}</Typography>
+      render: ({ password }) => <Typography component="p">{password}</Typography>
     },
     {
       title: 'StatusOp/Clo',
-      render: user => <StatusIcon status={user.status} />
+      render: ({ status }) => <StatusIcon status={status} />
     },
     {
       title: 'Settle',
-      render: user => <Typography component="p">{user.settleFigure}</Typography>
+      render: ({ settleFigure }) => <Typography component="p">{settleFigure}</Typography>
     },
     {
       title: 'SportCC',
-      render: user => <StatusIcon status={user.sportCC} />
+      render: ({ sportCC }) => <StatusIcon status={sportCC} />
     },
     {
       title: 'Int',
-      render: user => <StatusIcon status={user.sportCCInt} />
+      render: ({ sportCCInt }) => <StatusIcon status={sportCCInt} />
     },
     {
       title: 'Live',
-      render: user => <StatusIcon status={user.sportCCLive} />
+      render: ({ sportCCLive }) => <StatusIcon status={sportCCLive} />
     },
     {
       title: 'HorsesCC',
-      render: user => <StatusIcon status={user.horsesCC} />
+      render: ({ horsesCC }) => <StatusIcon status={horsesCC} />
     },
     {
       title: 'Int',
-      render: user => <StatusIcon status={user.horsesInt} />
+      render: ({ horsesInt }) => <StatusIcon status={horsesInt} />
     },
     {
       title: 'CasinoReg',
-      render: user => <StatusIcon status={user.casinoReg} />
+      render: ({ casinoReg }) => <StatusIcon status={casinoReg} />
     },
     {
       title: 'Live',
-      render: user => <StatusIcon status={user.casinoLive} />
+      render: ({ casinoLive }) => <StatusIcon status={casinoLive} />
     },
     {
       title: 'TempCredit',
-      render: user => <Typography component="p">{user.tempCredit}</Typography>
+      render: ({ tempCredit }) => <Typography component="p">{tempCredit}</Typography>
     },
     {
       title: 'CCLimit',
-      render: user => <Typography component="p">{user.CClimit}</Typography>
+      render: ({ CClimit }) => <Typography component="p">{CClimit}</Typography>
     },
     {
       title: 'FPBalance',
-      render: user => <Typography component="p">{user.FPbalance}</Typography>
+      render: ({ FPbalance }) => <Typography component="p">{FPbalance}</Typography>
     },
     {
       title: 'intLimit',
-      render: user => <Typography component="p">{user.intLimit}</Typography>
+      render: ({ intLimit }) => <Typography component="p">{intLimit}</Typography>
     },
     {
       title: 'Pending',
-      render: user => <Typography component="p">{user.pending}</Typography>
+      render: ({ pending }) => <Typography component="p">{pending}</Typography>
     },
     {
       title: 'Last Wager',
-      render: user => <Typography component="p">{user.lastWager}</Typography>
+      render: ({ lastWager }) => <Typography component="p">{lastWager}</Typography>
     },
     {
       title: 'Rating',
-      render: user => <Typography component="p">{user.rating}</Typography>
+      render: ({ rating }) => <Typography component="p">{rating}</Typography>
     },
     {
       title: 'Credit',
-      render: user => <Typography component="p">{user.credit}</Typography>
+      render: ({ credit }) => <Typography component="p">{credit}</Typography>
     },
     {
       title: 'Mobile',
-      render: user => <Typography component="p">{user.mobile}</Typography>
+      render: ({ mobile }) => <Typography component="p">{mobile}</Typography>
     },
     {
       title: 'balance',
-      render: user => <Typography component="p">{user.balance}</Typography>
+      render: ({ balance }) => <Typography component="p">{balance}</Typography>
     },
   ]
 };
