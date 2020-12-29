@@ -2,7 +2,8 @@
 @import ~shared/styles/abstract/mixins
 
 .primary-table
-  border: 1px solid $c-alt-gray
+  border: 1px solid $c-primary
+  border-bottom: 0
   border-top: none
   border-radius: 4px
   width: 100%
@@ -11,16 +12,6 @@
     white-space: nowrap
 
   // Variants
-  &--primary
-    border-color: $c-primary
-    .primary-table__header
-      border-color: $c-primary
-      background: $c-primary
-      color: $c-light
-    .primary-table__row
-      background-color: transparent !important
-      &:not(:last-child)
-        border-bottom: 1px solid $c-primary
   &--light
     border-color: $c-light-gray
     .primary-table__header
@@ -42,13 +33,23 @@
       width: 1px
       white-space: nowrap
 
+  &--bordered
+    border: none
+    .primary-table__header,
+    .primary-table__row
+      border: 0
+    .primary-table__table
+      th, td
+        border: 1px solid $c-primary
+
   &__table
     width: 100%
     border-collapse: collapse
     text-transform: capitalize
   &__header
-    border-bottom: 1px solid $c-alt-gray
-    border-top: 1px solid $c-alt-gray
+    background-color: $c-primary
+    border-bottom: 1px solid $c-primary
+    border-top: 1px solid $c-primary
   &__header th,
   &__body td
     padding: 7px 5px
@@ -57,8 +58,9 @@
     &:last-child
       padding-right: 10px
   &__row
+    border-bottom: 1px solid $c-primary
     &:nth-child(even)
-      background-color: $c-light-gray
+      background-color: rgba($c-primary, 0.5)
   &__empty
     text-align: center
     height: 123px

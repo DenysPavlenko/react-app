@@ -9,11 +9,12 @@ import Spinner from 'shared/components/spinner/spinner';
 // Styles
 import './primary-table.sass'
 
-const PrimaryTable = ({ rows, cols, data, lastRow, firstRow, loading, error, retry, variant, size, center, aligned }) => {
+const PrimaryTable = ({ rows, cols, data, lastRow, firstRow, loading, error, retry, variant, size, center, aligned, bordered }) => {
   const classes = classNames({
     'primary-table': true,
     'primary-table--center': center,
     'primary-table--aligned': aligned,
+    'primary-table--bordered': bordered,
     [`primary-table--${variant}`]: variant,
     [`primary-table--${size}`]: size
   });
@@ -107,6 +108,7 @@ PrimaryTable.propTypes = {
   variant: PropTypes.string,
   center: PropTypes.bool,
   aligned: PropTypes.bool,
+  bordered: PropTypes.bool,
 };
 
 export default PrimaryTable;
