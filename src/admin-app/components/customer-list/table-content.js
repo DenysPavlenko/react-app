@@ -6,7 +6,7 @@ import StatusIcon from 'shared/components/status-icon/status-icon';
 const tableContent = history => {
   return [
     {
-      title: 'User Id',
+      title: 'User ID',
       render: ({ id }) =>
         <Typography component="p" style={{ cursor: 'pointer' }} onClick={() => history.push(`/client-control-panel/${id}`)}>{id}</Typography>
     },
@@ -19,7 +19,7 @@ const tableContent = history => {
       render: ({ password }) => <Typography component="p">{password}</Typography>
     },
     {
-      title: 'StatusOp/Clo',
+      title: 'Status',
       render: ({ status }) => <StatusIcon status={status} />
     },
     {
@@ -47,28 +47,12 @@ const tableContent = history => {
       render: ({ horsesInt }) => <StatusIcon status={horsesInt} />
     },
     {
-      title: 'CasinoReg',
-      render: ({ casinoReg }) => <StatusIcon status={casinoReg} />
-    },
-    {
-      title: 'Live',
-      render: ({ casinoLive }) => <StatusIcon status={casinoLive} />
-    },
-    {
-      title: 'TempCredit',
-      render: ({ tempCredit }) => <Typography component="p">{tempCredit}</Typography>
-    },
-    {
-      title: 'CCLimit',
-      render: ({ CClimit }) => <Typography component="p">{CClimit}</Typography>
+      title: 'Casino',
+      render: ({ casino }) => <StatusIcon status={casino} />
     },
     {
       title: 'FPBalance',
       render: ({ FPbalance }) => <Typography component="p">{FPbalance}</Typography>
-    },
-    {
-      title: 'intLimit',
-      render: ({ intLimit }) => <Typography component="p">{intLimit}</Typography>
     },
     {
       title: 'Pending',
@@ -79,16 +63,8 @@ const tableContent = history => {
       render: ({ lastWager }) => <Typography component="p">{lastWager}</Typography>
     },
     {
-      title: 'Rating',
-      render: ({ rating }) => <Typography component="p">{rating}</Typography>
-    },
-    {
       title: 'Credit',
       render: ({ credit }) => <Typography component="p">{credit}</Typography>
-    },
-    {
-      title: 'Mobile',
-      render: ({ mobile }) => <Typography component="p">{mobile}</Typography>
     },
     {
       title: 'balance',
