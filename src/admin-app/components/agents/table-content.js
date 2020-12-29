@@ -20,7 +20,7 @@ const tableContent = history => {
     {
       style: { width: '30%' },
       title: 'Select Agent',
-      render: () => <Button variant="default" size="xs" onClick={() => history.push('/')}>Got to this agent</Button>
+      render: () => <Button variant="default" size="xs" onClick={() => history.push('/')}>Go to This Agent</Button>
     },
   ];
 };
