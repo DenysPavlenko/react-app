@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 // Styles
 import './header.sass';
 
-const Header = ({ sideMenu, menu, content, dropdown }) => {
+const Header = ({ menu, content, dropdown }) => {
   return (
     <Fragment>
       <div className="header-gap"></div>
