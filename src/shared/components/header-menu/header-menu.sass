@@ -12,34 +12,29 @@
       .header-menu__item.active
         background-color: $color
 
-  &__burger
-    display: none
-    +media-max($bp-xl)
-      display: flex
-      height: 100%
-      padding: 0 10px
-      align-items: center
-  &__wrap
+  &__toggler
     height: 100%
-    width: 100%
-    +media-max($bp-xl)
-      position: fixed
-      top: $h-header
-      left: -100%
-      transition: 0.2s
-      height: calc( 100% - 60px )
-      background-color: $c-dark
-      flex-wrap: wrap
-      overflow: auto
-      z-index: -1
-      &.is-active
-        left: 0
+    width: 60px
+    display: flex
+    align-items: center
+    justify-content: center
+    border-right: 1px solid $c-gray
+    +media-max($bp-sm)
+      width: 50px
+    &.is-active
+      .header-menu__toggler-icon
+        opacity: 1
+    &-icon
+      height: 25px
+      opacity: 0.5
+      +media-max($bp-xs)
+        height: 20px
   &__items
     display: flex
     height: 100%
-    +media-max($bp-xl)
-      flex-wrap: wrap
-      height: auto
+    flex: 1
+    +media-max($bp-md)
+      justify-content: space-between
   &__item
     height: 100%
     padding: 0 10px
@@ -52,33 +47,14 @@
     cursor: pointer
     transition: opacity 0.2s, background-color 0.2s
     opacity: 0.5
-    +media-max($bp-xl)
-      height: 120px
-      max-width: none
-      width: 50%
+    +media-max($bp-lg)
+      min-width: auto
+      width: auto
+      flex: 1
+      padding: 0
     &:hover,
     &.active
       opacity: 1
-    &.active
-      +media-max($bp-xl)
-        background-color: transparent !important
-    &--handler
-      min-width: auto
-      width: 65px
-      border-right: 1px solid $c-gray
-      opacity: 1
-      .header-menu__icon
-        opacity: 0.5
-      +media-max($bp-xl)
-        border-right: 1px none
-        opacity: 0.5
-        height: 120px
-        max-width: none
-        width: 50%
-      .header-menu__text
-        display: none
-        +media-max($bp-xl)
-          display: block
   &__text
     margin-top: -4px
     text-transform: uppercase
@@ -87,22 +63,9 @@
     font-weight: 400
     color: $c-light
     margin-bottom: 4px
+    +media-max($bp-lg)
+      display: none
   &__icon
     height: 25px
-  &__button
-    width: 100%
-    max-width: 120px
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-direction: column
-    cursor: pointer
-    transition: 0.2s
-    opacity: 0.5
-    &.is-active
-      opacity: 1
-    +media-max($bp-sm)
-      padding: 0 10px
     +media-max($bp-xs)
-      .header-menu__text
-        display: none
+      height: 20px

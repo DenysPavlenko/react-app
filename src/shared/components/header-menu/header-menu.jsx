@@ -13,8 +13,7 @@ import Image from 'shared/components/image/image';
 // Styles
 import './header-menu.sass';
 
-const HeaderMenu = ({ menu, colorScheme, className, breakpoints, currentBreakpoint, mobileButtons, location }) => {
-  const [isMenuOpened, setIsMenuOpened] = useState(false);
+const HeaderMenu = ({ burger, menu, colorScheme, className, breakpoints, currentBreakpoint, mobileButtons, location }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -25,8 +24,6 @@ const HeaderMenu = ({ menu, colorScheme, className, breakpoints, currentBreakpoi
     }
   }, [breakpoints, currentBreakpoint]);
 
-  const handleToggleMenu = () => isMobile && setIsMenuOpened(isMenuOpened => !isMenuOpened);
-
   const classes = classNames({
     'header-menu': true,
     [`theme-${colorScheme}`]: colorScheme,
@@ -35,39 +32,30 @@ const HeaderMenu = ({ menu, colorScheme, className, breakpoints, currentBreakpoi
 
   return (
     <div className={classes}>
-      <div className="header-menu__burger">
-        <Burger onClick={handleToggleMenu} />
-      </div>
-      <div className={`header-menu__wrap ${isMenuOpened ? 'is-active' : ''}`}>
-        <div className="header-menu__items">
-          {menu.map(({ name, rootName, handler, icon }, idx) => (
-            <Fragment key={idx} >
-              {handler &&
-                <div onClick={() => { handler(); handleToggleMenu(); }} className="header-menu__item header-menu__item--handler">
-                  <span className="header-menu__text">{name}</span>
-                  <Image src={icon} className="header-menu__icon" alt="nav-icon" icon />
-                </div>
-              }
-              {rootName &&
-                <NavLink to={rootName} exact={rootName === '/' && true} className="header-menu__item" onClick={handleToggleMenu}>
-                  <span className="header-menu__text">{name}</span>
-                  <Image src={icon} className="header-menu__icon" alt="nav-icon" icon />
-                </NavLink>
-              }
-            </Fragment>
-          ))}
+      {burger &&
+        <div className="header-menu__toggler">
+          <Burger onClick={burger} />
         </div>
+      }
+      {isMobile && mobileButtons &&
+        mobileButtons.map(({ pathname, title, icon, isActive, handler }, idx) => (
+          <Fragment key={idx}>
+            {location.pathname === pathname &&
+              <div className={`header-menu__toggler ${isActive ? 'is-active ' : ''}`} onClick={handler}>
+                <Image src={icon} className="header-menu__toggler-icon" alt="nav-icon" icon />
+              </div>
+            }
+          </Fragment>
+        ))
+      }
+      <div className="header-menu__items">
+        {menu.map(({ name, rootName, icon }, idx) => (
+          <NavLink key={idx} to={rootName} exact={rootName === '/' && true} className="header-menu__item">
+            <span className="header-menu__text">{name}</span>
+            <Image src={icon} className="header-menu__icon" alt="nav-icon" icon />
+          </NavLink>
+        ))}
       </div>
-      {isMobile && mobileButtons && mobileButtons.map(({ pathname, title, icon, isActive, handler }, idx) => (
-        <Fragment key={idx}>
-          {location.pathname === pathname &&
-            <div className={`header-menu__button ${isActive ? 'is-active ' : ''}`} onClick={handler}>
-              <span className="header-menu__text">{title}</span>
-              <Image src={icon} className="header-menu__icon" alt="nav-icon" icon />
-            </div>
-          }
-        </Fragment>
-      ))}
     </div>
   );
 };
