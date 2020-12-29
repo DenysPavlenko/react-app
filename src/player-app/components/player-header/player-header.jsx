@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { withBreakpoints } from 'react-breakpoints';
 // Redux
@@ -24,11 +23,9 @@ import Balance from 'player-app/components/balance/balance';
 import HeaderDropdown from 'shared/components/header-dropdown/header-dropdown';
 import HeaderDropdownMenu from 'shared/components/header-dropdown-menu/header-dropdown-menu';
 import Button from 'shared/components/button/button';
+// Data
+import headerMenu from "./header-menu";
 // Assets
-import cupIcon from 'shared/assets/images/icons/cup.png';
-import timerIcn from 'shared/assets/images/icons/timer.png';
-import cardsIcn from 'shared/assets/images/icons/cards.png';
-import horseIcn from 'shared/assets/images/icons/horse.png';
 import calendarIcn from 'shared/assets/images/icons/calendar.png';
 import programIcn from 'shared/assets/images/icons/list.png';
 import horseSelectIcn from 'shared/assets/images/icons/horse-alt.png';
@@ -45,31 +42,23 @@ const PlayerHeader = ({ toggleScores, toggleMail, showSettings, togglePersonaliz
   }, [breakpoints, currentBreakpoint]);
 
   useEffect(() => {
-    sportsWagers.length === 0 && hideSportsPageWagers()
+    sportsWagers.length === 0 && hideSportsPageWagers();
   }, [sportsWagers, hideSportsPageWagers]);
 
   return (
     <Header
       menu={
         <HeaderMenu
-          menu={[
-            { name: 'Sports', rootName: '/sports', icon: cupIcon, alt: "sports" },
-            { name: 'Live', rootName: '/live', icon: timerIcn, alt: "live" },
-            { name: 'Casino', rootName: '/casino', icon: cardsIcn, alt: "casino" },
-            { name: 'Horses', rootName: '/horses', icon: horseIcn, alt: "horses" },
+          togglers={[
+            { pathname: '/sports', icon: calendarIcn, isActive: showSportsSchedule, handler: toggleSportsPageSchedule },
+            { pathname: '/live', icon: programIcn, isActive: isProgramShown, handler: toggleLivePlayProgram },
+            { pathname: '/horses', icon: horseSelectIcn, isActive: isHorsesSelectShown, handler: toggleHorsesPreviewSelect }
           ]}
-          mobileButtons={[
-            { pathname: '/sports', title: 'Schedule', icon: calendarIcn, isActive: showSportsSchedule, handler: toggleSportsPageSchedule },
-            { pathname: '/live', title: 'Program', icon: programIcn, isActive: isProgramShown, handler: toggleLivePlayProgram },
-            { pathname: '/horses', title: 'Program', icon: horseSelectIcn, isActive: isHorsesSelectShown, handler: toggleHorsesPreviewSelect }
-          ]}
+          menu={headerMenu}
+          button={(isMobile && sportsWagers.length) && <Button variant="accent" onClick={toggleSportsPageWagers}>{sportsWagers.length} Bet(s)</Button>}
         />
       }
-      content={
-        (isMobile && sportsWagers.length) ?
-          <Button variant="accent" onClick={toggleSportsPageWagers}>{sportsWagers.length} Bet(s)</Button> :
-          <Balance shrinkOnMobile />
-      }
+      content={<Balance shrinkOnMobile />}
       dropdown={
         <HeaderDropdown>
           <HeaderDropdownMenu
@@ -126,4 +115,4 @@ const mapDispatchToProps = dispatch => ({
   hideSportsPageWagers: () => dispatch(hideSportsPageWagers()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(withBreakpoints(PlayerHeader)));
+export default connect(mapStateToProps, mapDispatchToProps)(withBreakpoints(PlayerHeader));
