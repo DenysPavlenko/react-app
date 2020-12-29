@@ -17,9 +17,9 @@ import './home-page.sass';
 const HomePage = ({ toggleActivePlayers, toggleAccountsClosed, history }) => {
 
   const widgets = [
-    { id: '1', title: 'Active Players', value: '3', icon: 'users', color: 'accent', onClick: toggleActivePlayers },
-    { id: '2', title: 'Today', value: '1.00', icon: 'dollar-sign', color: 'danger', onClick: null },
-    { id: '3', title: 'Weekly Figures', value: '-140.00', icon: 'dollar-sign', color: 'danger', onClick: () => history.push('/figures') },
+    { id: '1', title: 'Active Players', value: '3', icon: 'users', color: 'accent-blue', onClick: toggleActivePlayers },
+    { id: '2', title: 'Today', value: '1.00', icon: 'dollar-sign', color: 'accent', active: true, onClick: null },
+    { id: '3', title: 'Weekly Figures', value: '-140.00', icon: 'dollar-sign', color: 'accent', active: true, onClick: () => history.push('/figures') },
     { id: '4', title: 'Deleted Wagers', value: '0', icon: 'trash-alt', color: 'accent-orange', onClick: () => history.push('/deleted-wagers') },
     { id: '5', title: 'Accounts Closed', value: '3', icon: 'users-slash', color: 'danger', onClick: toggleAccountsClosed },
   ];
