@@ -1,13 +1,13 @@
 @import ~shared/styles/abstract/variables
 
+$b-width: 25px
+
 .burger
   position: relative
   display: block
   height: 40px
   width: 40px
   cursor: pointer
-  border: 1px solid $c-light
-  border-radius: 50%
   display: flex
   justify-content: center
   align-items: center
@@ -15,14 +15,14 @@
     span
   &--no-border
     border: none
-    height: 20px
-    width: 20px
+    height: $b-width
+    width: $b-width
   span
     position: absolute
     top: 50%
     transform: translateY(-50%)
     display: block
-    width: 20px
+    width: $b-width
     height: 1px
     background-color: $c-light
     transition: 0.2s
@@ -31,14 +31,14 @@
       position: absolute
       content: ''
       left: 0
-      width: 20px
+      width: $b-width
       height: 1px
       background-color: $c-light
     &:before
-      top: -6px
+      top: -7px
       transform: rotate(0)
       transition: 0.2s
     &:after
-      bottom: -6px
+      bottom: -7px
       transform: rotate(0)
       transition: 0.2s
