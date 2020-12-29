@@ -6,10 +6,11 @@ import { connect } from 'react-redux'
 import { toggleActivePlayers } from 'admin-app/redux/active-players/actions';
 import { toggleAccountsClosed } from 'admin-app/redux/accounts-closed/actions';
 // Compoents
-import InfoWidget from 'shared/components/info-widget/info-widget';
+import InfoWidgets from 'shared/components/info-widgets/info-widgets';
 import RecentLogins from 'admin-app/components/recent-logins/recent-logins';
 import ActivePlayers from 'admin-app/components/active-players/active-players';
 import AccountsClosed from 'admin-app/components/accounts-closed/accounts-closed';
+import BiggestPendingWagers from 'admin-app/components/biggest-pending-wagers/biggest-pending-wagers';
 // Styles
 import './home-page.sass';
 
@@ -28,15 +29,14 @@ const HomePage = ({ toggleActivePlayers, toggleAccountsClosed, history }) => {
       <ActivePlayers />
       <AccountsClosed />
       <div className="home-page">
-        <div className="home-page__widgets">
-          {widgets.map(({ id, title, value, icon, color, onClick }) => (
-            <div key={id} className="home-page__widget">
-              <InfoWidget title={title} value={value} icon={icon} color={color} onClick={onClick} />
-            </div>
-          ))}
+        <div className="home-page__item">
+          <InfoWidgets widgets={widgets} />
         </div>
-        <div className="home-page__logins">
+        <div className="home-page__item">
           <RecentLogins />
+        </div>
+        <div className="home-page__item">
+          <BiggestPendingWagers />
         </div>
       </div>
     </Fragment>

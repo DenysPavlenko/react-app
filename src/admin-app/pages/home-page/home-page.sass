@@ -6,13 +6,13 @@
   width: 100%
   overflow: hidden
   padding-top: 6px
+  &__item
+    &:not(:last-child)
+      margin-bottom: 20px
   &__widgets
-    display: flex
-    flex-wrap: wrap
     +row()
   &__widget
     +col()
-    margin-bottom: 20px
     +media-max($bp-xl)
       +col(4)
     +media-max($bp-lg)
