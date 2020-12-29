@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 // Styles
 import './header.sass';
 
@@ -19,6 +20,12 @@ const Header = ({ menu, content, dropdown }) => {
       </div>
     </Fragment>
   );
+};
+
+Header.propTypes = {
+  menu: PropTypes.node,
+  content: PropTypes.node,
+  dropdown: PropTypes.node,
 };
 
 export default Header;
