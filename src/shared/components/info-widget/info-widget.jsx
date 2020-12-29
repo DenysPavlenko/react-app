@@ -4,16 +4,20 @@ import PropTypes from 'prop-types';
 // Components
 import Typography from 'shared/components/typography/typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// Utils
-import setDangerClass from 'shared/utils/set-danger-class';
 // Styles
 import './info-widget.sass';
 
-const InfoWidget = ({ icon, title, value, color, className, onClick }) => {
+const InfoWidget = ({ icon, title, value, color, className, onClick, active }) => {
   const classes = classNames({
     'info-widget': true,
     [`info-widget--${color}`]: color,
     [className]: className
+  });
+
+  const widgetTitleClass = classNames({
+    'info-widget__title': true,
+    'text-danger': parseInt(value) < 0 && active,
+    'text-accent': parseInt(value) > 0 && active
   });
 
   return (
@@ -23,7 +27,7 @@ const InfoWidget = ({ icon, title, value, color, className, onClick }) => {
         <Typography component="h6" className="info-widget__title">{title}</Typography>
       </div>
       <div className="info-widget__right">
-        <Typography component="h1" className={`info-widget__title ${setDangerClass(value)}`}>{value}</Typography>
+        <Typography component="h1" className={widgetTitleClass}>{value}</Typography>
       </div>
     </div>
   );
@@ -36,6 +40,7 @@ InfoWidget.propTypes = {
   color: PropTypes.string,
   className: PropTypes.string,
   onClick: PropTypes.func,
+  active: PropTypes.bool,
 };
 
 export default InfoWidget;
