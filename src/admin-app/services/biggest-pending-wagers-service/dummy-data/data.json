@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "risk": "10",
+    "win": "400",
+    "game": "Football",
+    "username": "ZTMA1",
+    "account": "SOME"
+  },
+  {
+    "id": "2",
+    "risk": "50",
+    "win": "300",
+    "game": "Special",
+    "username": "ZTMA2",
+    "account": "SOME2"
+  },
+  {
+    "id": "3",
+    "risk": "5",
+    "win": "50",
+    "game": "Volleyball",
+    "username": "ZTMA3",
+    "account": "SOME3"
+  },
+  {
+    "id": "4",
+    "risk": "15",
+    "win": "100",
+    "game": "Baseball",
+    "username": "ZTMA4",
+    "account": "SOME4"
+  },
+  {
+    "id": "5",
+    "risk": "40",
+    "win": "600",
+    "game": "Hockey",
+    "username": "ZTMA5",
+    "account": "SOME5"
+  }
+]
