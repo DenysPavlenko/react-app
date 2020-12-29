@@ -1,19 +1,16 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { withRouter, NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { withBreakpoints } from 'react-breakpoints';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-// Redux
-import { selectColorScheme } from 'shared/redux/color-scheme/selectors';
 // Components
 import Burger from 'shared/components/burger/burger';
 import Image from 'shared/components/image/image';
+import HeaderMenuItems from 'shared/components/header-menu-items/header-menu-items';
 // Styles
 import './header-menu.sass';
 
-const HeaderMenu = ({ burger, menu, colorScheme, className, breakpoints, currentBreakpoint, mobileButtons, location }) => {
+const HeaderMenu = ({ burger, menu, button, className, togglers, location, breakpoints, currentBreakpoint }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -26,19 +23,18 @@ const HeaderMenu = ({ burger, menu, colorScheme, className, breakpoints, current
 
   const classes = classNames({
     'header-menu': true,
-    [`theme-${colorScheme}`]: colorScheme,
     [className]: className
   });
 
   return (
     <div className={classes}>
       {burger &&
-        <div className="header-menu__toggler">
-          <Burger onClick={burger} />
+        <div className="header-menu__toggler" onClick={burger} >
+          <Burger />
         </div>
       }
-      {isMobile && mobileButtons &&
-        mobileButtons.map(({ pathname, title, icon, isActive, handler }, idx) => (
+      {(isMobile && togglers) &&
+        togglers.map(({ pathname, icon, isActive, handler }, idx) => (
           <Fragment key={idx}>
             {location.pathname === pathname &&
               <div className={`header-menu__toggler ${isActive ? 'is-active ' : ''}`} onClick={handler}>
@@ -48,28 +44,26 @@ const HeaderMenu = ({ burger, menu, colorScheme, className, breakpoints, current
           </Fragment>
         ))
       }
-      <div className="header-menu__items">
-        {menu.map(({ name, rootName, icon }, idx) => (
-          <NavLink key={idx} to={rootName} exact={rootName === '/' && true} className="header-menu__item">
-            <span className="header-menu__text">{name}</span>
-            <Image src={icon} className="header-menu__icon" alt="nav-icon" icon />
-          </NavLink>
-        ))}
-      </div>
+      {button ?
+        <div className="header-menu__button">{button}</div>
+        :
+        <div className="header-menu__items">
+          <HeaderMenuItems menu={menu} />
+        </div>
+      }
     </div>
   );
 };
 
 HeaderMenu.propTypes = {
-  menu: PropTypes.array,
-  colorScheme: PropTypes.string,
-  className: PropTypes.string,
+  burger: PropTypes.func,
+  location: PropTypes.object,
+  togglers: PropTypes.array,
   breakpoints: PropTypes.object,
   currentBreakpoint: PropTypes.string,
+  className: PropTypes.string,
+  button: PropTypes.node,
+  menu: PropTypes.array,
 };
 
-const mapStateToProps = createStructuredSelector({
-  colorScheme: selectColorScheme,
-});
-
-export default connect(mapStateToProps)(withRouter(withBreakpoints(HeaderMenu)));
+export default withRouter(withBreakpoints(HeaderMenu));
