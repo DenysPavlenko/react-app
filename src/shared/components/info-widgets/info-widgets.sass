@@ -1,0 +1,14 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+@import ~shared/styles/abstract/grid
+
+.info-widgets
+  +row()
+  &__widget
+    +col()
+    +media-max($bp-xl)
+      +col(4)
+    +media-max($bp-lg)
+      +col(6)
+    +media-max($bp-sm)
+      +col(12)
