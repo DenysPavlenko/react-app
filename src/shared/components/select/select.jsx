@@ -10,7 +10,7 @@ import Simplebar from 'simplebar-react';
 // Styles
 import './select.sass';
 
-const Select = ({ options, name, value, placeholder, inline, onChange, fluid, variant, size, className }) => {
+const Select = ({ options, name, value, placeholder, inline, onChange, fluid, variant, size, className, style }) => {
   const selectDopdownRef = useRef(null);
   const selectRef = useRef(null);
   const selectOptionsRef = useRef(null);
@@ -60,7 +60,7 @@ const Select = ({ options, name, value, placeholder, inline, onChange, fluid, va
 
   return (
     <div ref={selectRef} className={classes} onClick={handleSelectClick}>
-      <Button className="select__label" standard={false}>
+      <Button className="select__label" standard={false} style={style}>
         {selectedValue !== null ? getLabel(selectedValue) : placeholder}
       </Button>
       <CSSTransition nodeRef={selectDopdownRef} in={isExpanded} timeout={300} onEnter={handleOnEnter} unmountOnExit classNames="select-box-animation">
@@ -99,6 +99,7 @@ Select.propTypes = {
   variant: PropTypes.string,
   className: PropTypes.string,
   onChange: PropTypes.func,
+  style: PropTypes.object,
 };
 
 export default Select;
