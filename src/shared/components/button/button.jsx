@@ -8,7 +8,7 @@ import { selectColorScheme } from 'shared/redux/color-scheme/selectors';
 // Styles
 import './button.sass';
 
-const Button = ({ children, href, className, standard, fluid, variant, size, disabled, iconStart, iconEnd, isActive, colorScheme, onClick }) => {
+const Button = ({ children, href, className, standard, fluid, variant, size, disabled, iconStart, iconEnd, isActive, colorScheme, onClick, style }) => {
   const classes = classNames({
     'button': standard,
     'button--disabled': standard && disabled,
@@ -23,7 +23,7 @@ const Button = ({ children, href, className, standard, fluid, variant, size, dis
   const Tag = href ? 'a' : 'button';
 
   return (
-    <Tag href={href} className={classes} disabled={!href && disabled} onClick={onClick}>
+    <Tag href={href} className={classes} disabled={!href && disabled} onClick={onClick} style={style}>
       {iconStart && <div className="button__icon">{iconStart}</div>}
       <span>{children}</span>
       {iconEnd && <div className="button__icon">{iconEnd}</div>}
@@ -49,6 +49,7 @@ Button.propTypes = {
   iconEnd: PropTypes.node,
   href: PropTypes.string,
   colorScheme: PropTypes.string,
+  style: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({
