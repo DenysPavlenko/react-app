@@ -8,15 +8,12 @@ import './sports-header-d.sass';
 const SportsHeaderD = ({ time, channel }) => {
   return (
     <div className="sports-header-d">
-      <div className="sports__group-1 sports-header-d__left">
+      <div className="sports-header-d__left">
         <Typography component="span" variant="h6" className="text-uppercase">
           <Typography component="span" className="text-accent">{time} </Typography>broadcast {channel}
         </Typography>
       </div>
-      <div className="sports__group-2"></div>
-      <div className="sports__group-3"></div>
-      <div className="sports__group-4"></div>
-      <div className="sports__group-5 sports-header-d__right">
+      <div className="sports-header-d__right">
         <FontAwesomeIcon icon="tv" className="sports-header-d__icon" />
         <Typography component="span" variant="h6" className="text-uppercase">{channel}</Typography>
       </div>
