@@ -21,15 +21,15 @@ import './cashier.sass';
 const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
   const [expanded, setExpanded] = useState(0);
   const [status, setStatus] = useState('active');
-  const [inputs, setInputs] = useState(null);
+  const [selects, setSelects] = useState(null);
   const [idToDelete, setIdToDelete] = useState(null);
 
   const handleChange = idx => setExpanded(idx);
 
-  const handleInput = (id, { target: { name, value } }) => {
-    setInputs(inputs => {
-      const newObj = { ...inputs[id], [name]: value };
-      return { ...inputs, [id]: newObj };
+  const handleSelect = (id, { target: { name, value } }) => {
+    setSelects(selects => {
+      const newObj = { ...selects[id], [name]: value };
+      return { ...selects, [id]: newObj };
     });
   };
 
@@ -45,7 +45,7 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
         res[id] = { transType, description, notes };
       });
     });
-    setInputs(res);
+    setSelects(res);
   }, [data]);
 
   const handleDeleteClick = id => { setIdToDelete(id) }
@@ -68,7 +68,7 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
           {(!error && loading) && <Spinner boxed light />}
           {(!error && !loading) &&
             <Fragment>
-              {inputs && data.map(({ id, name, accounts }, idx) => (
+              {selects && data.map(({ id, name, accounts }, idx) => (
                 <Accordion key={id} className="new-accounts__item" expanded={expanded === idx} onChange={() => handleChange(idx)}>
                   <Accordion.Toggle>
                     <AccordionTab title={name} isActive={false} variant="primary" />
@@ -76,7 +76,7 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
                   <Accordion.Content className="new-accounts__item-content">
                     <PrimaryTable
                       key={id}
-                      cols={tableContent(inputs, handleInput, handleDeleteClick)}
+                      cols={tableContent(selects, handleSelect, handleDeleteClick)}
                       data={accounts}
                     />
                   </Accordion.Content>

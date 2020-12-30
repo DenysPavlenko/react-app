@@ -1,13 +1,13 @@
 import React from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
-import Input from 'shared/components/input/input';
 import Select from 'shared/components/select/select';
 import Button from 'shared/components/button/button';
 import ActionIcon from 'shared/components/action-icon/action-icon';
+import RowGroup from 'shared/components/row-group/row-group';
 
-const tableContent = (inputs, handleInput, handleDeleteClick) => {
-  const colWidth = 100 / 11 + '%';
+const tableContent = (selects, handleSelect, handleDeleteClick) => {
+  const colWidth = 100 / 7 + '%';
 
   return [
     {
@@ -17,7 +17,7 @@ const tableContent = (inputs, handleInput, handleDeleteClick) => {
     },
     {
       style: { width: colWidth },
-      title: 'user id',
+      title: 'User ID',
       render: ({ id }) => <Typography component="p">{id}</Typography>
     },
     {
@@ -32,49 +32,34 @@ const tableContent = (inputs, handleInput, handleDeleteClick) => {
     },
     {
       style: { width: colWidth },
-      title: 'settle',
-      render: ({ settle }) => <Typography component="p">{settle}</Typography>
-    },
-    {
-      style: { width: colWidth },
-      title: 'bow',
-      render: ({ bow }) => <Typography component="p">{bow}</Typography>
+      title: 'Balance',
+      render: ({ balance }) => <Typography component="p">{balance}</Typography>
     },
     {
       style: { width: colWidth },
       title: 'trans type',
-      render: ({ id }) =>
-        <Select
-          value={inputs[id].transType}
-          onChange={(e) => { handleInput(id, e) }}
-          variant="primary"
-          name="transType"
-          size="sm"
-          options={[
-            { label: 'Deposit', value: 'deposit' },
-            { label: 'Withdrawal', value: 'withdrawal' },
-          ]}
-        />
+      render: ({ id }) => (
+        <RowGroup>
+          <Select
+            value={selects[id].transType}
+            onChange={(e) => { handleSelect(id, e) }}
+            variant="primary"
+            name="transType"
+            size="sm"
+            style={{ minWidth: '110px' }}
+            options={[
+              { label: 'Deposit', value: 'deposit' },
+              { label: 'Withdrawal', value: 'withdrawal' },
+            ]}
+          />
+          <Button variant="accent" size="xxs">CB</Button>
+        </RowGroup>
+      )
     },
     {
       style: { width: colWidth },
-      title: 'description',
-      render: ({ id }) => <Input value={inputs[id].description} name="description" onChange={(e) => handleInput(id, e)} variant="primary" size="sm" width="auto" />
-    },
-    {
-      style: { width: colWidth },
-      title: 'rating',
-      render: ({ rating }) => <Typography component="p">{rating}</Typography>
-    },
-    {
-      style: { width: colWidth },
-      title: 'notes',
-      render: ({ id }) => <Input value={inputs[id].notes} name="notes" onChange={(e) => handleInput(id, e)} variant="primary" size="sm" width="auto" />
-    },
-    {
-      style: { width: colWidth },
-      title: 'Save',
-      render: () => <Button variant="accent" size="xxs">Save</Button>
+      title: 'New Balance',
+      render: () => <Typography component="p">0</Typography>
     },
   ];
 };

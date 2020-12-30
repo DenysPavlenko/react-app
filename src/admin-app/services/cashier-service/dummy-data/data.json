@@ -7,23 +7,15 @@
         "id": "cxz1",
         "name": "sara",
         "password": "1",
-        "settle": "0.00",
-        "bow": "0.00",
-        "transType": "withdrawal",
-        "description": "description",
-        "rating": "silver",
-        "notes": "test notes"
+        "balance": "0.00",
+        "transType": "withdrawal"
       },
       {
         "id": "cxz2",
         "name": "John",
         "password": "1",
-        "settle": "0.00",
-        "bow": "0.00",
-        "transType": "withdrawal",
-        "description": "description",
-        "rating": "silver",
-        "notes": "test notes"
+        "balance": "0.00",
+        "transType": "deposit"
       }
     ]
   },
@@ -35,23 +27,15 @@
         "id": "sas1",
         "name": "Bill",
         "password": "1",
-        "settle": "0.00",
-        "bow": "0.00",
-        "transType": "withdrawal",
-        "description": "description",
-        "rating": "silver",
-        "notes": "test notes"
+        "balance": "0.00",
+        "transType": "withdrawal"
       },
       {
         "id": "sas2",
         "name": "Marry",
         "password": "1",
-        "settle": "0.00",
-        "bow": "0.00",
-        "transType": "withdrawal",
-        "description": "description",
-        "rating": "silver",
-        "notes": "test notes"
+        "balance": "0.00",
+        "transType": "withdrawal"
       }
     ]
   }
