@@ -16,7 +16,7 @@ const HorsesBetSlipItem = ({ id, type, info, details, bets, amount, total, class
     <div className={classes}>
       <div className="horses-bet-slip-item__header">
         <Typography component="h4" className="horses-bet-slip-item__title">{type}</Typography>
-        <Close className="horses-bet-slip-item__close" onClick={() => removeHorsesBet(id)} />
+        <Close className="horses-bet-slip-item__close" onClick={() => removeHorsesBet(id)} size="sm" />
       </div>
       <Typography component="p" className="horses-bet-slip-item__info">{info}</Typography>
       <Typography component="p" className="horses-bet-slip-item__details">{details}</Typography>

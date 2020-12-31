@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
@@ -29,15 +29,15 @@ const LiveMarkets = ({ className, liveMarkets: { loading, error, data }, fetchLi
   return (
     <div className={classes}>
       {error && <ErrorIndicator className="live-markets__error" retry={fetchLiveMarketsData} />}
-      {(!error && loading) && <Spinner light boxed/>}
+      {(!error && loading) && <Spinner light boxed />}
       {(!error && !loading) &&
-        <>
+        <Fragment>
           {data.map(({ id, banner, title, content }) => (
-            <React.Fragment key={id}>
+            <Fragment key={id}>
               <LiveMarketsBanner className="live-markets__banner" image={banner} />
               <div className="live-markets__header">
-                <Typography component="h2" className="live-markets__title">{title}</Typography>
-                <FontAwesomeIcon className="live-markets__live" icon="tv" />
+                <Typography component="h2">{title}</Typography>
+                <FontAwesomeIcon icon="tv" />
               </div>
               <div className="live-markets__body">
                 {content.map(({ id, type, betsGroup }) => (
@@ -55,9 +55,9 @@ const LiveMarkets = ({ className, liveMarkets: { loading, error, data }, fetchLi
                   </div>
                 ))}
               </div>
-            </React.Fragment>
+            </Fragment>
           ))}
-        </>
+        </Fragment>
       }
     </div>
   );

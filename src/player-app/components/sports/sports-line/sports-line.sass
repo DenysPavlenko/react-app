@@ -3,12 +3,13 @@
 
 .sports-line
   display: flex
-  color: $c-dark
   // Color schemes
   @each $name, $color in $sch-colors
     &.theme-#{$name}
       .sports-line__team
         border-right: 2px solid $color
+      .sports-line__center
+        border: 1px solid $color
 
   &__team
     display: flex
@@ -39,9 +40,8 @@
     transform: translateX(-50%)
     font-size: rem(12px)
     line-height: 1
-    border: 1px solid $c-alt-gray
     padding: 1px
-    background-color: $c-light
+    background-color: $c-primary
     display: flex
     justify-content: center
     align-items: center

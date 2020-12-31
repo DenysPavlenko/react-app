@@ -3,6 +3,8 @@
 
 .horses-bet-slip
   background-color: $c-primary
+  border-radius: $r-primary
+  overflow: hidden
   // Color schemes
   @each $name, $color in $sch-colors
     &.theme-#{$name}
@@ -25,16 +27,15 @@
       text-align: center
       border-radius: $r-primary
   &__empty
-    background-color: $c-primary-light
+    background-color: $c-primary-4
     padding: 10px
   &__items
-    background-color: $c-primary-light
+    background-color: $c-primary-4
   &__item
     &:not(:last-child)
-      border-bottom: 1px solid rgba($c-light, 0.3)
+      border-bottom: 1px solid $c-primary
   &__footer
-    background-color: $c-light
-    color: $c-dark
+    background-color: $c-primary
     padding: 10px
   &__total
     margin-bottom: 10px

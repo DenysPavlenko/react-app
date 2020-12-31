@@ -38,7 +38,7 @@ const CasinoNavigation = ({ className, activeCategory, handleNavigation, handleS
         ))}
       </div>
       <div className="casino-navigation__search">
-        <Search onChange={handleSearch} />
+        <Search onChange={handleSearch} variant="secondary" />
       </div>
     </div>
   );

@@ -13,6 +13,15 @@
   display: flex
   z-index: 200
   border-radius: $r-primary
+  &:after
+    position: absolute
+    content: ''
+    background-color: $c-secondary
+    width: 100%
+    height: 4px
+    left: 0
+    bottom: -4px
+    display: block
   +media-max($bp-xl)
     left: 0
     width: 100%

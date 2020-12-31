@@ -42,14 +42,14 @@ const HorseBettings = ({ fetchHorsesBettingsData, horsesBettings: { loading, dat
 
   return (
     <div className="horses-bettings">
-      <div className="horses-bettings__header">
-        <HorsesBettingsHeader />
-      </div>
-      <div className="horses-bettings__content">
-        {error && <ErrorIndicator retry={fetchHorsesBettingsData} light />}
-        {(!error && loading) && <Spinner boxed light />}
-        {(!error && !loading) &&
-          <Fragment>
+      {error && <ErrorIndicator retry={fetchHorsesBettingsData} light />}
+      {(!error && loading) && <Spinner boxed light />}
+      {(!error && !loading) &&
+        <Fragment>
+          <div className="horses-bettings__header">
+            <HorsesBettingsHeader />
+          </div>
+          <div className="horses-bettings__content">
             <div className="horses-bettings__filters">
               <HorsesBettingsFilters
                 currentFilter={currentFilter}
@@ -77,9 +77,9 @@ const HorseBettings = ({ fetchHorsesBettingsData, horsesBettings: { loading, dat
                   <HorsesBetLimits showDetails={id === 'straight'} key={id} title={title} min={min} max={max} />
                 ))}
             </div>
-          </Fragment>
-        }
-      </div>
+          </div>
+        </Fragment>
+      }
     </div>
   )
 };
