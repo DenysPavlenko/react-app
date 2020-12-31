@@ -37,19 +37,19 @@ $select-height: 40px
       height: 34px
 
   // Variants
-  &--primary
+  &--light
     .select__label
-      background-color: $c-primary
-      border-color: $c-primary
-      color: $c-light
+      background-color: $c-light
+      border-color: $c-light
+      color: $c-primary
       &:before
-        background-color: $c-primary
+        background-color: $c-light
     .select__dropdown
-      background-color: $c-primary
+      background-color: $c-light
     .select__option
-      color: $c-light
+      color: $c-primary
       &:hover
-        background-color: $c-primary-light
+        background-color: $c-light-gray
 
   // Elements
   &__label
@@ -57,15 +57,15 @@ $select-height: 40px
     cursor: pointer
     padding: 0 20px 0 10px
     height: $select-height
-    background-color: $c-light
-    border: 1px solid $input-border
+    background-color: $c-primary
+    border: 1px solid $c-primary
     display: flex
     width: 100%
     align-items: center
     font-size: rem(14px)
     font-weight: 400
     line-height: 1
-    color: $c-primary
+    color: $c-light
     white-space: nowrap
     overflow: hidden
     transition: 0.2s
@@ -80,7 +80,7 @@ $select-height: 40px
       top: 0
       width: 20px
       height: 100%
-      background-color: $c-light
+      background-color: $c-primary
     &:after
       transition: 0.2s
       right: 5px
@@ -96,7 +96,7 @@ $select-height: 40px
     min-width: 100%
     top: 100%
     margin-top: 2px
-    background-color: $c-light
+    background-color: $c-primary
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15)
     overflow: hidden
     border-radius: $r-primary
@@ -118,7 +118,7 @@ $select-height: 40px
     white-space: nowrap
     font-weight: 400
     cursor: pointer
-    color: $c-primary
+    color: $c-light
     z-index: 1
     transition: 0.2s
     img
@@ -126,7 +126,7 @@ $select-height: 40px
     &>*:not(:last-child)
       margin-right: 5px
     &:hover
-      background-color: $c-light-gray
+      background-color: $c-primary-light
     // State
     &.is-selected
       background-color: $c-accent-blue
