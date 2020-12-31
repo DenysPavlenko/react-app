@@ -22,7 +22,7 @@ const HorsesBettingsFilters = ({ currentFilter, setFilter, amountOption, setAmou
     <div className="horses-bettings-filters">
       <ButtonGroup className="horses-bettings-filters__item">
         {horseFilters.map(({ id, title }) => (
-          <Button key={id} isActive={id === currentFilter} onClick={() => setFilter(id)} variant="alt-gray" size="sm">
+          <Button key={id} isActive={id === currentFilter} onClick={() => setFilter(id)} variant="default" size="sm">
             {title}
           </Button>
         ))}
