@@ -14,13 +14,13 @@
   &:hover,
   &.is-active
     background-color: $c-primary-d1
-  &.is-active
-    color: $c-light
   // Color schemes
   @each $name, $color in $sch-colors
     &.theme-#{$name}
       &.is-active
         background-color: $color
+  &--with-border
+    border-bottom: 1px solid $c-primary-l1
   &__icon
     margin-right: 5px
     font-size: rem(20px)
