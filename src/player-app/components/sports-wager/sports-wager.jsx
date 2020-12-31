@@ -11,6 +11,7 @@ import Typography from 'shared/components/typography/typography';
 import Image from 'shared/components/image/image';
 import Input from 'shared/components/input/input';
 import Chevron from 'shared/components/chevron/chevron';
+import ActionIcon from 'shared/components/action-icon/action-icon';
 // Styles
 import './sports-wager.sass';
 
@@ -69,11 +70,11 @@ const SportsWager = ({ id, icon, title, value, scheduled, selection, notes, remo
         </div>
       }
       <div className="sports-wager__footer">
-        <Typography component="p" variant="p-sm" className="sports-wager__delete text-danger" onClick={() => removeSportsWager(id)}>Delete</Typography>
+        <ActionIcon icon="trash" color="danger" onClick={() => removeSportsWager(id)} />
         <div className="sports-wager__inputs">
-          <Input type="text" size="xs" value={risk} name="risk" onChange={handleInput} placeholder="Risk Amount" variant="light" />
+          <Input type="text" size="xs" value={risk} name="risk" onChange={handleInput} placeholder="Risk Amount" variant="primary" />
           <Typography component="p" variant="p-sm" className="sports-wager__inputs-title">To win</Typography>
-          <Input type="text" size="xs" value={toWin} name="toWin" onChange={handleInput} placeholder="Win Amount" variant="light" />
+          <Input type="text" size="xs" value={toWin} name="toWin" onChange={handleInput} placeholder="Win Amount" variant="primary" />
         </div>
       </div>
     </div>

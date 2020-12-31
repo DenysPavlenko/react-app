@@ -2,18 +2,17 @@
 @import ~shared/styles/abstract/mixins
 
 .sports-wagers
-  background-color: $c-light
+  background-color: $c-primary-light
   border-radius: $r-primary
   overflow: hidden
   &__header
-    background-color: $c-dark
     padding: 5px 10px
     display: flex
     justify-content: space-between
+    background-color: $c-primary
   &__empty
     min-height: 100px
     padding: 10px
-    color: $c-dark
   &__wrap
     height: calc( 100vh - 99px )
     display: flex
@@ -23,9 +22,8 @@
     flex: 1
     min-height: 0
   &__totals
-    color: $c-dark
     padding: 10px
-    border-bottom: 1px solid $c-light-gray
+    border-bottom: 1px solid $c-primary
     margin-top: auto
   &__total
     margin-top: auto
