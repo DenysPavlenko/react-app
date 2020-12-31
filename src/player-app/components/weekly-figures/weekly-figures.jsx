@@ -10,6 +10,8 @@ import Select from 'shared/components/select/select';
 import Typography from 'shared/components/typography/typography';
 import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 import Spinner from 'shared/components/spinner/spinner';
+// Utils
+import setDangerClass from 'shared/utils/set-danger-class';
 // Styles
 import './weekly-figures.sass';
 
@@ -27,7 +29,7 @@ const WeeklyFigures = ({ weeklyFigures: { loading, data, error }, fetchWeeklyFig
         className="weekly-figures__select"
         onChange={({ target: { value } }) => setCurrentFigure(value)}
         value={currentFigure}
-        variant="light"
+        variant="primary"
         options={[
           { label: 'This week', value: '0' },
           { label: 'Last Week', value: '1' },
@@ -45,19 +47,16 @@ const WeeklyFigures = ({ weeklyFigures: { loading, data, error }, fetchWeeklyFig
         ]}
       />
       <div className="weekly-figures__items">
-        {error && <ErrorIndicator retry={() => fetchWeeklyFiguresData(currentFigure)} />}
-        {(!error && loading) && <Spinner boxed />}
+        {error && <ErrorIndicator retry={() => fetchWeeklyFiguresData(currentFigure)} light />}
+        {(!error && loading) && <Spinner boxed light />}
         {(!error && !loading) &&
           <Fragment>
-            {data.map(({ title, total }, idx) => {
-              const textColor = (+total < 0 && 'text-danger') || (+total > 0 && 'text-accent') || '';
-              return (
-                <div key={idx} className="weekly-figures__item">
-                  <Typography component="p">{title}</Typography>
-                  <Typography component="p" className={textColor}>${total}</Typography>
-                </div>
-              )
-            })}
+            {data.map(({ title, total }, idx) => (
+              <div key={idx} className="weekly-figures__item">
+                <Typography component="p">{title}</Typography>
+                <Typography component="p" className={setDangerClass(total)}>${total}</Typography>
+              </div>
+            ))}
           </Fragment>
         }
       </div>

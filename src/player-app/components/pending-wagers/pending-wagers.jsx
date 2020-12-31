@@ -23,8 +23,8 @@ const PendingWagers = ({ pendingWagers: { loading, data, error }, fetchPendingWa
   return (
     <div className="pending-wagers">
       <Typography component="h2" className="pending-wagers__heading">Pending wagers</Typography>
-      {error && <div className="pending-wagers__indicator"><ErrorIndicator retry={fetchPendingWagersData} /></div>}
-      {(!error && loading) && <div className="pending-wagers__indicator"><Spinner boxed /></div>}
+      {error && <div className="pending-wagers__indicator"><ErrorIndicator retry={fetchPendingWagersData} light /></div>}
+      {(!error && loading) && <div className="pending-wagers__indicator"><Spinner boxed light /></div>}
       {(!error && !loading) &&
         <>
           <div className="pending-wagers__table-wrap">
@@ -35,15 +35,10 @@ const PendingWagers = ({ pendingWagers: { loading, data, error }, fetchPendingWa
                   <PendingWagersItem className="pending-wagers__table-item" key={props.id}  {...props} />
                 ))}
               </tbody>
+              <tbody>
+                <PendingWagersItem className="pending-wagers__table-item" title="Total:" risk={totalRisk} toWin={totalWin} />
+              </tbody>
             </Table>
-          </div>
-          <div className="pending-wagers__footer">
-            <Typography component="p" className="pending-wagers__footer-title">Total Risk:
-            <Typography component="span" className="text-danger"> ${totalRisk}</Typography>
-            </Typography>
-            <Typography component="p" className="pending-wagers__footer-title">Total Win:
-            <Typography component="span" className="text-danger"> ${totalWin}</Typography>
-            </Typography>
           </div>
         </>
       }

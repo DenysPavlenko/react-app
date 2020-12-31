@@ -2,31 +2,21 @@
 @import ~shared/styles/abstract/mixins
 
 .pending-wagers
+  &__indicator
+    background-color: $c-primary
+    border-radius: $r-primary
+    overflow: hidden
   &__heading
     margin-bottom: 10px
   &__table-wrap
+    border: 1px solid $c-primary
+    border-radius: $r-primary
+    overflow: hidden
     +media-max($bp-xl)
       overflow: auto
       white-space: nowrap
   &__table
     position: relative
-    margin-bottom: 5px
-    border-radius: $r-primary
-    overflow: hidden
     &-item
-      background-color: $c-light
       &:nth-child(even)
-        background-color: $c-light-gray
-  &__indicator
-    background-color: $c-light
-    border-radius: $r-primary
-  &__footer
-    display: flex
-    justify-content: flex-end
-    background-color: $c-light
-    color: $c-primary-1
-    padding: 10px
-    border-radius: $r-primary
-    &-title
-      &:not(:last-child)
-        margin-right: 10px
+        background-color: rgba($c-primary, 0.5)

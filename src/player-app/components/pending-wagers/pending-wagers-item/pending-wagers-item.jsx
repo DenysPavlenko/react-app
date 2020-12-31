@@ -1,30 +1,33 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-// Redux
-import { selectColorScheme } from 'shared/redux/color-scheme/selectors';
 // Components
 import Typography from 'shared/components/typography/typography';
 // Styles
 import './pending-wagers-item.sass';
 
-const PendingWagersItem = ({ id, date, description, result, risk, toWin, details, className, colorScheme }) => {
+const PendingWagersItem = ({ id, date, title, description, result, risk, toWin, details, className }) => {
   const [showDetails, setShowDetails] = useState(false);
 
   const classes = classNames({
     'pending-wagers-item': true,
     [className]: className,
-    [`theme-${colorScheme}`]: colorScheme,
   });
 
+  const handleDetails = () => details && setShowDetails(showDetails => !showDetails);
+
   return (
-    <tr className={classes} onClick={() => setShowDetails(showDetails => !showDetails)}>
-      <td>
-        <Typography component="p" variant="p-sm" className="text-alt-gray">{date}</Typography>
-        <Typography component="p" variant="p-sm" className="text-accent-blue">{id}</Typography>
-      </td>
+    <tr className={classes} onClick={handleDetails} style={{ cursor: details && 'pointer' }}>
+      {title ?
+        <td>
+          <Typography component="h4">{title}</Typography>
+        </td>
+        :
+        <td>
+          <Typography component="p" variant="p-sm" className="text-alt-gray">{date}</Typography>
+          <Typography component="p" variant="p-sm" className="text-accent-blue">{id}</Typography>
+        </td>
+      }
       <td>
         <Typography component="p" variant="p">{description} {result}</Typography>
         {showDetails &&
@@ -79,11 +82,15 @@ const PendingWagersItem = ({ id, date, description, result, risk, toWin, details
 };
 
 PendingWagersItem.propTypes = {
-  colorScheme: PropTypes.string,
+  id: PropTypes.string,
+  date: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  result: PropTypes.string,
+  risk: PropTypes.string,
+  toWin: PropTypes.string,
+  details: PropTypes.object,
+  className: PropTypes.string,
 };
 
-const mapStateToProps = createStructuredSelector({
-  colorScheme: selectColorScheme,
-});
-
-export default connect(mapStateToProps)(PendingWagersItem);
+export default PendingWagersItem;

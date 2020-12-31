@@ -3,24 +3,15 @@
 
 .pending-wagers-item
   vertical-align: top
-  // Color schemes
-  @each $name, $color in $sch-colors
-    &.theme-#{$name}
-      .pending-wagers-item__detail-title
-        background-color: $color
   td
     padding: 5px 10px
-    color: $c-primary-1
-    cursor: pointer
   &__details
     margin: 20px 0
   &__detail
     display: flex
-    // align-items: center
-    background-color: $c-light
-    border-right: 1px solid rgba($c-primary-1, 0.1)
-    &:nth-child(odd)
-      background-color: rgba($c-primary-1, 0.1)
+    background-color: $c-primary
+    &:nth-child(even)
+      background-color: $c-primary-4
     &-title
       padding: 5px
       text-transform: capitalize

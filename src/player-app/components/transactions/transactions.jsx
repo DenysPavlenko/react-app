@@ -6,12 +6,10 @@ import { createStructuredSelector } from 'reselect';
 import { fetchTransactionsData } from 'player-app/redux/transactions/actions';
 import { selectTransactions } from 'player-app/redux/transactions/selectors';
 // Components
-import Table from 'shared/components/table/table';
-import TransactionsHeader from './transactions-header/transactions-header';
-import TransactionsItem from './transactions-item/transactions-item';
 import Typography from 'shared/components/typography/typography';
-import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
-import Spinner from 'shared/components/spinner/spinner';
+import PrimaryTable from 'shared/components/primary-table/primary-table';
+// Table content
+import tableContent from './table-content';
 // Styles
 import './transactions.sass';
 
@@ -23,20 +21,13 @@ const Transactions = ({ transactions: { loading, data, error }, fetchTransaction
   return (
     <div className="transactions">
       <Typography component="h2" className="transactions__heading">My transactions</Typography>
-      {error && <div className="transactions__indicator"><ErrorIndicator retry={fetchTransactionsData} /></div>}
-      {(!error && loading) && <div className="transactions__indicator"><Spinner boxed /></div>}
-      {(!error && !loading) &&
-        <div className="transactions__table-wrap">
-          <Table className="transactions__table">
-            <TransactionsHeader />
-            <tbody>
-              {data.map((props) => (
-                <TransactionsItem className="transactions__table-item" key={props.id}  {...props} />
-              ))}
-            </tbody>
-          </Table>
-        </div>
-      }
+      <PrimaryTable
+        cols={tableContent()}
+        loading={loading}
+        retry={fetchTransactionsData}
+        data={data}
+        error={error}
+      />
     </div>
   );
 };

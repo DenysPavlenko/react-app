@@ -2,10 +2,7 @@
 @import ~shared/styles/abstract/mixins
 
 .pending-wagers-header
-  // Color schemes
-  @each $name, $color in $sch-colors
-    &.theme-#{$name}
-      background-color: $color
+  background-color: $c-primary
   th
     padding: 10px
     white-space: nowrap
