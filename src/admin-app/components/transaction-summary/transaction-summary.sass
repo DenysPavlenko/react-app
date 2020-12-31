@@ -1,0 +1,62 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.transaction-summary
+  color: $c-dark
+  &__header
+    display: flex
+    justify-content: space-between
+    margin-bottom: 20px
+  &__content
+    margin-bottom: 20px
+  &__info
+    margin-bottom: 20px
+    border: 1px solid $c-light-gray
+    border-radius: $r-primary
+    &-item
+      display: flex
+      justify-content: space-between
+      padding: 8px 10px
+      &:not(:last-child)
+        border-bottom: 1px solid $c-light-gray
+  &__comment
+    margin-bottom: 20px
+    &-title
+      margin-bottom: 5px
+      display: flex
+  &__free-play
+    position: relative
+    margin-bottom: 20px
+    padding: 10px 0 20px
+    color: $c-light
+    &:after
+      position: absolute
+      content: ''
+      left: -20px
+      top: 0
+      width: calc( 100% + 40px )
+      height: 100%
+      background-color: $c-primary
+      display: block
+      z-index: -1
+    &-title
+      display: flex
+      align-items: center
+      margin-bottom: 10px
+      &>*
+        margin-right: 5px
+  &__actions
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-bottom: 20px
+  &__footer
+    &-title
+      padding: 7px 5px 8px
+      text-align: center
+      color: $c-light
+      background-color: $c-primary
+      border-radius: $r-primary $r-primary 0 0
+    &-table
+      border-top-left-radius: 0
+      border-top-right-radius: 0
