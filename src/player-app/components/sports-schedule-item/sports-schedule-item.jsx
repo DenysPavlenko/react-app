@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -12,23 +12,35 @@ import AccordionTab from 'shared/components/accordion-tab/accordion-tab';
 // Styles
 import './sports-schedule-item.sass';
 
-const SportsScheduleItem = ({ title, icon, content, event, sportsScheduleEvents, setSportsScheduleEvent }) => {
+const SportsScheduleItem = ({ title, icon, content, event, sportsScheduleEvents, setSportsScheduleEvent, isLast }) => {
   const isActive = sportsScheduleEvents.includes(event);
 
-  const handleTabClick = () => {
-    !content && setSportsScheduleEvent(event);
-  };
+  const handleTabClick = () => !content && setSportsScheduleEvent(event);
 
   return (
-    <>
+    <Fragment>
       {!content ?
         <div className="sports-schedule-item">
-          <AccordionTab icon={icon} title={title} counter={content && content.length} isActive={isActive} onClick={handleTabClick} />
+          <AccordionTab
+            icon={icon}
+            title={title}
+            counter={content && content.length}
+            isActive={isActive}
+            onClick={handleTabClick}
+            withBorder={true}
+          />
         </div>
         :
         <Accordion className="sports-schedule-item">
           <Accordion.Toggle>
-            <AccordionTab icon={icon} title={title} counter={content && content.length} isActive={isActive} onClick={handleTabClick} />
+            <AccordionTab
+              icon={icon}
+              title={title}
+              counter={content && content.length}
+              isActive={isActive}
+              onClick={handleTabClick}
+              withBorder={!isLast}
+            />
           </Accordion.Toggle>
           <Accordion.Content className="sports-schedule-item__content">
             {content.map(({ title, content, id }) => (
@@ -37,7 +49,7 @@ const SportsScheduleItem = ({ title, icon, content, event, sportsScheduleEvents,
           </Accordion.Content>
         </Accordion >
       }
-    </>
+    </Fragment>
   );
 };
 
@@ -48,6 +60,7 @@ SportsScheduleItem.propTypes = {
   event: PropTypes.string,
   sportsScheduleEvents: PropTypes.array,
   setSportsScheduleEvent: PropTypes.func,
+  isLast: PropTypes.bool,
 };
 
 const mapStateToProps = createStructuredSelector({

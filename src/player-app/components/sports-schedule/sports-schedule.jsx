@@ -31,8 +31,8 @@ const SportsSchedule = ({ sportsSchedule: { loading, error, data }, fetchSportsS
       {(!error && loading) && <Spinner boxed light />}
       {(!error && !loading) &&
         <div className="sports-schedule__items">
-          {data.map(({ title, icon, content, id }) => (
-            <SportsScheduleItem key={id} event={id} title={title} icon={icon} content={content} />
+          {data.map(({ title, icon, content, id }, idx) => (
+            <SportsScheduleItem key={id} event={id} title={title} icon={icon} content={content} isLast={idx === data.length - 1} />
           ))}
         </div>
       }
