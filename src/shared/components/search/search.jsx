@@ -15,7 +15,7 @@ const Search = ({ className, onSubmit, onChange, variant, placeholder, style, ..
   const [searchValue, setSearchValue] = useState('');
   const [hideButton, setHideButton] = useState(true);
 
-  const handleInput = (e) => {
+  const handleInput = e => {
     const value = e.target.value;
     setSearchValue(value);
     if (typeof onChange !== 'function') {
@@ -38,7 +38,6 @@ const Search = ({ className, onSubmit, onChange, variant, placeholder, style, ..
 
   const classes = classNames({
     'search': true,
-    [`search--${variant}`]: variant,
     [className]: className
   });
 
