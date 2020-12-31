@@ -39,7 +39,6 @@ const SportsScheduleItem = ({ title, icon, content, event, sportsScheduleEvents,
               counter={content && content.length}
               isActive={isActive}
               onClick={handleTabClick}
-              withBorder={!isLast}
             />
           </Accordion.Toggle>
           <Accordion.Content className="sports-schedule-item__content">
