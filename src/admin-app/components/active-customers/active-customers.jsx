@@ -33,6 +33,7 @@ const ActiveCustomers = ({ agent, open, onClose, onExited, fetchActiveCustomersD
           retry={() => fetchActiveCustomersData(agent)}
           data={data}
           error={error}
+          variant="light"
         />
       }
       total={

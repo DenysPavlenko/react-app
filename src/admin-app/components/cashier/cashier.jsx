@@ -13,6 +13,7 @@ import Accordion from 'shared/components/accordion/accordion';
 import AccordionTab from 'shared/components/accordion-tab/accordion-tab';
 import PrimaryTable from 'shared/components/primary-table/primary-table';
 import DeleteConfirmation from 'shared/components/delete-confirmation/delete-confirmation';
+import TransactionSummary from 'admin-app/components/transaction-summary/transaction-summary';
 // Table content
 import tableContent from './table-content';
 // Styles

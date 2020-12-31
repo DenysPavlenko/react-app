@@ -34,6 +34,7 @@ const ActivePlayers = ({ toggleActivePlayers, fetchActivePlayersData, activePlay
           retry={fetchActivePlayersData}
           data={data}
           error={error}
+          variant="light"
         />
       }
       total={
