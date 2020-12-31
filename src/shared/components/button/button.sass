@@ -14,6 +14,7 @@ button::-moz-focus-inner
   border: 0
 
 .button
+  position: relative
   display: inline-flex
   align-items: center
   justify-content: center
@@ -41,6 +42,8 @@ button::-moz-focus-inner
         background-color: $color
   &:focus
     box-shadow: $s-focus
+  &.is-active
+    z-index: 2
   &--fluid
     width: 100%
 
