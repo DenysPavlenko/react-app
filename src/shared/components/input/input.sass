@@ -32,7 +32,7 @@ input
   line-height: 1
   transition: 0.2s
   &::placeholder
-    color: rgba($c-light, 0.5)
+    color: $c-alt-gray
   &:focus
     box-shadow: 0 0 0 0.15rem rgba($c-accent-blue, .25)
   &--no-radius
@@ -53,8 +53,8 @@ input
     background-color: $c-light
     border: 1px solid $c-light-gray
     color: $c-primary
-    &::placeholder
-      color: rgba($c-primary, 0.8)
+  &--secondary
+    background-color: $c-secondary
 
   // Size
   &--sm
