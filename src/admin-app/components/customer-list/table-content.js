@@ -2,6 +2,8 @@ import React from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
 import StatusIcon from 'shared/components/status-icon/status-icon';
+// Utils
+import handleStatusClass from 'shared/utils/handle-status-class';
 
 const tableContent = history => {
   return [
@@ -24,7 +26,7 @@ const tableContent = history => {
     },
     {
       title: 'Settle',
-      render: ({ settleFigure }) => <Typography component="p">{settleFigure}</Typography>
+      render: ({ settleFigure }) => <Typography component="p" className={handleStatusClass(settleFigure)}>{settleFigure}</Typography>
     },
     {
       title: 'SportCC',
@@ -52,11 +54,11 @@ const tableContent = history => {
     },
     {
       title: 'FPBalance',
-      render: ({ FPbalance }) => <Typography component="p">{FPbalance}</Typography>
+      render: ({ FPbalance }) => <Typography component="p" className={handleStatusClass(FPbalance)}>{FPbalance}</Typography>
     },
     {
       title: 'Pending',
-      render: ({ pending }) => <Typography component="p">{pending}</Typography>
+      render: ({ pending }) => <Typography component="p" className={handleStatusClass(pending)}>{pending}</Typography>
     },
     {
       title: 'Last Wager',
@@ -64,11 +66,11 @@ const tableContent = history => {
     },
     {
       title: 'Credit',
-      render: ({ credit }) => <Typography component="p">{credit}</Typography>
+      render: ({ credit }) => <Typography component="p" className={handleStatusClass(credit)}>{credit}</Typography>
     },
     {
       title: 'balance',
-      render: ({ balance }) => <Typography component="p">{balance}</Typography>
+      render: ({ balance }) => <Typography component="p" className={handleStatusClass(balance)}>{balance}</Typography>
     },
   ]
 };

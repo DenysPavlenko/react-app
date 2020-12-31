@@ -2,7 +2,7 @@ import React from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
 // Utils
-import setDangerClass from 'shared/utils/set-danger-class';
+import handleStatusClass from 'shared/utils/handle-status-class';
 
 const tableContent = () => {
   return [
@@ -12,11 +12,11 @@ const tableContent = () => {
     },
     {
       title: 'Amount',
-      render: ({ amount }) => <Typography component="p" className={setDangerClass(amount)}>{amount}</Typography>
+      render: ({ amount }) => <Typography component="p" className={handleStatusClass(amount)}>{amount}</Typography>
     },
     {
       title: 'Balance',
-      render: ({ balance }) => <Typography component="p" className={setDangerClass(balance)}>{balance}</Typography>
+      render: ({ balance }) => <Typography component="p" className={handleStatusClass(balance)}>{balance}</Typography>
     },
   ];
 };

@@ -12,7 +12,7 @@ import Typography from 'shared/components/typography/typography';
 import Select from 'shared/components/select/select';
 import Button from 'shared/components/button/button';
 // Utils
-import setDangerClass from 'shared/utils/set-danger-class';
+import handleStatusClass from 'shared/utils/handle-status-class';
 
 const PlayerSettings = ({ hideSettings, balance: { total, pending, available, freePlay } }) => {
   return (
@@ -20,19 +20,19 @@ const PlayerSettings = ({ hideSettings, balance: { total, pending, available, fr
       <SettingsBox>
         <SettingsItem>
           <Typography component="h5" className="settings__item-title">balance</Typography>
-          <Typography component="h5" className={setDangerClass(total)}>${total}</Typography>
+          <Typography component="h5" className={handleStatusClass(total)}>${total}</Typography>
         </SettingsItem>
         <SettingsItem>
           <Typography component="h5" className="settings__item-title">pending</Typography>
-          <Typography component="h5" className={setDangerClass(pending)}>${pending}</Typography>
+          <Typography component="h5" className={handleStatusClass(pending)}>${pending}</Typography>
         </SettingsItem>
         <SettingsItem>
           <Typography component="h5" className="settings__item-title">available</Typography>
-          <Typography component="h5" className={setDangerClass(available)}>${available}</Typography>
+          <Typography component="h5" className={handleStatusClass(available)}>${available}</Typography>
         </SettingsItem>
         <SettingsItem>
           <Typography component="h5" className="settings__item-title">free play</Typography>
-          <Typography component="h5" className={setDangerClass(freePlay)}>${freePlay}</Typography>
+          <Typography component="h5" className={handleStatusClass(freePlay)}>${freePlay}</Typography>
         </SettingsItem>
       </SettingsBox>
       <SettingsBox>

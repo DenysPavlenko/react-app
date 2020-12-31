@@ -3,7 +3,7 @@ import React from 'react';
 import Typography from 'shared/components/typography/typography';
 import Button from 'shared/components/button/button';
 // Utils
-import setDangerClass from 'shared/utils/set-danger-class';
+import handleStatusClass from 'shared/utils/handle-status-class';
 
 const tableContent = history => {
   return [
@@ -15,7 +15,7 @@ const tableContent = history => {
     {
       style: { width: '35%' },
       title: 'Balance',
-      render: ({ balance }) => <Typography component="p" className={setDangerClass(balance)}>{balance}</Typography>
+      render: ({ balance }) => <Typography component="p" className={handleStatusClass(balance)}>{balance}</Typography>
     },
     {
       style: { width: '30%' },

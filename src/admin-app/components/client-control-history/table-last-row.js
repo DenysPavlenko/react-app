@@ -3,7 +3,7 @@ import React from 'react';
 import Typography from 'shared/components/typography/typography';
 // Utils
 import getTableTotal from 'shared/utils/get-table-total';
-import setDangerClass from 'shared/utils/set-danger-class';
+import handleStatusClass from 'shared/utils/handle-status-class';
 
 const tableFooter = (data, category) => {
   if (category === 'football') {
@@ -27,7 +27,7 @@ const tableFooter = (data, category) => {
 
 const renderItem = (data, name) => {
   const total = getTableTotal(data, name);
-  return <Typography component="p" className={setDangerClass(total)}>{total}</Typography>
+  return <Typography component="p" className={handleStatusClass(total)}>{total}</Typography>
 };
 
 export default tableFooter;

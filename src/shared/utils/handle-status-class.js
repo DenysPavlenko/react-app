@@ -1,4 +1,4 @@
-const setDangerClass = value => {
+const handleStatusClass = value => {
   const int = parseInt(value);
   if (int < 0) {
     return 'text-danger'
@@ -6,4 +6,4 @@ const setDangerClass = value => {
     return 'text-accent'
 };
 
-export default setDangerClass;
+export default handleStatusClass;

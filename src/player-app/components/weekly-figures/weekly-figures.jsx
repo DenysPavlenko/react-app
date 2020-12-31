@@ -11,7 +11,7 @@ import Typography from 'shared/components/typography/typography';
 import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 import Spinner from 'shared/components/spinner/spinner';
 // Utils
-import setDangerClass from 'shared/utils/set-danger-class';
+import handleStatusClass from 'shared/utils/handle-status-class';
 // Styles
 import './weekly-figures.sass';
 
@@ -54,7 +54,7 @@ const WeeklyFigures = ({ weeklyFigures: { loading, data, error }, fetchWeeklyFig
             {data.map(({ title, total }, idx) => (
               <div key={idx} className="weekly-figures__item">
                 <Typography component="p">{title}</Typography>
-                <Typography component="p" className={setDangerClass(total)}>${total}</Typography>
+                <Typography component="p" className={handleStatusClass(total)}>${total}</Typography>
               </div>
             ))}
           </Fragment>

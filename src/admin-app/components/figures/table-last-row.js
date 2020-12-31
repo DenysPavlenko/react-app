@@ -5,7 +5,7 @@ import RowGroup from 'shared/components/row-group/row-group';
 import Button from 'shared/components/button/button';
 // Utils
 import getTableTotal from 'shared/utils/get-table-total';
-import setDangerClass from 'shared/utils/set-danger-class';
+import handleStatusClass from 'shared/utils/handle-status-class';
 
 const tableFooter = (accounts, agent, customers, handleModalOpen) => {
   return [
@@ -43,7 +43,7 @@ const tableFooter = (accounts, agent, customers, handleModalOpen) => {
 
 const renderItem = (accounts, name) => {
   const total = getTableTotal(accounts, name);
-  return <Typography component="p" className={setDangerClass(total)}>{total}</Typography>
+  return <Typography component="p" className={handleStatusClass(total)}>{total}</Typography>
 };
 
 export default tableFooter;

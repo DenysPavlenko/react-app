@@ -16,7 +16,7 @@ import Typography from 'shared/components/typography/typography';
 import Button from 'shared/components/button/button';
 import Pagination from 'shared/components/pagination/pagination';
 // Utils
-import setDangerClass from 'shared/utils/set-danger-class';
+import handleStatusClass from 'shared/utils/handle-status-class';
 // Filters
 import filtersData from './filters-data';
 // Styles
@@ -88,7 +88,7 @@ const Distribution = ({ fetchDistributionData, distribution: { loading, data, er
                       {details.filter((_, idx) => idx < 4).map(({ id, title, value }) => (
                         <List.Item key={id} className="distribution__line-list-item">
                           <Typography component="p">{title}</Typography>
-                          <Typography component="p" className={setDangerClass(value)}>{value}</Typography>
+                          <Typography component="p" className={handleStatusClass(value)}>{value}</Typography>
                         </List.Item>
                       ))}
                     </List>
@@ -96,7 +96,7 @@ const Distribution = ({ fetchDistributionData, distribution: { loading, data, er
                       {details.filter((_, idx) => idx >= 4 && idx < 8).map(({ id, title, value }) => (
                         <List.Item key={id} className="distribution__line-list-item">
                           <Typography component="p">{title}</Typography>
-                          <Typography component="p" className={setDangerClass(value)}>{value}</Typography>
+                          <Typography component="p" className={handleStatusClass(value)}>{value}</Typography>
                         </List.Item>
                       ))}
                     </List>
@@ -104,7 +104,7 @@ const Distribution = ({ fetchDistributionData, distribution: { loading, data, er
                       {details.filter((_, idx) => idx >= 8).map(({ id, title, value }) => (
                         <List.Item key={id} className="distribution__line-list-item">
                           <Typography component="p">{title}</Typography>
-                          <Typography component="p" className={setDangerClass(value)}>{value}</Typography>
+                          <Typography component="p" className={handleStatusClass(value)}>{value}</Typography>
                         </List.Item>
                       ))}
                     </List>

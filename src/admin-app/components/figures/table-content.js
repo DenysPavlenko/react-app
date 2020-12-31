@@ -2,7 +2,7 @@ import React from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
 // Utils
-import setDangerClass from 'shared/utils/set-danger-class';
+import handleStatusClass from 'shared/utils/handle-status-class';
 
 const tableContent = (history, agent, handleModalOpen) => {
   const renerItem = (value, onClick) => (
@@ -10,7 +10,7 @@ const tableContent = (history, agent, handleModalOpen) => {
       component="p"
       style={{ cursor: `${onClick && 'pointer'}` }}
       onClick={onClick}
-      className={setDangerClass(value)}
+      className={handleStatusClass(value)}
     >{value}
     </Typography>
   );
