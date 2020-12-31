@@ -7,14 +7,14 @@
         "id": "cxz1",
         "name": "sara",
         "password": "1",
-        "balance": "0.00",
+        "balance": "-260.00",
         "transType": "withdrawal"
       },
       {
         "id": "cxz2",
         "name": "John",
         "password": "1",
-        "balance": "0.00",
+        "balance": "51.00",
         "transType": "deposit"
       }
     ]
@@ -27,14 +27,14 @@
         "id": "sas1",
         "name": "Bill",
         "password": "1",
-        "balance": "0.00",
+        "balance": "119.00",
         "transType": "withdrawal"
       },
       {
         "id": "sas2",
         "name": "Marry",
         "password": "1",
-        "balance": "0.00",
+        "balance": "-20.00",
         "transType": "withdrawal"
       }
     ]

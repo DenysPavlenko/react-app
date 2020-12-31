@@ -24,15 +24,7 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
   const [status, setStatus] = useState('active');
   const [selects, setSelects] = useState(null);
   const [idToDelete, setIdToDelete] = useState(null);
-
-  const handleChange = idx => setExpanded(idx);
-
-  const handleSelect = (id, { target: { name, value } }) => {
-    setSelects(selects => {
-      const newObj = { ...selects[id], [name]: value };
-      return { ...selects, [id]: newObj };
-    });
-  };
+  const [transSummary, setTransSummary] = useState(null);
 
   useLayoutEffect(() => {
     fetchCashierData(status);
@@ -49,11 +41,32 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
     setSelects(res);
   }, [data]);
 
-  const handleDeleteClick = id => { setIdToDelete(id) }
+  const handleChange = idx => setExpanded(idx);
+
+  const handleSelect = (id, { target: { name, value } }) => {
+    setSelects(selects => {
+      const newObj = { ...selects[id], [name]: value };
+      return { ...selects, [id]: newObj };
+    });
+  };
+
+  const handleTransSummary = id => setTransSummary({
+    id,
+    balance: '-261.00',
+    deposit: '20.00',
+    newBalance: '0.00'
+  });
+
+  const handleDeleteClick = id => { setIdToDelete(id) };
   const handleDelete = () => { };
 
   return (
     <Fragment>
+      <TransactionSummary
+        open={transSummary}
+        onClose={() => setTransSummary(false)}
+        {...transSummary}
+      />
       <DeleteConfirmation
         open={idToDelete}
         onClose={() => setIdToDelete(null)}
@@ -77,7 +90,7 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
                   <Accordion.Content className="new-accounts__item-content">
                     <PrimaryTable
                       key={id}
-                      cols={tableContent(selects, handleSelect, handleDeleteClick)}
+                      cols={tableContent({ selects, handleSelect, handleDeleteClick, handleTransSummary })}
                       data={accounts}
                     />
                   </Accordion.Content>

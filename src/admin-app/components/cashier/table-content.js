@@ -5,8 +5,10 @@ import Select from 'shared/components/select/select';
 import Button from 'shared/components/button/button';
 import ActionIcon from 'shared/components/action-icon/action-icon';
 import RowGroup from 'shared/components/row-group/row-group';
+// Utils
+import setDangerClass from 'shared/utils/set-danger-class';
 
-const tableContent = (selects, handleSelect, handleDeleteClick) => {
+const tableContent = ({ selects, handleSelect, handleDeleteClick, handleTransSummary }) => {
   const colWidth = 100 / 7 + '%';
 
   return [
@@ -33,7 +35,7 @@ const tableContent = (selects, handleSelect, handleDeleteClick) => {
     {
       style: { width: colWidth },
       title: 'Balance',
-      render: ({ balance }) => <Typography component="p">{balance}</Typography>
+      render: ({ balance }) => <Typography component="p" className={setDangerClass(balance)}>{balance}</Typography>
     },
     {
       style: { width: colWidth },
@@ -52,7 +54,7 @@ const tableContent = (selects, handleSelect, handleDeleteClick) => {
               { label: 'Withdrawal', value: 'withdrawal' },
             ]}
           />
-          <Button variant="accent" size="xxs">CB</Button>
+          <Button variant="accent" size="xxs" onClick={() => handleTransSummary(id)}>CB</Button>
         </RowGroup>
       )
     },
