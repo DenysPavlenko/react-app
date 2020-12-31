@@ -58,9 +58,6 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
           <CustomerListHeader
             handleSettingsClick={() => setIsFilterShown(true)}
             handleSearch={handleSearch}
-            pages={10}
-            page={page}
-            setPage={setPage}
           />
         </div>
         <div className="customer-list__table">

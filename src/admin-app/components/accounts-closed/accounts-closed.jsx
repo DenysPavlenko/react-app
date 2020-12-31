@@ -32,6 +32,7 @@ const AccountsClosed = ({ toggleAccountsClosed, fetchAccountsClosedData, Account
           retry={fetchAccountsClosedData}
           data={data}
           error={error}
+          variant="primary-light"
         />
       }
       total={

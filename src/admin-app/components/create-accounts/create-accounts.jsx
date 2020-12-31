@@ -13,7 +13,7 @@ import isInputValid from 'shared/utils/is-input-valid';
 // Styles
 import './create-accounts.sass';
 
-const CreateAccounts = ({ prefix, number }) => {
+const CreateAccounts = ({ prefix, number, variant }) => {
   const createAccountsRef = useRef(null);
   const [topInputs, setTopInputs] = useState(inputsTop);
   const [totalInputs, setTotalInputs] = useState(inputsTotal);
@@ -80,21 +80,23 @@ const CreateAccounts = ({ prefix, number }) => {
     { value: totalInputs.deposit, name: 'deposit', type: 'number', placeholder: 'Deposit' },
   ];
 
+  const inpVariant = variant ? variant : 'primary-light';
+
   return (
     <div className="create-accounts" ref={createAccountsRef}>
       <div className="create-accounts__top">
         <FormGroup className="create-accounts__top-item" label="Prefix:">
-          <Input value={topInputs.prefix} name="prefix" type="text" invalid={topInputs.prefixInvalid} onChange={handleTopInput} />
+          <Input value={topInputs.prefix} name="prefix" type="text" invalid={topInputs.prefixInvalid} onChange={handleTopInput} variant={inpVariant} />
         </FormGroup>
         <FormGroup className="create-accounts__top-item" label="Number:">
-          <Input value={topInputs.number} name="number" type="number" invalid={topInputs.numberInvalid} onChange={handleTopInput} />
+          <Input value={topInputs.number} name="number" type="number" invalid={topInputs.numberInvalid} onChange={handleTopInput} variant={inpVariant} />
         </FormGroup>
       </div>
       <div className="create-accounts__content">
         <div className="create-accounts__inputs">
           {inputs.map(({ value, name, type, placeholder }, idx) => (
             <div key={idx} className="create-accounts__input">
-              <Input value={value} name={name} type={type} placeholder={placeholder} invalid={totalInputs[`${name}Invalid`]} onChange={handleTotalInput} />
+              <Input value={value} name={name} type={type} placeholder={placeholder} invalid={totalInputs[`${name}Invalid`]} onChange={handleTotalInput} variant={inpVariant} />
             </div>
           ))}
         </div>
@@ -102,6 +104,7 @@ const CreateAccounts = ({ prefix, number }) => {
           <PrimaryTable
             cols={tableContent(handleInput)}
             data={data}
+            variant={inpVariant}
           />
         </div>
         <div className="create-accounts__footer">

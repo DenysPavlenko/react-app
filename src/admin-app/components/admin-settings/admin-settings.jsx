@@ -18,7 +18,7 @@ const AdminSettings = ({ hideSettings }) => {
         <SettingsItem>
           <Typography component="h5" className="admin-settings__item-title">Deposit description:</Typography>
           <SettingsInput>
-            <Input onChange={() => { }} placeholder="description" />
+            <Input onChange={() => { }} variant="primary-light" />
           </SettingsInput>
         </SettingsItem>
       </SettingsBox>
@@ -26,7 +26,7 @@ const AdminSettings = ({ hideSettings }) => {
         <SettingsItem>
           <Typography component="h5" className="admin-settings__item-title">Withdrawal description:</Typography>
           <SettingsInput>
-            <Input onChange={() => { }} placeholder="description" />
+            <Input onChange={() => { }} variant="primary-light" />
           </SettingsInput>
         </SettingsItem>
       </SettingsBox>
@@ -38,6 +38,7 @@ const AdminSettings = ({ hideSettings }) => {
               fluid
               onChange={() => { }}
               value={'decimal'}
+              variant="primary-light"
               options={[
                 { label: 'Two decimal places', value: 'decimal' },
                 { label: 'Round to nearest dollar', value: 'dollar' },
@@ -54,6 +55,7 @@ const AdminSettings = ({ hideSettings }) => {
               fluid
               onChange={() => { }}
               value={'rotation'}
+              variant="primary-light"
               options={[
                 { label: 'Rotation', value: 'rotation' },
                 { label: 'Time', value: 'time' },
@@ -70,6 +72,7 @@ const AdminSettings = ({ hideSettings }) => {
               fluid
               onChange={() => { }}
               value={'rotation'}
+              variant="primary-light"
               options={[
                 { label: 'Rotation', value: 'rotation' },
                 { label: 'Time', value: 'time' },
@@ -89,6 +92,7 @@ const AdminSettings = ({ hideSettings }) => {
               fluid
               onChange={() => { }}
               value={'none'}
+              variant="primary-light"
               options={[
                 { label: 'None', value: 'none' },
                 { label: 'Catapush', value: 'catapush' },
@@ -101,7 +105,7 @@ const AdminSettings = ({ hideSettings }) => {
         <SettingsItem>
           <Typography component="h5" className="admin-settings__item-title">ID:</Typography>
           <SettingsInput>
-            <Input onChange={() => { }} placeholder="id" />
+            <Input onChange={() => { }} variant="primary-light" />
           </SettingsInput>
         </SettingsItem>
       </SettingsBox>

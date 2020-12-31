@@ -25,6 +25,7 @@ const DeletedWagersHeader = ({ date, setDate }) => {
           <Select
             onChange={handleSelect}
             value={date}
+            variant="default"
             options={[
               { label: '12/7/2020', value: '12/7/2020' },
               { label: '11/30/2020', value: '11/30/2020' },

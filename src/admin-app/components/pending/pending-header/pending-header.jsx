@@ -7,7 +7,7 @@ import Search from 'shared/components/search/search';
 import ButtonGroup from 'shared/components/button-group/button-group';
 import Button from 'shared/components/button/button';
 
-const tabs = [
+const buttons = [
   { title: 'Games', value: 'games' },
   { title: 'Contest', value: 'contest' },
   { title: 'horses', value: 'horses' },
@@ -22,10 +22,10 @@ const PendingHeader = ({ currentFilter, setCurrentFilter, handleSearch }) => {
       left={<Typography component="h2">Pending</Typography>}
       right={
         <RowGroup center>
-          <Search style={{ width: 'auto' }} onChange={handleSearch} variant="light" />
+          <Search style={{ width: 'auto' }} onChange={handleSearch} variant="secondary" />
           <ButtonGroup responsive>
-            {tabs.map(({ title, value }, idx) => (
-              <Button key={idx} isActive={currentFilter === value} onClick={() => setCurrentFilter(value)} variant="alt-gray">{title}</Button>
+            {buttons.map(({ title, value }, idx) => (
+              <Button key={idx} isActive={currentFilter === value} onClick={() => setCurrentFilter(value)} variant="default">{title}</Button>
             ))}
           </ButtonGroup>
         </RowGroup>

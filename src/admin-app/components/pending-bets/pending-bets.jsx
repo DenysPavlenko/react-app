@@ -34,6 +34,7 @@ const PendingBets = ({ agent, open, onClose, onExited, fetchPendingBetsData, pen
           retry={() => fetchPendingBetsData(agent)}
           data={data}
           error={error}
+          variant="primary-light"
         />
       }
       total={

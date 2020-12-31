@@ -9,8 +9,8 @@ import ButtonGroup from 'shared/components/button-group/button-group';
 import Button from 'shared/components/button/button';
 
 const tabs = [
-  { title: 'current week', value: '12/7/2020' },
-  { title: 'last week', value: '11/30/2020' },
+  { title: 'Current week', value: '12/7/2020' },
+  { title: 'Last week', value: '11/30/2020' },
 ];
 
 const SettleHeader = ({ date, setDate }) => {
@@ -25,6 +25,7 @@ const SettleHeader = ({ date, setDate }) => {
           <Select
             onChange={handleSelect}
             value={date}
+            variant="default"
             options={[
               { label: '12/7/2020', value: '12/7/2020' },
               { label: '11/30/2020', value: '11/30/2020' },
@@ -43,7 +44,7 @@ const SettleHeader = ({ date, setDate }) => {
           />
           <ButtonGroup>
             {tabs.map(({ title, value }, idx) => (
-              <Button key={idx} isActive={date === value} onClick={() => setDate(value)} variant="alt-gray">{title}</Button>
+              <Button key={idx} isActive={date === value} onClick={() => setDate(value)} variant="default">{title}</Button>
             ))}
           </ButtonGroup>
         </RowGroup>

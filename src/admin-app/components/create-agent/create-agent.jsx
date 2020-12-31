@@ -42,13 +42,19 @@ const CreateAgent = ({ open, onClose }) => {
           <Typography className="create-agent__block-header" component="h3">General:</Typography>
           <div className="create-agent__block-items">
             <FormGroup className="create-agent__block-item" label="Master Agent:">
-              <Select onChange={handleInput} value={agent} name="agent" options={[{ label: 'ZTMA', value: 'ztma' }, { label: 'ZTMA1', value: 'ztma1' }]} />
+              <Select
+                onChange={handleInput}
+                value={agent}
+                name="agent"
+                options={[{ label: 'ZTMA', value: 'ztma' }, { label: 'ZTMA1', value: 'ztma1' }]}
+                variant="primary-light"
+              />
             </FormGroup>
             <FormGroup className="create-agent__block-item" label="Agent ID:">
-              <Input value={id} name="id" type="text" onChange={handleInput} />
+              <Input value={id} name="id" type="text" onChange={handleInput} variant="primary-light" />
             </FormGroup>
             <FormGroup className="create-agent__block-item" label="Password:">
-              <Input value={password} name="password" type="password" onChange={handleInput} />
+              <Input value={password} name="password" type="password" onChange={handleInput} variant="primary-light" />
             </FormGroup>
           </div>
         </div>
@@ -56,7 +62,7 @@ const CreateAgent = ({ open, onClose }) => {
           <Typography className="create-agent__block-header" component="h3">Agent's Percentage:</Typography>
           <div className="create-agent__block-items">
             <FormGroup className="create-agent__block-item" label="All:">
-              <Input value={all} name="all" type="number" onChange={handleInput} />
+              <Input value={all} name="all" type="number" onChange={handleInput} variant="primary-light" />
             </FormGroup>
           </div>
         </div>
@@ -64,10 +70,10 @@ const CreateAgent = ({ open, onClose }) => {
           <Typography className="create-agent__block-header" component="h3">Per Head Weekly Fee:</Typography>
           <div className="create-agent__block-items">
             <FormGroup className="create-agent__block-item" label="Call Center & Internet:">
-              <Input value={ccAndInt} name="ccAndInt" type="number" onChange={handleInput} />
+              <Input value={ccAndInt} name="ccAndInt" type="number" onChange={handleInput} variant="primary-light" />
             </FormGroup>
             <FormGroup className="create-agent__block-item" label="Internet Only:">
-              <Input value={intOnly} name="intOnly" type="number" onChange={handleInput} />
+              <Input value={intOnly} name="intOnly" type="number" onChange={handleInput} variant="primary-light" />
             </FormGroup>
           </div>
         </div>
@@ -75,13 +81,13 @@ const CreateAgent = ({ open, onClose }) => {
           <Typography className="create-agent__block-header" component="h3">Extra Fees:</Typography>
           <div className="create-agent__block-items">
             <FormGroup className="create-agent__block-item" label="Live Sport:">
-              <Input value={liveSport} name="liveSport" type="number" onChange={handleInput} />
+              <Input value={liveSport} name="liveSport" type="number" onChange={handleInput} variant="primary-light" />
             </FormGroup>
             <FormGroup className="create-agent__block-item" label="Casino:">
-              <Input value={casino} name="casino" type="number" onChange={handleInput} />
+              <Input value={casino} name="casino" type="number" onChange={handleInput} variant="primary-light" />
             </FormGroup>
             <FormGroup className="create-agent__block-item" label="Live Casino:">
-              <Input value={liveCasino} name="liveCasino" type="number" onChange={handleInput} />
+              <Input value={liveCasino} name="liveCasino" type="number" onChange={handleInput} variant="primary-light" />
             </FormGroup>
           </div>
         </div>

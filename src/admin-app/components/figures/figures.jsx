@@ -101,9 +101,6 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
       <div className="figures">
         <div className="figures__header">
           <FiguresHeader
-            pages={10}
-            page={page}
-            setPage={setPage}
             date={date}
             setDate={setDate}
             status={status}

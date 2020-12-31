@@ -48,18 +48,18 @@ const TransactionSummary = ({ open, onClose, id, balance, deposit, newBalance })
       </div>
       <div className="transaction-summary__comment">
         <Typography component="p" className="transaction-summary__comment-title">Comment:</Typography>
-        <Textarea value={comment} name="comment" rows="4" onChange={handleInput} />
+        <Textarea value={comment} name="comment" rows="4" onChange={handleInput} variant="primary-light" />
       </div>
       <div className="transaction-summary__free-play">
         <div className="transaction-summary__free-play-title">
           <Typography component="span" variant="p">Free play deposit: </Typography>
-          <Input value={deposit1} name="deposit1" size="xs" width="auto" type="number" onChange={handleInput} />
+          <Input value={deposit1} name="deposit1" size="xs" width="auto" type="number" onChange={handleInput} variant="primary-light" />
           <Typography component="span" variant="p">%</Typography>
-          <Input value={deposit2} name="deposit2" size="xs" width="auto" type="number" onChange={handleInput} />
+          <Input value={deposit2} name="deposit2" size="xs" width="auto" type="number" onChange={handleInput} variant="primary-light" />
         </div>
         <div className="transaction-summary__free-play-descr">
           <Typography component="p" className="transaction-summary__comment-title">Description:</Typography>
-          <Textarea rows="4" value={description} name="description" onChange={handleInput} />
+          <Textarea rows="4" value={description} name="description" onChange={handleInput} variant="primary-light" />
         </div>
       </div>
       <div className="transaction-summary__actions">
@@ -74,6 +74,7 @@ const TransactionSummary = ({ open, onClose, id, balance, deposit, newBalance })
           className="transaction-summary__footer-table"
           cols={tableContent()}
           data={[]}
+          variant="primary-light"
         />
       </div>
     </Modal>
