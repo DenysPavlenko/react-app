@@ -14,6 +14,7 @@ import ErrorIndicator from 'shared/components/error-indicator/error-indicator';
 import List from 'shared/components/list/list';
 import Typography from 'shared/components/typography/typography';
 import Button from 'shared/components/button/button';
+import Pagination from 'shared/components/pagination/pagination';
 // Utils
 import setDangerClass from 'shared/utils/set-danger-class';
 // Filters
@@ -123,6 +124,9 @@ const Distribution = ({ fetchDistributionData, distribution: { loading, data, er
               ))}
             </Fragment>
           }
+        </div>
+        <div className="distribution__footer">
+          <Pagination pages={10} page={page} onChange={setPage} className="customer-list-header__pagination" />
         </div>
       </div>
     </Fragment>

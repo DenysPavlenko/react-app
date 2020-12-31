@@ -1,32 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { withBreakpoints } from 'react-breakpoints';
 // Components
 import PageHeader from 'admin-app/components/page-header/page-header';
 import Typography from 'shared/components/typography/typography';
 import ButtonGroup from 'shared/components/button-group/button-group';
 import RowGroup from 'shared/components/row-group/row-group';
 import Button from 'shared/components/button/button';
-import Pagination from 'shared/components/pagination/pagination';
 import Select from 'shared/components/select/select';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const tabs = [
-  { title: 'current week', value: '12/7/2020' },
-  { title: 'last week', value: '11/30/2020' },
+  { title: 'Current week', value: '12/7/2020' },
+  { title: 'Last week', value: '11/30/2020' },
 ];
 
 const DistributionHeader = ({ date, setDate, pages, page, setPage, breakpoints, currentBreakpoint, showFilters }) => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    if (breakpoints[currentBreakpoint] < breakpoints.xl) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  }, [breakpoints, currentBreakpoint]);
-
   return (
     <PageHeader
       left={<Typography component="h2">Distribution</Typography>}
@@ -36,6 +24,7 @@ const DistributionHeader = ({ date, setDate, pages, page, setPage, breakpoints, 
           <Select
             onChange={({ target: { value } }) => setDate(value)}
             value={date}
+            variant="default"
             options={[
               { label: '12/7/2020', value: '12/7/2020' },
               { label: '11/30/2020', value: '11/30/2020' },
@@ -54,12 +43,9 @@ const DistributionHeader = ({ date, setDate, pages, page, setPage, breakpoints, 
           />
           <ButtonGroup>
             {tabs.map(({ title, value }, idx) => (
-              <Button key={idx} isActive={date === value} onClick={() => setDate(value)} variant="alt-gray">{title}</Button>
+              <Button key={idx} isActive={date === value} onClick={() => setDate(value)} variant="default">{title}</Button>
             ))}
           </ButtonGroup>
-          {!isMobile &&
-            <Pagination pages={pages} page={page} onChange={setPage} className="customer-list-header__pagination" />
-          }
         </RowGroup>
       }
     />
@@ -69,9 +55,6 @@ const DistributionHeader = ({ date, setDate, pages, page, setPage, breakpoints, 
 DistributionHeader.propTypes = {
   date: PropTypes.string,
   setDate: PropTypes.func,
-  pages: PropTypes.number,
-  page: PropTypes.number,
-  setPage: PropTypes.func,
   status: PropTypes.string,
   setStatus: PropTypes.func,
   breakpoints: PropTypes.object,
@@ -79,4 +62,4 @@ DistributionHeader.propTypes = {
   showFilters: PropTypes.func,
 };
 
-export default withBreakpoints(DistributionHeader);
+export default DistributionHeader;
