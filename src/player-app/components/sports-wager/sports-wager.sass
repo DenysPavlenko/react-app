@@ -2,7 +2,6 @@
 @import ~shared/styles/abstract/mixins
 
 .sports-wager
-  color: $c-dark
   // Color schemes
   @each $name, $color in $sch-colors
     &.theme-#{$name}
@@ -38,8 +37,9 @@
       width: 25px
       margin-right: 4px
   &__bet
-    border: 1px solid $c-light-gray
+    border: 1px solid $c-primary
     padding: 2px 5px
+    border-radius: $r-primary
   &__details
     padding: 0 10px 15px 10px
   &__detail
@@ -47,14 +47,11 @@
       font-weight: 700
   &__footer
     padding: 10px
-    border-top: 1px solid $c-light-gray
-    border-bottom: 1px solid $c-light-gray
+    border-top: 1px solid $c-primary
+    border-bottom: 1px solid $c-primary
     display: flex
     align-items: center
     justify-content: space-between
-  &__delete
-    margin-right: 40px
-    cursor: pointer
   &__inputs
     display: flex
     align-items: center

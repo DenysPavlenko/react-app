@@ -11,20 +11,21 @@
   padding: 0 4px
   height: 50px
   cursor: pointer
-  background-color: $c-light-gray
   color: $c-primary
   transition: 0.2s
   white-space: nowrap
   flex: 1 0 50px
   border-radius: $r-primary
+  color: $c-light
   &:hover
     background-color: darken($c-light-gray, 10%)
   // Color schemes
   @each $name, $color in $sch-colors
     &.theme-#{$name}
+      background-color: $color
+      &:hover,
       &.is-active
-        background-color: $color
-        color: $c-light
+        background-color: darken($color, 10%)
 
   &__char
     font-size: rem(16px)
