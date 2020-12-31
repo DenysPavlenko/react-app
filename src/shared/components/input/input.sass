@@ -22,18 +22,17 @@ input
 .input
   width: 100%
   max-width: 100%
-  background-color: $c-light
-  border: 1px solid $input-border
+  background-color: $c-primary
+  border: 1px solid transparent
   border-radius: $r-primary
-  color: $c-primary
+  color: $c-light
   padding: 7px 10px 8px
   font-family: inherit
   font-size: rem(14px)
   line-height: 1
   transition: 0.2s
   &::placeholder
-    color: rgba($c-primary, 0.8)
-    text-transform: capitalize !important
+    color: rgba($c-light, 0.5)
   &:focus
     box-shadow: 0 0 0 0.15rem rgba($c-accent-blue, .25)
   &--no-radius
@@ -48,12 +47,14 @@ input
     color: $c-light
     &:focus
       box-shadow: none
-  &--primary
-    background-color: $c-primary
-    border-color: transparent
-    color: $c-light
+
+  // Variants
+  &--light
+    background-color: $c-light
+    border: 1px solid $c-light-gray
+    color: $c-primary
     &::placeholder
-      color: rgba($c-light, 0.5)
+      color: rgba($c-primary, 0.8)
 
   // Size
   &--sm
