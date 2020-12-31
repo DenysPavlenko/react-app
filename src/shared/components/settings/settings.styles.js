@@ -8,7 +8,7 @@ export const SettingsHeader = styled.div`
 `;
 
 export const SettingsBox = styled.div`
-  border: 1px solid #112836;
+  border: 1px solid #1c435c;
   margin-bottom: 5px;
   border-radius: 4px;
 `;
@@ -20,7 +20,7 @@ export const SettingsItem = styled.div`
   padding: 8px 10px;
   text-transform: capitalize;
   &:nth-child(even){
-    background-color: #112836;
+    background-color: #1c435c;
   }
 `;
 
