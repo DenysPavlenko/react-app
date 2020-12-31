@@ -1,7 +1,7 @@
 import React from 'react';
 // Components
 import Typography from 'shared/components/typography/typography';
-import Button from 'shared/components/button/button';
+import ActionIcon from 'shared/components/action-icon/action-icon';
 
 const tableContent = handleDelete => {
   return [
@@ -44,7 +44,7 @@ const tableContent = handleDelete => {
     },
     {
       title: 'Delete',
-      render: data => <Button size="xxs" variant="danger" onClick={() => handleDelete(data.id)}>Delete</Button>
+      render: data => <ActionIcon icon="trash" color="danger" onClick={() => handleDelete(data.id)} />
     },
   ];
 };
