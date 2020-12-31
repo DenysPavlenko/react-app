@@ -22,13 +22,11 @@ $containers : ( $bp-xl: $cnt-lg, $bp-lg: $cnt-md, $bp-md: $cnt-sm, $bp-sm: $cnt-
 $breakpoints: ( $bp-xs: 'xs', $bp-sm: 'sm', $bp-md: 'md', $bp-lg: 'lg', $bp-xl: 'xl' )
 // Colors
 $c-light        : #ffffff
-$c-primary-1    : #06171f
 $c-primary      : #173649
-$c-primary-1    : #050b0f
-$c-primary-2    : #0b1922
-$c-primary-3    : #112836
-$c-primary-4    : #1c435c
-$c-secondary    : #122b3a
+$c-primary-d1   : darken($c-primary, 5%)
+$c-primary-d2   : darken($c-primary, 10%)
+$c-primary-d3   : darken($c-primary, 15%)
+$c-primary-l1   : lighten($c-primary, 5%)
 $c-accent       : #05f887
 $c-accent-blue  : #05bcf8
 $c-accent-orange: #ff7803
@@ -43,9 +41,9 @@ $sch-red   : #982020
 $sch-orange: #e1a430
 $sch-colors: (blue: $sch-blue, green: $sch-green, red: $sch-red, orange: $sch-orange)
 // UI colors
-$body-bg   : $c-secondary
+$body-bg   : $c-primary-d1
 $button-bg : linear-gradient(#c2c2c2, #2b2b2c)
-$overlay-bg: rgba($c-primary-1, 0.8)
+$overlay-bg: rgba($c-primary-d3, 0.8)
 // Radius
 $r-primary: 4px
 // Sizes
