@@ -11,6 +11,15 @@
     white-space: nowrap
 
   // Variants
+  &--primary-light
+    border-color: $c-primary-light
+    .primary-table__header
+      border-color: $c-primary-light
+      background-color: $c-primary-light
+    .primary-table__row
+      &:nth-child(even)
+        background-color: rgba($c-primary-light, 0.5)
+
   &--light
     border-color: $c-light-gray
     border-bottom: 1px solid $c-light-gray
@@ -22,7 +31,7 @@
     .primary-table__row
       border: 0
       &:nth-child(even)
-        background-color: $c-light-gray
+        background-color: rgba($c-primary-light, 0.5)
 
   &--center
     text-align: center
