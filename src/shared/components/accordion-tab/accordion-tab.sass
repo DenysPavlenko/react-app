@@ -2,29 +2,20 @@
 @import ~shared/styles/abstract/mixins
 
 .accordion-tab
-  color: $c-primary
+  color: $c-light
   display: flex
   align-items: center
-  background-color: $c-light
+  background-color: $c-primary
   min-height: 36px
   padding: 5px 10px
   cursor: pointer
   user-select: none
   transition: background-color 0.2s
-  &:hover
-    background-color: $c-light-gray
-    +media-max($bp-lg)
-      background-color: $c-light
+  &:hover,
+  &.is-active
+    background-color: $c-secondary
   &.is-active
     color: $c-light
-  &--bordered
-    border-bottom: 1px solid $c-alt-gray
-  &--primary
-    background-color: $c-primary
-    color: $c-light
-    &:hover,
-    &.is-active
-      background-color: $c-primary-light
   // Color schemes
   @each $name, $color in $sch-colors
     &.theme-#{$name}
