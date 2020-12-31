@@ -4,6 +4,8 @@ import classNames from 'classnames';
 // Components
 import AccordionToggle from './accordion-toggle/accordion-toggle';
 import AccordionContent from './accordion-content/accordion-content';
+// Styles
+import './accordion.sass';
 
 class Accordion extends Component {
   static Toggle = AccordionToggle;
@@ -46,6 +48,7 @@ class Accordion extends Component {
     const { isExpanded } = this.state;
 
     const classes = classNames({
+      'accordion': true,
       'is-expanded': isExpanded,
       [className]: className,
     });

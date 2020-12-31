@@ -35,6 +35,7 @@ AccordionTab.propTypes = {
   isActive: PropTypes.bool,
   colorScheme: PropTypes.string,
   onClick: PropTypes.func,
+  withBorder: PropTypes.bool,
 };
 
 const mapStateToProps = createStructuredSelector({
