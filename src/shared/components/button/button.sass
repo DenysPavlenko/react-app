@@ -71,6 +71,16 @@ button::-moz-focus-inner
     &:hover,
     &.is-active
       background: $c-primary-light
+  &--secondary
+    background: $c-secondary
+    &:hover,
+    &.is-active
+      background: darken($c-secondary, 2%)
+  &--primary-light
+    background: $c-primary-light
+    &:hover,
+    &.is-active
+      background: darken($c-primary-light, 2%)
 
   // Sizes
   &--sm
