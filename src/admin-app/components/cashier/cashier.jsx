@@ -85,7 +85,7 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
               {selects && data.map(({ id, name, accounts }, idx) => (
                 <Accordion key={id} className="new-accounts__item" expanded={expanded === idx} onChange={() => handleChange(idx)}>
                   <Accordion.Toggle>
-                    <AccordionTab title={name} isActive={false} variant="primary" />
+                    <AccordionTab title={name} isActive={false} />
                   </Accordion.Toggle>
                   <Accordion.Content className="new-accounts__item-content">
                     <PrimaryTable

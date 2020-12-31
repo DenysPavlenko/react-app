@@ -24,7 +24,7 @@ const SportsPage = ({ showSportsSchedule, showSportsWagers }) => {
           </HandleMobile>
         </div>
         <div className="sports-page__center">
-          <Search className="sports-page__search" variant="light" />
+          <Search className="sports-page__search" variant="primary" />
           <SportsPreview />
         </div>
         <div className="sports-page__right">

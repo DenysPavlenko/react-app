@@ -33,24 +33,24 @@ const HorsesSelect = ({ horsesTracks: { loading, data, error }, fetchHorsesTrack
       <div className="horses-select__item">
         <Accordion expanded>
           <Accordion.Toggle>
-            <AccordionTab icon="search" title="Search" bordered />
+            <AccordionTab icon="search" title="Search" />
           </Accordion.Toggle>
           <Accordion.Content className="horses-select__search">
             <Typography component="h4" className="horses-select__search-title">Track</Typography>
-            <Search className="horses-select__search-input" onChange={handleSearch} variant="light" />
+            <Search className="horses-select__search-input" onChange={handleSearch} variant="primary" />
             <Button className="horses-select__search-button" fluid variant="accent">Advanced Search</Button>
           </Accordion.Content>
         </Accordion>
       </div>
       <div className="horses-select__item">
-        {error && <ErrorIndicator retry={fetchHorsesTracksData}/>}
-        {(!error && loading) && <Spinner boxed/>}
+        {error && <ErrorIndicator retry={fetchHorsesTracksData} light />}
+        {(!error && loading) && <Spinner boxed light />}
         {(!error && !loading) &&
           <>
             {data.map(({ id, title, items }) => (
               <Accordion key={id} expanded>
                 <Accordion.Toggle>
-                  <AccordionTab icon="flag-usa" title={title} bordered />
+                  <AccordionTab icon="flag-usa" title={title} />
                 </Accordion.Toggle>
                 <Accordion.Content className="horses-select__list">
                   {items

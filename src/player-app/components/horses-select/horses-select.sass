@@ -2,9 +2,9 @@
 @import ~shared/styles/abstract/mixins
 
 .horses-select
-  color: $c-dark
+  background-color: $c-primary
   &__item
-    background-color: $c-light
+    background-color: $c-primary-light
     &:not(:last-child)
       margin-bottom: 4px
   &__search
@@ -20,10 +20,10 @@
       padding: 5px 10px
       cursor: pointer
       transition: background-color 0.2s
-      border-bottom: 1px solid $c-light-gray
+      border-bottom: 1px solid $c-primary
       &:hover,
       &.is-active
-        background-color: $c-light-gray
+        background-color: $c-secondary
       &-title
         width: 70%
       &-info
