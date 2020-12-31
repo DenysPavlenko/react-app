@@ -1,5 +1,8 @@
 @import ~shared/styles/abstract/variables
 @import ~shared/styles/abstract/mixins
+@import ./styles/select-variants
+@import ./styles/select-sizes
+@import ./styles/select-types
 
 $select-height: 40px
 
@@ -8,48 +11,8 @@ $select-height: 40px
   display: block
   user-select: none
   &.is-expanded
-    .select__label
-      &:after
-        transform: rotate(180deg)
-  &--fluid
-    width: 100%
-  &--inline
-    .select__label
-      height: auto
-      padding-left: 0
-      padding-right: 15px
-      background-color: transparent
-      &:before
-        display: none
-      &:after
-        right: 0
-      &:focus
-        box-shadow: none
-    .select__dropdown
-      margin-top: 5px
-    .select__option
-      padding: 9px 10px
-  &--fluid
-    width: 100%
-  &--sm
-    .select__label,
-    .select__option
-      height: 34px
-
-  // Variants
-  &--light
-    .select__label
-      background-color: $c-light
-      border-color: $c-light
-      color: $c-primary
-      &:before
-        background-color: $c-light
-    .select__dropdown
-      background-color: $c-light
-    .select__option
-      color: $c-primary
-      &:hover
-        background-color: $c-light-gray
+    .select__label-caret
+      transform: rotate(180deg)
 
   // Elements
   &__label
@@ -71,23 +34,20 @@ $select-height: 40px
     transition: 0.2s
     border-radius: $r-primary
     text-transform: capitalize
-    &:before,
-    &:after
+    &:before
       position: absolute
       content: ''
-    &:before
       right: 0
       top: 0
       width: 20px
       height: 100%
       background-color: $c-primary
-    &:after
+    &-caret
       transition: 0.2s
+      position: absolute
       right: 5px
-      width: 11px
-      height: 6px
       transform-origin: center
-      +bg-img('~shared/assets/images/icons/chevron-down.svg', 11px 6px)
+      font-size: 13px
     &:focus
       box-shadow: $s-focus
   &__dropdown
@@ -126,11 +86,9 @@ $select-height: 40px
     &>*:not(:last-child)
       margin-right: 5px
     &:hover
-      background-color: $c-primary-light
-    // State
+      background-color: lighten($c-primary, 5%)
     &.is-selected
-      background-color: $c-accent-blue
-      color: $c-light
+      background-color: lighten($c-primary, 15%)
 
 // Animations
 .select-box-animation-enter

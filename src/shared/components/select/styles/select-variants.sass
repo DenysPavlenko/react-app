@@ -1,0 +1,62 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.select
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      &.select--default
+        .select__label
+          background-color: $color
+          border-color: $color
+          &:before
+            background-color: $color
+        .select__dropdown
+          background-color: $color
+        .select__option
+          &:hover
+            background-color: lighten($color, 5%)
+          &.is-selected
+            background-color: lighten($color, 15%)
+
+  &--light
+    .select__label
+      background-color: $c-light
+      border-color: $c-light
+      color: $c-primary
+      &:before
+        background-color: $c-light
+    .select__dropdown
+      background-color: $c-light
+    .select__option
+      color: $c-primary
+      &:hover
+        background-color: $c-light-gray
+
+  &--secondary
+    .select__label
+      background-color: $c-secondary
+      border-color: $c-secondary
+      &:before
+        background-color: $c-secondary
+    .select__dropdown
+      background-color: $c-secondary
+    .select__option
+      &:hover
+        background-color: lighten($c-secondary, 5%)
+      &.is-selected
+        background-color: lighten($c-secondary, 15%)
+
+  &--primary-light
+    .select__label
+      background-color: $c-primary-light
+      border-color: $c-primary-light
+      &:before
+        background-color: $c-primary-light
+    .select__dropdown
+      background-color: $c-primary-light
+    .select__option
+      &:hover
+        background-color: lighten($c-primary-light, 5%)
+      &.is-selected
+        background-color: lighten($c-primary-light, 15%)
