@@ -74,7 +74,7 @@ const CreateAccounts = ({ prefix, number }) => {
 
   const inputs = [
     { value: totalInputs.accounts, name: 'accounts', type: 'number', placeholder: '#Accounts' },
-    { value: totalInputs.password, name: 'password', type: 'text', placeholder: 'password' },
+    { value: totalInputs.password, name: 'password', type: 'text', placeholder: 'Password' },
     { value: totalInputs.creditLimit, name: 'creditLimit', type: 'number', placeholder: 'Credit Limit' },
     { value: totalInputs.wagerLimit, name: 'wagerLimit', type: 'number', placeholder: 'Wager Limit' },
     { value: totalInputs.deposit, name: 'deposit', type: 'number', placeholder: 'Deposit' },
@@ -101,7 +101,6 @@ const CreateAccounts = ({ prefix, number }) => {
         <div className="create-accounts__table">
           <PrimaryTable
             cols={tableContent(handleInput)}
-            variant="light"
             data={data}
           />
         </div>

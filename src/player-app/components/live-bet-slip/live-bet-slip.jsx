@@ -34,7 +34,7 @@ const LiveBetSlip = ({ colorScheme }) => {
       <div className="live-bet-slip__bets">
         <div className="live-bet-slip__bet">
           <Typography component="p" variant="p-sm" className="live-bet-slip__bet-title">Stake:</Typography>
-          <Input type="number" className="live-bet-slip__bet-input" size="xs" />
+          <Input type="number" className="live-bet-slip__bet-input" size="xs" variant="light" />
           <div className="live-bet-slip__bet-variants">
             <Typography component="p" variant="p-sm" className="live-bet-slip__bet-variant">10</Typography>
             <Typography component="p" variant="p-sm" className="live-bet-slip__bet-variant">20</Typography>
@@ -45,7 +45,7 @@ const LiveBetSlip = ({ colorScheme }) => {
         </div>
         <div className="live-bet-slip__bet">
           <Typography component="p" variant="p-sm" className="live-bet-slip__bet-title">To Win:</Typography>
-          <Input type="number" className="live-bet-slip__bet-input" size="xs" />
+          <Input type="number" className="live-bet-slip__bet-input" size="xs" variant="light" />
           <div className="live-bet-slip__bet-variants">
             <Typography component="p" variant="p-sm" className="live-bet-slip__bet-variant">10</Typography>
             <Typography component="p" variant="p-sm" className="live-bet-slip__bet-variant">20</Typography>

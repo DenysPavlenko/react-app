@@ -71,9 +71,9 @@ const SportsWager = ({ id, icon, title, value, scheduled, selection, notes, remo
       <div className="sports-wager__footer">
         <Typography component="p" variant="p-sm" className="sports-wager__delete text-danger" onClick={() => removeSportsWager(id)}>Delete</Typography>
         <div className="sports-wager__inputs">
-          <Input type="text" size="xs" value={risk} name="risk" onChange={handleInput} placeholder="Risk Amount" />
+          <Input type="text" size="xs" value={risk} name="risk" onChange={handleInput} placeholder="Risk Amount" variant="light" />
           <Typography component="p" variant="p-sm" className="sports-wager__inputs-title">To win</Typography>
-          <Input type="text" size="xs" value={toWin} name="toWin" onChange={handleInput} placeholder="Win Amount" />
+          <Input type="text" size="xs" value={toWin} name="toWin" onChange={handleInput} placeholder="Win Amount" variant="light" />
         </div>
       </div>
     </div>

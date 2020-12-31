@@ -2,7 +2,6 @@
 @import ~shared/styles/abstract/mixins
 
 .transaction-summary
-  color: $c-dark
   &__header
     display: flex
     justify-content: space-between
@@ -11,14 +10,14 @@
     margin-bottom: 20px
   &__info
     margin-bottom: 20px
-    border: 1px solid $c-light-gray
+    border: 1px solid $c-primary
     border-radius: $r-primary
     &-item
       display: flex
       justify-content: space-between
       padding: 8px 10px
       &:not(:last-child)
-        border-bottom: 1px solid $c-light-gray
+        border-bottom: 1px solid $c-primary
   &__comment
     margin-bottom: 20px
     &-title
@@ -27,18 +26,7 @@
   &__free-play
     position: relative
     margin-bottom: 20px
-    padding: 10px 0 20px
     color: $c-light
-    &:after
-      position: absolute
-      content: ''
-      left: -20px
-      top: 0
-      width: calc( 100% + 40px )
-      height: 100%
-      background-color: $c-primary
-      display: block
-      z-index: -1
     &-title
       display: flex
       align-items: center
@@ -49,14 +37,11 @@
     display: flex
     justify-content: center
     align-items: center
-    margin-bottom: 20px
+    margin-bottom: 30px
   &__footer
     &-title
-      padding: 7px 5px 8px
       text-align: center
-      color: $c-light
-      background-color: $c-primary
-      border-radius: $r-primary $r-primary 0 0
+      margin-bottom: 10px
     &-table
       border-top-left-radius: 0
       border-top-right-radius: 0

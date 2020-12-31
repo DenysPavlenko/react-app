@@ -12,7 +12,7 @@ const DataPreviewModal = ({ open, onClose, onExited, size, title, content, total
     <Modal open={open} className="data-preview-modal" onClose={onClose} onExited={onExited} size={size} noClose>
       <div className="data-preview-modal__header">
         {title}
-        <Close dark onClick={onClose} />
+        <Close onClick={onClose} />
       </div>
       <div className="data-preview-modal__content">
         {content}

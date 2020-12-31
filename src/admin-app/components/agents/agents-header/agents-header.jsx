@@ -14,7 +14,7 @@ const AgentsHeader = ({ handleSearch, handleModalOpen }) => {
       left={<Typography component="h2">Agents</Typography>}
       right={
         <RowGroup center>
-          <Search style={{ width: 'auto' }} onChange={handleSearch} />
+          <Search style={{ width: 'auto' }} onChange={handleSearch} variant="light" />
           <Button
             variant="default"
             onClick={handleModalOpen}

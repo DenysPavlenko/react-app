@@ -74,7 +74,6 @@ const TransactionSummary = ({ open, onClose, id, balance, deposit, newBalance })
           className="transaction-summary__footer-table"
           cols={tableContent()}
           data={[]}
-          variant="light"
         />
       </div>
     </Modal>

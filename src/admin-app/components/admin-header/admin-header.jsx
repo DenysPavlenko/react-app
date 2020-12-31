@@ -65,7 +65,7 @@ const Widgets = () => {
   return (
     <div className="header-widgets">
       <div className="header-widgets__widget">
-        <Search onSubmit={() => { }} />
+        <Search onSubmit={() => { }} variant="light" />
       </div>
       <div className="header-widgets__widget">
         <SelectAgent />

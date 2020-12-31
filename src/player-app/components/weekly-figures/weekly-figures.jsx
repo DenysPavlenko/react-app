@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { Fragment, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -25,7 +25,9 @@ const WeeklyFigures = ({ weeklyFigures: { loading, data, error }, fetchWeeklyFig
       <Typography component="h2" className="weekly-figures__heading">Weekly figures</Typography>
       <Select
         className="weekly-figures__select"
-        onChange={(value) => setCurrentFigure(value)}
+        onChange={({ target: { value } }) => setCurrentFigure(value)}
+        value={currentFigure}
+        variant="light"
         options={[
           { label: 'This week', value: '0' },
           { label: 'Last Week', value: '1' },
@@ -46,7 +48,7 @@ const WeeklyFigures = ({ weeklyFigures: { loading, data, error }, fetchWeeklyFig
         {error && <ErrorIndicator retry={() => fetchWeeklyFiguresData(currentFigure)} />}
         {(!error && loading) && <Spinner boxed />}
         {(!error && !loading) &&
-          <>
+          <Fragment>
             {data.map(({ title, total }, idx) => {
               const textColor = (+total < 0 && 'text-danger') || (+total > 0 && 'text-accent') || '';
               return (
@@ -56,7 +58,7 @@ const WeeklyFigures = ({ weeklyFigures: { loading, data, error }, fetchWeeklyFig
                 </div>
               )
             })}
-          </>
+          </Fragment>
         }
       </div>
     </div>

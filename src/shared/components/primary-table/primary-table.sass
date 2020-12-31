@@ -3,8 +3,7 @@
 
 .primary-table
   border: 1px solid $c-primary
-  border-bottom: 0
-  border-top: none
+  border-top: 0
   border-radius: 4px
   width: 100%
   overflow: auto
@@ -18,8 +17,8 @@
     .primary-table__header
       border-bottom: 1px solid $c-light-gray
       border-top: 1px solid $c-light-gray
-      background-color: transparent
-      color: $c-dark
+      background-color: $c-light
+      color: $c-primary
     .primary-table__row
       border: 0
       &:nth-child(even)
@@ -63,7 +62,8 @@
     &:last-child
       padding-right: 10px
   &__row
-    border-bottom: 1px solid $c-primary
+    &:not(:last-child)
+      border-bottom: 1px solid $c-primary
     &:nth-child(even)
       background-color: rgba($c-primary, 0.5)
   &__empty

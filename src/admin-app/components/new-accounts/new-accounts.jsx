@@ -47,7 +47,7 @@ const NewAccounts = ({ fetchPendingData, newAccounts: { loading, data, error } }
                   <AccordionTab title={id} isActive={false} variant="primary" />
                 </Accordion.Toggle>
                 <Accordion.Content className="new-accounts__item-content">
-                  <CreateAccounts prefix={prefix} number={number} />
+                  <CreateAccounts prefix={prefix} number={number} primary />
                 </Accordion.Content>
               </Accordion>
             ))}

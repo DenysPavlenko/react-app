@@ -50,6 +50,7 @@ const SignIn = ({ onSignIn }) => {
             invalid={touched.user && errors.user}
             onChange={handleChange}
             onBlur={handleBlur}
+            variant="light"
           />
         </FormGroup>
         <FormGroup errorMsg={touched.password && errors.password}>
@@ -61,6 +62,7 @@ const SignIn = ({ onSignIn }) => {
             invalid={touched.password && errors.password}
             onChange={handleChange}
             onBlur={handleBlur}
+            variant="light"
           />
         </FormGroup>
         <Button type="submit" fluid variant="accent" disabled={isSubmitting}>Login</Button>

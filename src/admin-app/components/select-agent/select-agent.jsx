@@ -46,7 +46,7 @@ const SelectAgent = ({ fetchAgentsListData, agentsList: { loading, error, data }
           </Dropdown.Header>
           <Dropdown.Box className="select-agent__box">
             <div className="select-agent__search">
-              <Search onSubmit={() => { }} />
+              <Search onSubmit={() => { }} variant="light" />
             </div>
             {!showTree && <Button fluid variant="primary" onClick={handleShowTreeClick}>Show tree</Button>}
             {showTree &&

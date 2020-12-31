@@ -33,7 +33,6 @@ const AccountActivity = ({ agent, date, open, onClose, onExited, fetchAccountAct
           retry={() => fetchAccountActivityData(agent)}
           data={data}
           error={error}
-          variant="light"
         />
       }
       total={

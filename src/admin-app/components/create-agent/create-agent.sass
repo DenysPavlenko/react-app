@@ -2,21 +2,11 @@
 @import ~shared/styles/abstract/mixins
 
 .create-agent
-  color: $c-dark
-  // Default modal
-  .modal__block
-    padding: 0
-    overflow: hidden
-    max-width: 1140px
-
   &__header
     display: flex
     justify-content: space-between
     align-items: center
-    background-color: $c-light-gray
-    padding: 20px
-  &__content
-    padding: 20px
+    margin-bottom: 30px
   &__block
     &:last-child
       margin-bottom: -10px
@@ -39,13 +29,12 @@
         min-width: 100%
 
   &__new-accounts
-    padding: 0 20px 20px
     &-check
       margin-bottom: 10px
+
   &__footer
     padding: 20px
     display: flex
-    border-top: 1px solid $c-light-gray
     justify-content: flex-end
     &-item
       &:not(:last-child)

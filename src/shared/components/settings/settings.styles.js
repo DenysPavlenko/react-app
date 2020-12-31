@@ -1,9 +1,4 @@
 import styled from 'styled-components';
-import Modal from 'shared/components/modal/modal';
-
-export const SettingsContainer = styled(Modal)`
-  color: #06171f
-`;
 
 export const SettingsHeader = styled.div`
   display: flex;
@@ -13,10 +8,10 @@ export const SettingsHeader = styled.div`
 `;
 
 export const SettingsBox = styled.div`
-  border: 1px solid #e0e0e0;
+  border: 1px solid #112836;
   margin-bottom: 5px;
   border-radius: 4px;
-  `;
+`;
 
 export const SettingsItem = styled.div`
   display: flex;
@@ -25,7 +20,7 @@ export const SettingsItem = styled.div`
   padding: 8px 10px;
   text-transform: capitalize;
   &:nth-child(even){
-    background-color: #e0e0e0;
+    background-color: #112836;
   }
 `;
 

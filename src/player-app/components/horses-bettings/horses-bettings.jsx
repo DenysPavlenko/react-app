@@ -22,7 +22,7 @@ import './horses-bettings.sass';
 const horsesBet = { id: '1', amount: '1.00', bets: '2', details: '1st[1, 2] - 2nd[1, 2]', info: 'Charles Town, Nov 25, Race #1', total: '2', type: 'exacta' };
 
 const HorseBettings = ({ fetchHorsesBettingsData, horsesBettings: { loading, data, error }, addHorsesBet }) => {
-  const [currentFilter, setCurrentFilter] = useState('superfecta');
+  const [currentFilter, setCurrentFilter] = useState('straight');
   const [amountOption, setAmountOption] = useState('keyBox');
   const [betAmount, setBetAmount] = useState('1.00');
 

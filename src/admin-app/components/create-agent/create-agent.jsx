@@ -32,59 +32,57 @@ const CreateAgent = ({ open, onClose }) => {
   const { agent, id, password, all, ccAndInt, intOnly, liveSport, casino, liveCasino } = inputs;
 
   return (
-    <Modal open={open} onClose={onClose} className="create-agent" noClose>
+    <Modal open={open} onClose={onClose} className="create-agent" noClose size="lg">
       <Form onSubmit={handleSubmit}>
         <div className="create-agent__header">
           <Typography component="h2">Create New Agent</Typography>
           <Close size="lg" onClick={onClose} />
         </div>
-        <div className="create-agent__content">
-          <div className="create-agent__block">
-            <Typography className="create-agent__block-header" component="h2">General:</Typography>
-            <div className="create-agent__block-items">
-              <FormGroup className="create-agent__block-item" label="Master Agent:">
-                <Select onChange={handleInput} value={agent} name="agent" options={[{ label: 'ZTMA', value: 'ztma' }, { label: 'ZTMA1', value: 'ztma1' }]} />
-              </FormGroup>
-              <FormGroup className="create-agent__block-item" label="Agent ID:">
-                <Input value={id} name="id" type="text" onChange={handleInput} />
-              </FormGroup>
-              <FormGroup className="create-agent__block-item" label="Password:">
-                <Input value={password} name="password" type="password" onChange={handleInput} />
-              </FormGroup>
-            </div>
+        <div className="create-agent__block">
+          <Typography className="create-agent__block-header" component="h3">General:</Typography>
+          <div className="create-agent__block-items">
+            <FormGroup className="create-agent__block-item" label="Master Agent:">
+              <Select onChange={handleInput} value={agent} name="agent" options={[{ label: 'ZTMA', value: 'ztma' }, { label: 'ZTMA1', value: 'ztma1' }]} />
+            </FormGroup>
+            <FormGroup className="create-agent__block-item" label="Agent ID:">
+              <Input value={id} name="id" type="text" onChange={handleInput} />
+            </FormGroup>
+            <FormGroup className="create-agent__block-item" label="Password:">
+              <Input value={password} name="password" type="password" onChange={handleInput} />
+            </FormGroup>
           </div>
-          <div className="create-agent__block">
-            <Typography className="create-agent__block-header" component="h2">Agent's Percentage:</Typography>
-            <div className="create-agent__block-items">
-              <FormGroup className="create-agent__block-item" label="All:">
-                <Input value={all} name="all" type="number" onChange={handleInput} />
-              </FormGroup>
-            </div>
+        </div>
+        <div className="create-agent__block">
+          <Typography className="create-agent__block-header" component="h3">Agent's Percentage:</Typography>
+          <div className="create-agent__block-items">
+            <FormGroup className="create-agent__block-item" label="All:">
+              <Input value={all} name="all" type="number" onChange={handleInput} />
+            </FormGroup>
           </div>
-          <div className="create-agent__block">
-            <Typography className="create-agent__block-header" component="h2">Per Head Weekly Fee:</Typography>
-            <div className="create-agent__block-items">
-              <FormGroup className="create-agent__block-item" label="Call Center & Internet:">
-                <Input value={ccAndInt} name="ccAndInt" type="number" onChange={handleInput} />
-              </FormGroup>
-              <FormGroup className="create-agent__block-item" label="Internet Only:">
-                <Input value={intOnly} name="intOnly" type="number" onChange={handleInput} />
-              </FormGroup>
-            </div>
+        </div>
+        <div className="create-agent__block">
+          <Typography className="create-agent__block-header" component="h3">Per Head Weekly Fee:</Typography>
+          <div className="create-agent__block-items">
+            <FormGroup className="create-agent__block-item" label="Call Center & Internet:">
+              <Input value={ccAndInt} name="ccAndInt" type="number" onChange={handleInput} />
+            </FormGroup>
+            <FormGroup className="create-agent__block-item" label="Internet Only:">
+              <Input value={intOnly} name="intOnly" type="number" onChange={handleInput} />
+            </FormGroup>
           </div>
-          <div className="create-agent__block">
-            <Typography className="create-agent__block-header" component="h2">Extra Fees:</Typography>
-            <div className="create-agent__block-items">
-              <FormGroup className="create-agent__block-item" label="Live Sport:">
-                <Input value={liveSport} name="liveSport" type="number" onChange={handleInput} />
-              </FormGroup>
-              <FormGroup className="create-agent__block-item" label="Casino:">
-                <Input value={casino} name="casino" type="number" onChange={handleInput} />
-              </FormGroup>
-              <FormGroup className="create-agent__block-item" label="Live Casino:">
-                <Input value={liveCasino} name="liveCasino" type="number" onChange={handleInput} />
-              </FormGroup>
-            </div>
+        </div>
+        <div className="create-agent__block">
+          <Typography className="create-agent__block-header" component="h3">Extra Fees:</Typography>
+          <div className="create-agent__block-items">
+            <FormGroup className="create-agent__block-item" label="Live Sport:">
+              <Input value={liveSport} name="liveSport" type="number" onChange={handleInput} />
+            </FormGroup>
+            <FormGroup className="create-agent__block-item" label="Casino:">
+              <Input value={casino} name="casino" type="number" onChange={handleInput} />
+            </FormGroup>
+            <FormGroup className="create-agent__block-item" label="Live Casino:">
+              <Input value={liveCasino} name="liveCasino" type="number" onChange={handleInput} />
+            </FormGroup>
           </div>
         </div>
         <div className="create-agent__new-accounts">

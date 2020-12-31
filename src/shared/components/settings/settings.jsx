@@ -8,18 +8,19 @@ import { hideSettings } from 'shared/redux/settings/actions';
 // Components
 import Typography from 'shared/components/typography/typography';
 import Close from 'shared/components/close/close';
+import Modal from 'shared/components/modal/modal';
 // Settings
-import { SettingsContainer, SettingsHeader } from './settings.styles';
+import { SettingsHeader } from './settings.styles';
 
 const Settings = ({ isSettingsShown, hideSettings, children, title }) => {
   return (
-    <SettingsContainer open={isSettingsShown} onClose={hideSettings} size="sm" noClose>
+    <Modal open={isSettingsShown} onClose={hideSettings} size="sm" noClose>
       <SettingsHeader>
         <Typography component="h4" className="settings__item-title">{title}</Typography>
         <Close onClick={hideSettings} dark />
       </SettingsHeader>
       {children}
-    </SettingsContainer>
+    </Modal>
   );
 };
 

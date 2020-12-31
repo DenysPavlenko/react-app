@@ -33,7 +33,6 @@ const Transactions = ({ agent, open, onClose, onExited, fetchTransactionsData, t
           retry={() => fetchTransactionsData(agent)}
           data={data}
           error={error}
-          variant="light"
         />
       }
       total={
