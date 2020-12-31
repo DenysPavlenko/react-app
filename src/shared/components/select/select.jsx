@@ -107,6 +107,7 @@ Select.propTypes = {
   className: PropTypes.string,
   onChange: PropTypes.func,
   style: PropTypes.object,
+  colorScheme: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
