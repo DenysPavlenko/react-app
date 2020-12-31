@@ -44,7 +44,7 @@ const NewAccounts = ({ fetchPendingData, newAccounts: { loading, data, error } }
             {data.map(({ id, prefix, number }, idx) => (
               <Accordion key={id} className="new-accounts__item" expanded={expanded === idx} onChange={() => handleChange(idx)}>
                 <Accordion.Toggle>
-                  <AccordionTab title={id} withBorder={idx !== data.length - 1} isActive={expanded === idx} />
+                  <AccordionTab title={id} isActive={expanded === idx} />
                 </Accordion.Toggle>
                 <Accordion.Content className="new-accounts__item-content">
                   <CreateAccounts prefix={prefix} number={number} variant="primary" />
