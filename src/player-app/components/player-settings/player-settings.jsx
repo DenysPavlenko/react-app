@@ -43,6 +43,7 @@ const PlayerSettings = ({ hideSettings, balance: { total, pending, available, fr
               onChange={() => { }}
               fluid
               value="By time"
+              variant="primary-light"
               options={[
                 { label: 'By time', value: 'By time' },
                 { label: 'By rotation', value: 'By rotation' },
@@ -59,6 +60,7 @@ const PlayerSettings = ({ hideSettings, balance: { total, pending, available, fr
               onChange={() => { }}
               fluid
               value="pacific"
+              variant="primary-light"
               options={[
                 { label: 'Pacific', value: 'pacific' },
                 { label: 'Eastern', value: 'eastern' },
@@ -77,6 +79,7 @@ const PlayerSettings = ({ hideSettings, balance: { total, pending, available, fr
               onChange={() => { }}
               fluid
               value="action"
+              variant="primary-light"
               options={[
                 { label: 'Action', value: 'action' },
                 { label: 'Listed', value: 'listed' },
