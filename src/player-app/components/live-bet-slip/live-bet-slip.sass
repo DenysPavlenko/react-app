@@ -2,17 +2,13 @@
 @import ~shared/styles/abstract/variables
 
 .live-bet-slip
-  // Color schemes
-  @each $name, $color in $sch-colors
-    &.theme-#{$name}
-      background-color: $color
-
+  background-color: $c-primary
   &__header
     display: flex
     align-items: center
     flex-wrap: wrap
     justify-content: space-between
-    border-bottom: 1px solid rgba($c-light, 0.2)
+    border-bottom: 1px solid $c-primary-light
     padding: 10px
     &-title
       margin-right: 10px
@@ -23,7 +19,7 @@
     padding: 5px 10px
     justify-content: space-between
     display: flex
-    border-bottom: 1px solid rgba($c-light, 0.2)
+    border-bottom: 1px solid $c-primary-light
   &__bets
     padding: 10px
   &__bet
