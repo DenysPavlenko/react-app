@@ -6,26 +6,26 @@ import { connect } from 'react-redux';
 // Redux
 import { fetchUserData } from 'shared/redux/user/actions';
 // Components
-import ScrollToTop from 'shared/components/scroll-to-top/scroll-to-top';
-import AdminMenu from 'admin-app/components/admin-menu/admin-menu';
-import AdminHeader from 'admin-app/components/admin-header/admin-header';
-import AdminSettings from 'admin-app/components/admin-settings/admin-settings';
-import Personalize from 'shared/components/personalize/personalize';
-import Mail from 'shared/components/mail/mail';
+import ScrollToTop from 'shared/components/scroll-to-top';
+import AdminMenu from 'admin-app/parts/admin-menu';
+import AdminHeader from 'admin-app/parts/admin-header';
+import AdminSettings from 'admin-app/parts/admin-settings';
+import Personalize from 'shared/components/personalize';
+import Mail from 'shared/parts/mail';
 // Pages
-import SignInPage from 'shared/pages/sign-in-page/sign-in-page';
-import HomePage from 'admin-app/pages/home-page/home-page';
-import CustomerListPage from 'admin-app/pages/customer-list-page/customer-list-page';
-import PendingPage from 'admin-app/pages/pending-page/pending-page';
-import SettlePage from 'admin-app/pages/settle-page/settle-page';
-import ClientControlPanelPage from 'admin-app/pages/client-control-panel-page/client-control-panel-page';
-import FiguresPage from 'admin-app/pages/figures-page/figures-page';
-import DistributionPage from 'admin-app/pages/distribution-page/distribution-page';
-import PositionPage from 'admin-app/pages/position-page/position-page';
-import AgentsPage from 'admin-app/pages/agents-page/agents-page';
-import CashierPage from 'admin-app/pages/cashier-page/cashier-page';
-import NewAccountsPage from 'admin-app/pages/new-accounts-page/new-accounts-page';
-import DeletedWagersPage from 'admin-app/pages/deleted-wagers-page/deleted-wagers-page';
+import SignInPage from 'shared/pages/sign-in-page';
+import HomePage from 'admin-app/pages/home-page';
+import CustomerListPage from 'admin-app/pages/customer-list-page';
+import PendingPage from 'admin-app/pages/pending-page';
+import SettlePage from 'admin-app/pages/settle-page';
+import ClientControlPanelPage from 'admin-app/pages/client-control-panel-page';
+import FiguresPage from 'admin-app/pages/figures-page';
+import DistributionPage from 'admin-app/pages/distribution-page';
+import PositionPage from 'admin-app/pages/position-page';
+import AgentsPage from 'admin-app/pages/agents-page';
+import CashierPage from 'admin-app/pages/cashier-page';
+import NewAccountsPage from 'admin-app/pages/new-accounts-page';
+import DeletedWagersPage from 'admin-app/pages/deleted-wagers-page';
 // Styles
 import './app-root.sass';
 

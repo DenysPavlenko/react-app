@@ -1,0 +1,37 @@
+@import ~shared/styles/abstract/variables
+@import ~shared/styles/abstract/mixins
+
+.general-tab
+  padding-bottom: 40px
+  &__content
+    display: flex
+    flex-wrap: wrap
+    margin-bottom: 20px
+  &__left
+    width: 50%
+    padding-right: 10px
+    +media-max($bp-lg)
+      padding: 0
+      width: 100%
+  &__right
+    width: 50%
+    padding-left: 10px
+    +media-max($bp-lg)
+      padding: 0
+      width: 100%
+  &__title
+    margin-bottom: 10px
+  &__item
+    display: flex
+    flex-wrap: wrap
+    margin: 0 -5px
+    &>*
+      width: 50%
+      padding: 0 5px
+    &--fluid
+      &>*
+        width: 100%
+  &__footer
+    width: 100%
+    display: flex
+    justify-content: center
