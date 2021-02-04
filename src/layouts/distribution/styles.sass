@@ -1,0 +1,36 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.distribution
+  &__header
+    margin-bottom: 4px
+  &__content
+    margin-bottom: 20px
+    overflow: hidden
+  &__line
+    &:not(:last-child)
+      margin-bottom: 20px
+    &-header
+      background-color: $c-primary-l1
+      padding: 8px 10px
+      border-radius: $r-primary
+    &-lists
+      display: flex
+      flex-wrap: wrap
+      margin: 0 -2px
+      margin-top: 2px
+      margin-bottom: 4px
+    &-list
+      flex: 1
+      padding: 2px 2px
+      +media-max($bp-lg)
+        width: 100%
+        flex: auto
+      &-item
+        display: flex
+        justify-content: space-between
+    &-footer
+      display: flex
+      align-items: center
+      &-title
+        margin-right: 10px

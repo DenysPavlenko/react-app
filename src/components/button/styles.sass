@@ -1,0 +1,106 @@
+@import "~styles/abstract/variables"
+@import "~styles/abstract/mixins"
+
+button
+  border: none
+  padding: 0
+  margin: 0
+  background-color: transparent
+  cursor: pointer
+  font-family: inherit
+  &:focus
+    outline: none
+button::-moz-focus-inner
+  border: 0
+
+.button
+  position: relative
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  padding: 13px 15px
+  font-size: rem(14px)
+  line-height: 1
+  font-weight: 500
+  letter-spacing: 0.02rem
+  transition: 0.3s
+  cursor: pointer
+  user-select: none
+  border-radius: $r-primary
+  color: $c-light
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      &.button--default
+        background-color: $color
+      &.button--default.is-active,
+      &.button--default:hover,
+        background-color: darken($color, 10%)
+      &.button--alt-gray.is-active,
+      &.button--accent.is-active,
+      &.button--accent-blue.is-active
+        background-color: $color
+  &:focus
+    box-shadow: $s-focus
+  &.is-active
+    z-index: 2
+  &--fluid
+    width: 100%
+
+  // Variants
+  &--accent
+    background: $c-accent
+    &:hover
+      background: darken($c-accent, 10%)
+  &--accent-blue
+    background: $c-accent-blue
+    &:hover
+      background: darken($c-accent-blue, 10%)
+  &--danger
+    background: $c-danger
+    &:hover
+      background: darken($c-danger, 10%)
+  &--white
+    background: $c-light
+    color: $c-primary
+    &:hover
+      background: darken($c-light, 10%)
+  &--alt-gray
+    background: $c-alt-gray
+    &:hover
+      background: darken($c-alt-gray, 10%)
+  &--primary
+    background: $c-primary
+    &:hover,
+    &.is-active
+      background: $c-primary-l1
+  &--secondary
+    background: $c-primary-d1
+    &:hover,
+    &.is-active
+      background: darken($c-primary-d1, 2%)
+  &--primary-light
+    background: $c-primary-l1
+    &:hover,
+    &.is-active
+      background: darken($c-primary-l1, 2%)
+
+  // Sizes
+  &--sm
+    padding: 10px
+  &--xs
+    padding: 8px
+    font-size: rem(13px)
+  &--xxs
+    padding: 5px
+    font-size: rem(12px)
+    text-transform: none
+  &--disabled
+    opacity: 0.6
+    pointer-events: none
+
+  &__icon
+    &:first-child
+      margin-right: 5px
+    &:last-child
+      margin-left: 5px

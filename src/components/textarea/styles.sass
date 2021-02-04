@@ -1,0 +1,57 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+textarea
+  outline: none
+  border: none
+  box-shadow: none
+  margin: 0
+  display: block
+  font-family: inherit
+
+.textarea
+  width: 100%
+  background-color: $c-primary
+  border: 1px solid transparent
+  border-radius: $r-primary
+  color: $c-light
+  padding: 10px
+  font-family: inherit
+  font-size: rem(14px)
+  line-height: 1
+  transition: 0.2s
+  resize: none
+  &:placeholder
+    color: rgba($c-light, 0.8)
+  &:focus
+    box-shadow: 0 0 0 0.15rem rgba($c-accent-blue, .25)
+
+  // States
+  &--invalid
+    border: 1px solid $c-danger !important
+
+  // Variants
+  &--transparent
+    background-color: transparent
+    border-color: transparent
+    color: $c-light
+    &:focus
+      box-shadow: none
+  &--light
+    background-color: $c-light
+    border-color: $c-light-gray
+    color: $c-primary
+    &::placeholder
+      color: rgba($c-primary, 0.5)
+  &--primary-light
+    background-color: $c-primary-l1
+    border-color: $c-primary-l1
+    color: $c-light
+    &:focus
+      box-shadow: none
+
+  // Sizes
+  &--sm
+    padding: 10px
+  &--p-0
+    padding: 0

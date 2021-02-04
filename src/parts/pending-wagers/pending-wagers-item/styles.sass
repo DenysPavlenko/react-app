@@ -1,0 +1,20 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.pending-wagers-item
+  vertical-align: top
+  td
+    padding: 5px 10px
+  &__details
+    margin: 20px 0
+  &__detail
+    display: flex
+    background-color: $c-primary
+    &:nth-child(even)
+      background-color: $c-primary-l1
+    &-title
+      padding: 5px
+      text-transform: capitalize
+      color: $c-light
+      min-width: 80px
+      margin-right: 5px

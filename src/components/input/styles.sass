@@ -1,0 +1,79 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+input
+  outline: none
+  border: none
+  box-shadow: none
+  margin: 0
+  display: block
+  font-family: inherit
+  &::-ms-clear
+    display: none
+    height: 0
+    width: 0
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button
+    -webkit-appearance: none
+    margin: 0
+  &[type=number]
+    -moz-appearance: textfield
+
+.input
+  width: 100%
+  max-width: 100%
+  background-color: $c-primary
+  border: 1px solid transparent
+  border-radius: $r-primary
+  color: $c-light
+  padding: 7px 10px 8px
+  font-family: inherit
+  font-size: rem(14px)
+  line-height: 1
+  transition: 0.2s
+  &::placeholder
+    color: $c-alt-gray
+  &:focus
+    box-shadow: 0 0 0 0.15rem rgba($c-accent-blue, .25)
+  &--no-radius
+    border-radius: 0
+  &--invalid
+    border: 1px solid $c-danger !important
+    &:focus
+      box-shadow: 0 0 0 0.15rem rgba($c-danger, .25) !important
+  &--transparent
+    background-color: transparent
+    border-color: transparent
+    color: $c-light
+    &:focus
+      box-shadow: none
+
+  // Variants
+  &--light
+    background-color: $c-light
+    border: 1px solid $c-light-gray
+    color: $c-primary
+  &--secondary
+    background-color: $c-primary-d1
+
+  // Size
+  &--sm
+    padding: 5px 10px
+    font-size: rem(13px)
+  &--xs
+    padding: 2px 5px
+    text-align: center
+    font-size: rem(12px)
+    max-width: 50px
+  &--primary-light
+    background-color: $c-primary-l1
+    border-color: $c-primary-l1
+    color: $c-light
+
+  // Width
+  &--width-50
+    max-width: 50%
+    +media-max($bp-sm)
+      max-width: 100%
+  &--width-auto
+    width: auto

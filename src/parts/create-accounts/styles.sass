@@ -1,0 +1,30 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.create-accounts
+  &__top
+    display: flex
+    flex-wrap: wrap
+    margin: 0 -5px
+    &-item
+      padding: 0 5px
+      width: 33.3333%
+      margin-bottom: 20px
+      +media-max($bp-md)
+        width: 50%
+      +media-max($bp-sm)
+  &__inputs
+    display: flex
+    flex-wrap: wrap
+    margin: 0 -5px
+  &__input
+    padding: 0 5px
+    flex: 1
+    margin-bottom: 20px
+    +media-max($bp-md)
+      width: 33.3333%
+      flex: auto
+    +media-max($bp-sm)
+      width: 40%
+  &__table
+    margin-bottom: 20px

@@ -1,0 +1,16 @@
+@import "~styles/abstract/variables"
+@import "~styles/abstract/mixins"
+
+.tabs
+  display: flex
+  flex-wrap: wrap
+  &--nowrap
+    width: 100%
+    overflow: auto
+    flex-wrap: nowrap
+  &>*
+    &:first-child
+      border-radius: $r-primary 0 0 0
+    &:last-child
+      border-radius: 0 $r-primary 0 0
+

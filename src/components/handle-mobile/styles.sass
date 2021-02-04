@@ -1,0 +1,18 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.handle-mobile
+  +media-max($bp-xl)
+    position: fixed
+    left: 0
+    top: $h-header
+    width: 100%
+    height: calc( 100vh - #{$h-header} )
+    overflow: auto
+    background-color: $c-gray
+    transition: transform 0.2s
+    transform: translateY(100%)
+    padding: 4px
+    z-index: 160
+    &.is-active
+      transform: translateY(0)

@@ -1,0 +1,21 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.close
+  cursor: pointer
+  transition: 0.2s
+  font-size: rem(20px)
+  line-height: 1
+  color: $c-light
+  display: block
+  &:hover
+    opacity: 0.7
+  &--dark
+    color: $c-light-gray
+    opacity: 1 !important
+    &:hover
+      color: $c-alt-gray
+  &--sm
+    font-size: rem(16px)
+  &--lg
+    font-size: rem(24px)

@@ -1,0 +1,19 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.figures
+  &__header
+    margin-bottom: 4px
+  &__table
+    &-title
+      width: 100%
+      background-color: $c-primary-l1
+      padding: 8px 10px
+    .primary-table
+      border-radius: 0
+    &:first-child
+      .figures__table-title
+        border-radius: $r-primary $r-primary 0 0
+    &:last-child
+      .primary-table
+        border-radius: 0 0  $r-primary  $r-primary

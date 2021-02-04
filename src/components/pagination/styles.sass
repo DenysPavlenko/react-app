@@ -1,0 +1,38 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.pagination
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      .pagination__button
+        background-color: $color
+        &:hover,
+        &.is-active
+          background-color: darken($color, 10%)
+        &.disabled
+          &:hover
+            background-color: $color
+
+  &__list
+    display: flex
+    flex-wrap: wrap
+    align-self: center
+  &__item
+    &:not(:last-child)
+      margin-right: 5px
+  &__button
+    width: 25px
+    height: 25px
+    color: $c-light
+    border-radius: $r-primary
+    font-size: rem(13px)
+    display: block
+    line-height: 25px
+    user-select: none
+    transition: 0.2s
+    &.disabled
+      pointer-events: none
+      color: rgba($c-light, 0.7)
+  &__chevron
+    font-size: rem(10px)

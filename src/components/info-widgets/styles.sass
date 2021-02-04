@@ -1,0 +1,16 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+@import ~styles/abstract/grid
+
+.info-widgets
+  +row()
+  margin-bottom: -20px
+  &__widget
+    margin-bottom: 20px
+    +col()
+    +media-max($bp-xl)
+      +col(4)
+    +media-max($bp-lg)
+      +col(6)
+    +media-max($bp-sm)
+      +col(12)

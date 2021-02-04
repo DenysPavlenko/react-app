@@ -1,0 +1,26 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.loading-overlay
+  position: absolute
+  left: 0
+  top: 0
+  bottom: 0
+  right: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 2
+  background-color: $overlay-bg
+
+  // Animations
+  &.loading-overlay-enter
+    opacity: 0
+  &.loading-overlay-enter-active
+    opacity: 1
+    transition: opacity 0.3s
+  &.loading-overlay-exit
+    opacity: 1
+  &.loading-overlay-exit-active
+    opacity: 0
+    transition: opacity 0.3s

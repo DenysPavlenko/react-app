@@ -1,0 +1,20 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.games-tab
+  padding-bottom: 40px
+  &__filters
+    display: flex
+    flex-wrap: wrap
+    margin-bottom: 20px
+  &__filter
+    +media-max($bp-lg)
+      width: 100%
+      &:not(:last-child)
+        margin-right: 0
+        margin-bottom: 20px
+    &:not(:last-child)
+      margin-right: 70px
+    &-title
+      margin-bottom: 10px
+

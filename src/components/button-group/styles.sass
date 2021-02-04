@@ -1,0 +1,28 @@
+@import "~styles/abstract/variables"
+@import "~styles/abstract/mixins"
+
+.button-group
+  display: flex
+  flex-wrap: wrap
+  &--nowrap
+    flex-wrap: nowrap
+    overflow: auto
+    white-space: nowrap
+  &--responsive
+    justify-content: center
+    +media-max($bp-lg)
+      margin: -2px
+      &>*
+        margin: 2px
+        border-radius: $r-primary !important
+  &--joined
+    &>*
+      border-radius: 0
+      &:first-child
+        border-radius: $r-primary 0 0 $r-primary
+      &:last-child
+        border-radius: 0 $r-primary $r-primary 0
+  &--separated
+    margin: -4px
+    &>*
+      margin: 4px

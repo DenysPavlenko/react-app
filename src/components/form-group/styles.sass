@@ -1,0 +1,20 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.form-group
+  margin-bottom: 10px
+  &--vertical
+    display: flex
+  &>*
+    &:not(:last-child)
+      margin-right: 10px
+  &__label
+    text-transform: capitalize
+    margin-bottom: 5px
+    display: block
+  &__error
+    font-size: rem(12px)
+    line-height: 1
+    display: block
+    margin-top: 5px
+    color: $c-danger

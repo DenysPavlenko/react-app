@@ -27,15 +27,12 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "simplebar-react": "^2.3.0",
-    "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4",
     "yup": "^0.32.8"
   },
   "scripts": {
-    "admin": "SET REACT_APP_BUILD_TARGET=admin & react-scripts start",
-    "player": "SET REACT_APP_BUILD_TARGET=player & react-scripts start",
-    "build:admin": "export REACT_APP_BUILD_TARGET=admin & react-scripts build",
-    "build:player": "export REACT_APP_BUILD_TARGET=player & react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
