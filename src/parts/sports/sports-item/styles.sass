@@ -16,7 +16,11 @@
   @each $name, $color in $sch-colors
     &.theme-#{$name}
       border: 1px solid $color
-      &:hover,
+      &:hover
+        background-color: rgba($color, 0.5)
+        +media-max($bp-xl)
+          &:hover
+            background-color: transparent
       &.sports-item.is-active
         background-color: $color
   &--push-top,

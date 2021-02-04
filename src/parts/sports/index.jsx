@@ -17,8 +17,14 @@ import './styles.sass';
 const Sports = ({ data: { title, icon, schedule }, breakpoints, currentBreakpoint, colorScheme }) => {
   const [filters, setFilters] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
+    if (breakpoints[currentBreakpoint] < breakpoints.xl) {
+      setIsTablet(true);
+    } else {
+      setIsTablet(false);
+    }
     if (breakpoints[currentBreakpoint] < breakpoints.md) {
       setIsMobile(true);
       setFilters(['spread', 'total'])
@@ -30,7 +36,7 @@ const Sports = ({ data: { title, icon, schedule }, breakpoints, currentBreakpoin
 
   return (
     <div className="sports">
-      <SportsHeaderA title={title} icon={icon} colorScheme={colorScheme} />
+      <SportsHeaderA title={title} icon={icon} colorScheme={colorScheme} isTablet={isTablet} />
       <SportsHeaderB filters={filters} setFilters={setFilters} isMobile={isMobile} />
 
       {schedule.map(({ id, date, spread, moneyline, total, teamTotal, games }) => (

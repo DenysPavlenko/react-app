@@ -5,6 +5,7 @@ import { createStructuredSelector } from 'reselect'
 // Redux
 import { selectSportsWagers, selectTotalWagered, selectTotalPossibleWin } from 'redux/sports-wagers/selectors';
 import { clearSportsWagers } from 'redux/sports-wagers/actions';
+import { hideSportsPageWagers } from 'redux/sports-page-wagers/actions';
 // Components
 import Simplebar from 'simplebar-react';
 import Typography from 'components/typography';
@@ -13,7 +14,7 @@ import SportsWager from './sports-wager';
 // Styles
 import './styles.sass';
 
-const SportsWagers = ({ sportsWagers, clearSportsWagers, totalWagered, totalPossibleWin }) => {
+const SportsWagers = ({ sportsWagers, clearSportsWagers, totalWagered, totalPossibleWin, hideSportsPageWagers }) => {
   return (
     <div className="sports-wagers">
       <div className="sports-wagers__header">
@@ -39,10 +40,13 @@ const SportsWagers = ({ sportsWagers, clearSportsWagers, totalWagered, totalPoss
           </div>
           <div className="sports-wagers__buttons">
             <div className="sports-wagers__button">
-              <Button variant="danger" fluid onClick={clearSportsWagers}>Clear all</Button>
+              <Button variant="danger" fluid onClick={() => { clearSportsWagers(); hideSportsPageWagers() }}>Clear all</Button>
             </div>
             <div className="sports-wagers__button">
               <Button variant="accent" fluid>Place Wager(s)</Button>
+            </div>
+            <div className="sports-wagers__button">
+              <Button variant="accent" onClick={hideSportsPageWagers} fluid>Hide wagers</Button>
             </div>
           </div>
         </div>
@@ -55,16 +59,18 @@ SportsWagers.propTypes = {
   sportsWagers: PropTypes.array,
   clearSportsWagers: PropTypes.func,
   totalWagered: PropTypes.string,
+  hideSportsPageWagers: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   sportsWagers: selectSportsWagers,
   totalWagered: selectTotalWagered,
-  totalPossibleWin: selectTotalPossibleWin,
+  totalPossibleWin: selectTotalPossibleWin
 });
 
 const mapDispatchToProps = dispatch => ({
-  clearSportsWagers: () => dispatch(clearSportsWagers())
+  clearSportsWagers: () => dispatch(clearSportsWagers()),
+  hideSportsPageWagers: () => dispatch(hideSportsPageWagers())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SportsWagers);
