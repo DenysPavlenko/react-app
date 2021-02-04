@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // Components
 import PageHeader from 'components/page-header';
-import Actions from '../figures-actions';
 import Typography from 'components/typography';
 import ButtonGroup from 'components/button-group';
 import RowGroup from 'components/row-group';
@@ -14,13 +13,12 @@ const tabs = [
   { title: 'Last week', value: '11/30/2020' },
 ];
 
-const Header = ({ date, setDate, status, setStatus, showFilters }) => {
+const Header = ({ date, setDate }) => {
   return (
     <PageHeader
       left={<Typography component="h2">Figures</Typography>}
       right={
         <RowGroup center>
-          <Actions status={status} setStatus={setStatus} showFilters={showFilters} />
           <Select
             onChange={({ target: { value } }) => setDate(value)}
             value={date}
@@ -55,9 +53,6 @@ const Header = ({ date, setDate, status, setStatus, showFilters }) => {
 Header.propTypes = {
   date: PropTypes.string,
   setDate: PropTypes.func,
-  status: PropTypes.string,
-  setStatus: PropTypes.func,
-  showFilters: PropTypes.func,
 };
 
 export default Header;
