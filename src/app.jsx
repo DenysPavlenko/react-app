@@ -28,6 +28,7 @@ import CashierPage from 'pages/cashier-page';
 import NewAccountsPage from 'pages/new-accounts-page';
 import DeletedWagersPage from 'pages/deleted-wagers-page';
 import BalancePage from 'pages/balance-page';
+import SportsPage from 'pages/sports-page';
 // Styles
 import './app.sass';
 
@@ -69,6 +70,7 @@ const AppRoot = ({ fetchUserData, location }) => {
             <Route path="/new-accounts" exact component={NewAccountsPage} />
             <Route path="/deleted-wagers" exact component={DeletedWagersPage} />
             <Route path="/balance" exact component={BalancePage} />
+            <Route path="/sports" exact component={SportsPage} />
             <Redirect to="/" />
           </Switch>
         </ScrollToTop>

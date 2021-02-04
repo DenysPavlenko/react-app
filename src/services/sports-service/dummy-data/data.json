@@ -1,0 +1,137 @@
+[
+  {
+    "id": "1",
+    "title": "NFL",
+    "icon": "football-ball",
+    "schedule": [
+      {
+        "id": "thursday 11/19",
+        "date": "thursday 11/19",
+        "spread": "50,000",
+        "moneyline": "20,000",
+        "total": "20,000",
+        "teamTotal": "5,000",
+        "games": [
+          {
+            "id": "1fox",
+            "time": "05:20 PM PST",
+            "channel": "fox",
+            "teams": [
+              {
+                "id": "cardinals1",
+                "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/5Mh3xcc8uAsxAi3WZvfEyQ_48x48.png",
+                "title": "Cardinals",
+                "spread": "+3 200",
+                "moneyline": "245",
+                "total": "110",
+                "teamTotalOver": "169",
+                "teamTotalUnder": "168"
+              },
+              {
+                "id": "seahawks1",
+                "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/iVPY42GLuHmD05DiOvNSVg_96x96.png",
+                "title": "Seahawks",
+                "spread": "+3 200",
+                "moneyline": "245",
+                "total": "110",
+                "teamTotalOver": "169",
+                "teamTotalUnder": "168"
+              }
+            ]
+          },
+          {
+            "id": "2fox",
+            "time": "06:20 PM PST",
+            "channel": "fox",
+            "teams": [
+              {
+                "id": "cardinals2",
+                "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/5Mh3xcc8uAsxAi3WZvfEyQ_48x48.png",
+                "title": "Cardinals 2",
+                "spread": "+3 200",
+                "moneyline": "245",
+                "total": "110",
+                "teamTotalOver": "169",
+                "teamTotalUnder": "168"
+              },
+              {
+                "id": "seahawks2",
+                "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/iVPY42GLuHmD05DiOvNSVg_96x96.png",
+                "title": "Seahawks 2",
+                "spread": "+3 200",
+                "moneyline": "245",
+                "total": "110",
+                "teamTotalOver": "169",
+                "teamTotalUnder": "168"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "thursday 11/20",
+        "date": "thursday 11/20",
+        "spread": "50,000",
+        "moneyline": "20,000",
+        "total": "20,000",
+        "teamTotal": "5,000",
+        "games": [
+          {
+            "id": "fox22",
+            "time": "05:20 PM PST",
+            "channel": "fox",
+            "teams": [
+              {
+                "id": "cardinals3",
+                "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/5Mh3xcc8uAsxAi3WZvfEyQ_48x48.png",
+                "title": "Cardinals 3",
+                "spread": "+3 200",
+                "moneyline": "245",
+                "total": "110",
+                "teamTotalOver": "169",
+                "teamTotalUnder": "168"
+              },
+              {
+                "id": "seahawks3",
+                "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/iVPY42GLuHmD05DiOvNSVg_96x96.png",
+                "title": "Seahawks 3",
+                "spread": "+3 200",
+                "moneyline": "245",
+                "total": "110",
+                "teamTotalOver": "169",
+                "teamTotalUnder": "168"
+              }
+            ]
+          },
+          {
+            "id": "fox212",
+            "time": "05:20 PM PST",
+            "channel": "fox",
+            "teams": [
+              {
+                "id": "cardinals4",
+                "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/5Mh3xcc8uAsxAi3WZvfEyQ_48x48.png",
+                "title": "Cardinals 4",
+                "spread": "+3 200",
+                "moneyline": "245",
+                "total": "110",
+                "teamTotalOver": "169",
+                "teamTotalUnder": "168"
+              },
+              {
+                "id": "seahawks4",
+                "icon": "https://ssl.gstatic.com/onebox/media/sports/logos/iVPY42GLuHmD05DiOvNSVg_96x96.png",
+                "title": "Seahawks 4",
+                "spread": "+3 200",
+                "moneyline": "245",
+                "total": "110",
+                "teamTotalOver": "169",
+                "teamTotalUnder": "168"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

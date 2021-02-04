@@ -12,7 +12,7 @@ const HeaderDropdownMenu = ({ menu, history, breakpoints, currentBreakpoint, foo
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (breakpoints[currentBreakpoint] < breakpoints.xl) {
+    if (breakpoints[currentBreakpoint] < breakpoints.xxl) {
       setIsMobile(true);
     } else {
       setIsMobile(false);

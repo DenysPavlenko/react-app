@@ -42,6 +42,12 @@ import scoresReducer from './scores/reducer';
 import weeklyFiguresReducer from './weekly-figures/reducer';
 import pendingWagersReducer from './pending-wagers/reducer';
 import myTransactionsReducer from './my-transactions/reducer';
+import sportsReducer from './sports/reducer';
+import sportsScheduleReducer from './sports-schedule/reducer';
+import sportsScheduleEventsReducer from './sports-schedule-events/reducer';
+import sportsPageScheduleReducer from './sports-page-schedule/reducer';
+import sportsPageWagersReducer from './sports-page-wagers/reducer';
+import sportsWagersReducer from './sports-wagers/reducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -87,6 +93,12 @@ const rootReducer = combineReducers({
   weeklyFigures: weeklyFiguresReducer,
   pendingWagers: pendingWagersReducer,
   myTransactions: myTransactionsReducer,
+  sports: sportsReducer,
+  sportsSchedule: sportsScheduleReducer,
+  sportsPageSchedule: sportsPageScheduleReducer,
+  sportsPageWagers: sportsPageWagersReducer,
+  sportsScheduleEvents: sportsScheduleEventsReducer,
+  sportsWagers: sportsWagersReducer,
 });
 
 export default rootReducer;

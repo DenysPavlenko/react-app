@@ -1,0 +1,43 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.sports-wagers
+  background-color: $c-primary-l1
+  border-radius: $r-primary
+  overflow: hidden
+  &__header
+    padding: 5px 10px
+    display: flex
+    justify-content: space-between
+    background-color: $c-primary
+  &__empty
+    min-height: 100px
+    padding: 10px
+  &__wrap
+    height: calc( 100vh - 99px )
+    display: flex
+    flex-direction: column
+    min-height: 310px
+  &__list
+    flex: 1
+    min-height: 0
+  &__totals
+    padding: 10px
+    border-bottom: 1px solid $c-primary
+    margin-top: auto
+  &__total
+    margin-top: auto
+    display: flex
+    justify-content: space-between
+    &:not(:last-child)
+      margin-bottom: 10px
+  &__buttons
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    padding: 10px 10px
+    margin: 0 -4px
+  &__button
+    flex: 1
+    white-space: nowrap
+    padding: 4px

@@ -1,0 +1,51 @@
+@import ~styles/abstract/variables
+@import ~styles/abstract/mixins
+
+.sports-line
+  display: flex
+  // Color schemes
+  @each $name, $color in $sch-colors
+    &.theme-#{$name}
+      .sports-line__team
+        border-right: 2px solid $color
+      .sports-line__center
+        border: 1px solid $color
+
+  &__team
+    display: flex
+    align-items: center
+    padding: 0 5px 0 10px
+    text-align: left
+    &-title
+      +media-max($bp-sm)
+      width: 100%
+      text-overflow: ellipsis
+      overflow: hidden
+      white-space: nowrap
+    &-icon
+      width: 25px
+      margin-right: 4px
+
+  &__items
+    display: flex
+    align-items: center
+    .sports-line__center
+      top: 50%
+      transform: translate(-50%, -50%)
+
+  &__center
+    position: absolute
+    top: calc( 50% + 2px )
+    left: 50%
+    transform: translateX(-50%)
+    font-size: rem(12px)
+    line-height: 1
+    padding: 1px
+    background-color: $c-primary
+    display: flex
+    justify-content: center
+    align-items: center
+    min-width: 36px
+    min-height: 20px
+    z-index: 20
+    user-select: none

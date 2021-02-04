@@ -19,7 +19,7 @@ const breakpoints = {
   md: 768,
   lg: 992,
   xl: 1171,
-  xxl: 1201,
+  xxl: 1321,
 };
 
 ReactDOM.render(

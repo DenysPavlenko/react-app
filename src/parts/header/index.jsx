@@ -18,6 +18,7 @@ import homeIcon from 'assets/images/icons/home.png';
 import dollarIcn from 'assets/images/icons/dollar.png';
 import distributionIcn from 'assets/images/icons/distribution.png';
 import positionIcn from 'assets/images/icons/pin.png';
+import cupIcon from 'assets/images/icons/cup.png';
 // Styles
 import './styles.sass';
 
@@ -37,6 +38,7 @@ const Header = ({ breakpoints, currentBreakpoint, toggleSideMenu, toggleScores, 
     { name: 'figures', rootName: '/figures', icon: dollarIcn, alt: 'figures' },
     { name: 'distribution', rootName: '/distribution', icon: distributionIcn, alt: 'distribution' },
     { name: 'position', rootName: '/position', icon: positionIcn, alt: 'position' },
+    { name: 'sports', rootName: '/sports', icon: cupIcon, alt: "sports" },
   ];
 
   const dropdownMenu = [
