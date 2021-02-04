@@ -63,12 +63,12 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
   return (
     <Fragment>
       <TransactionSummary
-        open={transSummary}
+        open={!!transSummary}
         onClose={() => setTransSummary(false)}
         {...transSummary}
       />
       <DeleteConfirmation
-        open={idToDelete}
+        open={!!idToDelete}
         onClose={() => setIdToDelete(null)}
         onConfirm={handleDelete}
         text="Are you sure do you want to delete this transaction?"
