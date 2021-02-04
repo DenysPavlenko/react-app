@@ -8,7 +8,6 @@ import { selectNewAccounts } from 'redux/new-accounts/selectors';
 // Components
 import PageHeader from 'components/page-header';
 import Typography from 'components/typography';
-import Button from 'components/button';
 import ErrorIndicator from 'components/error-indicator';
 import Spinner from 'components/spinner/spinner';
 import Accordion from 'components/accordion';
@@ -33,7 +32,6 @@ const NewAccounts = ({ fetchPendingData, newAccounts: { loading, data, error } }
       <div className="new-accounts__header">
         <PageHeader
           left={<Typography component="h2">New Accounts</Typography>}
-          right={<Button variant="default" onClick={() => { }} >Submit</Button>}
         />
       </div>
       <div className="new-accounts__content">
