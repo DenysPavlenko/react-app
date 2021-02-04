@@ -6,7 +6,6 @@ import { createStructuredSelector } from 'reselect'
 import { fetchCashierData } from 'redux/cashier/actions';
 import { selectCashier } from 'redux/cashier/selectors';
 // Components
-import CashierHeader from './cashier-header';
 import ErrorIndicator from 'components/error-indicator';
 import Spinner from 'components/spinner/spinner';
 import Accordion from 'components/accordion';
@@ -14,6 +13,8 @@ import AccordionTab from 'components/accordion-tab';
 import PrimaryTable from 'components/primary-table';
 import DeleteConfirmation from 'parts/delete-confirmation';
 import TransactionSummary from 'parts/transaction-summary';
+import PageHeader from 'components/page-header';
+import Typography from 'components/typography';
 // Table content
 import tableContent from './table-content';
 // Styles
@@ -21,14 +22,13 @@ import './styles.sass';
 
 const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
   const [expanded, setExpanded] = useState(0);
-  const [status, setStatus] = useState('active');
   const [selects, setSelects] = useState(null);
   const [idToDelete, setIdToDelete] = useState(null);
   const [transSummary, setTransSummary] = useState(null);
 
   useLayoutEffect(() => {
-    fetchCashierData(status);
-  }, [fetchCashierData, status]);
+    fetchCashierData();
+  }, [fetchCashierData]);
 
   useEffect(() => {
     if (!data) { return; }
@@ -75,7 +75,7 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
       />
       <div className="cashier">
         <div className="cashier__header">
-          <CashierHeader status={status} setStatus={setStatus} />
+          <PageHeader left={<Typography component="h2">Cashier</Typography>} />
         </div>
         <div className="cashier__content">
           {error && <ErrorIndicator retry={fetchCashierData} light />}
