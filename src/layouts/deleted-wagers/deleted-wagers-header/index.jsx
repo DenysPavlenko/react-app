@@ -9,8 +9,8 @@ import ButtonGroup from 'components/button-group';
 import Button from 'components/button';
 
 const tabs = [
-  { title: 'current week', value: '12/7/2020' },
-  { title: 'last week', value: '11/30/2020' },
+  { title: 'Current week', value: '12/7/2020' },
+  { title: 'Last week', value: '11/30/2020' },
 ];
 
 const Header = ({ date, setDate }) => {
@@ -44,7 +44,7 @@ const Header = ({ date, setDate }) => {
           />
           <ButtonGroup>
             {tabs.map(({ title, value }, idx) => (
-              <Button key={idx} isActive={date === value} onClick={() => setDate(value)} variant="alt-gray">{title}</Button>
+              <Button key={idx} isActive={date === value} onClick={() => setDate(value)} variant="default">{title}</Button>
             ))}
           </ButtonGroup>
         </RowGroup>
