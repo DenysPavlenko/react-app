@@ -28,8 +28,6 @@ const PendingTab = ({ fetchClientPendingData, clientPending: { loading, data, er
     setSearchValue(value.toLowerCase());
   };
 
-  const handleDelete = id => { console.log('id:', id) };
-
   return (
     <div className="pending-tab">
       <div className="pending-tab__search">
@@ -37,7 +35,7 @@ const PendingTab = ({ fetchClientPendingData, clientPending: { loading, data, er
       </div>
       <div className="pending-tab__table">
         <PrimaryTable
-          cols={tableContent(handleDelete)}
+          cols={tableContent()}
           loading={loading}
           data={filteredData()}
           error={error}

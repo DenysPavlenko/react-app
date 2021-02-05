@@ -4,7 +4,7 @@ import Typography from 'components/typography';
 import RowGroup from 'components/row-group';
 import Button from 'components/button';
 
-const tableContent = handleDelete => {
+const tableContent = () => {
   return [
     {
       title: 'Name',
@@ -40,12 +40,7 @@ const tableContent = handleDelete => {
     },
     {
       title: 'Risk/Win',
-      render: data => (
-        <RowGroup nowrap size="sm">
-          <Typography component="p">{data.risk}</Typography>
-          <Button size="xxs" variant="danger" onClick={() => handleDelete(data.id)}>Delete</Button>
-        </RowGroup>
-      )
+      render: data => <Typography component="p">{data.risk}</Typography>
     },
   ];
 };
