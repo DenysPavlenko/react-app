@@ -4,13 +4,13 @@ import * as sent from './dummy-data/sent.json';
 // Helpers
 import getDummyData from 'services/_utils/get-dummy-data';
 
-export default class MailService {
+export default class DummyService {
 
-  getInboxMessages = async () => {
+  getInboxMessages = () => {
     return getDummyData({ data: inbox });
   }
 
-  getSentMessages = async () => {
+  getSentMessages = () => {
     return getDummyData({ data: sent });
   }
 

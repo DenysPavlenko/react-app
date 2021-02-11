@@ -4,9 +4,9 @@ import * as pendingContests from './dummy-data/pending-contests.json';
 // Helpers
 import getDummyData from 'services/_utils/get-dummy-data';
 
-export default class ScoresService {
+export default class DummyService {
 
-  getPending = async category => {
+  getPending = category => {
     switch (category) {
       case 'games':
         return getDummyData({ data: pendingGames });

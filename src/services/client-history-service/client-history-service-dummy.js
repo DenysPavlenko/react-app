@@ -5,9 +5,9 @@ import * as yearlyHistory from './dummy-data/yearly-history.json';
 // Helpers
 import getDummyData from 'services/_utils/get-dummy-data';
 
-export default class ScoresService {
+export default class DummyService {
 
-  getClientHistory = async (clientId, category) => {
+  getClientHistory = (clientId, category) => {
     switch (category) {
       case 'football':
         return getDummyData({ data: footbalHistory });

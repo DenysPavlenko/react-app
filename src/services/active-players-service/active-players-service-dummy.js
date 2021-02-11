@@ -5,7 +5,7 @@ import getDummyData from 'services/_utils/get-dummy-data';
 
 export default class DummyService {
 
-  getActivePlayers = async () => {
+  getActivePlayers = () => {
     return getDummyData({ data })
   }
 

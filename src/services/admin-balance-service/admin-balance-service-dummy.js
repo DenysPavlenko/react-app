@@ -5,7 +5,7 @@ import getDummyData from 'services/_utils/get-dummy-data';
 
 export default class DummyService {
 
-  getAdminBalance = async () => {
+  getAdminBalance = () => {
     return getDummyData({ data })
   }
 

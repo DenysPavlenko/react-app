@@ -5,7 +5,7 @@ import getDummyData from 'services/_utils/get-dummy-data';
 
 export default class DummyService {
 
-  getClientGeneral = async () => {
+  getClientGeneral = () => {
     return getDummyData({ data })
   }
 

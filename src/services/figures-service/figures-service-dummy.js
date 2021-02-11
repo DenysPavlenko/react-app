@@ -6,7 +6,7 @@ import getDummyData from 'services/_utils/get-dummy-data';
 
 export default class ScoresService {
 
-  getFigures = async (date, status) => {
+  getFigures = (date, status) => {
     switch (status) {
       case 'all':
         return getDummyData({ data: all });

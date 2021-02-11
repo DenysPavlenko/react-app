@@ -5,9 +5,9 @@ import * as hockey from './dummy-data/hockey.json';
 // Helpers
 import getDummyData from 'services/_utils/get-dummy-data';
 
-export default class ScoresService {
+export default class DummyService {
 
-  getPositionContests = async contest => {
+  getPositionContests = contest => {
     switch (contest) {
       case 'football':
         return getDummyData({ data: football });
