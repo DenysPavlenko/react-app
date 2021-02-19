@@ -1,9 +1,9 @@
 import React, { Fragment, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 // Redux
-import { fetchPendingData } from 'redux/new-accounts/actions';
+import { newAccountsRequested } from 'redux/new-accounts/actions';
 import { selectNewAccounts } from 'redux/new-accounts/selectors';
 // Components
 import PageHeader from 'components/page-header';
@@ -16,7 +16,7 @@ import CreateAccounts from 'parts/create-accounts';
 // Styles
 import './styles.sass';
 
-const NewAccounts = ({ fetchPendingData, newAccounts: { loading, data, error } }) => {
+const NewAccounts = ({ newAccountsRequested, newAccounts: { loading, data, error } }) => {
   const [expanded, setExpanded] = useState(0);
 
   const handleChange = idx => {
@@ -24,8 +24,8 @@ const NewAccounts = ({ fetchPendingData, newAccounts: { loading, data, error } }
   };
 
   useLayoutEffect(() => {
-    fetchPendingData();
-  }, [fetchPendingData]);
+    newAccountsRequested();
+  }, [newAccountsRequested]);
 
   return (
     <div className="new-accounts">
@@ -35,7 +35,7 @@ const NewAccounts = ({ fetchPendingData, newAccounts: { loading, data, error } }
         />
       </div>
       <div className="new-accounts__content">
-        {error && <ErrorIndicator retry={fetchPendingData} light />}
+        {error && <ErrorIndicator retry={newAccountsRequested} light />}
         {(!error && loading) && <Spinner boxed light />}
         {(!error && !loading) &&
           <Fragment>
@@ -57,7 +57,7 @@ const NewAccounts = ({ fetchPendingData, newAccounts: { loading, data, error } }
 };
 
 NewAccounts.propTypes = {
-  fetchPendingData: PropTypes.func,
+  newAccountsRequested: PropTypes.func,
   newAccounts: PropTypes.object,
 };
 
@@ -65,8 +65,8 @@ const mapStateToProps = createStructuredSelector({
   newAccounts: selectNewAccounts
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchPendingData: () => dispatch(fetchPendingData())
-});
+const mapDispatchToProps = {
+  newAccountsRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewAccounts);
