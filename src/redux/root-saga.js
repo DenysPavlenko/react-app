@@ -18,6 +18,7 @@ import { fetchClientLimitsData } from './client-limits/sagas';
 import { fetchClientPendingData } from './client-pending/sagas';
 import { fetchClientTransactionsData } from './client-transactions/sagas';
 import { fetchClientWagersData } from './client-wagers/sagas';
+import { fetchCustomerListData } from './customer-list/sagas';
 
 function* rootSaga() {
   yield all([
@@ -39,6 +40,7 @@ function* rootSaga() {
     call(fetchClientPendingData),
     call(fetchClientTransactionsData),
     call(fetchClientWagersData),
+    call(fetchCustomerListData),
   ])
 }
 

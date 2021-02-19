@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchCustomerListData } from 'redux/customer-list/actions';
+import { customerListRequested } from 'redux/customer-list/actions';
 import { selectCustomerList } from 'redux/customer-list/selectors';
 // Components
 import CustomerListHeader from './customer-list-header';
@@ -16,12 +16,12 @@ import tableContent from './table-content';
 // Styles
 import './styles.sass';
 
-const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, error }, history }) => {
+const CustomerList = ({ customerListRequested, customerList: { loading, data, error }, history }) => {
   const [searchValue, setSearchValue] = useState('');
 
   useLayoutEffect(() => {
-    fetchCustomerListData();
-  }, [fetchCustomerListData]);
+    customerListRequested();
+  }, [customerListRequested]);
 
   const handleSearch = value => {
     setSearchValue(value.toLowerCase());
@@ -43,7 +43,7 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
             loading={loading}
             data={filteredData()}
             error={error}
-            retry={fetchCustomerListData}
+            retry={customerListRequested}
             bordered
           />
         </div>
@@ -53,7 +53,7 @@ const CustomerList = ({ fetchCustomerListData, customerList: { loading, data, er
 };
 
 CustomerList.propTypes = {
-  fetchCustomerListData: PropTypes.func,
+  customerListRequested: PropTypes.func,
   recentLogins: PropTypes.object,
 };
 
@@ -61,8 +61,8 @@ const mapStateToProps = createStructuredSelector({
   customerList: selectCustomerList
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchCustomerListData: () => dispatch(fetchCustomerListData())
-});
+const mapDispatchToProps = {
+  customerListRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CustomerList));
