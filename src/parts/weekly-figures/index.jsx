@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
-import { fetchWeeklyFiguresData } from 'redux/weekly-figures/actions';
+import { weeklyFiguresRequested } from 'redux/weekly-figures/actions';
 import { selectWeeklyFigures } from 'redux/weekly-figures/selectors';
 // Components
 import Select from 'components/select';
@@ -15,12 +15,12 @@ import handleStatusClass from 'utils/handle-status-class';
 // Styles
 import './styles.sass';
 
-const WeeklyFigures = ({ weeklyFigures: { loading, data, error }, fetchWeeklyFiguresData }) => {
+const WeeklyFigures = ({ weeklyFigures: { loading, data, error }, weeklyFiguresRequested }) => {
   const [currentFigure, setCurrentFigure] = useState('0');
 
   useLayoutEffect(() => {
-    fetchWeeklyFiguresData(currentFigure);
-  }, [fetchWeeklyFiguresData, currentFigure]);
+    weeklyFiguresRequested(currentFigure);
+  }, [weeklyFiguresRequested, currentFigure]);
 
   return (
     <div className="weekly-figures">
@@ -47,7 +47,7 @@ const WeeklyFigures = ({ weeklyFigures: { loading, data, error }, fetchWeeklyFig
         ]}
       />
       <div className="weekly-figures__items">
-        {error && <ErrorIndicator retry={() => fetchWeeklyFiguresData(currentFigure)} light />}
+        {error && <ErrorIndicator retry={() => weeklyFiguresRequested(currentFigure)} light />}
         {(!error && loading) && <Spinner boxed light />}
         {(!error && !loading) &&
           <Fragment>
@@ -66,7 +66,7 @@ const WeeklyFigures = ({ weeklyFigures: { loading, data, error }, fetchWeeklyFig
 
 WeeklyFigures.propTypes = {
   weeklyFigures: PropTypes.object,
-  fetchWeeklyFiguresData: PropTypes.func,
+  weeklyFiguresRequested: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -74,7 +74,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchWeeklyFiguresData: (currentFigure) => dispatch(fetchWeeklyFiguresData(currentFigure))
+  weeklyFiguresRequested: (currentFigure) => dispatch(weeklyFiguresRequested(currentFigure))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeeklyFigures);
