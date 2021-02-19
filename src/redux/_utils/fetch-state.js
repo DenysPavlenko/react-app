@@ -18,7 +18,7 @@ export const fetchState = (type, payload) => {
         ...state,
         data: payload
       };
-    case 'error':
+    case 'failure':
       return {
         ...state,
         error: payload

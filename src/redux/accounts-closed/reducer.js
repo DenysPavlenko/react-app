@@ -26,7 +26,7 @@ const activePlayersReducer = (state = INITIAL_STATE, action) => {
     case AccountsClosedTypes.FETCH_ACCOUNTS_CLOSED_FAILURE:
       return {
         ...state,
-        ...fetchState('error', action.payload)
+        ...fetchState('failure', action.payload)
       };
     default:
       return state;

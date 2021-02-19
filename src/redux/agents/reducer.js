@@ -10,7 +10,7 @@ const agentsReducer = (state = INITIAL_STATE, action) => {
     case AgentsTypes.FETCH_AGENTS_SUCCESS:
       return fetchState('success', action.payload);
     case AgentsTypes.FETCH_AGENTS_FAILURE:
-      return fetchState('error', action.payload);
+      return fetchState('failure', action.payload);
     default:
       return state;
   }

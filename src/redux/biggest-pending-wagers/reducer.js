@@ -10,7 +10,7 @@ const biggestPendingWagersReducer = (state = INITIAL_STATE, action) => {
     case BiggestPendingWagersTypes.FETCH_BIGGEST_PENDING_WAGERS_SUCCESS:
       return fetchState('success', action.payload);
     case BiggestPendingWagersTypes.FETCH_BIGGEST_PENDING_WAGERS_FAILURE:
-      return fetchState('error', action.payload);
+      return fetchState('failure', action.payload);
     default:
       return state;
   }

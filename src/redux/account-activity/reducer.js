@@ -10,7 +10,7 @@ const accountActivitiesReducer = (state = INITIAL_STATE, action) => {
     case AccountActivityTypes.FETCH_ACOUNT_ACTIVITY_SUCCESS:
       return fetchState('success', action.payload);
     case AccountActivityTypes.FETCH_ACOUNT_ACTIVITY_FAILURE:
-      return fetchState('error', action.payload);
+      return fetchState('failure', action.payload);
     default:
       return state;
   }
