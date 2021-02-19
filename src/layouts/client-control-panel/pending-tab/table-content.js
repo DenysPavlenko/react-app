@@ -1,8 +1,6 @@
 import React from 'react';
 // Components
 import Typography from 'components/typography';
-import RowGroup from 'components/row-group';
-import Button from 'components/button';
 
 const tableContent = () => {
   return [
