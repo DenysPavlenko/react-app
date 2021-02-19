@@ -1,12 +1,9 @@
-import { requestData, setData, setError } from 'redux/_utils/fetch-utils';
+import { fetchState } from 'redux/_utils/fetch-state';
 import ActivePlayersTypes from './types';
 
 const INITIAL_STATE = {
   isActive: false,
-  loading: true,
-  data: null,
-  error: false,
-  errorDetails: null,
+  ...fetchState('initial')
 };
 
 const activePlayersReducer = (state = INITIAL_STATE, action) => {
@@ -19,17 +16,17 @@ const activePlayersReducer = (state = INITIAL_STATE, action) => {
     case ActivePlayersTypes.FETCH_ACTIVE_PLAYERS_REQUEST:
       return {
         ...state,
-        ...requestData()
+        ...fetchState('request')
       };
     case ActivePlayersTypes.FETCH_ACTIVE_PLAYERS_SUCCESS:
       return {
         ...state,
-        ...setData(action.payload)
+        ...fetchState('seccuess', action.payload)
       };
     case ActivePlayersTypes.FETCH_ACTIVE_PLAYERS_FAILURE:
       return {
         ...state,
-        ...setError(action.payload)
+        ...fetchState('failure', action.payload)
       };
     default:
       return state;

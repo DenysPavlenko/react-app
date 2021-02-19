@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchActivePlayersData, toggleActivePlayers } from 'redux/active-players/actions';
+import { activePlayersRequested, toggleActivePlayers } from 'redux/active-players/actions';
 import { selectActivePlayers, selectShowActivePlayers } from 'redux/active-players/selectors';
 // Components
 import DataPreviewModal from 'components/data-preview-modal';
@@ -14,11 +14,11 @@ import tableContent from './table-content';
 // Styles
 import './styles.sass';
 
-const ActivePlayers = ({ toggleActivePlayers, fetchActivePlayersData, activePlayers: { loading, data, error }, showActivePlayers }) => {
+const ActivePlayers = ({ toggleActivePlayers, activePlayersRequested, activePlayers: { loading, data, error }, showActivePlayers }) => {
 
   useLayoutEffect(() => {
-    showActivePlayers && fetchActivePlayersData();
-  }, [fetchActivePlayersData, showActivePlayers]);
+    showActivePlayers && activePlayersRequested();
+  }, [activePlayersRequested, showActivePlayers]);
 
   return (
     <DataPreviewModal
@@ -31,7 +31,7 @@ const ActivePlayers = ({ toggleActivePlayers, fetchActivePlayersData, activePlay
         <PrimaryTable
           cols={tableContent()}
           loading={loading}
-          retry={fetchActivePlayersData}
+          retry={activePlayersRequested}
           data={data}
           variant="primary-light"
           error={error}
@@ -46,7 +46,7 @@ const ActivePlayers = ({ toggleActivePlayers, fetchActivePlayersData, activePlay
 
 ActivePlayers.propTypes = {
   toggleActivePlayers: PropTypes.func,
-  fetchActivePlayersData: PropTypes.func,
+  activePlayersRequested: PropTypes.func,
   activePlayers: PropTypes.object,
 };
 
@@ -55,9 +55,9 @@ const mapStateToProps = createStructuredSelector({
   showActivePlayers: selectShowActivePlayers,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchActivePlayersData: () => dispatch(fetchActivePlayersData()),
-  toggleActivePlayers: () => dispatch(toggleActivePlayers()),
-});
+const mapDispatchToProps = {
+  activePlayersRequested,
+  toggleActivePlayers,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActivePlayers);
