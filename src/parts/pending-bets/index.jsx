@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchPendingBetsData } from 'redux/pending-bets/actions';
+import { pendingBetsRequested } from 'redux/pending-bets/actions';
 import { selectPendingBets } from 'redux/pending-bets/selectors';
 // Components
 import DataPreviewModal from 'components/data-preview-modal';
@@ -12,11 +12,11 @@ import PrimaryTable from 'components/primary-table';
 // Table content
 import tableContent from './table-content';
 
-const PendingBets = ({ agent, open, onClose, onExited, fetchPendingBetsData, pendingBets: { loading, data, error } }) => {
+const PendingBets = ({ agent, open, onClose, onExited, pendingBetsRequested, pendingBets: { loading, data, error } }) => {
 
   useLayoutEffect(() => {
-    fetchPendingBetsData(agent);
-  }, [fetchPendingBetsData, agent]);
+    pendingBetsRequested(agent);
+  }, [pendingBetsRequested, agent]);
 
   return (
     <DataPreviewModal
@@ -31,7 +31,7 @@ const PendingBets = ({ agent, open, onClose, onExited, fetchPendingBetsData, pen
         <PrimaryTable
           cols={tableContent()}
           loading={loading}
-          retry={() => fetchPendingBetsData(agent)}
+          retry={() => pendingBetsRequested(agent)}
           data={data}
           error={error}
           variant="primary-light"
@@ -50,7 +50,7 @@ PendingBets.propTypes = {
   onClose: PropTypes.func,
   onExited: PropTypes.func,
   togglePendingBets: PropTypes.func,
-  fetchPendingBetsData: PropTypes.func,
+  pendingBetsRequested: PropTypes.func,
   pendingBets: PropTypes.object,
 };
 
@@ -58,8 +58,8 @@ const mapStateToProps = createStructuredSelector({
   pendingBets: selectPendingBets,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchPendingBetsData: agent => dispatch(fetchPendingBetsData(agent)),
-});
+const mapDispatchToProps = {
+  pendingBetsRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(PendingBets);
