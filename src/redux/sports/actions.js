@@ -1,23 +1,14 @@
 import SportsTypes from './types';
-// Sports  service
-import SportsService from 'services/sports-service';
-const sportsService = new SportsService();
 
-const sportsRequested = () => ({
-  type: SportsTypes.FETCH_SPORTS_REQUEST
+export const sportsRequested = payload => ({
+  type: SportsTypes.FETCH_SPORTS_REQUEST,
+  payload
 });
-const sportsLoaded = data => ({
+export const sportsLoaded = data => ({
   type: SportsTypes.FETCH_SPORTS_SUCCESS,
   payload: data
 });
-const sportsError = error => ({
+export const sportsError = error => ({
   type: SportsTypes.FETCH_SPORTS_FAILURE,
   payload: error
 });
-
-export const fetchSportsData = schedule => dispatch => {
-  dispatch(sportsRequested());
-  sportsService.getSports(schedule)
-    .then(data => dispatch(sportsLoaded(data)))
-    .catch(error => dispatch(sportsError(error)))
-};
