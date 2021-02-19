@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
-import { fetchClientGeneralData } from 'redux/client-general/actions';
+import { clientGeneralRequested } from 'redux/client-general/actions';
 import { selectClientGeneral } from 'redux/client-general/selectors';
 // Components
 import LoadingOverlay from 'components/loading-overlay';
@@ -22,12 +22,12 @@ import './styles.sass';
 // Table
 import { statusTable, statusTableData } from './status-table';
 
-const GeneralTab = ({ fetchClientGeneralData, clientGeneral: { loading, data, error }, clientId }) => {
+const GeneralTab = ({ clientGeneralRequested, clientGeneral: { loading, data, error }, clientId }) => {
   const [clientData, setClientData] = useState(initialState);
 
   useLayoutEffect(() => {
-    fetchClientGeneralData(clientId);
-  }, [fetchClientGeneralData, clientId]);
+    clientGeneralRequested(clientId);
+  }, [clientGeneralRequested, clientId]);
 
   useEffect(() => {
     data && setClientData(data)
@@ -48,7 +48,7 @@ const GeneralTab = ({ fetchClientGeneralData, clientGeneral: { loading, data, er
 
   return (
     <Fragment>
-      <LoadingOverlay loading={loading} error={error} retry={() => fetchClientGeneralData(clientId)} />
+      <LoadingOverlay loading={loading} error={error} retry={() => clientGeneralRequested(clientId)} />
       <Form className="general-tab" onSubmit={handleSubmit}>
         <div className="general-tab__content">
           <div className="general-tab__left">
@@ -122,7 +122,7 @@ const GeneralTab = ({ fetchClientGeneralData, clientGeneral: { loading, data, er
 
 GeneralTab.propTypes = {
   clientGeneral: PropTypes.object,
-  fetchClientGeneralData: PropTypes.func,
+  clientGeneralRequested: PropTypes.func,
   clientId: PropTypes.string,
 };
 
@@ -130,8 +130,8 @@ const mapStateToProps = createStructuredSelector({
   clientGeneral: selectClientGeneral
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchClientGeneralData: clientId => dispatch(fetchClientGeneralData(clientId))
-});
+const mapDispatchToProps = {
+  clientGeneralRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(GeneralTab);
