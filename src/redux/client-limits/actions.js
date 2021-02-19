@@ -1,22 +1,14 @@
 import ClientLimitsTypes from './types';
-import ClientLimitsService from 'services/client-limits-service';
-const clientLimitsService = new ClientLimitsService();
 
-const clientLimitsRequested = () => ({
-  type: ClientLimitsTypes.FETCH_CLIENT_LIMITS_REQUEST
+export const clientLimitsRequested = payload => ({
+  type: ClientLimitsTypes.FETCH_CLIENT_LIMITS_REQUEST,
+  payload
 });
-const clientLimitsLoaded = data => ({
+export const clientLimitsLoaded = data => ({
   type: ClientLimitsTypes.FETCH_CLIENT_LIMITS_SUCCESS,
   payload: data
 });
-const clientLimitsError = error => ({
+export const clientLimitsError = error => ({
   type: ClientLimitsTypes.FETCH_CLIENT_LIMITS_FAILURE,
   payload: error
 });
-
-export const fetchClientLimitsData = clientId => dispatch => {
-  dispatch(clientLimitsRequested());
-  clientLimitsService.getClientLimits(clientId)
-    .then(data => dispatch(clientLimitsLoaded(data)))
-    .catch(error => dispatch(clientLimitsError(error)))
-};

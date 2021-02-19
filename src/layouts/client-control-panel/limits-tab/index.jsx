@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchClientLimitsData } from 'redux/client-limits/actions';
+import { clientLimitsRequested } from 'redux/client-limits/actions';
 import { selectClientLimits } from 'redux/client-limits/selectors';
 // Components
 import Form from 'components/form';
@@ -18,12 +18,12 @@ import initialState from './intitial-state';
 // Styles
 import './styles.sass';
 
-const LimitsTab = ({ fetchClientLimitsData, clientLimits: { loading, data, error }, clientId }) => {
+const LimitsTab = ({ clientLimitsRequested, clientLimits: { loading, data, error }, clientId }) => {
   const [clientData, setClientData] = useState(initialState);
 
   useLayoutEffect(() => {
-    fetchClientLimitsData(clientId);
-  }, [fetchClientLimitsData, clientId]);
+    clientLimitsRequested(clientId);
+  }, [clientLimitsRequested, clientId]);
 
   useEffect(() => {
     data && setClientData(data)
@@ -42,7 +42,7 @@ const LimitsTab = ({ fetchClientLimitsData, clientLimits: { loading, data, error
 
   return (
     <Fragment>
-      <LoadingOverlay loading={loading} error={error} retry={() => fetchClientLimitsData(clientId)} />
+      <LoadingOverlay loading={loading} error={error} retry={() => clientLimitsRequested(clientId)} />
       <Form className="limits-tab" onSubmit={handleSubmit}>
         <div className="limits-tab__content">
           <div className="limits-tab__left">
@@ -70,7 +70,7 @@ const LimitsTab = ({ fetchClientLimitsData, clientLimits: { loading, data, error
 };
 
 LimitsTab.propTypes = {
-  fetchClientLimitsData: PropTypes.func,
+  clientLimitsRequested: PropTypes.func,
   clientLimits: PropTypes.object,
   clientId: PropTypes.string,
 };
@@ -79,8 +79,8 @@ const mapStateToProps = createStructuredSelector({
   clientLimits: selectClientLimits
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchClientLimitsData: clientId => dispatch(fetchClientLimitsData(clientId))
-});
+const mapDispatchToProps = {
+  clientLimitsRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LimitsTab);

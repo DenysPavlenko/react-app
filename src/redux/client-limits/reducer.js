@@ -1,21 +1,16 @@
-import { requestData, setData, setError } from 'redux/_utils/fetch-utils';
+import { fetchState } from 'redux/_utils/fetch-state';
 import ClientLimitsTypes from './types';
 
-const INITIAL_STATE = {
-  loading: true,
-  data: null,
-  error: false,
-  errorDetails: null,
-};
+const INITIAL_STATE = fetchState('initial');
 
 const clientLimitsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ClientLimitsTypes.FETCH_CLIENT_LIMITS_REQUEST:
-      return requestData();
+      return fetchState('request');
     case ClientLimitsTypes.FETCH_CLIENT_LIMITS_SUCCESS:
-      return setData(action.payload);
+      return fetchState('success', action.payload);
     case ClientLimitsTypes.FETCH_CLIENT_LIMITS_FAILURE:
-      return setError(action.payload);
+      return fetchState('failure', action.payload);
     default:
       return state;
   }
