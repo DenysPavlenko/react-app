@@ -1,9 +1,9 @@
-import { requestData, setData, setError } from 'redux/_utils/fetch-utils';
+import { fetchState } from 'redux/_utils/fetch-state';
 import AccountsClosedTypes from './types';
 
 const INITIAL_STATE = {
   isActive: false,
-  ...requestData()
+  ...fetchState('initial')
 };
 
 const activePlayersReducer = (state = INITIAL_STATE, action) => {
@@ -16,17 +16,17 @@ const activePlayersReducer = (state = INITIAL_STATE, action) => {
     case AccountsClosedTypes.FETCH_ACCOUNTS_CLOSED_REQUEST:
       return {
         ...state,
-        ...requestData()
+        ...fetchState('request')
       };
     case AccountsClosedTypes.FETCH_ACCOUNTS_CLOSED_SUCCESS:
       return {
         ...state,
-        ...setData(action.payload)
+        ...fetchState('success', action.payload)
       };
     case AccountsClosedTypes.FETCH_ACCOUNTS_CLOSED_FAILURE:
       return {
         ...state,
-        ...setError(action.payload)
+        ...fetchState('error', action.payload)
       };
     default:
       return state;
