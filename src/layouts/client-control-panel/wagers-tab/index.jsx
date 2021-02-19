@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchClientWagersData } from 'redux/client-wagers/actions';
+import { clientWagersRequested } from 'redux/client-wagers/actions';
 import { selectClientWagers } from 'redux/client-wagers/selectors';
 // Components
 import PrimaryTable from 'components/primary-table';
@@ -16,13 +16,13 @@ import tableContent from './table-content';
 // Styles
 import './styles.sass';
 
-const WagersTab = ({ fetchClientWagersData, clientWagers: { loading, data, error }, clientId }) => {
+const WagersTab = ({ clientWagersRequested, clientWagers: { loading, data, error }, clientId }) => {
   const [filterDays, setFilterDays] = useState('7');
   const [searchValue, setSearchValue] = useState('');
 
   useLayoutEffect(() => {
-    fetchClientWagersData(clientId, filterDays)
-  }, [fetchClientWagersData, clientId, filterDays]);
+    clientWagersRequested({ clientId, filterDays })
+  }, [clientWagersRequested, clientId, filterDays]);
 
   const handleSearch = value => {
     setSearchValue(value.toLowerCase());
@@ -54,7 +54,7 @@ const WagersTab = ({ fetchClientWagersData, clientWagers: { loading, data, error
           loading={loading}
           data={filteredData()}
           error={error}
-          retry={() => fetchClientWagersData(clientId)}
+          retry={() => clientWagersRequested({ clientId, filterDays })}
         />
       </div>
     </div>
@@ -62,7 +62,7 @@ const WagersTab = ({ fetchClientWagersData, clientWagers: { loading, data, error
 };
 
 WagersTab.propTypes = {
-  fetchClientWagersData: PropTypes.func,
+  clientWagersRequested: PropTypes.func,
   clientWagers: PropTypes.object,
   clientId: PropTypes.string,
 };
@@ -71,8 +71,8 @@ const mapStateToProps = createStructuredSelector({
   clientWagers: selectClientWagers
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchClientWagersData: (clientId, filter) => dispatch(fetchClientWagersData(clientId, filter))
-});
+const mapDispatchToProps = {
+  clientWagersRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(WagersTab);
