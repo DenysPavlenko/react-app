@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 // Redux
-import { fetchCashierData } from 'redux/cashier/actions';
+import { cashierRequested } from 'redux/cashier/actions';
 import { selectCashier } from 'redux/cashier/selectors';
 // Components
 import ErrorIndicator from 'components/error-indicator';
@@ -20,15 +20,15 @@ import tableContent from './table-content';
 // Styles
 import './styles.sass';
 
-const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
+const Cashier = ({ cashierRequested, cashier: { loading, data, error } }) => {
   const [expanded, setExpanded] = useState(0);
   const [selects, setSelects] = useState(null);
   const [idToDelete, setIdToDelete] = useState(null);
   const [transSummary, setTransSummary] = useState(null);
 
   useLayoutEffect(() => {
-    fetchCashierData();
-  }, [fetchCashierData]);
+    cashierRequested();
+  }, [cashierRequested]);
 
   useEffect(() => {
     if (!data) { return; }
@@ -78,7 +78,7 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
           <PageHeader left={<Typography component="h2">Cashier</Typography>} />
         </div>
         <div className="cashier__content">
-          {error && <ErrorIndicator retry={fetchCashierData} light />}
+          {error && <ErrorIndicator retry={cashierRequested} light />}
           {(!error && loading) && <Spinner boxed light />}
           {(!error && !loading) &&
             <Fragment>
@@ -105,7 +105,7 @@ const Cashier = ({ fetchCashierData, cashier: { loading, data, error } }) => {
 };
 
 Cashier.propTypes = {
-  fetchCashierData: PropTypes.func,
+  cashierRequested: PropTypes.func,
   selectCashier: PropTypes.object,
 };
 
@@ -113,8 +113,8 @@ const mapStateToProps = createStructuredSelector({
   cashier: selectCashier
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchCashierData: status => dispatch(fetchCashierData(status))
-});
+const mapDispatchToProps = {
+  cashierRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cashier);
