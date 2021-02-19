@@ -32,6 +32,7 @@ import { fetchPositionContestsData } from './position-contests/sagas';
 import { fetchPositionGamesData } from './position-games/sagas';
 import { fetchPositionLiveSportsData } from './position-live-sports/sagas';
 import { fetchPositionTodayData } from './position-today/sagas';
+import { fetchRecentLoginsData } from './recent-logins/sagas';
 
 function* rootSaga() {
   yield all([
@@ -67,6 +68,7 @@ function* rootSaga() {
     call(fetchPositionGamesData),
     call(fetchPositionLiveSportsData),
     call(fetchPositionTodayData),
+    call(fetchRecentLoginsData),
   ])
 }
 

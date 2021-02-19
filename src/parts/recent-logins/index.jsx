@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchRecentLoginsData } from 'redux/recent-logins/actions';
+import { recentLoginsRequested } from 'redux/recent-logins/actions';
 import { selectRecentLogins } from 'redux/recent-logins/selectors';
 // Components
 import PrimaryTable from 'components/primary-table';
@@ -13,10 +13,10 @@ import tableContent from './table-content';
 // Styles
 import './styles.sass';
 
-const RecentLogins = ({ fetchRecentLoginsData, recentLogins: { loading, data, error } }) => {
+const RecentLogins = ({ recentLoginsRequested, recentLogins: { loading, data, error } }) => {
   useLayoutEffect(() => {
-    fetchRecentLoginsData();
-  }, [fetchRecentLoginsData]);
+    recentLoginsRequested();
+  }, [recentLoginsRequested]);
 
   return (
     <div className="recent-logins">
@@ -28,14 +28,14 @@ const RecentLogins = ({ fetchRecentLoginsData, recentLogins: { loading, data, er
         loading={loading}
         data={data}
         error={error}
-        retry={fetchRecentLoginsData}
+        retry={recentLoginsRequested}
       />
     </div>
   );
 };
 
 RecentLogins.propTypes = {
-  fetchRecentLoginsData: PropTypes.func,
+  recentLoginsRequested: PropTypes.func,
   recentLogins: PropTypes.object,
 };
 
@@ -43,8 +43,8 @@ const mapStateToProps = createStructuredSelector({
   recentLogins: selectRecentLogins
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchRecentLoginsData: () => dispatch(fetchRecentLoginsData())
-});
+const mapDispatchToProps = {
+  recentLoginsRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecentLogins);
