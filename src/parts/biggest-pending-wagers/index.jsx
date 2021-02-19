@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchBiggestPendingWagersData } from 'redux/biggest-pending-wagers/actions';
+import { biggestPendingWagersRequested } from 'redux/biggest-pending-wagers/actions';
 import { selectBiggestPendingWagers } from 'redux/biggest-pending-wagers/selectors';
 // Components
 import PrimaryTable from 'components/primary-table';
@@ -13,10 +13,10 @@ import tableContent from './table-content';
 // Styles
 import './styles.sass';
 
-const BiggestPendingWagers = ({ fetchBiggestPendingWagersData, biggestPendingWagers: { loading, data, error } }) => {
+const BiggestPendingWagers = ({ biggestPendingWagersRequested, biggestPendingWagers: { loading, data, error } }) => {
   useLayoutEffect(() => {
-    fetchBiggestPendingWagersData();
-  }, [fetchBiggestPendingWagersData]);
+    biggestPendingWagersRequested();
+  }, [biggestPendingWagersRequested]);
 
   return (
     <div className="biggest-pending-wagers">
@@ -28,14 +28,14 @@ const BiggestPendingWagers = ({ fetchBiggestPendingWagersData, biggestPendingWag
         loading={loading}
         data={data}
         error={error}
-        retry={fetchBiggestPendingWagersData}
+        retry={biggestPendingWagersRequested}
       />
     </div>
   );
 };
 
 BiggestPendingWagers.propTypes = {
-  fetchBiggestPendingWagersData: PropTypes.func,
+  biggestPendingWagersRequested: PropTypes.func,
   selectBiggestPendingWagers: PropTypes.object,
 };
 
@@ -43,8 +43,8 @@ const mapStateToProps = createStructuredSelector({
   biggestPendingWagers: selectBiggestPendingWagers
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchBiggestPendingWagersData: () => dispatch(fetchBiggestPendingWagersData())
-});
+const mapDispatchToProps = {
+  biggestPendingWagersRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(BiggestPendingWagers);
