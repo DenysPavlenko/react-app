@@ -27,6 +27,7 @@ import { fetchMyTransactionsData } from './my-transactions/sagas';
 import { fetchNewAccountsData } from './new-accounts/sagas';
 import { fetchPendingData } from './pending/sagas';
 import { fetchPendingBetsData } from './pending-bets/sagas';
+import { fetchPendingWagersData } from './pending-wagers/sagas';
 
 function* rootSaga() {
   yield all([
@@ -57,6 +58,7 @@ function* rootSaga() {
     call(fetchNewAccountsData),
     call(fetchPendingData),
     call(fetchPendingBetsData),
+    call(fetchPendingWagersData),
   ])
 }
 
