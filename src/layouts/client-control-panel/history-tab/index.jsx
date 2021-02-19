@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchClientHistoryData } from 'redux/client-history/actions';
+import { clientHistoryRequested } from 'redux/client-history/actions';
 import { selectClientHistory } from 'redux/client-history/selectors';
 // Components
 import ButtonGroup from 'components/button-group';
@@ -21,12 +21,12 @@ const tabs = [
   { title: 'Yearly', value: 'yearly' },
 ];
 
-const HistoryTab = ({ fetchClientHistoryData, clientHistory: { loading, data, error }, clientId }) => {
+const HistoryTab = ({ clientHistoryRequested, clientHistory: { loading, data, error }, clientId }) => {
   const [category, setCategory] = useState('football');
 
   useLayoutEffect(() => {
-    fetchClientHistoryData(clientId, category);
-  }, [clientId, category, fetchClientHistoryData]);
+    clientHistoryRequested({ clientId, category });
+  }, [clientId, category, clientHistoryRequested]);
 
   return (
     <div className="history-tab">
@@ -44,7 +44,7 @@ const HistoryTab = ({ fetchClientHistoryData, clientHistory: { loading, data, er
           loading={loading}
           data={data}
           error={error}
-          retry={() => fetchClientHistoryData(clientId, category)}
+          retry={() => clientHistoryRequested({ clientId, category })}
         />
       </div>
     </div>
@@ -52,7 +52,7 @@ const HistoryTab = ({ fetchClientHistoryData, clientHistory: { loading, data, er
 };
 
 HistoryTab.propTypes = {
-  fetchClientHistoryData: PropTypes.func,
+  clientHistoryRequested: PropTypes.func,
   clientHistory: PropTypes.object,
   clientId: PropTypes.string,
 };
@@ -61,8 +61,8 @@ const mapStateToProps = createStructuredSelector({
   clientHistory: selectClientHistory
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchClientHistoryData: (clientId, category) => dispatch(fetchClientHistoryData(clientId, category))
-});
+const mapDispatchToProps = {
+  clientHistoryRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(HistoryTab);

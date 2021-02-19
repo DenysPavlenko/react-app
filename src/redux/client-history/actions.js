@@ -1,23 +1,14 @@
 import ClientHistoryTypes from './types';
-import ClientHistoryService from 'services/client-history-service';
 
-const clientHistoryService = new ClientHistoryService();
-
-const clientHistoryRequested = () => ({
-  type: ClientHistoryTypes.FETCH_CLIENT_HISTORY_REQUEST
+export const clientHistoryRequested = payload => ({
+  type: ClientHistoryTypes.FETCH_CLIENT_HISTORY_REQUEST,
+  payload
 });
-const clientHistoryLoaded = data => ({
+export const clientHistoryLoaded = data => ({
   type: ClientHistoryTypes.FETCH_CLIENT_HISTORY_SUCCESS,
   payload: data
 });
-const clientHistoryError = error => ({
+export const clientHistoryError = error => ({
   type: ClientHistoryTypes.FETCH_CLIENT_HISTORY_FAILURE,
   payload: error
 });
-
-export const fetchClientHistoryData = (clientId, category) => dispatch => {
-  dispatch(clientHistoryRequested());
-  clientHistoryService.getClientHistory(clientId, category)
-    .then(data => dispatch(clientHistoryLoaded(data)))
-    .catch(error => dispatch(clientHistoryError(error)))
-};
