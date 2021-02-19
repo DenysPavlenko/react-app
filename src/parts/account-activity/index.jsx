@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchAccountActivityData } from 'redux/account-activity/actions';
+import { accountActivityRequested } from 'redux/account-activity/actions';
 import { selectAccountActivity } from 'redux/account-activity/selectors';
 // Components
 import DataPreviewModal from 'components/data-preview-modal';
@@ -12,11 +12,11 @@ import PrimaryTable from 'components/primary-table';
 // Table content
 import tableContent from './table-content';
 
-const AccountActivity = ({ agent, date, open, onClose, onExited, fetchAccountActivityData, accountActivity: { loading, data, error } }) => {
+const AccountActivity = ({ agent, date, open, onClose, onExited, accountActivityRequested, accountActivity: { loading, data, error } }) => {
 
   useLayoutEffect(() => {
-    fetchAccountActivityData(agent, date);
-  }, [fetchAccountActivityData, agent, date]);
+    open && accountActivityRequested({ agent, date });
+  }, [accountActivityRequested, agent, date, open]);
 
   return (
     <DataPreviewModal
@@ -30,7 +30,7 @@ const AccountActivity = ({ agent, date, open, onClose, onExited, fetchAccountAct
         <PrimaryTable
           cols={tableContent()}
           loading={loading}
-          retry={() => fetchAccountActivityData(agent)}
+          retry={() => accountActivityRequested(agent)}
           data={data}
           error={error}
           variant="primary-light"
@@ -50,7 +50,7 @@ AccountActivity.propTypes = {
   onClose: PropTypes.func,
   onExited: PropTypes.func,
   toggleAccountActivity: PropTypes.func,
-  fetchAccountActivityData: PropTypes.func,
+  accountActivityRequested: PropTypes.func,
   accountActivity: PropTypes.object,
 };
 
@@ -58,8 +58,8 @@ const mapStateToProps = createStructuredSelector({
   accountActivity: selectAccountActivity,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchAccountActivityData: agent => dispatch(fetchAccountActivityData(agent)),
-});
+const mapDispatchToProps = {
+  accountActivityRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountActivity);

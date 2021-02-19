@@ -12,7 +12,7 @@ const accountActivitiesReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case AccountActivityTypes.FETCH_ACOUNT_ACTIVITY_REQUEST:
       return requestData();
-      case AccountActivityTypes.FETCH_ACOUNT_ACTIVITY_SUCCESS:
+    case AccountActivityTypes.FETCH_ACOUNT_ACTIVITY_SUCCESS:
       return setData(action.payload)
     case AccountActivityTypes.FETCH_ACOUNT_ACTIVITY_FAILURE:
       return setError(action.payload)
