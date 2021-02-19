@@ -1,23 +1,14 @@
 import transactionsTypes from './types';
-import TransactionsService from 'services/transactions-service';
 
-const transactionsService = new TransactionsService();
-
-const transactionsRequested = () => ({
-  type: transactionsTypes.FETCH_TRANSACTIONS_REQUEST
+export const transactionsRequested = payload => ({
+  type: transactionsTypes.FETCH_TRANSACTIONS_REQUEST,
+  payload
 });
-const transactionsLoaded = data => ({
+export const transactionsLoaded = data => ({
   type: transactionsTypes.FETCH_TRANSACTIONS_SUCCESS,
   payload: data
 });
-const transactionsError = error => ({
+export const transactionsError = error => ({
   type: transactionsTypes.FETCH_TRANSACTIONS_FAILURE,
   payload: error
 });
-
-export const fetchTransactionsData = agent => dispatch => {
-  dispatch(transactionsRequested());
-  transactionsService.getTransactions(agent)
-    .then(data => dispatch(transactionsLoaded(data)))
-    .catch(error => dispatch(transactionsError(error)))
-};

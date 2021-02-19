@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchTransactionsData } from 'redux/transactions/actions';
+import { transactionsRequested } from 'redux/transactions/actions';
 import { selectTransactions } from 'redux/transactions/selectors';
 // Components
 import Typography from 'components/typography';
@@ -12,11 +12,11 @@ import DataPreviewModal from 'components/data-preview-modal';
 // Table content
 import tableContent from './table-content';
 
-const Transactions = ({ agent, open, onClose, onExited, fetchTransactionsData, transactions: { loading, data, error } }) => {
+const Transactions = ({ agent, open, onClose, onExited, transactionsRequested, transactions: { loading, data, error } }) => {
 
   useLayoutEffect(() => {
-    fetchTransactionsData(agent);
-  }, [fetchTransactionsData, agent]);
+    transactionsRequested(agent);
+  }, [transactionsRequested, agent]);
 
   return (
     <DataPreviewModal
@@ -30,7 +30,7 @@ const Transactions = ({ agent, open, onClose, onExited, fetchTransactionsData, t
         <PrimaryTable
           cols={tableContent()}
           loading={loading}
-          retry={() => fetchTransactionsData(agent)}
+          retry={() => transactionsRequested(agent)}
           data={data}
           error={error}
           variant="primary-light"
@@ -49,7 +49,7 @@ Transactions.propTypes = {
   onClose: PropTypes.func,
   onExited: PropTypes.func,
   toggleTransactions: PropTypes.func,
-  fetchTransactionsData: PropTypes.func,
+  transactionsRequested: PropTypes.func,
   transactions: PropTypes.object,
 };
 
@@ -57,8 +57,8 @@ const mapStateToProps = createStructuredSelector({
   transactions: selectTransactions,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchTransactionsData: agent => dispatch(fetchTransactionsData(agent)),
-});
+const mapDispatchToProps = {
+  transactionsRequested,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Transactions);
