@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchPositionLiveSportsData } from 'redux/position-live-sports/actions';
+import { positionLiveSportsRequested } from 'redux/position-live-sports/actions';
 import { selectPositionLiveSports } from 'redux/position-live-sports/selectors';
 // Components
 import Table from '../table';
@@ -13,13 +13,13 @@ import tableContent from './table-content';
 // Styles
 import './styles.sass';
 
-const LiveSportsTab = ({ fetchPositionLiveSportsData, positionLiveSports: { loading, data, error } }) => {
+const LiveSportsTab = ({ positionLiveSportsRequested, positionLiveSports: { loading, data, error } }) => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedAgent, setSelectedAgent] = useState('');
 
   useLayoutEffect(() => {
-    fetchPositionLiveSportsData();
-  }, [fetchPositionLiveSportsData])
+    positionLiveSportsRequested();
+  }, [positionLiveSportsRequested])
 
   const handleAgentSelect = agent => {
     setOpenModal(true);
@@ -40,7 +40,7 @@ const LiveSportsTab = ({ fetchPositionLiveSportsData, positionLiveSports: { load
           loading={loading}
           data={data}
           error={error}
-          retry={fetchPositionLiveSportsData}
+          retry={positionLiveSportsRequested}
         />
       </div>
     </Fragment>
@@ -48,7 +48,7 @@ const LiveSportsTab = ({ fetchPositionLiveSportsData, positionLiveSports: { load
 };
 
 LiveSportsTab.propTypes = {
-  fetchPositionLiveSportsData: PropTypes.func,
+  positionLiveSportsRequested: PropTypes.func,
   distribution: PropTypes.object,
 };
 
@@ -56,8 +56,8 @@ const mapStateToProps = createStructuredSelector({
   positionLiveSports: selectPositionLiveSports
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchPositionLiveSportsData: () => dispatch(fetchPositionLiveSportsData())
-});
+const mapDispatchToProps = {
+  positionLiveSportsRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LiveSportsTab);
