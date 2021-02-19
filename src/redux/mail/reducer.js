@@ -1,14 +1,9 @@
-import { requestData, setData, setError } from '../_utils/fetch-utils';
+import { fetchState } from '../_utils/fetch-state';
 import MailTypes from './types';
 
 const INITIAL_STATE = {
   isActive: false,
-  messages: {
-    loading: true,
-    data: null,
-    error: false,
-    errorDetails: null,
-  }
+  messages: fetchState('initial')
 };
 
 const mailReducer = (state = INITIAL_STATE, action) => {
@@ -24,17 +19,17 @@ const mailReducer = (state = INITIAL_STATE, action) => {
     case MailTypes.FETCH_MESSAGES_REQUEST:
       return {
         ...state,
-        messages: requestData()
+        messages: fetchState('request')
       }
     case MailTypes.FETCH_MESSAGES_SUCCESS:
       return {
         ...state,
-        messages: setData(action.payload)
+        messages: fetchState('success', action.payload)
       }
     case MailTypes.FETCH_MESSAGES_FAILURE:
       return {
         ...state,
-        messages: setError(action.payload)
+        messages: fetchState('failure', action.payload)
       }
 
     case MailTypes.DELETE_MESSAGE:

@@ -22,6 +22,7 @@ import { fetchCustomerListData } from './customer-list/sagas';
 import { fetchDeletedWagersData } from './deleted-wagers/sagas';
 import { fetchDistributionData } from './distribution/sagas';
 import { fetchFiguresData } from './figures/sagas';
+import { fetchMessages } from './mail/sagas';
 
 function* rootSaga() {
   yield all([
@@ -47,6 +48,7 @@ function* rootSaga() {
     call(fetchDeletedWagersData),
     call(fetchDistributionData),
     call(fetchFiguresData),
+    call(fetchMessages),
   ])
 }
 

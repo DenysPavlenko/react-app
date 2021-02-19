@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
-import { toggleMail, fetchMessages } from 'redux/mail/actions';
+import { toggleMail, messagesRequested } from 'redux/mail/actions';
 import { selectMailActive, selectMessages } from 'redux/mail/selectors';
 // Components
 import Simplebar from 'simplebar-react';
@@ -15,7 +15,7 @@ import MailNewMessage from './mail-new-message';
 // Styles
 import './styles.sass';
 
-const Mail = ({ isActive, fetchMessages, messages, toggleMail }) => {
+const Mail = ({ isActive, messagesRequested, messages, toggleMail }) => {
   const [currentCategory, setCurrentCategory] = useState('inbox');
 
   const handleCategorySwitch = category => {
@@ -23,8 +23,8 @@ const Mail = ({ isActive, fetchMessages, messages, toggleMail }) => {
   };
 
   useLayoutEffect(() => {
-    isActive && fetchMessages(currentCategory);
-  }, [isActive, fetchMessages, currentCategory]);
+    isActive && messagesRequested(currentCategory);
+  }, [isActive, messagesRequested, currentCategory]);
 
   return (
     <SidebarItem isActive={isActive} toggle={toggleMail}>
@@ -38,7 +38,7 @@ const Mail = ({ isActive, fetchMessages, messages, toggleMail }) => {
         <div className="mail__content">
           <Simplebar className="custom-scroll">
             {currentCategory !== 'new' ?
-              <MailBox messages={messages} retry={() => fetchMessages(currentCategory)} />
+              <MailBox messages={messages} retry={() => messagesRequested(currentCategory)} />
               :
               <MailNewMessage />
             }
@@ -51,7 +51,7 @@ const Mail = ({ isActive, fetchMessages, messages, toggleMail }) => {
 
 Mail.propTypes = {
   isActive: PropTypes.bool,
-  fetchMessages: PropTypes.func,
+  messagesRequested: PropTypes.func,
   toggleMail: PropTypes.func,
   messages: PropTypes.object,
 };
@@ -61,9 +61,9 @@ const mapStateToProps = createStructuredSelector({
   messages: selectMessages
 });
 
-const mapDispatchToProps = dispatch => ({
-  toggleMail: () => dispatch(toggleMail()),
-  fetchMessages: (category) => dispatch(fetchMessages(category)),
-});
+const mapDispatchToProps = {
+  toggleMail,
+  messagesRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Mail);
