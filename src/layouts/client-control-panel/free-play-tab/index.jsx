@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchClientFreePlayData } from 'redux/client-free-play/actions';
+import { clientFreePlayRequested } from 'redux/client-free-play/actions';
 import { selectClientFreePlay } from 'redux/client-free-play/selectors';
 // Components
 import Form from 'components/form';
@@ -25,12 +25,12 @@ const initialState = {
   privateNotes: '',
 };
 
-const FreePlayTab = ({ fetchClientFreePlayData, clientFreePlay: { loading, data, error }, clientId }) => {
+const FreePlayTab = ({ clientFreePlayRequested, clientFreePlay: { loading, data, error }, clientId }) => {
   const [clientData, setClientData] = useState(initialState);
 
   useLayoutEffect(() => {
-    fetchClientFreePlayData(clientId)
-  }, [clientId, fetchClientFreePlayData]);
+    clientFreePlayRequested(clientId)
+  }, [clientId, clientFreePlayRequested]);
 
   const handleInput = ({ target: { name, value } }) => {
     setClientData(data => ({
@@ -77,7 +77,7 @@ const FreePlayTab = ({ fetchClientFreePlayData, clientFreePlay: { loading, data,
           loading={loading}
           data={data}
           error={error}
-          retry={() => fetchClientFreePlayData(clientId)}
+          retry={() => clientFreePlayRequested(clientId)}
         />
       </div>
     </div>
@@ -85,7 +85,7 @@ const FreePlayTab = ({ fetchClientFreePlayData, clientFreePlay: { loading, data,
 };
 
 FreePlayTab.propTypes = {
-  fetchClientFreePlayData: PropTypes.func,
+  clientFreePlayRequested: PropTypes.func,
   clientFreePlay: PropTypes.object,
   clientId: PropTypes.string,
 };
@@ -94,8 +94,8 @@ const mapStateToProps = createStructuredSelector({
   clientFreePlay: selectClientFreePlay
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchClientFreePlayData: clientId => dispatch(fetchClientFreePlayData(clientId))
-});
+const mapDispatchToProps = {
+  clientFreePlayRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(FreePlayTab);

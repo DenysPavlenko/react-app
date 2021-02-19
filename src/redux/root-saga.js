@@ -10,6 +10,7 @@ import { fetchCashierData } from './cashier/sagas';
 import { fetchClientAccountingData } from './client-accounting/sagas';
 import { fetchClientBalanceData } from './client-balance/sagas';
 import { fetchClientDetailLimitsData } from './client-detail-limits/sagas';
+import { fetchClientFreePlayData } from './client-free-play/sagas';
 
 function* rootSaga() {
   yield all([
@@ -23,6 +24,7 @@ function* rootSaga() {
     call(fetchClientAccountingData),
     call(fetchClientBalanceData),
     call(fetchClientDetailLimitsData),
+    call(fetchClientFreePlayData),
   ])
 }
 

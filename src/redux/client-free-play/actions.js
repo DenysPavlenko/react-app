@@ -1,22 +1,14 @@
 import ClientFreePlayTypes from './types';
-import ClientFreePlayService from 'services/client-free-play-service';
-const clientFreePlayService = new ClientFreePlayService();
 
-const clientFreePlayRequested = () => ({
-  type: ClientFreePlayTypes.FETCH_CLIENT_FREE_PLAY_REQUEST
+export const clientFreePlayRequested = payload => ({
+  type: ClientFreePlayTypes.FETCH_CLIENT_FREE_PLAY_REQUEST,
+  payload
 });
-const clientFreePlayLoaded = data => ({
+export const clientFreePlayLoaded = data => ({
   type: ClientFreePlayTypes.FETCH_CLIENT_FREE_PLAY_SUCCESS,
   payload: data
 });
-const clientFreePlayError = error => ({
+export const clientFreePlayError = error => ({
   type: ClientFreePlayTypes.FETCH_CLIENT_FREE_PLAY_FAILURE,
   payload: error
 });
-
-export const fetchClientFreePlayData = clientId => dispatch => {
-  dispatch(clientFreePlayRequested());
-  clientFreePlayService.getClientFreePlay(clientId)
-    .then(data => dispatch(clientFreePlayLoaded(data)))
-    .catch(error => dispatch(clientFreePlayError(error)))
-};
