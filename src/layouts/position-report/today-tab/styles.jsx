@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchPositionTodayData } from 'redux/position-today/actions';
+import { positionTodayRequested } from 'redux/position-today/actions';
 import { selectPositionToday } from 'redux/position-today/selectors';
 // Components
 import PositionTable from '../table';
@@ -13,13 +13,13 @@ import tableContent from './table-content';
 // Styles
 import './styles.sass';
 
-const TodayTab = ({ fetchPositionTodayData, positionToday: { loading, data, error } }) => {
+const TodayTab = ({ positionTodayRequested, positionToday: { loading, data, error } }) => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedAgent, setSelectedAgent] = useState('');
 
   useLayoutEffect(() => {
-    fetchPositionTodayData();
-  }, [fetchPositionTodayData])
+    positionTodayRequested();
+  }, [positionTodayRequested])
 
   const handleAgentSelect = agent => {
     setOpenModal(true);
@@ -40,7 +40,7 @@ const TodayTab = ({ fetchPositionTodayData, positionToday: { loading, data, erro
           loading={loading}
           data={data}
           error={error}
-          retry={fetchPositionTodayData}
+          retry={positionTodayRequested}
         />
       </div>
     </Fragment>
@@ -48,7 +48,7 @@ const TodayTab = ({ fetchPositionTodayData, positionToday: { loading, data, erro
 };
 
 TodayTab.propTypes = {
-  fetchPositionTodayData: PropTypes.func,
+  positionTodayRequested: PropTypes.func,
   distribution: PropTypes.object,
 };
 
@@ -56,8 +56,8 @@ const mapStateToProps = createStructuredSelector({
   positionToday: selectPositionToday
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchPositionTodayData: () => dispatch(fetchPositionTodayData())
-});
+const mapDispatchToProps = {
+  positionTodayRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodayTab);
