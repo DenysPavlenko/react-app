@@ -4,6 +4,7 @@ import { fetchAccountActivityData } from './account-activity/sagas';
 import { fetchAccountsClosedData } from './accounts-closed/sagas';
 import { fetchActiveCustomersData } from './active-customers/sagas';
 import { fetchActivePlayersData } from './active-players/sagas';
+import { fetchAgentsData } from './agents/sagas';
 
 function* rootSaga() {
   yield all([
@@ -11,6 +12,7 @@ function* rootSaga() {
     call(fetchAccountsClosedData),
     call(fetchActiveCustomersData),
     call(fetchActivePlayersData),
+    call(fetchAgentsData),
   ])
 }
 

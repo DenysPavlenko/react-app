@@ -1,10 +1,10 @@
 import React, { Fragment, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 // Redux
-import { fetchAgentsData } from 'redux/agents/actions';
+import { agentsRequested } from 'redux/agents/actions';
 import { selectAgents } from 'redux/agents/selectors';
 // Components
 import PrimaryTable from 'components/primary-table';
@@ -17,13 +17,13 @@ import searchFilter from 'utils/search-filter';
 // Styles
 import './styles.sass';
 
-const Agents = ({ fetchAgentsData, agents: { loading, data, error }, history }) => {
+const Agents = ({ agentsRequested, agents: { loading, data, error }, history }) => {
   const [searchValue, setSearchValue] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
 
   useLayoutEffect(() => {
-    fetchAgentsData();
-  }, [fetchAgentsData])
+    agentsRequested();
+  }, [agentsRequested])
 
   const handleSearch = value => {
     setSearchValue(value.toLowerCase());
@@ -47,7 +47,7 @@ const Agents = ({ fetchAgentsData, agents: { loading, data, error }, history }) 
             loading={loading}
             data={filteredData()}
             error={error}
-            retry={fetchAgentsData}
+            retry={agentsRequested}
           />
         </div>
       </div>
@@ -56,7 +56,7 @@ const Agents = ({ fetchAgentsData, agents: { loading, data, error }, history }) 
 };
 
 Agents.propTypes = {
-  fetchAgentsData: PropTypes.func,
+  agentsRequested: PropTypes.func,
   agents: PropTypes.object,
 };
 
@@ -64,8 +64,8 @@ const mapStateToProps = createStructuredSelector({
   agents: selectAgents
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchAgentsData: () => dispatch(fetchAgentsData())
-});
+const mapDispatchToProps = {
+  agentsRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Agents));
