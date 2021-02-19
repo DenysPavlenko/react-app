@@ -1,19 +1,15 @@
 // Dummy data
-import * as footbal from './dummy-data/football.json';
+import * as football from './dummy-data/football.json';
 import * as baseball from './dummy-data/baseball.json';
 // Helpers
 import getDummyData from 'services/_utils/get-dummy-data';
 
 export default class DummyService {
 
-  getClientFootballDetailLimits = async () => {
-    return getDummyData({ data: footbal });
-  }
-
-  getClientDetailLimits = (clientId, category) => {
-    switch (category) {
+  getClientDetailLimits = (clientId, detailLimits) => {
+    switch (detailLimits) {
       case 'football':
-        return getDummyData({ data: footbal });
+        return getDummyData({ data: football });
       case 'baseball':
         return getDummyData({ data: baseball });
       default:

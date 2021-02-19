@@ -3,9 +3,9 @@ import { clientDetailLimitsRequested, clientDetailLimitsLoaded, clientDetailLimi
 import ClientDetailLimitsService from 'services/client-detail-limits-service';
 const clientDetailLimitsService = new ClientDetailLimitsService();
 
-function* fetchClientDetailLimitsDataWorker({ payload: { clientId, category } }) {
+function* fetchClientDetailLimitsDataWorker({ payload: { clientId, detailLimits } }) {
   try {
-    const data = yield clientDetailLimitsService.getClientDetailLimits(clientId, category);
+    const data = yield clientDetailLimitsService.getClientDetailLimits(clientId, detailLimits);
     yield put(clientDetailLimitsLoaded(data));
   } catch (error) {
     yield put(clientDetailLimitsError(error));

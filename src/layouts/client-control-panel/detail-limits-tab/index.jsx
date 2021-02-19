@@ -64,10 +64,10 @@ const DetailLimitsTab = ({ clientDetailLimitsRequested, clientDetailLimits: { lo
   const handleSubmit = () => handleRemoveAllValues();
 
   useLayoutEffect(() => {
-    clientDetailLimitsRequested(clientId, detailLimits);
+    clientDetailLimitsRequested({ clientId, detailLimits });
   }, [clientDetailLimitsRequested, clientId, detailLimits]);
 
-  const handleRefresh = () => clientDetailLimitsRequested(clientId, detailLimits);
+  const handleRefresh = () => clientDetailLimitsRequested({ clientId, detailLimits });
 
   const title = options.find(({ value }) => value === detailLimits).label;
 
