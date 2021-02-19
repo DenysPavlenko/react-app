@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchPositionContestsData } from 'redux/position-contests/actions';
+import { positionContestsRequested } from 'redux/position-contests/actions';
 import { selectPositionContests } from 'redux/position-contests/selectors';
 // Components
 import Typography from 'components/typography';
@@ -28,14 +28,14 @@ const games = [
   { name: 'soccer-minor' },
 ];
 
-const ContestsTab = ({ fetchPositionContestsData, positionContests: { loading, data, error } }) => {
+const ContestsTab = ({ positionContestsRequested, positionContests: { loading, data, error } }) => {
   const [activeContest, setActiveContest] = useState('football');
   const [openModal, setOpenModal] = useState(false);
   const [selectedAgent, setSelectedAgent] = useState('');
 
   useLayoutEffect(() => {
-    fetchPositionContestsData(activeContest);
-  }, [fetchPositionContestsData, activeContest]);
+    positionContestsRequested(activeContest);
+  }, [positionContestsRequested, activeContest]);
 
   const handleAgentSelect = agent => {
     setOpenModal(true);
@@ -67,7 +67,7 @@ const ContestsTab = ({ fetchPositionContestsData, positionContests: { loading, d
             loading={loading}
             data={data}
             error={error}
-            retry={() => fetchPositionContestsData(activeContest)}
+            retry={() => positionContestsRequested(activeContest)}
           />
         </div>
       </div>
@@ -76,7 +76,7 @@ const ContestsTab = ({ fetchPositionContestsData, positionContests: { loading, d
 };
 
 ContestsTab.propTypes = {
-  fetchPositionContestsData: PropTypes.func,
+  positionContestsRequested: PropTypes.func,
   distribution: PropTypes.object,
 };
 
@@ -84,8 +84,8 @@ const mapStateToProps = createStructuredSelector({
   positionContests: selectPositionContests
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchPositionContestsData: (game, filter) => dispatch(fetchPositionContestsData(game, filter))
-});
+const mapDispatchToProps = {
+  positionContestsRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContestsTab);
