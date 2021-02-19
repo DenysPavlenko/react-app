@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
-import { fetchSettleData } from 'redux/settle/actions';
+import { settleRequested } from 'redux/settle/actions';
 import { selectSettle } from 'redux/settle/selectors';
 // Components
 import SettleHeader from './settle-header';
@@ -13,12 +13,12 @@ import tableContent from './table-content';
 // Styles
 import './styles.sass';
 
-const Settle = ({ fetchSettleData, settle: { loading, data, error } }) => {
+const Settle = ({ settleRequested, settle: { loading, data, error } }) => {
   const [date, setDate] = useState('12/7/2020');
 
   useLayoutEffect(() => {
-    fetchSettleData(date);
-  }, [date, fetchSettleData]);
+    settleRequested(date);
+  }, [date, settleRequested]);
 
   return (
     <div className="settle">
@@ -31,7 +31,7 @@ const Settle = ({ fetchSettleData, settle: { loading, data, error } }) => {
           loading={loading}
           data={data}
           error={error}
-          retry={() => fetchSettleData(date)}
+          retry={() => settleRequested(date)}
         />
       </div>
     </div>
@@ -39,7 +39,7 @@ const Settle = ({ fetchSettleData, settle: { loading, data, error } }) => {
 };
 
 Settle.propTypes = {
-  fetchSettleData: PropTypes.func,
+  settleRequested: PropTypes.func,
   settle: PropTypes.object,
 };
 
@@ -47,8 +47,8 @@ const mapStateToProps = createStructuredSelector({
   settle: selectSettle
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchSettleData: date => dispatch(fetchSettleData(date))
-});
+const mapDispatchToProps = {
+  settleRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settle);
