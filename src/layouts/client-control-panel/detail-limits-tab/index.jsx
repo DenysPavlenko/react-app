@@ -1,9 +1,9 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 // Redux
-import { fetchClientDetailLimitsData } from 'redux/client-detail-limits/actions';
+import { clientDetailLimitsRequested } from 'redux/client-detail-limits/actions';
 import { selectClientDetailLimits } from 'redux/client-detail-limits/selectors';
 // Components
 import Select from 'components/select';
@@ -26,7 +26,7 @@ const initialGroupInputs = {
   circled: '',
 };
 
-const DetailLimitsTab = ({ fetchClientDetailLimitsData, clientDetailLimits: { loading, data, error }, clientId }) => {
+const DetailLimitsTab = ({ clientDetailLimitsRequested, clientDetailLimits: { loading, data, error }, clientId }) => {
   const [detailLimits, setDetailLimits] = useState('football');
   const [clientInputs, setclientInputs] = useState({});
   const [groupInputs, setGroupInput] = useState(initialGroupInputs);
@@ -64,10 +64,10 @@ const DetailLimitsTab = ({ fetchClientDetailLimitsData, clientDetailLimits: { lo
   const handleSubmit = () => handleRemoveAllValues();
 
   useLayoutEffect(() => {
-    fetchClientDetailLimitsData(clientId, detailLimits);
-  }, [fetchClientDetailLimitsData, clientId, detailLimits]);
+    clientDetailLimitsRequested(clientId, detailLimits);
+  }, [clientDetailLimitsRequested, clientId, detailLimits]);
 
-  const handleRefresh = () => fetchClientDetailLimitsData(clientId, detailLimits);
+  const handleRefresh = () => clientDetailLimitsRequested(clientId, detailLimits);
 
   const title = options.find(({ value }) => value === detailLimits).label;
 
@@ -100,7 +100,7 @@ const DetailLimitsTab = ({ fetchClientDetailLimitsData, clientDetailLimits: { lo
           loading={loading}
           data={data}
           error={error}
-          retry={() => fetchClientDetailLimitsData(clientId, detailLimits)}
+          retry={() => clientDetailLimitsRequested(clientId, detailLimits)}
         />
       </div>
     </div>
@@ -108,7 +108,7 @@ const DetailLimitsTab = ({ fetchClientDetailLimitsData, clientDetailLimits: { lo
 };
 
 DetailLimitsTab.propTypes = {
-  fetchClientDetailLimitsData: PropTypes.func,
+  clientDetailLimitsRequested: PropTypes.func,
   clientDetailLimits: PropTypes.object,
   clientId: PropTypes.string,
 };
@@ -117,8 +117,8 @@ const mapStateToProps = createStructuredSelector({
   clientDetailLimits: selectClientDetailLimits
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchClientDetailLimitsData: (clientId, category) => dispatch(fetchClientDetailLimitsData(clientId, category))
-});
+const mapDispatchToProps = {
+  clientDetailLimitsRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetailLimitsTab);
