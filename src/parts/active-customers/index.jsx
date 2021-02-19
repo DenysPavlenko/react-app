@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchActiveCustomersData } from 'redux/active-customers/actions';
+import { activeCustomersRequested } from 'redux/active-customers/actions';
 import { selectActiveCustomers } from 'redux/active-customers/selectors';
 // Components
 import DataPreviewModal from 'components/data-preview-modal';
@@ -12,11 +12,11 @@ import PrimaryTable from 'components/primary-table';
 // Table content
 import tableContent from './table-content';
 
-const ActiveCustomers = ({ agent, open, onClose, onExited, fetchActiveCustomersData, activeCustomers: { loading, data, error } }) => {
+const ActiveCustomers = ({ agent, open, onClose, onExited, activeCustomersRequested, activeCustomers: { loading, data, error } }) => {
 
   useLayoutEffect(() => {
-    fetchActiveCustomersData(agent);
-  }, [fetchActiveCustomersData, agent]);
+    open && activeCustomersRequested({ agent });
+  }, [activeCustomersRequested, agent, open]);
 
   return (
     <DataPreviewModal
@@ -30,7 +30,7 @@ const ActiveCustomers = ({ agent, open, onClose, onExited, fetchActiveCustomersD
         <PrimaryTable
           cols={tableContent()}
           loading={loading}
-          retry={() => fetchActiveCustomersData(agent)}
+          retry={() => activeCustomersRequested(agent)}
           data={data}
           error={error}
           variant="primary-light"
@@ -49,7 +49,7 @@ ActiveCustomers.propTypes = {
   onClose: PropTypes.func,
   onExited: PropTypes.func,
   toggleActiveCustomers: PropTypes.func,
-  fetchActiveCustomersData: PropTypes.func,
+  activeCustomersRequested: PropTypes.func,
   activeCustomers: PropTypes.object,
 };
 
@@ -57,8 +57,8 @@ const mapStateToProps = createStructuredSelector({
   activeCustomers: selectActiveCustomers,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchActiveCustomersData: agent => dispatch(fetchActiveCustomersData(agent)),
-});
+const mapDispatchToProps = {
+  activeCustomersRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActiveCustomers);
