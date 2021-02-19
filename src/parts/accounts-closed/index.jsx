@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchAccountsClosedData, toggleAccountsClosed } from 'redux/accounts-closed/actions';
+import { accountsClosedRequested, toggleAccountsClosed } from 'redux/accounts-closed/actions';
 import { selectAccountsClosed, selectShowAccountsClosed } from 'redux/accounts-closed/selectors';
 // Components
 import DataPreviewModal from 'components/data-preview-modal';
@@ -12,11 +12,11 @@ import PrimaryTable from 'components/primary-table';
 // Table content
 import tableContent from './table-content';
 
-const AccountsClosed = ({ toggleAccountsClosed, fetchAccountsClosedData, AccountsClosed: { loading, data, error }, showAccountsClosed }) => {
+const AccountsClosed = ({ toggleAccountsClosed, accountsClosedRequested, AccountsClosed: { loading, data, error }, showAccountsClosed }) => {
 
   useLayoutEffect(() => {
-    showAccountsClosed && fetchAccountsClosedData();
-  }, [fetchAccountsClosedData, showAccountsClosed]);
+    showAccountsClosed && accountsClosedRequested();
+  }, [accountsClosedRequested, showAccountsClosed]);
 
   return (
     <DataPreviewModal
@@ -29,7 +29,7 @@ const AccountsClosed = ({ toggleAccountsClosed, fetchAccountsClosedData, Account
         <PrimaryTable
           cols={tableContent()}
           loading={loading}
-          retry={fetchAccountsClosedData}
+          retry={accountsClosedRequested}
           data={data}
           error={error}
           variant="primary-light"
@@ -44,7 +44,7 @@ const AccountsClosed = ({ toggleAccountsClosed, fetchAccountsClosedData, Account
 
 AccountsClosed.propTypes = {
   toggleAccountsClosed: PropTypes.func,
-  fetchAccountsClosedData: PropTypes.func,
+  accountsClosedRequested: PropTypes.func,
   AccountsClosed: PropTypes.object,
 };
 
@@ -53,9 +53,9 @@ const mapStateToProps = createStructuredSelector({
   showAccountsClosed: selectShowAccountsClosed,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchAccountsClosedData: () => dispatch(fetchAccountsClosedData()),
-  toggleAccountsClosed: () => dispatch(toggleAccountsClosed()),
-});
+const mapDispatchToProps = {
+  accountsClosedRequested,
+  toggleAccountsClosed,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountsClosed);

@@ -3,10 +3,7 @@ import AccountsClosedTypes from './types';
 
 const INITIAL_STATE = {
   isActive: false,
-  loading: true,
-  data: null,
-  error: false,
-  errorDetails: null,
+  ...requestData()
 };
 
 const activePlayersReducer = (state = INITIAL_STATE, action) => {
