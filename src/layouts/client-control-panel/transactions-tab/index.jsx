@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchClientTransactionsData } from 'redux/client-transactions/actions';
+import { clientTransactionsRequested } from 'redux/client-transactions/actions';
 import { selectClientTransactions } from 'redux/client-transactions/selectors';
 // Components
 import Form from 'components/form';
@@ -26,14 +26,14 @@ const initialState = {
   privateNotes: '',
 };
 
-const TransactionsTab = ({ fetchClientTransactionsData, clientTransactions: { loading, data, error }, clientId }) => {
+const TransactionsTab = ({ clientTransactionsRequested, clientTransactions: { loading, data, error }, clientId }) => {
   const [clientData, setClientData] = useState(initialState);
   const [transactions, setTransactions] = useState(null);
   const [idToDelete, setIdToDelete] = useState(null);
 
   useLayoutEffect(() => {
-    fetchClientTransactionsData(clientId);
-  }, [clientId, fetchClientTransactionsData]);
+    clientTransactionsRequested(clientId);
+  }, [clientId, clientTransactionsRequested]);
 
   useEffect(() => {
     setTransactions(data);
@@ -50,8 +50,9 @@ const TransactionsTab = ({ fetchClientTransactionsData, clientTransactions: { lo
     e.preventDefault();
   };
 
-  const handleDeleteClick = id => setIdToDelete(id);
-
+  const handleDeleteClick = id => {
+    setIdToDelete(id)
+  };
   const handleDelete = () => {
     setTransactions(transactions => transactions.filter(({ id }) => id !== idToDelete));
     setIdToDelete(null);
@@ -60,8 +61,8 @@ const TransactionsTab = ({ fetchClientTransactionsData, clientTransactions: { lo
   return (
     <Fragment>
       <DeleteConfirmation
-        open={idToDelete}
-        onClose={() => setIdToDelete(false)}
+        open={!!idToDelete}
+        onClose={() => setIdToDelete(null)}
         onConfirm={handleDelete}
         text="Are you sure do you want to delete this transaction?"
       />
@@ -101,7 +102,7 @@ const TransactionsTab = ({ fetchClientTransactionsData, clientTransactions: { lo
             loading={loading}
             data={transactions}
             error={error}
-            retry={() => fetchClientTransactionsData(clientId)}
+            retry={() => clientTransactionsRequested(clientId)}
           />
         </div>
       </div>
@@ -110,7 +111,7 @@ const TransactionsTab = ({ fetchClientTransactionsData, clientTransactions: { lo
 };
 
 TransactionsTab.propTypes = {
-  fetchClientTransactionsData: PropTypes.func,
+  clientTransactionsRequested: PropTypes.func,
   clientTransactions: PropTypes.object,
   clientId: PropTypes.string,
 };
@@ -119,8 +120,8 @@ const mapStateToProps = createStructuredSelector({
   clientTransactions: selectClientTransactions
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchClientTransactionsData: clientId => dispatch(fetchClientTransactionsData(clientId))
-});
+const mapDispatchToProps = {
+  clientTransactionsRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TransactionsTab);
