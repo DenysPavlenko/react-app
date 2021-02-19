@@ -1,22 +1,14 @@
 import ClientInternetLogTypes from './types';
-import ClientInternetLogService from 'services/client-internet-log-service';
-const clientInternetLogService = new ClientInternetLogService();
 
-const clientInternetLogRequested = () => ({
-  type: ClientInternetLogTypes.FETCH_CLIENT_INTERNET_LOG_REQUEST
+export const clientInternetLogRequested = payload => ({
+  type: ClientInternetLogTypes.FETCH_CLIENT_INTERNET_LOG_REQUEST,
+  payload
 });
-const clientInternetLogLoaded = data => ({
+export const clientInternetLogLoaded = data => ({
   type: ClientInternetLogTypes.FETCH_CLIENT_INTERNET_LOG_SUCCESS,
   payload: data
 });
-const clientInternetLogError = error => ({
+export const clientInternetLogError = error => ({
   type: ClientInternetLogTypes.FETCH_CLIENT_INTERNET_LOG_FAILURE,
   payload: error
 });
-
-export const fetchClientInternetLogData = clientId => dispatch => {
-  dispatch(clientInternetLogRequested());
-  clientInternetLogService.getClientInternetLog(clientId)
-    .then(data => dispatch(clientInternetLogLoaded(data)))
-    .catch(error => dispatch(clientInternetLogError(error)))
-};

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchClientInternetLogData } from 'redux/client-internet-log/actions';
+import { clientInternetLogRequested } from 'redux/client-internet-log/actions';
 import { selectClientInternetLog } from 'redux/client-internet-log/selectors';
 // Components
 import DatePicker from 'components/date-picker';
@@ -14,15 +14,15 @@ import tableContent from './table-content';
 // Styles
 import './styles.sass';
 
-const InternetLogTab = ({ fetchClientInternetLogData, clientInternetLog: { loading, data, error }, clientId }) => {
+const InternetLogTab = ({ clientInternetLogRequested, clientInternetLog: { loading, data, error }, clientId }) => {
   const [date, setDate] = useState({
     from: '2020-12-15',
     to: '2020-12-31',
   });
 
   useLayoutEffect(() => {
-    fetchClientInternetLogData(clientId, '');
-  }, [clientId, fetchClientInternetLogData]);
+    clientInternetLogRequested({ clientId, date });
+  }, [clientId, clientInternetLogRequested, date]);
 
   const handleDateSet = ({ target: { name, value } }) => {
     setDate(date => ({
@@ -31,7 +31,7 @@ const InternetLogTab = ({ fetchClientInternetLogData, clientInternetLog: { loadi
     }));
   };
 
-  const handleDataLoad = () => fetchClientInternetLogData(clientId, date);
+  const handleDataLoad = () => clientInternetLogRequested({ clientId, date });
 
   return (
     <div className="internet-log-tab">
@@ -52,7 +52,7 @@ const InternetLogTab = ({ fetchClientInternetLogData, clientInternetLog: { loadi
           loading={loading}
           data={data}
           error={error}
-          retry={() => fetchClientInternetLogData(clientId, date)}
+          retry={() => clientInternetLogRequested({ clientId, date })}
         />
       </div>
     </div>
@@ -60,7 +60,7 @@ const InternetLogTab = ({ fetchClientInternetLogData, clientInternetLog: { loadi
 };
 
 InternetLogTab.propTypes = {
-  fetchClientInternetLogData: PropTypes.func,
+  clientInternetLogRequested: PropTypes.func,
   clientInternetLog: PropTypes.object,
   clientId: PropTypes.string,
 };
@@ -69,8 +69,8 @@ const mapStateToProps = createStructuredSelector({
   clientInternetLog: selectClientInternetLog
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchClientInternetLogData: (clientId, date) => dispatch(fetchClientInternetLogData(clientId, date))
-});
+const mapDispatchToProps = {
+  clientInternetLogRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(InternetLogTab);
