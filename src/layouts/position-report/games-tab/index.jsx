@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchPositionGamesData } from 'redux/position-games/actions';
+import { positionGamesRequested } from 'redux/position-games/actions';
 import { selectPositionGames } from 'redux/position-games/selectors';
 // Components
 import Typography from 'components/typography';
@@ -28,7 +28,7 @@ const games = [
   { name: 'soccer-minor', subFilters: ['game', '1st half', '2nd half'] },
 ];
 
-const GamesTab = ({ fetchPositionGamesData, positionGames: { loading, data, error } }) => {
+const GamesTab = ({ positionGamesRequested, positionGames: { loading, data, error } }) => {
   const [activeGame, setActiveGame] = useState('football');
   const [activeSubFilter, setActiveSubFilter] = useState(games[0].subFilters[0]);
   const [openModal, setOpenModal] = useState(false);
@@ -37,8 +37,8 @@ const GamesTab = ({ fetchPositionGamesData, positionGames: { loading, data, erro
   const activeSubfilters = games.filter(({ name }) => name === activeGame)[0].subFilters;
 
   useLayoutEffect(() => {
-    fetchPositionGamesData(activeGame, activeSubFilter);
-  }, [fetchPositionGamesData, activeGame, activeSubFilter]);
+    positionGamesRequested({ activeGame, activeSubFilter });
+  }, [positionGamesRequested, activeGame, activeSubFilter]);
 
   useEffect(() => {
     const idx = games.findIndex(({ name }) => name === activeGame);
@@ -88,7 +88,7 @@ const GamesTab = ({ fetchPositionGamesData, positionGames: { loading, data, erro
               loading={loading}
               data={data}
               error={error}
-              retry={() => fetchPositionGamesData(activeGame, activeSubFilter)}
+              retry={() => positionGamesRequested({ activeGame, activeSubFilter })}
             />
           </div>
         </div>
@@ -98,7 +98,7 @@ const GamesTab = ({ fetchPositionGamesData, positionGames: { loading, data, erro
 };
 
 GamesTab.propTypes = {
-  fetchPositionGamesData: PropTypes.func,
+  positionGamesRequested: PropTypes.func,
   distribution: PropTypes.object,
 };
 
@@ -106,8 +106,8 @@ const mapStateToProps = createStructuredSelector({
   positionGames: selectPositionGames
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchPositionGamesData: (game, filter) => dispatch(fetchPositionGamesData(game, filter))
-});
+const mapDispatchToProps = {
+  positionGamesRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(GamesTab);

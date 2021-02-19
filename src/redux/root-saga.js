@@ -29,6 +29,7 @@ import { fetchPendingData } from './pending/sagas';
 import { fetchPendingBetsData } from './pending-bets/sagas';
 import { fetchPendingWagersData } from './pending-wagers/sagas';
 import { fetchPositionContestsData } from './position-contests/sagas';
+import { fetchPositionGamesData } from './position-games/sagas';
 
 function* rootSaga() {
   yield all([
@@ -61,6 +62,7 @@ function* rootSaga() {
     call(fetchPendingBetsData),
     call(fetchPendingWagersData),
     call(fetchPositionContestsData),
+    call(fetchPositionGamesData),
   ])
 }
 
