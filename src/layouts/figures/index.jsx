@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchFiguresData } from 'redux/figures/actions';
+import { figuresRequested } from 'redux/figures/actions';
 import { selectFigures } from 'redux/figures/selectors';
 // Components
 import FiguresHeader from './figures-header';
@@ -24,7 +24,7 @@ import filtersData from './filters-data';
 // Styles
 import './styles.sass';
 
-const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history }) => {
+const Figures = ({ figuresRequested, figures: { loading, data, error }, history }) => {
   const [date, setDate] = useState('12/7/2020');
   const [status, setStatus] = useState('all');
   const [filters, setFilters] = useState(filtersData);
@@ -36,8 +36,8 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
   });
 
   useLayoutEffect(() => {
-    fetchFiguresData(date, status);
-  }, [fetchFiguresData, date, status]);
+    figuresRequested({ date, status });
+  }, [figuresRequested, date, status]);
 
   const handleCheck = ({ target: { name, checked } }) => {
     setFilters(filters => {
@@ -107,7 +107,7 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
           />
         </div>
         <div className="figures__tables">
-          {error && <ErrorIndicator light retry={() => fetchFiguresData(date, status)} />}
+          {error && <ErrorIndicator light retry={() => figuresRequested({ date, status })} />}
           {(!error && loading) && <Spinner boxed light />}
           {(!error && !loading) &&
             <Fragment>
@@ -118,7 +118,7 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
                     cols={tableContent(history, agent, handleModalOpen)}
                     lastRow={tableLastRow(accounts, agent, customers, handleModalOpen)}
                     data={accounts}
-                    retry={() => fetchFiguresData(date, status)}
+                    retry={() => figuresRequested({ date, status })}
                   />
                 </div>
               ))}
@@ -131,7 +131,7 @@ const Figures = ({ fetchFiguresData, figures: { loading, data, error }, history 
 };
 
 Figures.propTypes = {
-  fetchFiguresData: PropTypes.func,
+  figuresRequested: PropTypes.func,
   figures: PropTypes.object,
   history: PropTypes.object,
 };
@@ -140,8 +140,8 @@ const mapStateToProps = createStructuredSelector({
   figures: selectFigures
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchFiguresData: (date, status) => dispatch(fetchFiguresData(date, status))
-});
+const mapDispatchToProps = {
+  figuresRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Figures));
