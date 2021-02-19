@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
-import { fetchMyTransactionsData } from 'redux/my-transactions/actions';
+import { myTransactionsRequested } from 'redux/my-transactions/actions';
 import { selectMyTransactions } from 'redux/my-transactions/selectors';
 // Components
 import Typography from 'components/typography';
@@ -13,10 +13,10 @@ import tableContent from './table-content';
 // Styles
 import './styles.sass';
 
-const MyTransactions = ({ myTransactions: { loading, data, error }, fetchMyTransactionsData }) => {
+const MyTransactions = ({ myTransactions: { loading, data, error }, myTransactionsRequested }) => {
   useLayoutEffect(() => {
-    fetchMyTransactionsData();
-  }, [fetchMyTransactionsData]);
+    myTransactionsRequested();
+  }, [myTransactionsRequested]);
 
   return (
     <div className="my-transactions">
@@ -24,7 +24,7 @@ const MyTransactions = ({ myTransactions: { loading, data, error }, fetchMyTrans
       <PrimaryTable
         cols={tableContent()}
         loading={loading}
-        retry={fetchMyTransactionsData}
+        retry={myTransactionsRequested}
         data={data}
         error={error}
       />
@@ -34,15 +34,15 @@ const MyTransactions = ({ myTransactions: { loading, data, error }, fetchMyTrans
 
 MyTransactions.propTypes = {
   myTransactions: PropTypes.object,
-  fetchMyTransactionsData: PropTypes.func,
+  myTransactionsRequested: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   myTransactions: selectMyTransactions,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchMyTransactionsData: () => dispatch(fetchMyTransactionsData())
-});
+const mapDispatchToProps = {
+  myTransactionsRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyTransactions);
