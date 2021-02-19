@@ -15,6 +15,7 @@ import { fetchClientGeneralData } from './client-general/sagas';
 import { fetchClientHistoryData } from './client-history/sagas';
 import { fetchClientInternetLogData } from './client-internet-log/sagas';
 import { fetchClientLimitsData } from './client-limits/sagas';
+import { fetchClientPendingData } from './client-pending/sagas';
 
 function* rootSaga() {
   yield all([
@@ -33,6 +34,7 @@ function* rootSaga() {
     call(fetchClientHistoryData),
     call(fetchClientInternetLogData),
     call(fetchClientLimitsData),
+    call(fetchClientPendingData),
   ])
 }
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchClientPendingData } from 'redux/client-pending/actions';
+import { clientPendingRequested } from 'redux/client-pending/actions';
 import { selectClientPending } from 'redux/client-pending/selectors';
 // Components
 import PrimaryTable from 'components/primary-table';
@@ -15,12 +15,12 @@ import searchFilter from 'utils/search-filter';
 // Styles
 import './styles.sass';
 
-const PendingTab = ({ fetchClientPendingData, clientPending: { loading, data, error }, clientId }) => {
+const PendingTab = ({ clientPendingRequested, clientPending: { loading, data, error }, clientId }) => {
   const [searchValue, setSearchValue] = useState('');
 
   useLayoutEffect(() => {
-    fetchClientPendingData(clientId)
-  }, [clientId, fetchClientPendingData]);
+    clientPendingRequested(clientId)
+  }, [clientId, clientPendingRequested]);
 
   const filteredData = () => data && data.filter(item => searchFilter(item, searchValue));
 
@@ -39,7 +39,7 @@ const PendingTab = ({ fetchClientPendingData, clientPending: { loading, data, er
           loading={loading}
           data={filteredData()}
           error={error}
-          retry={() => fetchClientPendingData(clientId)}
+          retry={() => clientPendingRequested(clientId)}
         />
       </div>
     </div>
@@ -47,7 +47,7 @@ const PendingTab = ({ fetchClientPendingData, clientPending: { loading, data, er
 };
 
 PendingTab.propTypes = {
-  fetchClientPendingData: PropTypes.func,
+  clientPendingRequested: PropTypes.func,
   clientPending: PropTypes.object,
   clientId: PropTypes.string,
 };
@@ -56,8 +56,8 @@ const mapStateToProps = createStructuredSelector({
   clientPending: selectClientPending
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchClientPendingData: clientId => dispatch(fetchClientPendingData(clientId))
-});
+const mapDispatchToProps = {
+  clientPendingRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(PendingTab);
