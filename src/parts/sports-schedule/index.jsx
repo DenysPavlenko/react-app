@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
 // Redux
-import { fetchSportsScheduleData } from 'redux/sports-schedule/actions';
+import { sportsScheduleRequested } from 'redux/sports-schedule/actions';
 import { selectSportsSchedule } from 'redux/sports-schedule/selectors';
 import { toggleSportsPageSchedule } from 'redux/sports-page-schedule/actions';
 // Components
@@ -15,11 +15,11 @@ import Spinner from 'components/spinner/spinner';
 // Styles
 import './styles.sass';
 
-const SportsSchedule = ({ sportsSchedule: { loading, error, data }, fetchSportsScheduleData, toggleSportsPageSchedule }) => {
+const SportsSchedule = ({ sportsSchedule: { loading, error, data }, sportsScheduleRequested, toggleSportsPageSchedule }) => {
 
   useLayoutEffect(() => {
-    fetchSportsScheduleData();
-  }, [fetchSportsScheduleData]);
+    sportsScheduleRequested();
+  }, [sportsScheduleRequested]);
 
   return (
     <div className="sports-schedule">
@@ -27,7 +27,7 @@ const SportsSchedule = ({ sportsSchedule: { loading, error, data }, fetchSportsS
         <Typography component="h4" className="sports-schedule__heading">Sports Schedule</Typography>
         <Button type="button" variant="accent" className="sports-schedule__header-button" size="sm" onClick={toggleSportsPageSchedule}>Show</Button>
       </div>
-      {error && <ErrorIndicator retry={fetchSportsScheduleData} light />}
+      {error && <ErrorIndicator retry={sportsScheduleRequested} light />}
       {(!error && loading) && <Spinner boxed light />}
       {(!error && !loading) &&
         <div className="sports-schedule__items">
@@ -42,7 +42,7 @@ const SportsSchedule = ({ sportsSchedule: { loading, error, data }, fetchSportsS
 
 SportsSchedule.propTypes = {
   sportsSchedule: PropTypes.object,
-  fetchSportsScheduleData: PropTypes.func,
+  sportsScheduleRequested: PropTypes.func,
   toggleSportsPageSchedule: PropTypes.func,
 };
 
@@ -50,9 +50,9 @@ const mapStateToProps = createStructuredSelector({
   sportsSchedule: selectSportsSchedule,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchSportsScheduleData: () => dispatch(fetchSportsScheduleData()),
-  toggleSportsPageSchedule: () => dispatch(toggleSportsPageSchedule())
-});
+const mapDispatchToProps = {
+  sportsScheduleRequested,
+  toggleSportsPageSchedule
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SportsSchedule);

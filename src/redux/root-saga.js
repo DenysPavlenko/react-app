@@ -36,6 +36,7 @@ import { fetchRecentLoginsData } from './recent-logins/sagas';
 import { fetchScoresData } from './scores/sagas';
 import { fetchSettleData } from './settle/sagas';
 import { fetchSportsData } from './sports/sagas';
+import { fetchSportsScheduleData } from './sports-schedule/sagas';
 
 function* rootSaga() {
   yield all([
@@ -75,6 +76,7 @@ function* rootSaga() {
     call(fetchScoresData),
     call(fetchSettleData),
     call(fetchSportsData),
+    call(fetchSportsScheduleData),
   ])
 }
 
