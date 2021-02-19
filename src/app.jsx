@@ -4,7 +4,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { connect } from 'react-redux';
 // Redux
-import { fetchUserData } from 'redux/user/actions';
+import { userRequested } from 'redux/user/actions';
 // Components
 import ScrollToTop from 'components/scroll-to-top';
 import Header from 'parts/header';
@@ -35,11 +35,11 @@ import './app.sass';
 // Font awesome icons
 library.add(fas);
 
-const AppRoot = ({ fetchUserData, location }) => {
+const AppRoot = ({ userRequested, location }) => {
 
   useLayoutEffect(() => {
-    fetchUserData();
-  }, [fetchUserData]);
+    userRequested();
+  }, [userRequested]);
 
   return (
     <div className="app-root">
@@ -80,7 +80,7 @@ const AppRoot = ({ fetchUserData, location }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchUserData: () => dispatch(fetchUserData())
+  userRequested: () => dispatch(userRequested())
 });
 
 export default connect(null, mapDispatchToProps)(withRouter(AppRoot));
