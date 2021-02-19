@@ -7,6 +7,7 @@ import { fetchActivePlayersData } from './active-players/sagas';
 import { fetchAgentsData } from './agents/sagas';
 import { fetchBiggestPendingWagersData } from './biggest-pending-wagers/sagas';
 import { fetchCashierData } from './cashier/sagas';
+import { fetchClientAccountingData } from './client-accounting/sagas';
 
 function* rootSaga() {
   yield all([
@@ -17,6 +18,7 @@ function* rootSaga() {
     call(fetchAgentsData),
     call(fetchBiggestPendingWagersData),
     call(fetchCashierData),
+    call(fetchClientAccountingData),
   ])
 }
 

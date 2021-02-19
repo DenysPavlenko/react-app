@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchClientAccountingData } from 'redux/client-accounting/actions';
+import { clientAccountingRequested } from 'redux/client-accounting/actions';
 import { selectClientAccounting } from 'redux/client-accounting/selectors';
 // Components
 import PrimaryTable from 'components/primary-table';
@@ -13,10 +13,10 @@ import tableContent from './table-content';
 // Styles
 import './styles.sass';
 
-const AccountingTab = ({ fetchClientAccountingData, clientAccounting: { loading, data, error }, clientId }) => {
+const AccountingTab = ({ clientAccountingRequested, clientAccounting: { loading, data, error }, clientId }) => {
   useLayoutEffect(() => {
-    fetchClientAccountingData(clientId)
-  }, [fetchClientAccountingData, clientId]);
+    clientAccountingRequested({ clientId })
+  }, [clientAccountingRequested, clientId]);
 
   return (
     <div className="accounting-tab">
@@ -29,7 +29,7 @@ const AccountingTab = ({ fetchClientAccountingData, clientAccounting: { loading,
           loading={loading}
           data={data}
           error={error}
-          retry={() => fetchClientAccountingData(clientId)}
+          retry={() => clientAccountingRequested(clientId)}
         />
       </div>
     </div>
@@ -37,7 +37,7 @@ const AccountingTab = ({ fetchClientAccountingData, clientAccounting: { loading,
 };
 
 AccountingTab.propTypes = {
-  fetchClientAccountingData: PropTypes.func,
+  clientAccountingRequested: PropTypes.func,
   clientAccounting: PropTypes.object,
   clientId: PropTypes.string,
 };
@@ -46,8 +46,8 @@ const mapStateToProps = createStructuredSelector({
   clientAccounting: selectClientAccounting
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchClientAccountingData: clientId => dispatch(fetchClientAccountingData(clientId))
-});
+const mapDispatchToProps = {
+  clientAccountingRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountingTab);
