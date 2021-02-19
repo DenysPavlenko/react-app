@@ -90,7 +90,7 @@ const Table = ({ loading, data, error, cols, retry }) => {
 Table.propTypes = {
   loading: PropTypes.bool,
   data: PropTypes.array,
-  error: PropTypes.bool,
+  error: PropTypes.oneOfType([PropTypes.oneOf([null]), PropTypes.string]),
   cols: PropTypes.array,
   retry: PropTypes.func,
 };

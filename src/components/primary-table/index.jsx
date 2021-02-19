@@ -93,7 +93,7 @@ const TableContent = ({ cols, lastRow, firstRow, data, loading, error, retry }) 
 
 PrimaryTable.defaultProps = {
   loading: false,
-  error: false,
+  error: null,
   retry: () => { }
 };
 
@@ -104,7 +104,7 @@ PrimaryTable.propTypes = {
   firstRow: PropTypes.array,
   lastRow: PropTypes.array,
   loading: PropTypes.bool,
-  error: PropTypes.bool,
+  error: PropTypes.oneOfType([PropTypes.oneOf([null]), PropTypes.string]),
   retry: PropTypes.func,
   variant: PropTypes.string,
   center: PropTypes.bool,

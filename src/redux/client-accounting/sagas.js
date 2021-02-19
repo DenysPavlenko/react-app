@@ -7,8 +7,8 @@ function* fetchClientAccountingDataWorker({ payload: { clientId } }) {
   try {
     const data = yield clientAccountingService.getClientAccounting(clientId);
     yield put(clientAccountingLoaded(data));
-  } catch (error) {
-    yield put(clientAccountingError(error));
+  } catch ({ message }) {
+    yield put(clientAccountingError(message));
   }
 }
 

@@ -2,7 +2,7 @@ export const fetchState = (type, payload) => {
   const state = {
     loading: false,
     data: null,
-    error: false
+    error: null
   };
 
   switch (type) {

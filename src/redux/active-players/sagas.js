@@ -7,8 +7,8 @@ function* fetchActivePlayersDataWorker() {
   try {
     const data = yield activePlayersService.getActivePlayers();
     yield put(activePlayersLoaded(data));
-  } catch (error) {
-    yield put(activePlayersError(error));
+  } catch ({ message }) {
+    yield put(activePlayersError(message));
   }
 }
 

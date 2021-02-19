@@ -7,8 +7,8 @@ function* fetchClientBalanceDataWorker() {
   try {
     const data = yield clientBalanceService.getClientBalance();
     yield put(clientBalanceLoaded(data));
-  } catch (error) {
-    yield put(clientBalanceError(error));
+  } catch ({ message }) {
+    yield put(clientBalanceError(message));
   }
 }
 

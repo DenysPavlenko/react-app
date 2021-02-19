@@ -7,8 +7,8 @@ function* fetchClientHistoryDataWorker({ payload: { clientId, category } }) {
   try {
     const data = yield clientHistoryService.getClientHistory(clientId, category);
     yield put(clientHistoryLoaded(data));
-  } catch (error) {
-    yield put(clientHistoryError(error));
+  } catch ({ message }) {
+    yield put(clientHistoryError(message));
   }
 }
 

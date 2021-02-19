@@ -8,8 +8,8 @@ function* fetchAccountActivityDataWorker({ payload: { agent, date } }) {
   try {
     const data = yield accountActivityService.getAccountActivity(agent, date)
     yield put(accountActivityLoaded(data))
-  } catch (error) {
-    yield put(accountActivityError(error))
+  } catch ({ message }) {
+    yield put(accountActivityError(message))
   }
 }
 

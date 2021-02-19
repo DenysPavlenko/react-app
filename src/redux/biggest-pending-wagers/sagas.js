@@ -7,8 +7,8 @@ function* fetchBiggestPendingWagersDataWorker() {
   try {
     const data = yield biggestPendingWagersService.getBiggestPendingWagers();
     yield put(biggestPendingWagersLoaded(data));
-  } catch (error) {
-    yield put(biggestPendingWagersError(error));
+  } catch ({ message }) {
+    yield put(biggestPendingWagersError(message));
   }
 }
 

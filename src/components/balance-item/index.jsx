@@ -27,17 +27,16 @@ const BalanceItem = ({ title, total, loading, className, noDollar }) => {
 
 BalanceItem.defaultProps = {
   loading: false,
-  error: false,
+  error: null,
   noDollar: false,
 };
 
 BalanceItem.propTypes = {
   loading: PropTypes.bool,
-  error: PropTypes.bool,
+  error: PropTypes.oneOfType([PropTypes.oneOf([null]), PropTypes.string]),
   title: PropTypes.string,
   total: PropTypes.string,
   className: PropTypes.string,
   noDollar: PropTypes.bool,
 };
-
 export default BalanceItem;

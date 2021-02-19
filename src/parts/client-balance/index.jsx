@@ -11,7 +11,6 @@ import BalanceItem from 'components/balance-item';
 import './styles.sass';
 
 const ClientBalance = ({ clientBalanceRequested, clientBalance: { loading, data, error }, clientId }) => {
-
   useLayoutEffect(() => {
     clientBalanceRequested(clientId);
   }, [clientBalanceRequested, clientId]);

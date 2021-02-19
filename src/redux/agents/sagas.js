@@ -7,8 +7,8 @@ function* fetchAgentsDataWorker() {
   try {
     const data = yield agentsService.getAgents();
     yield put(agentsLoaded(data));
-  } catch (error) {
-    yield put(agentsError(error));
+  } catch ({ message }) {
+    yield put(agentsError(message));
   }
 }
 

@@ -7,8 +7,8 @@ function* fetchClientGeneralDataWorker({ payload }) {
   try {
     const data = yield clientGeneralService.getClientGeneral(payload);
     yield put(clientGeneralLoaded(data));
-  } catch (error) {
-    yield put(clientGeneralError(error));
+  } catch ({ message }) {
+    yield put(clientGeneralError(message));
   }
 }
 

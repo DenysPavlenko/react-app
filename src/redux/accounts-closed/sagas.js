@@ -7,8 +7,8 @@ function* fetchAccountsClosedDataWorker() {
   try {
     const data = yield accountsClosedService.getAccountsClosed();
     yield put(accountsClosedLoaded(data));
-  } catch (error) {
-    yield put(accountsClosedError(error));
+  } catch ({ message }) {
+    yield put(accountsClosedError(message));
   }
 };
 

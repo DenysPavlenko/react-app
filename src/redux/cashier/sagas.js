@@ -7,8 +7,8 @@ function* fetchCashierDataWorker() {
   try {
     const data = yield cashierService.getCashier();
     yield put(cashierLoaded(data));
-  } catch (error) {
-    yield put(cashierError(error));
+  } catch ({ message }) {
+    yield put(cashierError(message));
   }
 }
 

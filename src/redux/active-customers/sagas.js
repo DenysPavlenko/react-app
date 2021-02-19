@@ -7,8 +7,8 @@ function* fetchActiveCustomersDataWorker({ payload: { agent } }) {
   try {
     const data = yield activeCustomersService.getActiveCustomers(agent);
     yield put(activeCustomersLoaded(data));
-  } catch (error) {
-    yield put(activeCustomersError(error));
+  } catch ({ message }) {
+    yield put(activeCustomersError(message));
   }
 }
 

@@ -7,8 +7,8 @@ function* fetchClientFreePlayDataWorker({ payload }) {
   try {
     const data = yield clientFreePlayService.getClientFreePlay(payload);
     yield put(clientFreePlayLoaded(data));
-  } catch (error) {
-    yield put(clientFreePlayError(error));
+  } catch ({ message }) {
+    yield put(clientFreePlayError(message));
   }
 }
 

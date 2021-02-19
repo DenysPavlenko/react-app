@@ -7,8 +7,8 @@ function* fetchClientDetailLimitsDataWorker({ payload: { clientId, detailLimits 
   try {
     const data = yield clientDetailLimitsService.getClientDetailLimits(clientId, detailLimits);
     yield put(clientDetailLimitsLoaded(data));
-  } catch (error) {
-    yield put(clientDetailLimitsError(error));
+  } catch ({ message }) {
+    yield put(clientDetailLimitsError(message));
   }
 }
 
