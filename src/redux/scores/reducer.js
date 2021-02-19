@@ -1,14 +1,9 @@
-import { requestData, setData, setError } from 'redux/_utils/fetch-utils';
+import { fetchState } from 'redux/_utils/fetch-state';
 import ScoresTypes from './types';
 
 const INITIAL_STATE = {
   isActive: false,
-  scores: {
-    loading: true,
-    data: null,
-    error: false,
-    errorDetails: null,
-  }
+  scores: fetchState('initial')
 };
 
 const scoresReducer = (state = INITIAL_STATE, action) => {
@@ -22,17 +17,17 @@ const scoresReducer = (state = INITIAL_STATE, action) => {
     case ScoresTypes.FETCH_SCORES_REQUEST:
       return {
         ...state,
-        scores: requestData()
+        scores: fetchState('request')
       }
     case ScoresTypes.FETCH_SCORES_SUCCESS:
       return {
         ...state,
-        scores: setData(action.payload)
+        scores: fetchState('success', action.payload)
       }
     case ScoresTypes.FETCH_SCORES_FAILURE:
       return {
         ...state,
-        scores: setError(action.payload)
+        scores: fetchState('failure', action.payload)
       }
     default:
       return state;

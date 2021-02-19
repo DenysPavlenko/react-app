@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 // Redux
-import { toggleScores, fetchScoresData } from 'redux/scores/actions';
+import { toggleScores, scoresRequested } from 'redux/scores/actions';
 import { selectScoresActive, selectScores } from 'redux/scores/selectors';
 // Components
 import SidebarItem from 'components/sidebar-item';
@@ -16,11 +16,11 @@ import ScoresGroup from 'components/scores-group';
 // Styles
 import './styles.sass';
 
-const Scores = ({ isActive, toggleScores, fetchScoresData, scores: { loading, data, error } }) => {
+const Scores = ({ isActive, toggleScores, scoresRequested, scores: { loading, data, error } }) => {
 
   useLayoutEffect(() => {
-    isActive && fetchScoresData();
-  }, [isActive, fetchScoresData]);
+    isActive && scoresRequested();
+  }, [isActive, scoresRequested]);
 
   return (
     <SidebarItem isActive={isActive} toggle={toggleScores}>
@@ -30,7 +30,7 @@ const Scores = ({ isActive, toggleScores, fetchScoresData, scores: { loading, da
           <Typography component="h2">Scoreboard</Typography>
         </div>
         <div className="scores__list">
-          {error && <ErrorIndicator light retry={fetchScoresData} />}
+          {error && <ErrorIndicator light retry={scoresRequested} />}
           {(loading && !error) && <Spinner light boxed />}
           {(!loading && !error) &&
             <Simplebar className="custom-scroll">
@@ -47,7 +47,7 @@ const Scores = ({ isActive, toggleScores, fetchScoresData, scores: { loading, da
 
 Scores.propTypes = {
   isActive: PropTypes.bool,
-  fetchScoresData: PropTypes.func,
+  scoresRequested: PropTypes.func,
   toggleScores: PropTypes.func,
   scores: PropTypes.object,
 };
@@ -57,9 +57,9 @@ const mapStateToProps = createStructuredSelector({
   scores: selectScores,
 });
 
-const mapDispatchToProps = dispatch => ({
-  toggleScores: () => dispatch(toggleScores()),
-  fetchScoresData: () => dispatch(fetchScoresData()),
-});
+const mapDispatchToProps = {
+  toggleScores,
+  scoresRequested,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Scores);
