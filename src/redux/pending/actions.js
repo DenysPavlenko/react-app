@@ -1,22 +1,14 @@
 import PendingTypes from './types';
-import PendingService from 'services/pending-service';
-const pendingService = new PendingService();
 
-const pendingRequested = () => ({
-  type: PendingTypes.FETCH_PENDING_REQUEST
+export const pendingRequested = payload => ({
+  type: PendingTypes.FETCH_PENDING_REQUEST,
+  payload
 });
-const pendingLoaded = data => ({
+export const pendingLoaded = data => ({
   type: PendingTypes.FETCH_PENDING_SUCCESS,
   payload: data
 });
-const pendingError = error => ({
+export const pendingError = error => ({
   type: PendingTypes.FETCH_PENDING_FAILURE,
   payload: error
 });
-
-export const fetchPendingData = category => dispatch => {
-  dispatch(pendingRequested());
-  pendingService.getPending(category)
-    .then(data => dispatch(pendingLoaded(data)))
-    .catch(error => dispatch(pendingError(error)))
-};

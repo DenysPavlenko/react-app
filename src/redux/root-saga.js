@@ -25,6 +25,7 @@ import { fetchFiguresData } from './figures/sagas';
 import { fetchMessages } from './mail/sagas';
 import { fetchMyTransactionsData } from './my-transactions/sagas';
 import { fetchNewAccountsData } from './new-accounts/sagas';
+import { fetchPendingData } from './pending/sagas';
 
 function* rootSaga() {
   yield all([
@@ -53,6 +54,7 @@ function* rootSaga() {
     call(fetchMessages),
     call(fetchMyTransactionsData),
     call(fetchNewAccountsData),
+    call(fetchPendingData),
   ])
 }
 

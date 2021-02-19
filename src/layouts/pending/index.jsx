@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchPendingData } from 'redux/pending/actions';
+import { pendingRequested } from 'redux/pending/actions';
 import { selectPending } from 'redux/pending/selectors';
 // Components
 import PendingHeader from './pending-header';
@@ -15,13 +15,13 @@ import searchFilter from 'utils/search-filter';
 // Styles
 import './styles.sass';
 
-const Pending = ({ fetchPendingData, pending: { loading, data, error } }) => {
+const Pending = ({ pendingRequested, pending: { loading, data, error } }) => {
   const [currentFilter, setCurrentFilter] = useState('games');
   const [searchValue, setSearchValue] = useState('');
 
   useLayoutEffect(() => {
-    fetchPendingData(currentFilter)
-  }, [currentFilter, fetchPendingData]);
+    pendingRequested(currentFilter)
+  }, [currentFilter, pendingRequested]);
 
   const handleSearch = value => {
     setSearchValue(value.toLowerCase());
@@ -44,7 +44,7 @@ const Pending = ({ fetchPendingData, pending: { loading, data, error } }) => {
           loading={loading}
           data={filteredData()}
           error={error}
-          retry={() => fetchPendingData(currentFilter)}
+          retry={() => pendingRequested(currentFilter)}
         />
       </div>
     </div>
@@ -52,7 +52,7 @@ const Pending = ({ fetchPendingData, pending: { loading, data, error } }) => {
 };
 
 Pending.propTypes = {
-  fetchPendingData: PropTypes.func,
+  pendingRequested: PropTypes.func,
   pending: PropTypes.object,
 };
 
@@ -60,8 +60,8 @@ const mapStateToProps = createStructuredSelector({
   pending: selectPending
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchPendingData: category => dispatch(fetchPendingData(category))
-});
+const mapDispatchToProps = {
+  pendingRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pending);
