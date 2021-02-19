@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 // Redux
-import { fetchDistributionData } from 'redux/distribution/actions';
+import { distributionRequested } from 'redux/distribution/actions';
 import { selectDistribution } from 'redux/distribution/selectors';
 // Components
 import ActiveCustomers from 'parts/active-customers';
@@ -18,14 +18,14 @@ import handleStatusClass from 'utils/handle-status-class';
 // Styles
 import './styles.sass';
 
-const Distribution = ({ fetchDistributionData, distribution: { loading, data, error } }) => {
+const Distribution = ({ distributionRequested, distribution: { loading, data, error } }) => {
   const [date, setDate] = useState('12/7/2020');
   const [openModal, setOpenModal] = useState(false);
   const [selectedAgent, setSelectedAgent] = useState('');
 
   useLayoutEffect(() => {
-    fetchDistributionData(date);
-  }, [fetchDistributionData, date]);
+    distributionRequested(date);
+  }, [distributionRequested, date]);
 
   const handleAgentSelect = agent => {
     setOpenModal(true);
@@ -48,7 +48,7 @@ const Distribution = ({ fetchDistributionData, distribution: { loading, data, er
           />
         </div>
         <div className="distribution__content">
-          {error && <ErrorIndicator retry={() => fetchDistributionData(date)} light />}
+          {error && <ErrorIndicator retry={() => distributionRequested(date)} light />}
           {(!error && loading) && <Spinner boxed light />}
           {(!error && !loading) &&
             <Fragment>
@@ -105,7 +105,7 @@ const Distribution = ({ fetchDistributionData, distribution: { loading, data, er
 };
 
 Distribution.propTypes = {
-  fetchDistributionData: PropTypes.func,
+  distributionRequested: PropTypes.func,
   distribution: PropTypes.object,
 };
 
@@ -113,8 +113,8 @@ const mapStateToProps = createStructuredSelector({
   distribution: selectDistribution
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchDistributionData: date => dispatch(fetchDistributionData(date))
-});
+const mapDispatchToProps = {
+  distributionRequested
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Distribution);

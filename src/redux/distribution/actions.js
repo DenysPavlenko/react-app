@@ -1,23 +1,14 @@
 import DistributionTypes from './types';
-import DistributionService from 'services/distribution-service';
 
-const distributionService = new DistributionService();
-
-const distributionRequested = () => ({
-  type: DistributionTypes.FETCH_DISTRIBUTION_REQUEST
+export const distributionRequested = payload => ({
+  type: DistributionTypes.FETCH_DISTRIBUTION_REQUEST,
+  payload
 });
-const distributionLoaded = data => ({
+export const distributionLoaded = data => ({
   type: DistributionTypes.FETCH_DISTRIBUTION_SUCCESS,
   payload: data
 });
-const distributionError = error => ({
+export const distributionError = error => ({
   type: DistributionTypes.FETCH_DISTRIBUTION_FAILURE,
   payload: error
 });
-
-export const fetchDistributionData = date => dispatch => {
-  dispatch(distributionRequested());
-  distributionService.getDistribution(date)
-    .then(data => dispatch(distributionLoaded(data)))
-    .catch(error => dispatch(distributionError(error)))
-};
